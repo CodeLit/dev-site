@@ -3,6 +3,11 @@ import './bootstrap'
 import Vue from 'vue'
 import upperFirst from 'lodash/upperFirst'
 import camelCase from 'lodash/camelCase'
+import $ from 'cash-dom'
+
+window.$ = $
+
+Vue.config.ignoredElements = [/^ion-/]
 
 const requireComponent = require.context(
     // Относительный путь до каталога компонентов
@@ -44,5 +49,5 @@ import blog from './blog' // vuex
 
 new Vue({
     el: '#app',
-    store: blog
+    store: blog,
 })

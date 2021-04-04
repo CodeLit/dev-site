@@ -1,0 +1,75 @@
+$primary: #7696f5;
+$secondary: #615fde;
+$info: #6cdbfa;
+$links: #5fa0de;
+$attention: #956cfa;
+$backgound: #99b1fa;
+
+// Small tablets and large smartphones (landscape view)
+$screen-sm-min: 576px;
+
+// Small tablets (portrait view)
+$screen-md-min: 768px;
+
+// Tablets and small desktops
+$screen-lg-min: 992px;
+
+// Large tablets and desktops
+$screen-xl-min: 1200px;
+
+// Small devices
+@mixin sm {
+    @media (min-width: #{$screen-sm-min}) {
+        @content;
+    }
+}
+
+// Medium devices
+@mixin md {
+    @media (min-width: #{$screen-md-min}) {
+        @content;
+    }
+}
+
+// Large devices
+@mixin lg {
+    @media (min-width: #{$screen-lg-min}) {
+        @content;
+    }
+}
+
+// Extra large devices
+@mixin xl {
+    @media (min-width: #{$screen-xl-min}) {
+        @content;
+    }
+}
+
+// Custom devices
+@mixin rwd($screen) {
+    @media (min-width: $screen+"px") {
+        @content;
+    }
+}
+
+// Header's
+@mixin addHeader($multiplyer) {
+    font-size: $multiplyer * 1.7em;
+    line-height: $multiplyer * 1.4em;
+
+    @include sm {
+        font-size: $multiplyer * 2em;
+    }
+
+    @include md {
+        font-size: $multiplyer * 2.2em;
+    }
+
+    @include lg {
+        font-size: $multiplyer * 2.5em;
+    }
+
+    @include xl {
+        font-size: $multiplyer * 3em;
+    }
+}

@@ -13,11 +13,11 @@ export default new Vuex.Store({
             'my-works': {
                 title: 'Мои работы',
             },
+            reviews: {
+                title: 'Собеседования',
+            },
             tech: {
                 title: 'Технологии',
-            },
-            future: {
-                title: 'Будущее',
             },
         },
         homePage: 'home',

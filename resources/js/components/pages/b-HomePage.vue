@@ -1,40 +1,73 @@
 <template>
-  <div class="w-full p-5 sm:p-0 sm:w-auto">
-    <div class="container 2xl:px-72">
-      <div class="blurred-card flex sm:mt-36">
-        <div class="blurred-card p-5" style="box-shadow: 1px 1px white inset">
-          <b-user-card :col="true">
-            <b-round-box alt="User's avatar" :url="avatar" width="200px" />
-            <div class="flex flex-col">
-              <p class="name text-white text-2xl mt-3">UserName</p>
-              <p class="job text-gray-200 text-lg">UserJob</p>
-            </div>
-          </b-user-card>
-        </div>
-        <div class="p-4">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium
-          ea error nemo. Omnis, aliquam nobis. Libero tempora similique a dicta
-          perspiciatis aliquid doloremque id quisquam nisi. Cupiditate inventore
-          consequuntur quidem. Quidem quis recusandae voluptate at quam
-          praesentium porro non eos incidunt delectus exercitationem, expedita
-          quasi hic, iure nesciunt libero corporis? Ipsam dignissimos incidunt
-          aspernatur eos assumenda distinctio officiis sapiente esse.
-        </div>
-      </div>
-    </div>
-    <b-circle-bg class="left-20 sm:left-56 top-10 sm:top-72 rotate-45" />
+    <div>
+        <b-header class="sm:absolute top-0 left-0" />
 
-    <b-circle-bg
-      class="right-20 sm:right-56 top-96 sm:top-20"
-      style="transform: rotate(225deg)"
-    />
-  </div>
+        <div class="container h-screen flex flex-col justify-center">
+            <b-card class="flex flex-col sm:flex-row">
+                <b-card class="p-5" style="box-shadow: 1px 1px white inset">
+                    <div class="flex flex-col flex-center">
+                        <b-round-box
+                            class="mx-auto"
+                            alt="User's avatar"
+                            :url="avatar"
+                            width="200px"
+                        />
+                        <div class="flex flex-col text-center">
+                            <p class="name text-white text-2xl mt-3">
+                                Владимир
+                            </p>
+                            <p class="job text-gray-200 text-lg">
+                                Разработчик
+                            </p>
+                        </div>
+                    </div>
+                </b-card>
+                <div class="p-8 text-center mx-auto text-xl">
+                    <h2 class="mb-4">Добро пожаловать в мой блог!</h2>
+                    <p>
+                        Если хотите узнать новинки в мире разработок, научиться
+                        программировать, или же прочитать моё резюме, то вы
+                        попали по адресу
+                    </p>
+                </div>
+            </b-card>
+        </div>
+
+        <div class="bg-white">
+            Задача организации, в особенности же курс на
+            социально-ориентированный национальный проект способствует повышению
+            качества системы массового участия. Не следует, однако, забывать,
+            что новая модель организационной деятельности обеспечивает широкому
+            кругу специалистов новых принципов формирования
+            материально-технической и кадровой базы. Не вызывает сомнений, что
+            новая модель организационной деятельности способствует повышению
+            качества поэтапного и последовательного развития общества.
+            Разнообразный и богатый опыт постоянное
+            информационно-пропогандистское обеспечение нашей деятельности
+            обеспечивает широкому кругу специалистов соответствующих условий
+            активизации. Следует отметить, что рамки и место обучения кадров
+            обеспечивает актуальность форм воздействия. Не следует, однако,
+            забывать, что новая модель организационной деятельности позволяет
+            оценить значение представляет собой интересный эксперимент
+            экономической целесообразности принимаемых изменений. Следует
+            отметить, что новая модель организационной деятельности играет
+            важную роль в формировании поэтапного и последовательного развития
+            общества. С другой стороны социально-экономическое развитие
+            позволяет оценить значение представляет собой интересный эксперимент
+            форм воздействия. Таким образом дальнейшее развитие различных форм
+            деятельности напрямую зависит от поэтапного и последовательного
+            развития общества. Следует отметить, что постоянное
+            информационно-пропогандистское обеспечение нашей деятельности
+            требует определения и уточнения новых принципов формирования
+            материально-технической и кадровой базы.
+        </div>
+    </div>
 </template>
 <script>
 import avatar from '../../../images/avatar.jpg'
 export default {
-  data() {
-    return { avatar: avatar }
-  },
+    data() {
+        return { avatar: avatar }
+    },
 }
 </script>

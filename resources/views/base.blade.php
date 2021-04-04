@@ -10,14 +10,17 @@
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
-    {{-- css --}}
+    {{-- Css --}}
     <link href="/css/app.css" rel="stylesheet">
 
-    {{-- js --}}
+    {{-- Js --}}
     <script src="/js/app.js"></script>
 
-    {{-- livereload --}}
+    {{-- Icons --}}
+    <script type="module" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"></script>
+
     @env('local')
+    {{-- Livereload --}}
     <script src="http://localhost:35729/livereload.js"></script>
     @endenv
 </head>
