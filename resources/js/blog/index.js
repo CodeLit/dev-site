@@ -1,5 +1,9 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import createPersistedState from 'vuex-persistedstate'
+import Cookies from 'js-cookie'
+
+import persisted from './persisted'
 
 Vue.use(Vuex)
 
@@ -20,16 +24,12 @@ export default new Vuex.Store({
                 title: 'Технологии',
             },
         },
-        homePage: 'home',
-        currentPage: 'home',
     },
     getters: {
         getQuestions({ questions }) {
             return questions
         },
-        getCurrentPage: ({ currentPage, homePage }) => {
-            return currentPage || homePage
-        },
+
         getPages: ({ pages }) => {
             return pages
         },
@@ -40,7 +40,7 @@ export default new Vuex.Store({
                 .get('api/questions')
                 .then(responce => {
                     console.log(responce.data.questions)
-                    commit('setCategories', responce.data.questions)
+                    commit('setQuestions', responce.data.questions)
                 })
                 .catch(error => console.log('Ошибка!', error))
         },
@@ -49,8 +49,19 @@ export default new Vuex.Store({
         setQuestions(state, data) {
             return (state.questions = data)
         },
-        setCurrentPage(state, data) {
-            return (state.currentPage = data)
-        },
     },
+    modules: {
+        persisted,
+    },
+    plugins: [
+        createPersistedState({
+            storage: {
+                getItem: key => Cookies.get(key),
+                // Please see https://github.com/js-cookie/js-cookie#json, on how to handle JSON.
+                setItem: (key, value) =>
+                    Cookies.set(key, value, { expires: 3, secure: true }),
+                removeItem: key => Cookies.remove(key),
+            },
+        }),
+    ],
 })

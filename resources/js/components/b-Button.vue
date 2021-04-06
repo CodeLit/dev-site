@@ -5,18 +5,20 @@
 </template>
 
 <style lang="sass" scoped>
+@use '../../sass/variables' as vars;
 .button-blurred{
     backdrop-filter: blur(79px);
+    background: linear-gradient(rgba(255, 255, 255, 0.1),vars.$blur);
     /* Note: backdrop-filter has minimal browser support */
-    box-shadow: 0 -1px white inset
+    box-shadow: 0 -1px rgba(255, 255, 255, 0.5) inset;
+    transition: all 0.4s ease-in;
 }
 .button-blurred:hover{
-    background: linear-gradient(#f5ae00, #f59500) #f5ae00;
+    box-shadow: 0 -1px white inset
 }
-.button-blurred:focus{
+.button-blurred.active,:focus,:focus-within{
+
+    background: linear-gradient(vars.$blur,rgba(255, 255, 255, 0.3));
     outline: none;
-}
-.button-blurred:active,:focus{
-    box-shadow: 0 -1px yellow inset
 }
 </style>

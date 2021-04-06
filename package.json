@@ -11,12 +11,14 @@
     },
     "devDependencies": {
         "@tailwindcss/postcss7-compat": "^2.0.4",
+        "@types/js-cookie": "^2.2.6",
         "@types/tailwindcss": "^2.0.2",
         "autoprefixer": "^9.8.6",
         "axios": "^0.21.1",
         "cash-dom": "^8.1.0",
         "cross-env": "^7.0",
         "es6-promise": "^4.2.8",
+        "js-cookie": "^2.2.1",
         "laravel-mix": "^5.0.1",
         "lodash": "^4.17.13",
         "postcss": "^7.0.35",
@@ -27,6 +29,7 @@
         "vue": "^2.6.12",
         "vue-template-compiler": "^2.6.12",
         "vuex": "^3.6.2",
+        "vuex-persistedstate": "^4.0.0-beta.3",
         "webpack-livereload-plugin": "^1.2.0"
     },
     "dependencies": {}

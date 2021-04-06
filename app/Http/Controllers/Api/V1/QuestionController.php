@@ -16,7 +16,7 @@ class QuestionController extends Controller
     public function index()
     {
         return response()->json([
-            'questions' =>Question::latest()->get()
+            'questions' =>Question::all()
         ],200);
 
     }
@@ -28,7 +28,7 @@ class QuestionController extends Controller
      */
     public function create()
     {
-        // Question::in
+        return new Question;
     }
 
     /**
@@ -39,7 +39,9 @@ class QuestionController extends Controller
      */
     public function store(Request $request)
     {
-        // Question::
+        $obj = $this->create();
+        $obj->text = $request->text;
+        $obj->save();
     }
 
     /**
@@ -50,7 +52,7 @@ class QuestionController extends Controller
      */
     public function show($id)
     {
-        //
+        return Question::findOrFail($id);
     }
 
     /**
@@ -73,7 +75,9 @@ class QuestionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $obj = Question::findOrFail($id);
+        $obj->update($request->all());
+        return $obj;
     }
 
     /**
@@ -84,6 +88,8 @@ class QuestionController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $obj = Question::findOrFail($id);
+        $obj->delete();
+        return '';
     }
 }

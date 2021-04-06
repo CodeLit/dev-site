@@ -2,7 +2,7 @@
     <div>
         <b-header class="sm:absolute top-0 left-0" />
 
-        <div class="container h-screen flex flex-col justify-center">
+        <div class="container min-h-screen my-4 flex flex-col justify-center">
             <b-card class="flex flex-col sm:flex-row">
                 <b-card class="p-5" style="box-shadow: 1px 1px white inset">
                     <div class="flex flex-col flex-center">
@@ -10,7 +10,7 @@
                             class="mx-auto"
                             alt="User's avatar"
                             :url="avatar"
-                            width="200px"
+                            width="400px"
                         />
                         <div class="flex flex-col text-center">
                             <p class="name text-white text-2xl mt-3">
@@ -22,12 +22,16 @@
                         </div>
                     </div>
                 </b-card>
-                <div class="p-8 text-center mx-auto text-xl">
-                    <h2 class="mb-4">Добро пожаловать в мой блог!</h2>
+                <div class="p-8 mx-auto text-xl">
+                    <h2 class="mb-4 text-center">
+                        Добро пожаловать на мой блог!
+                    </h2>
                     <p>
                         Если хотите узнать новинки в мире разработок, научиться
                         программировать, или же прочитать моё резюме, то вы
-                        попали по адресу
+                        попали по адресу. Вся информация на данном ресурсе
+                        проверена годами опыта, а также изложена в понятном
+                        виде.
                     </p>
                 </div>
             </b-card>

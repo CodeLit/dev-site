@@ -17,7 +17,7 @@
             <b-button
                 v-for="(v, k) in getPages"
                 :key="(v, k)"
-                @click.native="setPage(k)"
+                @click.native="setCurrentPage(k)"
                 class="inline-block col-2 rounded-full px-6 py-3 lg:mx-6  flex-nowrap"
                 :class="[{ active: getCurrentPage === k }]"
             >
@@ -36,7 +36,7 @@
 <script>
 export default {
     methods: {
-        setPage(page) {
+        setCurrentPage(page) {
             this.$store.commit('setCurrentPage', page)
         },
         changeLinksState() {
