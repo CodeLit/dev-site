@@ -4,7 +4,8 @@
             href="#"
             class="block text-center nav-logo flex-shrink-0 text-4xl rounded-full w-24 h-24 relative self-start"
         >
-            <img src="../../../images/logo-circle.svg" class="w-full h-full" />
+            <img :src="circleImage" class="w-full h-full" />
+
             <div
                 class="absolute left-1/2 top-1/2 text-white"
                 style="transform: translateX(-50%) translateY(-55%)"
@@ -34,7 +35,12 @@
 </template>
 
 <script>
+import circleImage from '../../../images/logo-circle.svg'
+
 export default {
+    data() {
+        return { circleImage }
+    },
     methods: {
         setCurrentPage(page) {
             this.$store.commit('setCurrentPage', page)

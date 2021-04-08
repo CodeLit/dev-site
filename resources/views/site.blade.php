@@ -2,8 +2,10 @@
 
 @section('content')
     <div id="app">
-        <b-app />
+
         <noscript>Пожалуйста, включите JavaScript на странице.</noscript>
+
+        <b-app></b-app>
 
     </div>
 

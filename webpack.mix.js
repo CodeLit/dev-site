@@ -1,6 +1,7 @@
 const mix = require('laravel-mix')
-const tailwindcss = require('tailwindcss')
 const LiveReloadPlugin = require('webpack-livereload-plugin')
+
+require('laravel-mix-tailwind')
 
 /*
  |--------------------------------------------------------------------------
@@ -12,13 +13,10 @@ const LiveReloadPlugin = require('webpack-livereload-plugin')
  | file for the application as well as bundling up all the JS files.
  |
  */
-
 mix.js('resources/js/app.js', 'public/js')
-    .sass('resources/sass/app.scss', 'public/css')
-    .options({
-        processCssUrls: false,
-        postCss: [tailwindcss('./tailwind.config.js')],
-    })
+    .vue()
+    .sass('resources/scss/app.scss', 'public/css')
+    .tailwind()
     .sourceMaps()
 
 mix.webpackConfig({
