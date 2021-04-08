@@ -31,9 +31,6 @@ node_modules
 # production
 build
 
-# config files
-config
-
 # local config files
 .idea/
 

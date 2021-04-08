@@ -10,6 +10,7 @@
         "production": "npm run prod"
     },
     "devDependencies": {
+        "@tailwindcss/forms": "^0.3.2",
         "@tailwindcss/postcss7-compat": "^2.1.0",
         "@types/js-cookie": "^2.2.6",
         "@types/tailwindcss": "^2.0.2",

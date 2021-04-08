@@ -48,6 +48,16 @@ h5 {
     @include addHeader(0.5);
 }
 
+a {
+    color: white;
+    text-decoration: underline;
+}
+
+textarea,
+input {
+    color: $secondary;
+}
+
 .bg-white-gradient {
     background: linear-gradient(
         107.03deg,

@@ -21,15 +21,6 @@ class QuestionController extends Controller
 
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        return new Question;
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -39,9 +30,8 @@ class QuestionController extends Controller
      */
     public function store(Request $request)
     {
-        $obj = $this->create();
-        $obj->text = $request->text;
-        $obj->save();
+        $obj = Question::create($request->all());
+        return response()->json($obj);
     }
 
     /**
@@ -56,17 +46,6 @@ class QuestionController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -76,8 +55,10 @@ class QuestionController extends Controller
     public function update(Request $request, $id)
     {
         $obj = Question::findOrFail($id);
-        $obj->update($request->all());
-        return $obj;
+        // $obj->update($request->all());
+        $obj->fill($request->except(['id']));
+        $obj->save();
+        return response()->json($obj);
     }
 
     /**

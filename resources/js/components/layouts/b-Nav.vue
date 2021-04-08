@@ -51,10 +51,10 @@ export default {
     },
     computed: {
         getPages() {
-            return this.$store.getters.getPages
+            return this.$store.getters.pages
         },
         getCurrentPage() {
-            return this.$store.getters.getCurrentPage
+            return this.$store.getters.currentPage
         },
     },
 }

@@ -31,7 +31,7 @@ requireComponent.keys().forEach(fileName => {
 
 import 'es6-promise/auto' // для старых браузеров
 
-import blog from './blog' // vuex
+import store from './blog' // vuex
 
 // Vue.component(
 //     'example-component',
@@ -45,5 +45,5 @@ import blog from './blog' // vuex
  */
 new Vue({
     el: '#app',
-    store: blog,
+    store,
 })

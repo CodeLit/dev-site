@@ -1,5 +1,5 @@
 <template>
-    <button class="p-5 button-blurred bg-white-gradient text-white">
+    <button class="button-blurred bg-white-gradient text-white">
         <slot></slot>
     </button>
 </template>
