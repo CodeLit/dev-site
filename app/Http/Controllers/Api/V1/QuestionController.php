@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Question;
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class QuestionController extends Controller
 {
@@ -15,12 +15,9 @@ class QuestionController extends Controller
      */
     public function index()
     {
-        return response()->json([
-            'questions' =>Question::all()
-        ],200);
-
+        return response()->json(['questions' => Question::all()
+        ], 200);
     }
-
 
     /**
      * Store a newly created resource in storage.
@@ -30,6 +27,9 @@ class QuestionController extends Controller
      */
     public function store(Request $request)
     {
+        if ($request->user()->cannot('create', Question::class)) {
+            abort(403);
+        }
         $obj = Question::create($request->all());
         return response()->json($obj);
     }
@@ -55,6 +55,9 @@ class QuestionController extends Controller
     public function update(Request $request, $id)
     {
         $obj = Question::findOrFail($id);
+        if ($request->user()->cannot('update', $obj)) {
+            abort(403);
+        }
         // $obj->update($request->all());
         $obj->fill($request->except(['id']));
         $obj->save();

@@ -10,6 +10,10 @@
         "production": "npm run prod"
     },
     "devDependencies": {
+        "@fortawesome/fontawesome-svg-core": "^1.2.35",
+        "@fortawesome/free-brands-svg-icons": "^5.15.3",
+        "@fortawesome/free-solid-svg-icons": "^5.15.3",
+        "@fortawesome/vue-fontawesome": "^2.0.2",
         "@tailwindcss/forms": "^0.3.2",
         "@tailwindcss/postcss7-compat": "^2.1.0",
         "@types/js-cookie": "^2.2.6",
@@ -19,7 +23,6 @@
         "cash-dom": "^8.1.0",
         "cross-env": "^7.0",
         "es6-promise": "^4.2.8",
-        "jquery": "^3.2",
         "js-cookie": "^2.2.1",
         "laravel-mix": "^6.0.16",
         "laravel-mix-tailwind": "^0.1.2",

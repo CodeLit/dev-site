@@ -1,5 +1,5 @@
 <template>
-    <div class="w-full sm:w-auto">
+    <div class="min-w-full w-screen sm:w-auto">
         <component :is="'b-' + getCurrentPage + '-page'"></component>
 
         <b-circle-bg class="left-20 sm:left-56 top-10 sm:top-72 rotate-45" />
@@ -10,7 +10,7 @@
         />
         <b-card
             v-if="!isCookiesAccepted"
-            class="fixed flex place-items-center left-2 bottom-2 px-5 py-3"
+            class="fixed flex place-items-center left-2 bottom-2 px-5 py-3  w-full lg:w-1/2 border-white border-l-2"
         >
             <b-round-box
                 width="120px"
@@ -27,11 +27,11 @@
                     >печенье</a
                 >. Если не любите печенье, то можете его выключить в настройках
                 браузера.
-                <div class="flex justify-between">
-                    <b-button class="px-3 py-1" @click.native="acceptCookies"
-                        >Хорошо</b-button
-                    >
-                </div>
+                <b-button
+                    class="px-3 py-1 inline-block float-right mr-10 "
+                    @click.native="acceptCookies"
+                    >Хорошо</b-button
+                >
             </div>
         </b-card>
     </div>
@@ -41,8 +41,9 @@
 import bCircle from './b-Circle.vue'
 import BRoundBox from './b-RoundBox.vue'
 import cookiesImg from '../../images/cookies.png'
+import BButton from "./bButton";
 export default {
-    components: { bCircle, BRoundBox },
+    components: {BButton, bCircle, BRoundBox },
     data() {
         return { cookiesImg }
     },

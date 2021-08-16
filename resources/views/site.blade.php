@@ -5,7 +5,7 @@
 
         <noscript>Пожалуйста, включите JavaScript на странице.</noscript>
 
-        <b-app></b-app>
+        <b-app />
 
     </div>
 

@@ -14,6 +14,7 @@ require('laravel-mix-tailwind')
  |
  */
 mix.js('resources/js/app.js', 'public/js')
+    .copy( 'resources/images', 'public/images')
     .vue()
     .sass('resources/scss/app.scss', 'public/css')
     .tailwind()

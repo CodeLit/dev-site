@@ -11,7 +11,7 @@ export default {
       type: String,
       default: '#',
     },
-    blank: Boolean(false),
+    blank: Boolean,
   },
 }
 </script>

@@ -2,23 +2,15 @@ const homePage = 'home'
 
 export default {
     state: {
-        questions: [],
         pages: {
-            home: {
-                title: 'Обо мне',
-            },
-            'my-works': {
-                title: 'Мои работы',
-            },
-            reviews: {
-                title: 'Собеседования',
-            },
-            tech: {
-                title: 'Технологии',
-            },
+            home: 'Обо мне',
+            'my-works': 'Мои работы',
+            reviews: 'Собеседования',
+            learn: 'Обучение',
         },
         currentPage: '',
         cookiesAccepted: false,
+        questions: [],
     },
     actions: {
         ajaxQuestionsFromDB({ commit }) {

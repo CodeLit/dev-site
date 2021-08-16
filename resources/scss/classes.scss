@@ -1,0 +1,17 @@
+.bg-primary{
+    background-color: $bg-primary;
+}
+
+.bg-secondary{
+    background-color: $bg-secondary;
+}
+
+.bg-white-gradient {
+    background: linear-gradient(
+            107.03deg,
+            rgba(255, 255, 255, 0.62) 0%,
+            rgba(255, 255, 255, 0.2914) 0.01%,
+            rgba(255, 255, 255, 0.3286) 100%
+    );
+    // background-color: rgba(255, 255, 255, 0.027);
+}

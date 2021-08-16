@@ -1,6 +1,5 @@
 import './bootstrap'
-
-window.Vue = require('vue').default
+import './font-awesome'
 
 Vue.config.ignoredElements = [/^ion-/]
 
