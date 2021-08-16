@@ -15,6 +15,8 @@
         </a>
 
         <div id="nav-list" class="hidden sm:flex">
+            <router-link to="/foo">Перейти к Foo</router-link>
+
             <b-button
                 v-for="(v, k) in getPages"
                 :key="(v, k)"

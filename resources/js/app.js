@@ -3,19 +3,18 @@ import Popper from "popper.js";
 import cash from "cash-dom/dist/cash";
 import {lodash} from "lodash/seq";
 
-
 /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support
  * for JavaScript based Bootstrap features such as modals and tabs. This
  * code may be modified to fit the specific needs of your application.
  */
 try {
-    window._ = lodash
-    window.Popper = Popper
-    window.$ = cash
+    window._ = require('lodash')
+    window.Popper = require('popper.js').default
+    window.$ = require('cash-dom')
 } catch (e) {}
 
-window.Vue = Vue
+window.Vue = require('vue').default
 
 import axios from "axios";
 
@@ -24,7 +23,7 @@ import axios from "axios";
  * to our Laravel back-end. This library automatically handles sending the
  * CSRF token as a header based on the value of the "XSRF" token cookie.
  */
-window.axios = axios
+window.axios = require('axios')
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest'
 
