@@ -1,6 +1,5 @@
 <template>
     <div>
-        <b-header class="mb-10" />
         <div class="container">
             <b-card>
                 <h1 class="text-center">Собеседования</h1>

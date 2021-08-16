@@ -1,6 +1,5 @@
 <template>
     <div>
-        <b-header class="mb-10" />
         <div class="container">
             <b-card>
                 Не следует, однако, забывать, что постоянный количественный рост

@@ -6,6 +6,7 @@ export default {
             home: 'Обо мне',
             'my-works': 'Мои работы',
             reviews: 'Собеседования',
+            documents: 'Документы',
             learn: 'Обучение',
         },
         currentPage: '',

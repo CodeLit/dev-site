@@ -1,7 +1,5 @@
 <template>
     <div>
-        <b-header class="md:absolute top-0 left-0" />
-
         <b-parallax :img_url="parallax_top" class="min-h-screen flex flex-col justify-center">
             <b-card :blur_amount="20" class="flex flex-col md:flex-row max-w-screen-xl m-7 sm:mx-32 xl:mx-auto">
                 <b-card class="p-5" style="box-shadow: 1px 1px white inset">

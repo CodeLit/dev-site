@@ -1,5 +1,7 @@
 <template>
     <div class="min-w-full w-screen sm:w-auto">
+        <b-header class="md:absolute top-0 left-0" />
+
         <component :is="'b-' + getCurrentPage + '-page'"></component>
 
         <b-circle-bg class="left-20 sm:left-56 top-10 sm:top-72 rotate-45" />
