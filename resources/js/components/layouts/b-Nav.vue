@@ -15,11 +15,8 @@
         </a>
 
         <div id="nav-list" class="hidden sm:flex">
-            <router-link to="/foo">Перейти к Foo</router-link>
 
             <b-button
-                v-for="(v, k) in getPages"
-                :key="(v, k)"
                 @click.native="setCurrentPage(k)"
                 class="inline-block col-2 rounded-full px-6 py-3 lg:mx-6  flex-nowrap"
                 :class="[{ active: getCurrentPage === k }]"
@@ -46,19 +43,11 @@ export default {
         return { circleImage }
     },
     methods: {
-        setCurrentPage(page) {
-            this.$store.commit('setCurrentPage', page)
+        changeLink(){
+            this.$router.push()
         },
         changeLinksState() {
             $('#nav-list').toggleClass('hidden')
-        },
-    },
-    computed: {
-        getPages() {
-            return this.$store.getters.pages
-        },
-        getCurrentPage() {
-            return this.$store.getters.currentPage
         },
     },
 }

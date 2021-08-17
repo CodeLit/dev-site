@@ -2,10 +2,8 @@
 
 @section('content')
     <div id="app">
-
         <noscript>Пожалуйста, включите JavaScript на странице.</noscript>
-
-        <b-app />
-
+        <b-nav />
+        <router-view></router-view>
     </div>
 @show
