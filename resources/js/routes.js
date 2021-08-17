@@ -9,12 +9,13 @@ export default [
         path: '/',
         text: 'Обо мне',
         name: 'home',
-        component: bHome
+        component: bHome,
+        header_absolute: true,
     },
     {
         path: '/my-works',
         text: 'Мои работы',
-        component: bMyWorks
+        component: bMyWorks,
     },
     {
         path: '/reviews',

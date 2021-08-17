@@ -1,5 +1,3 @@
-const homePage = 'home'
-
 export default {
     state: {
         cookiesAccepted: false,
@@ -46,17 +44,11 @@ export default {
         },
     },
     getters: {
-        currentPage: ({ currentPage }) => {
-            return currentPage != '' ? currentPage : homePage
-        },
         cookiesAccepted({ cookiesAccepted }) {
             return cookiesAccepted
         },
         questions({ questions }) {
             return questions
-        },
-        pages: ({ pages }) => {
-            return pages
         },
     },
 }

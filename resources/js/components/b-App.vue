@@ -3,6 +3,8 @@
 
         <b-header class="md:absolute top-0 left-0" />
 
+        <router-view></router-view>
+
         <b-circle-bg class="left-20 sm:left-56 top-10 sm:top-72 rotate-45" />
 
         <b-circle-bg

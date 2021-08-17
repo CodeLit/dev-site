@@ -15,16 +15,16 @@
         </a>
 
         <div id="nav-list" class="hidden sm:flex">
-
             <b-button
                 v-for="route in getPages()"
-                @click.native="changePage(route.path)"
+                @click.native="changePage(route)"
                 class="inline-block col-2 rounded-full px-6 py-3 lg:mx-6 flex-nowrap"
                 :class="[{ active: getCurrentPage() === route.path }]"
             >
                 {{ route.text }}
             </b-button>
         </div>
+<!--        Для мобильных устройств, кнопка скрытия -->
         <b-button
             id="nav-toggle"
             @click.native.prevent="changeLinksState"
@@ -48,11 +48,12 @@ export default {
             return this.$router.options.routes
         },
         getCurrentPage() {
-            return this.$router.currentRoute.fullPath;
+            return this.$route.fullPath
         },
-        changePage($page){
-            if (this.getCurrentPage() !== $page)
-                this.$router.push($page)
+        changePage(route){
+            let page = route.path
+            if (this.getCurrentPage() !== page)
+                this.$router.push(page)
         },
         changeLinksState() {
             $('#nav-list').toggleClass('hidden')
