@@ -17,11 +17,12 @@
         <div id="nav-list" class="hidden sm:flex">
 
             <b-button
-                @click.native="setCurrentPage(k)"
-                class="inline-block col-2 rounded-full px-6 py-3 lg:mx-6  flex-nowrap"
-                :class="[{ active: getCurrentPage === k }]"
+                v-for="route in getPages()"
+                @click.native="changePage(route.path)"
+                class="inline-block col-2 rounded-full px-6 py-3 lg:mx-6 flex-nowrap"
+                :class="[{ active: getCurrentPage() === route.path }]"
             >
-                {{ v }}
+                {{ route.text }}
             </b-button>
         </div>
         <b-button
@@ -43,8 +44,15 @@ export default {
         return { circleImage }
     },
     methods: {
-        changeLink(){
-            this.$router.push()
+        getPages(){
+            return this.$router.options.routes
+        },
+        getCurrentPage() {
+            return this.$router.currentRoute.fullPath;
+        },
+        changePage($page){
+            if (this.getCurrentPage() !== $page)
+                this.$router.push($page)
         },
         changeLinksState() {
             $('#nav-list').toggleClass('hidden')

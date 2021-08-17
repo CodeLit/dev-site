@@ -2,14 +2,6 @@ const homePage = 'home'
 
 export default {
     state: {
-        pages: {
-            home: 'Обо мне',
-            'my-works': 'Мои работы',
-            reviews: 'Собеседования',
-            documents: 'Документы',
-            learn: 'Обучение',
-        },
-        currentPage: '',
         cookiesAccepted: false,
         questions: [],
     },
