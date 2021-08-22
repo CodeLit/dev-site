@@ -4,21 +4,22 @@
     </header>
 </template>
 
-
 <script>
 export default {
     methods: {
-        getPages(){
+        getRoutes(){
             return this.$router.options.routes
         },
     },
     computed: {
         getCurrentRouteParams() {
             let route = this.$route
-            this.getPages().forEach(function (item){
+            let routes = this.getRoutes()
+            for (let i = 0; i < routes.length; i++) {
+                let item = routes[i]
                 if (item.path === route.path)
                     return item
-            })
+            }
         }
     }
 }
