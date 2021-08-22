@@ -1,7 +1,7 @@
 <template>
     <div class="min-w-full w-screen sm:w-auto">
 
-        <b-header class="md:absolute top-0 left-0" />
+        <b-header class="top-0 left-0" />
 
         <router-view></router-view>
 

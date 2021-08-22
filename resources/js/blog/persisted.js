@@ -41,7 +41,7 @@ export default {
         },
         setQuestions(state, data) {
             return (state.questions = data)
-        },
+        }
     },
     getters: {
         cookiesAccepted({ cookiesAccepted }) {
