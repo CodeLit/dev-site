@@ -19,7 +19,11 @@ mix.js('resources/js/app.js', 'public/build/js')
     .sass('resources/scss/app.scss', 'public/build/css')
     .tailwind()
     .sourceMaps()
+    .disableNotifications()
 
 mix.webpackConfig({
+    stats: {
+        // children: true,
+    },
     plugins: [new LiveReloadPlugin()],
 })

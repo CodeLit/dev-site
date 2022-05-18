@@ -16,6 +16,7 @@
 
         <div id="nav-list" class="hidden sm:flex">
             <b-button
+                key="i"
                 v-for="route in getPages()"
                 @click.native="changePage(route)"
                 class="inline-block col-2 rounded-full px-6 py-3 lg:mx-6 flex-nowrap"
@@ -24,6 +25,7 @@
                 {{ route.text }}
             </b-button>
         </div>
+
 <!--        Для мобильных устройств, кнопка скрытия -->
         <b-button
             id="nav-toggle"
@@ -36,7 +38,7 @@
 
 <script>
 import circleImage from '../../../images/logo-circle.svg'
-import BButton from "../bButton";
+import BButton from "../b-Button";
 
 export default {
     components: {BButton},

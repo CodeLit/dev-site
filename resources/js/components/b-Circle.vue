@@ -1,6 +1,5 @@
 <template>
-    <div style={styles} className='circle'></div>
-
+<!--    <div style={styles} className='circle'></div>-->
 </template>
 
 <style scoped>
@@ -18,8 +17,5 @@
   transform: `translateX(-50%) translateY(-50%)`,
   background: `linear-gradient(${rot}, rgba(255, 255, 255, 0.62) 0%, rgba(255, 255, 255, 0) 96.51%, rgba(255, 255, 255, 0.1364) 100%)`, */
 }
-
-
-
 
 </style>

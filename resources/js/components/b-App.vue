@@ -44,7 +44,7 @@
 import bCircle from './b-Circle.vue'
 import BRoundBox from './b-RoundBox.vue'
 import cookiesImg from '../../images/cookies.png'
-import BButton from "./bButton";
+import BButton from "./b-Button";
 export default {
     components: {BButton, bCircle, BRoundBox },
     data() {

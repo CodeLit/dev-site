@@ -4,10 +4,10 @@
             <h3>Связаться со мной</h3>
             <br>
             <div class="flex">
-                <b-link url="tel:+79187467928" class="contact-link">
-                    <ion-icon name="call"></ion-icon>
-                    Позвонить
-                </b-link>
+<!--                <b-link url="tel:+79187467928" class="contact-link">-->
+<!--                    <ion-icon name="call"></ion-icon>-->
+<!--                    Позвонить-->
+<!--                </b-link>-->
                 <b-link url="skype:live:.cid.af3a8373b1f5ead2?chat" class="contact-link align-middle">
                     <ion-icon name="logo-skype"></ion-icon>
                     Skype

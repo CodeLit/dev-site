@@ -1,8 +1,8 @@
-import bHome from "./components/pages/bHome";
-import bLearn from "./components/pages/bLearn";
-import bDocuments from './components/pages/bDocuments'
-import bMyWorks from './components/pages/bMyWorks'
-import bReviews from './components/pages/bReviews'
+import bHome from "./components/pages/b-Home";
+import bLearn from "./components/pages/b-Learn";
+import bDocuments from './components/pages/b-Documents'
+import bMyWorks from './components/pages/b-MyWorks'
+import bReviews from './components/pages/b-Reviews'
 
 export default [
     {
