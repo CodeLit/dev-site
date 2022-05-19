@@ -44,6 +44,9 @@
         {{-- Livereload --}}
         <script src="http://localhost:35729/livereload.js"></script>
     @endenv
+
+{{--    fixing not ssl secured iframes--}}
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 </head>
 
 <body>
