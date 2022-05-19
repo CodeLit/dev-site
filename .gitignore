@@ -32,9 +32,6 @@ node_modules
 # production
 build
 
-# local config files
-.idea/
-
 # misc
 .DS_Store
 .env.local
