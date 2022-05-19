@@ -82,7 +82,14 @@ Vue.use(VueRouter)
 
 import routes from "./routes";
 
-const router = new VueRouter({routes})
+const router = new VueRouter({
+    mode: 'history',
+    routes,
+})
+
+import VueLazyLoading from 'vue-lazy-loading'
+
+Vue.use(VueLazyLoading)
 
 new Vue({
     el: '#app',

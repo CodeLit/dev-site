@@ -8,10 +8,7 @@
 <!--                    <ion-icon name="call"></ion-icon>-->
 <!--                    Позвонить-->
 <!--                </b-link>-->
-                <b-link url="skype:live:.cid.af3a8373b1f5ead2?chat" class="contact-link align-middle">
-                    <ion-icon name="logo-skype"></ion-icon>
-                    Skype
-                </b-link>
+
                 <b-link url="https://telegram.im/@Lit32" blank class="contact-link">
                     <i class="fab fa-telegram-plane"></i>
                     Telegram
@@ -19,6 +16,10 @@
                 <b-link url="https://wa.me/79187467928" blank class="contact-link">
                     <ion-icon name="logo-whatsapp"></ion-icon>
                     WhatsApp
+                </b-link>
+                <b-link url="skype:live:.cid.af3a8373b1f5ead2?chat" class="contact-link align-middle">
+                    <ion-icon name="logo-skype"></ion-icon>
+                    Skype
                 </b-link>
             </div>
         </div>

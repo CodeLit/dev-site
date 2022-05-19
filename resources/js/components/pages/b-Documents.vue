@@ -1,7 +1,6 @@
 <template>
     <div>
-        <b-documents/>
-
+        <b-documents class="docs"/>
     </div>
 </template>
 
@@ -14,5 +13,7 @@ export default {
 </script>
 
 <style scoped>
-
+.docs{
+    text-align: center;
+}
 </style>

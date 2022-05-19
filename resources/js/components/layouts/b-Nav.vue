@@ -1,7 +1,7 @@
 <template>
     <nav class="navbar mt-3 mb-1 flex items-center justify-between">
-        <a
-            href="/"
+        <router-link
+            :to="{name: 'home'}"
             class="block text-center nav-logo flex-shrink-0 text-4xl rounded-full w-24 h-24 relative self-start"
         >
             <img :src="circleImage" class="w-full h-full" />
@@ -12,11 +12,11 @@
             >
                 Blog
             </div>
-        </a>
+        </router-link>
 
         <div id="nav-list" class="hidden sm:flex">
             <b-button
-                key="i"
+                :key="route.path"
                 v-for="route in getPages()"
                 @click.native="changePage(route)"
                 class="inline-block col-2 rounded-full px-6 py-3 lg:mx-6 flex-nowrap"

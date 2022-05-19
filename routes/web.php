@@ -16,3 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('site');
 });
+
+Route::get('/{any}', function () {
+    return view('site');
+})->where( 'any', '.*')->name('gateway');
