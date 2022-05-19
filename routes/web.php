@@ -17,6 +17,12 @@ Route::get('/', function () {
     return view('site');
 });
 
+Route::get('/iframe-redirect', function () {
+    $url = request()->get('url');
+    if (empty($url)) abort(404);
+    return redirect($url);
+});
+
 Route::get('/{any}', function () {
     return view('site');
 })->where( 'any', '.*')->name('gateway');

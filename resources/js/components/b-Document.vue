@@ -1,5 +1,5 @@
 <template>
-    <iframe v-lazy="src" loading="lazy" class="document"></iframe>
+    <iframe v-lazy="'/iframe-redirect?url='+src" loading="lazy" class="document"></iframe>
 </template>
 <script>
 export default {
