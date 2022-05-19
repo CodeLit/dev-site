@@ -56,8 +56,9 @@ jobs:
         with:
 #          Приватный ключ хранится в IspConfig у shell-пользователя,
 #          Публичный - в github actions secrets.
+#          Почему-то не работает. Вместо него стал использовать пароль.
+#          key: ${{ secrets.SSH_PRIVATE_KEY }}
           host: ${{ secrets.SSH_HOST }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
           username: ${{ secrets.SSH_USERNAME }}
           password: ${{ secrets.SSH_PASSWORD }}
           port: 22
