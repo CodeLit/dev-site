@@ -66,3 +66,11 @@ jobs:
             cd /var/www/clients/client4/web3/web/project
             git checkout -f
             git pull
+            php artisan down
+            composer install --no-dev --no-progress --prefer-dist
+            php artisan migrate --force --no-interaction
+            php artisan config:cache
+            php artisan optimize
+            php artisan up
+            npm install
+            npm run production
