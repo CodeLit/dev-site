@@ -38,7 +38,7 @@
         </b-parallax>
         <b-card id="what-am-i" class="py-9 sm:py-16">
             <div class="container">
-                Мой стек: PHP, Python, WEB, GoLang
+                Мой стек: PHP, Python, WEB, GoLang.
                 <h2 class="pb-1">Что я умею?</h2>
                 <ul>
                     <li>Работать с различными менеджерами пакетов и сборщиками на различных языках (npm, composer, pip, и прочие), а также писать свои библиотеки.</li>
