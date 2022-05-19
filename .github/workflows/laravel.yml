@@ -55,7 +55,7 @@ jobs:
         with:
 #          Приватный ключ хранится в IspConfig у shell-пользователя,
 #          Публичный - в github actions secrets.
-          host: ${{ secrets.SSH_HOST }}
+          host: ${{ secrets.SSH_HOST }}:22
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           username: ${{ secrets.SSH_USERNAME }}
           script: |
