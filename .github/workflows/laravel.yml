@@ -67,7 +67,7 @@ jobs:
             git checkout -f
             git pull
             php artisan down
-            composer install --no-dev --no-progress --prefer-dist
+            composer install --no-dev --no-ansi --no-interaction --no-plugins --no-scripts --no-progress --prefer-dist --optimize-autoloader
             php artisan migrate --force --no-interaction
             php artisan config:cache
             php artisan optimize
