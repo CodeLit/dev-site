@@ -6,7 +6,7 @@
             <p>Тип: {{jobType}}</p>
             <p>{{description}}</p>
         </div>
-        <iframe v-lazy="link" class="frame"></iframe>
+        <iframe v-lazy="'/iframe-redirect?url='+src" class="frame"></iframe>
     </b-card>
 </template>
 
