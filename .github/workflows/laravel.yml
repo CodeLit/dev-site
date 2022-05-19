@@ -51,7 +51,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Deployment
-        uses: appleboy/ssh-action@main
+        uses: appleboy/ssh-action@master
         with:
 #          Приватный ключ хранится в IspConfig у shell-пользователя,
 #          Публичный - в github actions secrets.
