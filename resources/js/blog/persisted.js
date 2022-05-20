@@ -2,6 +2,7 @@ export default {
     state: {
         cookiesAccepted: false,
         questions: [],
+        pageImage: 'none'
     },
     actions: {
         ajaxQuestionsFromDB({ commit }) {
@@ -41,7 +42,14 @@ export default {
         },
         setQuestions(state, data) {
             return (state.questions = data)
+        },
+        setPageImage(state, data) {
+            state.pageImage = data
+        },
+        unsetPageImage(state) {
+            state.pageImage = 'none'
         }
+
     },
     getters: {
         cookiesAccepted({ cookiesAccepted }) {
@@ -50,5 +58,8 @@ export default {
         questions({ questions }) {
             return questions
         },
+        getPageImage({pageImage}){
+            return pageImage
+        }
     },
 }

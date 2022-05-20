@@ -1,5 +1,5 @@
 <template>
-    <div class="w-screen sm:w-auto">
+    <div class="app w-screen" ref="app" :style="{'background-image':'url('+$store.getters.getPageImage+')'}">
 
         <b-header class="top-0 left-0" />
 
@@ -65,3 +65,12 @@ export default {
     },
 }
 </script>
+
+<style scoped>
+.app {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+</style>

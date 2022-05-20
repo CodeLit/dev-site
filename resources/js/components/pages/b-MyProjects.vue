@@ -9,7 +9,7 @@
             <b-project link="https://sofilena.ru" job-type="командная"  />
             <b-project link="http://bonussofilena.ru" job-type="одиночная"  />
         </div>
-        <b-footer />
+        <b-footer blurred="1" />
     </div>
 </template>
 <script>
@@ -17,7 +17,13 @@
 import bProject from "../layouts/b-Project"
 import bFooter from "../layouts/b-Footer"
 export default {
-    components: {bProject,bFooter}
+    components: {bProject,bFooter},
+    mounted() {
+        this.$store.commit('setPageImage','/images/backgrounds/laptop-on-table.jpg')
+    },
+    destroyed() {
+        this.$store.commit('unsetPageImage')
+    }
 }
 </script>
 <style scoped>

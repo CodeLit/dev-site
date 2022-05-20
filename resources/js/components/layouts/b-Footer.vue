@@ -1,5 +1,5 @@
 <template>
-    <footer class="px-5 py-7 flex justify-around">
+    <footer class="px-5 py-7 flex justify-around" :style="{'backdrop-filter':(blurred?'blur(12px)':'none')}">
         <div id="contacts">
             <h3>Связаться со мной</h3>
             <br>
@@ -37,7 +37,8 @@
 <script>
 import BLink from "../b-Link";
 export default {
-    components: {BLink}
+    components: {BLink},
+    props: ['blurred']
 }
 </script>
 
