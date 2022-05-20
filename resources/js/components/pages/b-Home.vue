@@ -18,63 +18,106 @@
                 </b-card>
                 <div class="p-8 mx-auto text-xl">
                     <h2 class="mb-4 text-center">Добро пожаловать на мой блог!</h2>
-                    <p>
+                    <p class="mb-4">
                         Если хотите узнать новинки в мире разработок, научиться
                         программировать, или же прочитать моё резюме, то вы
                         попали по адресу. Вся информация на данном ресурсе
                         проверена годами опыта, а также изложена в понятном
                         виде.
                     </p>
-                    <div class="float-right">
-<!--                        <b-button class="px-6 py-3 rounded-full"-->
-<!--                                  @click.native="setPage('learn')">Хочу учиться!</b-button>-->
+                    <div class="flex justify-center gap-5">
                         <b-button class="px-6 py-3 rounded-full"
-                                  onclick="$('#what-am-i')[0].scrollIntoView({block: 'start', behavior: 'smooth'})">
-                            Хочу почитать резюме</b-button>
+                                  onclick="$('#who-am-i')[0].scrollIntoView({block: 'start', behavior: 'smooth'})">
+                            Почитать резюме
+                        </b-button>
+                        <b-button class="px-6 py-3 rounded-full"
+                                  onclick="$('#contacts')[0].scrollIntoView({block: 'start', behavior: 'smooth'})">
+                            Посмотреть контакты
+                        </b-button>
+                        <!--                        <b-button class="px-6 py-3 rounded-full"-->
+                        <!--                                  @click.native="setPage('learn')">Хочу учиться!</b-button>-->
+
                     </div>
 
                 </div>
             </b-card>
         </b-parallax>
-        <b-card id="what-am-i" class="py-9 sm:py-16">
+        <b-card id="who-am-i" class="py-9 sm:py-16">
             <div class="container">
-                Мой стек: PHP, Python, WEB, GoLang.
                 <h2 class="pb-1">Что я умею?</h2>
+                <h5 class="my-4">
+                    Мой стек:
+                    <i class="fab fa-php"></i> PHP,
+                    <i class="fab fa-python"></i> Python,
+                    <i class="fab fa-golang"></i> GoLang,
+                    <i class="fab fa-html5"></i> <i class="fab fa-js"></i> <i class="fab fa-css3"></i> Web.
+                </h5>
                 <ul>
-                    <li>Работать с различными менеджерами пакетов и сборщиками на различных языках (npm, composer, pip, и прочие), а также писать свои библиотеки.</li>
-                    <li>Настраивать автодеплой с помощью Git хуков, или через SSH, а также в ручную через git push production. Умею решать конфликты веток, делать merge.</li>
-                    <li>Строить сборки и запускать автоматизированные тесты, работать с интеграциями (CI), например, TravisCI, CircleCI, или Git Actions.</li>
-                    <li>Разворачивать собственные проекты с нуля до стадии релиза, настраивать взаимодействие между приложениями, сайтами через HTTP/REST API.</li>
-                    <li>Разворачивать проекты, создавать образы с помощью Docker.</li>
-                    <li>Писать проекты для онлайн-игр, имею собственный проект серверов https://neolife.tk</li>
-                    <li>Настраивать сервера на базе Linux/Fedora (в основном Centos 8), автоматизировать рутинные задачи с помощью Cron.</li>
-                    <li>Пользоваться шаблонами (Jinja, Blade) веб-страниц, тегами шаблонов, пользоваться компонентным подходом при вставке элементов сайта.</li>
+                    <li>Работать с различными менеджерами пакетов и сборщиками на различных языках (<i
+                        class="fab fa-npm"></i> npm, composer, pip, и прочие), а также писать свои библиотеки.
+                    </li>
+                    <li>Настраивать автодеплой с помощью <i class="fab fa-git-alt"></i> Git хуков, или через SSH, а
+                        также в ручную через git push production. Умею решать конфликты веток, делать merge.
+                    </li>
+                    <li>Строить сборки и запускать автоматизированные тесты, работать с интеграциями (CI), например,
+                        Travis, <i class="fab fa-github"></i> Github Actions, или CircleCI.
+                    </li>
+                    <li>Разворачивать собственные проекты с нуля до стадии релиза, настраивать взаимодействие между
+                        приложениями, сайтами через HTTP/REST API.
+                    </li>
+                    <li>Разворачивать проекты, создавать образы с помощью <i class="fab fa-docker"></i> Docker.</li>
+                    <li>Писать проекты для онлайн-игр, имею собственный проект серверов <a href="https://neolife.tk"
+                                                                                           target="_blank">NeoLife</a>.
+                    </li>
+                    <li>Настраивать сервера на базе <i class="fab fa-linux"></i> Linux /
+                        <i class="fab fa-fedora"></i> Fedora (в основном <i class="fab fa-centos"></i> Centos 8),
+                        автоматизировать рутинные задачи с помощью Cron.
+                    </li>
+                    <li>Пользоваться шаблонами (Jinja, Blade) веб-страниц, тегами шаблонов, пользоваться компонентным
+                        подходом при вставке элементов сайта.
+                    </li>
                     <li>Автоматически создавать документацию с помощью внешних генераторов документации.</li>
-                    <li>Читать чужой код, и пользоваться инструментами для отладки, писать полные и понятные комментарии к коду.</li>
+                    <li>Читать чужой код, и пользоваться инструментами для отладки, писать полные и понятные комментарии
+                        к коду.
+                    </li>
                     <li>Понятно и довольно быстро обучать других людей, заинтересованных в обучении.</li>
                 </ul>
                 <br><br><br>
                 <h2 class="pb-1">Что я знаю?</h2>
+                <h5 class="my-4">
+                    Фреймворки:
+                    <i class="fab fa-laravel"></i> Laravel, Django.
+                </h5>
                 <ul>
-                    <li>ООП, классы, объекты (instance), методы классов, интерфейсы (описатели классов), конструкторы, указатели и прочие базовые вещи.</li>
-                    <li>Все основные команды Git (которые мне кажутся основными)</li>
+                    <li>ООП, классы, объекты (instance), методы классов, интерфейсы (описатели классов), конструкторы,
+                        указатели и прочие базовые вещи.
+                    </li>
+                    <li>Все основные команды <i class="fab fa-git-alt"></i> Git (которые мне кажутся основными)</li>
                     <li>Принципы SOLID, Dry, Kis, и другие</li>
                     <li>Синтаксис баз данных, построение запросов, транзакций</li>
                     <li>Запросы в GraphQL и FaunaDB</li>
                     <li>HTTP/REST API запросы и ответы, к примеру библиотеку Ajax, или Axios</li>
                     <li>Асинхронный код, многопоточность, Promises, и прочее</li>
-                    <li>Языки Python, веб-языки, включая PHP, JS и стандарт EcmaScript, 1С, Lua</li>
+                    <li>Языки <i class="fab fa-python"></i> Python, <i class="fab fa-golang"></i> GoLang, веб-языки,
+                        включая
+                        <i class="fab fa-php"></i> PHP,
+                        <i class="fab fa-js"></i> JS и стандарт EcmaScript,
+                        1С, Lua
+                    </li>
                     <li>Регулярные выражения (RegExp), выборки из строк</li>
                     <li>Хеш-таблицы и хеш-функции для малозатратного поиска</li>
                 </ul>
-
+                <b-button class="px-6 py-3 rounded-full mt-5"
+                          onclick="$('#contacts')[0].scrollIntoView({block: 'start', behavior: 'smooth'})">
+                    Связаться со мной
+                </b-button>
             </div>
         </b-card>
         <b-parallax :img_url="parallax_bottom" class="min-h-screen text-center py-72">
             <documents/>
         </b-parallax>
 
-        <b-footer />
+        <b-footer/>
     </div>
 </template>
 <script>
@@ -91,10 +134,10 @@ import Documents from "../layouts/b-Documents";
 export default {
     components: {Documents, BFooter, BDocument, BButton, BCard, BParallax},
     data() {
-        return { avatar, parallax_top,parallax_bottom }
+        return {avatar, parallax_top, parallax_bottom}
     },
-    methods:{
-        setPage(page){
+    methods: {
+        setPage(page) {
             this.$store.commit('setCurrentPage', page)
         }
     }

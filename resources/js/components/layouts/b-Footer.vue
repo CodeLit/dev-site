@@ -1,6 +1,6 @@
 <template>
     <footer class="px-5 py-7 flex justify-around">
-        <div>
+        <div id="contacts">
             <h3>Связаться со мной</h3>
             <br>
             <div class="flex">
