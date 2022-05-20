@@ -10,5 +10,6 @@ export default {
 .document{
     height: 500px;
     width: 100%;
+    touch-action: none;
 }
 </style>
