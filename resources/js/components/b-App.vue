@@ -3,7 +3,9 @@
 
         <b-header class="top-0 left-0" />
 
-        <router-view></router-view>
+        <transition name="scale">
+            <router-view />
+        </transition>
 
         <b-circle-bg class="left-20 sm:left-56 top-10 sm:top-72 rotate-45" />
 
@@ -72,5 +74,27 @@ export default {
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
+}
+
+
+.fade-enter-active,
+.fade-leave-active {
+    transition-duration: 1s;
+    transition-property: opacity;
+    transition-timing-function: ease;
+}
+.fade-enter,
+.fade-leave-active {
+    opacity: 0
+}
+
+.scale-enter-active,
+.scale-leave-active {
+    transition: all 0.5s ease;
+}
+.scale-enter-from,
+.scale-leave-to {
+    opacity: 0;
+    transform: scale(0.9);
 }
 </style>
