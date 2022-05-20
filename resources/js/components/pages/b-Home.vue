@@ -5,10 +5,9 @@
                 <b-card class="p-5" style="box-shadow: 1px 1px white inset">
                     <div class="flex flex-col flex-center">
                         <b-round-box
-                            class="mx-auto"
+                            class="mx-auto md:w-60 w-40"
                             alt="User's avatar"
                             :url="avatar"
-                            width="400px"
                         />
                         <div class="flex flex-col text-center">
                             <p class="name text-white text-2xl mt-3">Владимир</p>
@@ -16,7 +15,7 @@
                         </div>
                     </div>
                 </b-card>
-                <div class="p-8 mx-auto text-xl">
+                <div class="p-8 mx-auto md:text-xl text-sm">
                     <h2 class="mb-4 text-center">Добро пожаловать на мой блог!</h2>
                     <p class="mb-4">
                         Если хотите узнать новинки в мире разработок, научиться
@@ -44,69 +43,77 @@
         </b-parallax>
         <b-card id="who-am-i" class="py-9 sm:py-16">
             <div class="container">
-                <h2 class="pb-1">Что я умею?</h2>
-                <h5 class="my-4">
-                    Мой стек:
-                    <i class="fab fa-php"></i> PHP,
-                    <i class="fab fa-python"></i> Python,
-                    <i class="fab fa-golang"></i> GoLang,
-                    <i class="fab fa-html5"></i> <i class="fab fa-js"></i> <i class="fab fa-css3"></i> Web.
-                </h5>
-                <ul>
-                    <li>Работать с различными менеджерами пакетов и сборщиками на различных языках (<i
-                        class="fab fa-npm"></i> npm, composer, pip, и прочие), а также писать свои библиотеки.
-                    </li>
-                    <li>Настраивать автодеплой с помощью <i class="fab fa-git-alt"></i> Git хуков, или через SSH, а
-                        также в ручную через git push production. Умею решать конфликты веток, делать merge.
-                    </li>
-                    <li>Строить сборки и запускать автоматизированные тесты, работать с интеграциями (CI), например,
-                        Travis, <i class="fab fa-github"></i> Github Actions, или CircleCI.
-                    </li>
-                    <li>Разворачивать собственные проекты с нуля до стадии релиза, настраивать взаимодействие между
-                        приложениями, сайтами через HTTP/REST API.
-                    </li>
-                    <li>Разворачивать проекты, создавать образы с помощью <i class="fab fa-docker"></i> Docker.</li>
-                    <li>Писать проекты для онлайн-игр, имею собственный проект серверов <a href="https://neolife.tk"
-                                                                                           target="_blank">NeoLife</a>.
-                    </li>
-                    <li>Настраивать сервера на базе <i class="fab fa-linux"></i> Linux /
-                        <i class="fab fa-fedora"></i> Fedora (в основном <i class="fab fa-centos"></i> Centos 8),
-                        автоматизировать рутинные задачи с помощью Cron.
-                    </li>
-                    <li>Пользоваться шаблонами (Jinja, Blade) веб-страниц, тегами шаблонов, пользоваться компонентным
-                        подходом при вставке элементов сайта.
-                    </li>
-                    <li>Автоматически создавать документацию с помощью внешних генераторов документации.</li>
-                    <li>Читать чужой код, и пользоваться инструментами для отладки, писать полные и понятные комментарии
-                        к коду.
-                    </li>
-                    <li>Понятно и довольно быстро обучать других людей, заинтересованных в обучении.</li>
-                </ul>
-                <br><br><br>
-                <h2 class="pb-1">Что я знаю?</h2>
-                <h5 class="my-4">
-                    Фреймворки:
-                    <i class="fab fa-laravel"></i> Laravel, Django.
-                </h5>
-                <ul>
-                    <li>ООП, классы, объекты (instance), методы классов, интерфейсы (описатели классов), конструкторы,
-                        указатели и прочие базовые вещи.
-                    </li>
-                    <li>Все основные команды <i class="fab fa-git-alt"></i> Git (которые мне кажутся основными)</li>
-                    <li>Принципы SOLID, Dry, Kis, и другие</li>
-                    <li>Синтаксис баз данных, построение запросов, транзакций</li>
-                    <li>Запросы в GraphQL и FaunaDB</li>
-                    <li>HTTP/REST API запросы и ответы, к примеру библиотеку Ajax, или Axios</li>
-                    <li>Асинхронный код, многопоточность, Promises, и прочее</li>
-                    <li>Языки <i class="fab fa-python"></i> Python, <i class="fab fa-golang"></i> GoLang, веб-языки,
-                        включая
-                        <i class="fab fa-php"></i> PHP,
-                        <i class="fab fa-js"></i> JS и стандарт EcmaScript,
-                        1С, Lua
-                    </li>
-                    <li>Регулярные выражения (RegExp), выборки из строк</li>
-                    <li>Хеш-таблицы и хеш-функции для малозатратного поиска</li>
-                </ul>
+                <div class="text-sm md:text-base">
+                    <h2 class="pb-1">Что я умею?</h2>
+                    <h5 class="my-4">
+                        Мой стек:
+                        <b-text-icon classes="fab fa-php">PHP</b-text-icon>
+                        ,
+                        <b-text-icon classes="fab fa-python">Python</b-text-icon>
+                        ,
+                        <b-text-icon classes="fab fa-golang">GoLang</b-text-icon>
+                        ,
+                        <i class="fab fa-html5"></i> <i class="fab fa-js"></i> <i class="fab fa-css3"></i> Web.
+                    </h5>
+                    <ul>
+                        <li>Работать с различными менеджерами пакетов и сборщиками на различных языках (<i
+                            class="fab fa-npm"></i> npm, composer, pip, и прочие), а также писать свои библиотеки.
+                        </li>
+                        <li>Настраивать автодеплой с помощью <i class="fab fa-git-alt"></i> Git хуков, или через SSH, а
+                            также в ручную через git push production. Умею решать конфликты веток, делать merge.
+                        </li>
+                        <li>Строить сборки и запускать автоматизированные тесты, работать с интеграциями (CI), например,
+                            Travis, <i class="fab fa-github"></i> Github Actions, или CircleCI.
+                        </li>
+                        <li>Разворачивать собственные проекты с нуля до стадии релиза, настраивать взаимодействие между
+                            приложениями, сайтами через HTTP/REST API.
+                        </li>
+                        <li>Разворачивать проекты, создавать образы с помощью <i class="fab fa-docker"></i> Docker.</li>
+                        <li>Писать проекты для онлайн-игр, имею собственный проект серверов <a href="https://neolife.tk"
+                                                                                               target="_blank">NeoLife</a>.
+                        </li>
+                        <li>Настраивать сервера на базе <i class="fab fa-linux"></i> Linux /
+                            <i class="fab fa-fedora"></i> Fedora (в основном <i class="fab fa-centos"></i> Centos 8),
+                            автоматизировать рутинные задачи с помощью Cron.
+                        </li>
+                        <li>Пользоваться шаблонами (Jinja, Blade) веб-страниц, тегами шаблонов, пользоваться
+                            компонентным
+                            подходом при вставке элементов сайта.
+                        </li>
+                        <li>Автоматически создавать документацию с помощью внешних генераторов документации.</li>
+                        <li>Читать чужой код, и пользоваться инструментами для отладки, писать полные и понятные
+                            комментарии
+                            к коду.
+                        </li>
+                        <li>Понятно и довольно быстро обучать других людей, заинтересованных в обучении.</li>
+                    </ul>
+                    <br><br><br>
+                    <h2 class="pb-1">Что я знаю?</h2>
+                    <h5 class="my-4">
+                        Фреймворки:
+                        <i class="fab fa-laravel"></i> Laravel, Django.
+                    </h5>
+                    <ul>
+                        <li>ООП, классы, объекты (instance), методы классов, интерфейсы (описатели классов),
+                            конструкторы,
+                            указатели и прочие базовые вещи.
+                        </li>
+                        <li>Все основные команды <i class="fab fa-git-alt"></i> Git (которые мне кажутся основными)</li>
+                        <li>Принципы SOLID, Dry, Kis, и другие</li>
+                        <li>Синтаксис баз данных, построение запросов, транзакций</li>
+                        <li>Запросы в GraphQL и FaunaDB</li>
+                        <li>HTTP/REST API запросы и ответы, к примеру библиотеку Ajax, или Axios</li>
+                        <li>Асинхронный код, многопоточность, Promises, и прочее</li>
+                        <li>Языки <i class="fab fa-python"></i> Python, <i class="fab fa-golang"></i> GoLang, веб-языки,
+                            включая
+                            <i class="fab fa-php"></i> PHP,
+                            <i class="fab fa-js"></i> JS и стандарт EcmaScript,
+                            1С, Lua
+                        </li>
+                        <li>Регулярные выражения (RegExp), выборки из строк</li>
+                        <li>Хеш-таблицы и хеш-функции для малозатратного поиска</li>
+                    </ul>
+                </div>
                 <b-button class="px-6 py-3 rounded-full mt-5"
                           onclick="$('#contacts')[0].scrollIntoView({block: 'start', behavior: 'smooth'})">
                     Связаться со мной
@@ -130,9 +137,10 @@ import BButton from "../b-Button";
 import BDocument from "../b-Document";
 import BFooter from "../layouts/b-Footer";
 import Documents from "../layouts/b-Documents";
+import BTextIcon from "../b-TextIcon";
 
 export default {
-    components: {Documents, BFooter, BDocument, BButton, BCard, BParallax},
+    components: {Documents, BFooter, BDocument, BButton, BCard, BParallax, BTextIcon},
     data() {
         return {avatar, parallax_top, parallax_bottom}
     },

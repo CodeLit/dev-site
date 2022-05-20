@@ -1,5 +1,5 @@
 <template>
-    <div class="min-w-full w-screen sm:w-auto">
+    <div class="w-screen sm:w-auto">
 
         <b-header class="top-0 left-0" />
 
