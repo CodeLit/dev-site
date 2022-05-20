@@ -14,12 +14,12 @@
             </div>
         </router-link>
 
-        <div id="nav-list" class="hidden sm:flex">
+        <div id="nav-list" class="hidden sm:flex flex-col sm:flex-row">
             <b-button
                 :key="route.path"
                 v-for="route in getPages()"
                 @click.native="changePage(route)"
-                class="inline-block col-2 rounded-full px-6 py-3 lg:mx-6 flex-nowrap"
+                class="inline-block col-2 rounded-full px-6 py-3 lg:mx-6 flex-nowrap mb-2 sm:mb-0"
                 :class="[{ active: getCurrentPage() === route.path }]"
             >
                 {{ route.text }}
@@ -58,7 +58,7 @@ export default {
                 this.$router.push(page)
         },
         changeLinksState() {
-            $('#nav-list').toggleClass('hidden')
+            $('#nav-list').toggleClass('hidden').toggleClass('flex')
         },
     },
 }

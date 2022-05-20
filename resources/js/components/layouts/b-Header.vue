@@ -24,3 +24,11 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+@media screen and (max-width: 770px) {
+    header{
+        background-color: rgba(255, 255, 255, 0.15);
+    }
+}
+</style>
