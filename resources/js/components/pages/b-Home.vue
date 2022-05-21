@@ -103,11 +103,11 @@
                         <li>Запросы в GraphQL и FaunaDB</li>
                         <li>HTTP/REST API запросы и ответы, к примеру библиотеку Ajax, или Axios</li>
                         <li>Асинхронный код, многопоточность, Promises, и прочее</li>
-                        <li>Языки <i class="fab fa-python"></i> Python, <i class="fab fa-golang"></i> GoLang (энтузиаст), веб-языки,
+                        <li>Языки <i class="fab fa-python"></i> Python, веб-языки,
                             включая
                             <i class="fab fa-php"></i> PHP,
                             <i class="fab fa-js"></i> JS и стандарт EcmaScript,
-                            1С, Lua
+                            <i class="fab fa-golang"></i> GoLang (энтузиаст), Lua, 1С
                         </li>
                         <li>Регулярные выражения (RegExp), выборки из строк</li>
                         <li>Хеш-таблицы и хеш-функции для малозатратного поиска</li>
