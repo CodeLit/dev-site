@@ -49,11 +49,10 @@
                         Мой стек:
                         <b-text-icon classes="fab fa-php">PHP</b-text-icon>
                         ,
-                        <b-text-icon classes="fab fa-python">Python</b-text-icon>
-                        ,
-                        <b-text-icon classes="fab fa-golang">GoLang</b-text-icon>
-                        ,
-                        <i class="fab fa-html5"></i> <i class="fab fa-js"></i> <i class="fab fa-css3"></i> Web.
+<!--                        <b-text-icon classes="fab fa-golang">GoLang</b-text-icon>-->
+<!--                        ,-->
+                        <i class="fab fa-html5"></i> <i class="fab fa-js"></i> <i class="fab fa-css3"></i> Web,
+                        <b-text-icon classes="fab fa-python">Python</b-text-icon>.
                     </h5>
                     <ul>
                         <li>Работать с различными менеджерами пакетов и сборщиками на различных языках (<i
@@ -104,7 +103,7 @@
                         <li>Запросы в GraphQL и FaunaDB</li>
                         <li>HTTP/REST API запросы и ответы, к примеру библиотеку Ajax, или Axios</li>
                         <li>Асинхронный код, многопоточность, Promises, и прочее</li>
-                        <li>Языки <i class="fab fa-python"></i> Python, <i class="fab fa-golang"></i> GoLang, веб-языки,
+                        <li>Языки <i class="fab fa-python"></i> Python, <i class="fab fa-golang"></i> GoLang (энтузиаст), веб-языки,
                             включая
                             <i class="fab fa-php"></i> PHP,
                             <i class="fab fa-js"></i> JS и стандарт EcmaScript,
