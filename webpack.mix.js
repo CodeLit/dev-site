@@ -2,6 +2,7 @@ const mix = require('laravel-mix')
 const LiveReloadPlugin = require('webpack-livereload-plugin')
 
 require('laravel-mix-tailwind')
+require('laravel-vue-i18n/mix')
 
 /*
  |--------------------------------------------------------------------------
@@ -15,15 +16,21 @@ require('laravel-mix-tailwind')
  */
 mix.js('resources/js/app.js', 'public/build/js')
     .copy( 'resources/images', 'public/images')
-    .vue()
+    .vue({
+        options: {
+            compilerOptions: {
+                isCustomElement: (tag) => tag.match(/^ion-/),
+            },
+        },
+    })
     .sass('resources/scss/app.scss', 'public/build/css')
     .tailwind()
+    .i18n('resources/lang')
     .sourceMaps()
     .disableNotifications()
-
-mix.webpackConfig({
-    stats: {
-        // children: true,
-    },
-    plugins: [new LiveReloadPlugin()],
-})
+    .webpackConfig({
+        stats: {
+            // children: true,
+        },
+        plugins: [new LiveReloadPlugin()],
+    })

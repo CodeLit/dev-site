@@ -1,7 +1,7 @@
-import Vue from "vue";
+import {createApp} from "vue";
 import Popper from "popper.js";
-import cash from "cash-dom/dist/cash";
-import {lodash} from "lodash/seq";
+import cash from "cash-dom";
+import lodash from "lodash";
 
 /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support
@@ -9,14 +9,12 @@ import {lodash} from "lodash/seq";
  * code may be modified to fit the specific needs of your application.
  */
 try {
-    window._ = require('lodash')
-    window.Popper = require('popper.js').default
-    window.$ = require('cash-dom')
-} catch (e) {}
-
-window.Vue = require('vue').default
-
-import axios from "axios";
+    window._ = lodash
+    window.Popper = Popper
+    window.$ = cash
+} catch (e) {
+    console.error('Ошибка импорта библиотек!', e.message)
+}
 
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
@@ -45,7 +43,32 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest'
 
 import './font-awesome'
 
-Vue.config.ignoredElements = [/^ion-/]
+import 'es6-promise/auto' // для старых браузеров
+
+import store from './store' // vuex
+
+import {createRouter,createWebHistory} from "vue-router";
+
+import routes from "./routes";
+
+const router = new createRouter({
+    history: createWebHistory(),
+    routes,
+})
+
+import VueLazyLoading from 'vue-lazy-loading'
+import BApp from "./components/b-App";
+
+
+import {i18nVue, loadLanguageAsync} from 'laravel-vue-i18n'
+
+let app = createApp(BApp)
+app.use(router)
+app.use(store)
+app.use(i18nVue,{
+    resolve: lang => import(`../lang/${lang}.json`),
+})
+app.use(VueLazyLoading)
 
 /**
  * The following block of code may be used to automatically register your
@@ -69,30 +92,13 @@ requireComponent.keys().forEach(fileName => {
     // Поиск опций компонента в `.default`, который будет существовать,
     // если компонент экспортирован с помощью `export default`,
     // иначе будет использован корневой уровень модуля.
-    Vue.component(componentName, componentConfig.default || componentConfig)
+    app.component(componentName, componentConfig.default || componentConfig)
 })
 
-import 'es6-promise/auto' // для старых браузеров
+let lang = $('html').attr('lang')
 
-import store from './blog' // vuex
-
-import VueRouter from "vue-router";
-
-Vue.use(VueRouter)
-
-import routes from "./routes";
-
-const router = new VueRouter({
-    mode: 'history',
-    routes,
+loadLanguageAsync(lang).then(r => {
+    console.warn(`Loaded ${lang} language!`)
 })
 
-import VueLazyLoading from 'vue-lazy-loading'
-
-Vue.use(VueLazyLoading)
-
-new Vue({
-    el: '#app',
-    store,
-    router
-})
+app.mount('#app')

@@ -1,11 +1,12 @@
 <template>
-    <div class="app w-screen" ref="app" :style="{'background-image':'url('+$store.getters.getPageImage+')'}">
-
+    <div class="app w-screen" ref="app" :style="{'background-image':$store.getters.getPageImage}">
         <b-header class="top-0 left-0" />
 
-        <transition name="scale">
-            <router-view />
-        </transition>
+        <router-view v-slot="{ Component }">
+            <transition name="scale" mode="out-in">
+                <component :is="Component" />
+            </transition>
+        </router-view>
 
         <b-circle-bg class="left-20 sm:left-56 top-10 sm:top-72 rotate-45" />
 
@@ -14,28 +15,27 @@
             style="transform: rotate(225deg)"
         />
         <b-card
-            v-if="!isCookiesAccepted"
+            v-if="!cookiesAccepted"
             class="fixed flex place-items-center left-2 bottom-2 px-5 py-3  w-full lg:w-1/2 border-white border-l-2"
         >
             <b-round-box
-                width="120px"
+                width="120"
                 class="mr-3"
                 alt="Cookies image"
-                :url="cookiesImg"
+                url="/images/cookies.png"
             />
             <div>
-                <h4>Предупреждение.</h4>
-                Этот сайт использует
+                <h4>{{ $t('common.warning') }}.</h4>
+                {{ $t('common.this_site_uses') }}
                 <a
                     href="https://support.mozilla.org/ru/kb/kuki-informaciya-kotoruyu-veb-sajty-hranyat-na-vas"
                     target="__blank"
-                    >печенье</a
-                >. Если не любите печенье, то можете его выключить в настройках
-                браузера.
+                    >{{ $t('common.cookies') }}</a
+                >. {{ $t('common.dont_like_cookies') }}.
                 <b-button
                     class="px-3 py-1 inline-block float-right mr-10 "
                     @click.native="acceptCookies"
-                    >Хорошо</b-button
+                    >{{ $t('common.okay_fine') }}</b-button
                 >
             </div>
         </b-card>
@@ -45,26 +45,24 @@
 <script>
 import bCircle from './b-Circle.vue'
 import BRoundBox from './b-RoundBox.vue'
-import cookiesImg from '../../images/cookies.png'
 import BButton from "./b-Button";
+import Cookies from "js-cookie";
 export default {
     components: {BButton, bCircle, BRoundBox },
     data() {
-        return { cookiesImg }
+        return {
+            cookiesAccepted: false
+        }
     },
     methods: {
         acceptCookies() {
-            this.$store.commit('acceptCookies')
+            Cookies.set('cookiesAccepted', true, { expires: 3 })
+            this.cookiesAccepted = true
         },
     },
-    computed: {
-        getCurrentPage() {
-            return this.$store.getters.currentPage
-        },
-        isCookiesAccepted() {
-            return this.$store.getters.cookiesAccepted
-        },
-    },
+    mounted() {
+        this.cookiesAccepted =  Cookies.get('cookiesAccepted')
+    }
 }
 </script>
 
@@ -75,7 +73,6 @@ export default {
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
-
 
 .fade-enter-active,
 .fade-leave-active {

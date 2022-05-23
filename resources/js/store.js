@@ -1,6 +1,7 @@
-export default {
+import { createStore } from 'vuex'
+
+export default createStore({
     state: {
-        cookiesAccepted: false,
         questions: [],
         pageImage: 'none'
     },
@@ -8,8 +9,8 @@ export default {
         ajaxQuestionsFromDB({ commit }) {
             axios
                 .get('api/questions')
-                .then(responce => {
-                    commit('setQuestions', responce.data.questions)
+                .then(response => {
+                    commit('setQuestions', response.data.questions)
                 })
                 .catch(error => console.log('Ошибка!', error))
         },
@@ -37,14 +38,11 @@ export default {
         setCurrentPage(state, page) {
             state.currentPage = page
         },
-        acceptCookies(state) {
-            state.cookiesAccepted = true
-        },
         setQuestions(state, data) {
             return (state.questions = data)
         },
         setPageImage(state, data) {
-            state.pageImage = data
+            state.pageImage = 'url('+data+')'
         },
         unsetPageImage(state) {
             state.pageImage = 'none'
@@ -52,9 +50,6 @@ export default {
 
     },
     getters: {
-        cookiesAccepted({ cookiesAccepted }) {
-            return cookiesAccepted
-        },
         questions({ questions }) {
             return questions
         },
@@ -62,4 +57,4 @@ export default {
             return pageImage
         }
     },
-}
+})

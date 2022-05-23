@@ -1,22 +1,22 @@
 <template>
     <div>
-        <b-parallax :img_url="parallax_top" class="min-h-screen flex flex-col justify-center">
+        <b-parallax img_url="/images/sky/kristopher-roller.jpg" class="min-h-screen flex flex-col justify-center">
             <b-card :blur_amount="20" class="flex flex-col md:flex-row max-w-screen-xl m-7 sm:mx-32 xl:mx-auto">
                 <b-card class="p-5" style="box-shadow: 1px 1px white inset">
                     <div class="flex flex-col flex-center">
                         <b-round-box
                             class="mx-auto md:w-60 w-40"
                             alt="User's avatar"
-                            :url="avatar"
+                            url="/images/avatar.jpg"
                         />
                         <div class="flex flex-col text-center">
-                            <p class="name text-white text-2xl mt-3">Владимир</p>
-                            <p class="job text-gray-200 text-lg">Разработчик</p>
+                            <p class="name text-white text-2xl mt-3">{{ $t('common.vladimir') }}</p>
+                            <p class="job text-gray-200 text-lg">{{ $t('common.developer') }}</p>
                         </div>
                     </div>
                 </b-card>
                 <div class="p-8 mx-auto md:text-xl text-sm">
-                    <h2 class="mb-4 text-center">Добро пожаловать на мой блог!</h2>
+                    <h2 class="mb-4 text-center">{{ $t('common.welcome_to_blog') }}!</h2>
                     <p class="mb-4">
                         Если хотите узнать новинки в мире разработок, научиться
                         программировать, или же прочитать моё резюме, то вы
@@ -119,7 +119,7 @@
                 </b-button>
             </div>
         </b-card>
-        <b-parallax :img_url="parallax_bottom" class="min-h-screen text-center py-72">
+        <b-parallax img_url="/images/humans/macbook-and-books.jpg" class="min-h-screen text-center py-72">
             <documents/>
         </b-parallax>
 
@@ -127,26 +127,18 @@
     </div>
 </template>
 <script>
-import parallax_top from "../../../images/sky/kristopher-roller.jpg";
-import parallax_bottom from "../../../images/humans/macbook-and-books.jpg";
-import avatar from '../../../images/avatar.jpg'
 import BParallax from "../b-Parallax";
 import BCard from "../b-Card";
 import BButton from "../b-Button";
 import BDocument from "../b-Document";
 import BFooter from "../layouts/b-Footer";
-import Documents from "../layouts/b-Documents";
+import Documents from "../layouts/b-DocumentsLayout";
 import BTextIcon from "../b-TextIcon";
 
 export default {
     components: {Documents, BFooter, BDocument, BButton, BCard, BParallax, BTextIcon},
-    data() {
-        return {avatar, parallax_top, parallax_bottom}
-    },
-    methods: {
-        setPage(page) {
-            this.$store.commit('setCurrentPage', page)
-        }
+    mounted() {
+        this.$store.commit('unsetPageImage')
     }
 }
 </script>
