@@ -24,11 +24,9 @@
 
     {{-- Css --}}
     <link href="/build/css/app.css" rel="stylesheet">
-{{--    <link href="{{mix('/build/css/app.css')}}" rel="stylesheet">--}}
 
     {{-- Js --}}
     <script src="/build/js/app.js"></script>
-{{--    <script src="{{mix('/build/js/app.js')}}"></script>--}}
 
     {{-- Icons --}}
     <script type="module" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"></script>

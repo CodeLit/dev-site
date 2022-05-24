@@ -11,7 +11,7 @@
                         />
                         <div class="flex flex-col text-center">
                             <p class="name text-white text-2xl mt-3">{{ $t('common.vladimir') }}</p>
-                            <p class="job text-gray-200 text-lg">{{ $t('common.developer') }}</p>
+                            <p class="job text-gray-200 text-lg">{{ $t('common.developer') }}.</p>
                         </div>
                     </div>
                 </b-card>
