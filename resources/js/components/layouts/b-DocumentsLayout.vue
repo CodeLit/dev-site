@@ -1,7 +1,7 @@
 <template>
     <div>
         <b-card class="py-5 px-2">
-            <h1>Мои сертификаты</h1>
+            <h1>{{ $t('common.my_certificates') }}</h1>
             <br>
             <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-12">
                 <b-document src="https://drive.google.com/file/d/1uE-ShssmbRxzdE_SPvAvRW56vr7JIWKr/preview" />
@@ -15,7 +15,7 @@
             </div>
         </b-card>
         <b-card class="mt-72 py-5 px-2">
-            <h2>Другие документы</h2>
+            <h2>{{ $t('common.other_documents') }}</h2>
             <br>
             <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-12">
                 <b-document src="https://drive.google.com/file/d/1jxUd-5pAg14WKaTxWYxRAu0a631Oe9m7/preview" />

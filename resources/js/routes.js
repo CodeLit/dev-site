@@ -7,14 +7,14 @@ import bReviews from './components/pages/b-Reviews'
 export default [
     {
         path: '/',
-        text: 'Обо мне',
+        trans: 'common.about_me',
         name: 'home',
         component: bHome,
         header_absolute: true,
     },
     {
         path: '/my-projects',
-        text: 'Мои работы',
+        trans: 'common.my_projects',
         component: bMyWorks,
     },
     // {
@@ -24,7 +24,7 @@ export default [
     // },
     {
         path: '/documents',
-        text: 'Документы',
+        trans: 'common.documents',
         component: bDocuments
     },
     // {

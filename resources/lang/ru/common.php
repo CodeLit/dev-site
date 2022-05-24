@@ -17,4 +17,11 @@ return [
     'read_resume' => 'Почитать резюме',
     'view_contacts' => 'Посмотреть контакты',
     'what_i_do' => 'Что я умею',
+    'about_me' => 'Обо мне',
+    'my_projects' => 'Мои работы',
+    'documents' => 'Документы',
+    'other_documents' => 'Другие документы',
+    'my_certificates' => 'Мои сертификаты',
+    'contact_with_me' => 'Связаться со мной',
+    'links' => 'Ссылки',
 ];

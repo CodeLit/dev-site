@@ -1,7 +1,7 @@
 <template>
     <footer class="px-5 py-7 flex justify-around" :style="{'backdrop-filter':(blurred?'blur(12px)':'none')}">
         <div id="contacts">
-            <h3>Связаться со мной</h3>
+            <h3>{{ $t('common.contact_with_me') }}</h3>
             <br>
             <div class="flex">
 <!--                <b-link url="tel:+79187467928" class="contact-link">-->
@@ -24,7 +24,7 @@
             </div>
         </div>
         <div>
-            <h3>Ссылки</h3>
+            <h3>{{ $t('common.links') }}</h3>
             <br>
             <b-link url="https://github.com/CodeLit" blank class="contact-link">
                 <ion-icon name="logo-github"></ion-icon>

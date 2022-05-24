@@ -17,4 +17,12 @@ return [
     'read_resume' => 'Read resume',
     'view_contacts' => 'View contacts',
     'what_i_do' => 'What can I do',
+    'about_me' => 'About me',
+    'my_projects' => 'My projects',
+    'documents' => 'Documents',
+    'other_documents' => 'Other documents',
+    'my_certificates' => 'My certificates',
+    'contact_with_me' => 'Contact with me',
+    'links' => 'Links',
+
 ];

@@ -22,7 +22,7 @@
                 class="inline-block col-2 rounded-full px-6 py-3 lg:mx-6 flex-nowrap mb-2 sm:mb-0"
                 :class="[{ active: getCurrentPage() === route.path }]"
             >
-                {{ route.text }}
+                {{ $t(route.trans) }}
             </b-button>
         </div>
 
