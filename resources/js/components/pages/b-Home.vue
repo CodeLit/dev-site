@@ -49,8 +49,9 @@
                         <b-text-icon classes="fab fa-python">Python</b-text-icon>.
                     </h5>
                     <ul>
-                        <li>Работать с различными менеджерами пакетов и сборщиками на различных языках (<i
-                            class="fab fa-npm"></i> npm, composer, pip, и прочие), а также писать свои библиотеки.
+                        <li>{{$t('info.various_languages')}} (<i
+                            class="fab fa-npm"></i> npm, composer, pip, {{ $t('info.and_others') }}),
+                            {{ $t('info.and_also_own_libs') }}.
                         </li>
                         <li>Настраивать автодеплой с помощью <i class="fab fa-git-alt"></i> Git хуков, или через SSH, а
                             также в ручную через git push production. Умею решать конфликты веток, делать merge.
@@ -83,7 +84,7 @@
                     <br><br><br>
                     <h2 class="pb-1">{{$t('common.what_i_know')}}?</h2>
                     <h5 class="my-4">
-                        Фреймворки:
+                        {{ $t('common.frameworks') }}:
                         <i class="fab fa-laravel"></i> Laravel, Django.
                     </h5>
                     <ul>
@@ -109,7 +110,7 @@
                 </div>
                 <b-button class="px-6 py-3 rounded-full mt-5"
                           onclick="$('#contacts')[0].scrollIntoView({block: 'start', behavior: 'smooth'})">
-                    Связаться со мной
+                    {{ $t('common.contact_with_me') }}
                 </b-button>
             </div>
         </b-card>

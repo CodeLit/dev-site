@@ -27,5 +27,7 @@ return [
     'contact_with_me' => 'Contact with me',
     'links' => 'Links',
     'my_stack' => 'My stack',
-
+    'frameworks' => 'Frameworks',
+    'various_languages' => 'Work with various package managers and builders in various languages',
+    'and_others' => 'and others',
 ];
