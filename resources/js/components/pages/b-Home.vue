@@ -17,7 +17,7 @@
                 </b-card>
                 <div class="p-8 mx-auto md:text-xl text-sm">
                     <h2 class="mb-4 text-center">{{ $t('common.welcome_to_blog') }}!</h2>
-                    <p class="mb-4">{{$t('common.home_description')}}.</p>
+                    <p class="mb-4">{{ $t('common.home_description') }}.</p>
                     <div class="flex justify-center gap-5">
                         <b-button class="px-6 py-3 rounded-full"
                                   onclick="$('#who-am-i')[0].scrollIntoView({block: 'start', behavior: 'smooth'})">
@@ -43,70 +43,38 @@
                         {{ $t('common.my_stack') }}:
                         <b-text-icon classes="fab fa-php">PHP</b-text-icon>
                         ,
-<!--                        <b-text-icon classes="fab fa-golang">GoLang</b-text-icon>-->
-<!--                        ,-->
+                        <!--                        <b-text-icon classes="fab fa-golang">GoLang</b-text-icon>-->
+                        <!--                        ,-->
                         <i class="fab fa-html5"></i> <i class="fab fa-js"></i> <i class="fab fa-css3"></i> Web,
-                        <b-text-icon classes="fab fa-python">Python</b-text-icon>.
+                        <b-text-icon classes="fab fa-python">Python</b-text-icon>
+                        .
                     </h5>
                     <ul>
-                        <li>{{$t('info.various_languages')}} (<i
+                        <li>{{ $t('info.various_languages') }} (<i
                             class="fab fa-npm"></i> npm, composer, pip, {{ $t('info.and_others') }}),
                             {{ $t('info.and_also_own_libs') }}.
                         </li>
-                        <li>Настраивать автодеплой с помощью <i class="fab fa-git-alt"></i> Git хуков, или через SSH, а
-                            также в ручную через git push production. Умею решать конфликты веток, делать merge.
+                        <li>{{ $t('info.auto_deploy_with') }} <i class="fab fa-git-alt"></i> Git
+                            {{ $t('info.hooks_or_using') }} SSH, {{ $t('info.as_manually_through') }} git push
+                            production. {{$t('info.resolve_branch_conflicts')}}.
                         </li>
-                        <li>Строить сборки и запускать автоматизированные тесты, работать с интеграциями (CI), например,
-                            Travis, <i class="fab fa-github"></i> Github Actions, или CircleCI.
-                        </li>
-                        <li>Разворачивать собственные проекты с нуля до стадии релиза, настраивать взаимодействие между
-                            приложениями, сайтами через HTTP/REST API.
-                        </li>
-                        <li>Разворачивать проекты, создавать образы с помощью <i class="fab fa-docker"></i> Docker.</li>
-                        <li>Писать проекты для онлайн-игр, имею собственный проект серверов <a href="https://neolife.tk"
-                                                                                               target="_blank">NeoLife</a>.
-                        </li>
-                        <li>Настраивать сервера на базе <i class="fab fa-linux"></i> Linux /
-                            <i class="fab fa-fedora"></i> Fedora (в основном <i class="fab fa-centos"></i> Centos 8),
-                            автоматизировать рутинные задачи с помощью Cron.
-                        </li>
-                        <li>Пользоваться шаблонами (Jinja, Blade) веб-страниц, тегами шаблонов, пользоваться
-                            компонентным
-                            подходом при вставке элементов сайта.
-                        </li>
-                        <li>Автоматически создавать документацию с помощью внешних генераторов документации.</li>
-                        <li>Читать чужой код, и пользоваться инструментами для отладки, писать полные и понятные
-                            комментарии
-                            к коду.
-                        </li>
-                        <li>Понятно и довольно быстро обучать других людей, заинтересованных в обучении.</li>
+                        <li v-html="$t('info.work_with_integrations')"></li>
+                        <li v-html="$t('info.deploying_own_project')"></li>
+                        <li v-html="$t('info.deploying_with_docker')"></li>
+                        <li v-html="$t('info.my_own_projects')"></li>
+                        <li v-html="$t('info.servers_on_linux')"></li>
+                        <li v-html="$t('info.jinja_blade')"></li>
+                        <li v-html="$t('info.auto_docs')"></li>
+                        <li v-html="$t('info.read_external_code')"></li>
+                        <li v-html="$t('info.teach_other_people')"></li>
                     </ul>
                     <br><br><br>
-                    <h2 class="pb-1">{{$t('common.what_i_know')}}?</h2>
+                    <h2 class="pb-1">{{ $t('common.what_i_know') }}?</h2>
                     <h5 class="my-4">
                         {{ $t('common.frameworks') }}:
                         <i class="fab fa-laravel"></i> Laravel, Django.
                     </h5>
-                    <ul>
-                        <li>ООП, классы, объекты (instance), методы классов, интерфейсы (описатели классов),
-                            конструкторы,
-                            указатели и прочие базовые вещи.
-                        </li>
-                        <li>Все основные команды <i class="fab fa-git-alt"></i> Git (которые мне кажутся основными)</li>
-                        <li>Принципы SOLID, Dry, Kis, и другие</li>
-                        <li>Синтаксис баз данных, построение запросов, транзакций</li>
-                        <li>Запросы в GraphQL и FaunaDB</li>
-                        <li>HTTP/REST API запросы и ответы, к примеру библиотеку Ajax, или Axios</li>
-                        <li>Асинхронный код, многопоточность, Promises, и прочее</li>
-                        <li>Языки <i class="fab fa-python"></i> Python, веб-языки,
-                            включая
-                            <i class="fab fa-php"></i> PHP,
-                            <i class="fab fa-js"></i> JS и стандарт EcmaScript,
-                            <i class="fab fa-golang"></i> GoLang (энтузиаст), Lua, 1С
-                        </li>
-                        <li>Регулярные выражения (RegExp), выборки из строк</li>
-                        <li>Хеш-таблицы и хеш-функции для малозатратного поиска</li>
-                    </ul>
+                    <ul v-html="$t('info.second_block')"></ul>
                 </div>
                 <b-button class="px-6 py-3 rounded-full mt-5"
                           onclick="$('#contacts')[0].scrollIntoView({block: 'start', behavior: 'smooth'})">

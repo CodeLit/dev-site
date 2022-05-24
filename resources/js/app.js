@@ -98,7 +98,5 @@ requireComponent.keys().forEach(fileName => {
 let lang = $('html').attr('lang')
 
 loadLanguageAsync(lang).then(r => {
-    console.warn(`Loaded ${lang} language!`)
+    app.mount('#app')
 })
-
-app.mount('#app')
