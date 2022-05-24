@@ -24,9 +24,6 @@ export default {
     components: {bProject, bFooter},
     mounted() {
         this.$store.commit('setPageImage', '/images/backgrounds/laptop-on-table.jpg')
-    },
-    destroyed() {
-        this.$store.commit('unsetPageImage')
     }
 }
 </script>

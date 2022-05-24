@@ -13,9 +13,6 @@ export default {
     components: {bDocuments,bFooter},
     mounted() {
         this.$store.commit('setPageImage','/images/backgrounds/business-people.jpg')
-    },
-    destroyed() {
-        this.$store.commit('unsetPageImage')
     }
 }
 </script>

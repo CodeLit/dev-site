@@ -17,21 +17,15 @@
                 </b-card>
                 <div class="p-8 mx-auto md:text-xl text-sm">
                     <h2 class="mb-4 text-center">{{ $t('common.welcome_to_blog') }}!</h2>
-                    <p class="mb-4">
-                        Если хотите узнать новинки в мире разработок, научиться
-                        программировать, или же прочитать моё резюме, то вы
-                        попали по адресу. Вся информация на данном ресурсе
-                        проверена годами опыта, а также изложена в понятном
-                        виде.
-                    </p>
+                    <p class="mb-4">{{$t('common.home_description')}}.</p>
                     <div class="flex justify-center gap-5">
                         <b-button class="px-6 py-3 rounded-full"
                                   onclick="$('#who-am-i')[0].scrollIntoView({block: 'start', behavior: 'smooth'})">
-                            Почитать резюме
+                            {{ $t('common.read_resume') }}
                         </b-button>
                         <b-button class="px-6 py-3 rounded-full"
                                   onclick="$('#contacts')[0].scrollIntoView({block: 'start', behavior: 'smooth'})">
-                            Посмотреть контакты
+                            {{ $t('common.view_contacts') }}
                         </b-button>
                         <!--                        <b-button class="px-6 py-3 rounded-full"-->
                         <!--                                  @click.native="setPage('learn')">Хочу учиться!</b-button>-->
@@ -44,7 +38,7 @@
         <b-card id="who-am-i" class="py-9 sm:py-16">
             <div class="container">
                 <div class="text-sm md:text-base">
-                    <h2 class="pb-1">Что я умею?</h2>
+                    <h2 class="pb-1">{{ $t('common.what_i_do') }}?</h2>
                     <h5 class="my-4">
                         Мой стек:
                         <b-text-icon classes="fab fa-php">PHP</b-text-icon>
