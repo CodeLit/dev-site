@@ -34,3 +34,4 @@ mix.js('resources/js/app.js', 'public/build/js')
         },
         plugins: [new LiveReloadPlugin()],
     })
+    .version()
