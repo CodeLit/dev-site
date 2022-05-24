@@ -75,7 +75,9 @@ export default {
             return getActiveLanguage()
         },
         selectLanguage(lang){
-            window.location.href = '/?lang='+lang
+            let url = new URL(window.location.href);
+            url.searchParams.set('lang', lang);
+            window.location.href = url.toString()
         }
     },
 }
