@@ -1,6 +1,7 @@
 <?php
 return [
     'test' => 'Тест',
+    'blog_name' => 'Блог CodeLit',
     'warning' => 'Предупреждение',
     'this_site_uses' => 'Этот сайт использует',
     'cookies' => 'Печенье',
@@ -17,6 +18,7 @@ return [
     'read_resume' => 'Почитать резюме',
     'view_contacts' => 'Посмотреть контакты',
     'what_i_do' => 'Что я умею',
+    'what_i_know' => 'Что я знаю',
     'about_me' => 'Обо мне',
     'my_projects' => 'Мои работы',
     'documents' => 'Документы',
@@ -24,4 +26,5 @@ return [
     'my_certificates' => 'Мои сертификаты',
     'contact_with_me' => 'Связаться со мной',
     'links' => 'Ссылки',
+    'my_stack' => ' Мой стек',
 ];

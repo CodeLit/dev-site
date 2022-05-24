@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Блог CodeLit</title>
+    <title>{{__('common.blog_name')}}</title>
 
     {{--  favicon creator  https://favicon.io --}}
     {{-- favicon generator https://realfavicongenerator.net/ --}}
@@ -36,8 +36,6 @@
         <script src="http://localhost:35729/livereload.js"></script>
     @endenv
 
-{{--    fixing not ssl secured iframes--}}
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 </head>
 
 <body>

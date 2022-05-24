@@ -9,7 +9,7 @@
             Здесь все фильтры динамические."/>
             <b-project link="https://sofilena.ru" job-type="командная"
                        description="Одна из моих первых работ, написанная в связке с Битрикс. Сайт полностью подключён к 1С, и активно дорабатывался."/>
-            <b-project link="http://bonussofilena.ru" job-type="одиночная"
+            <b-project link="http://bonussofilena.ru" get_external_html="true" job-type="одиночная"
                        description="Отдельная система для работы с бонусными картами в магазинах SofiLena. Ведётся активная база данных по операциям с клиентами. Весь сайт полностью написан мной, подключён с помощью API к 1С торговле."/>
         </div>
         <b-footer blurred="1"/>

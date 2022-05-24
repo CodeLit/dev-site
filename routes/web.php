@@ -1,5 +1,6 @@
 <?php
 
+use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,8 +20,10 @@ Route::get('/', function () {
 
 Route::get('/iframe-redirect', function () {
     $url = request()->get('url');
+    $client = new Client();
+    $res = $client->get($url);
     if (empty($url)) abort(404);
-    return redirect($url);
+    return $res->getBody();
 });
 
 Route::get('/{any}', function () {

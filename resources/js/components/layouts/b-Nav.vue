@@ -18,11 +18,18 @@
             <b-button
                 :key="route.path"
                 v-for="route in getPages()"
-                @click.native="changePage(route)"
+                @click="changePage(route)"
                 class="inline-block col-2 rounded-full px-6 py-3 lg:mx-6 flex-nowrap mb-2 sm:mb-0"
                 :class="[{ active: getCurrentPage() === route.path }]"
             >
                 {{ $t(route.trans) }}
+            </b-button>
+
+            <b-button
+                @click="selectLanguage(getNextLanguage())"
+                class="inline-block rounded-full px-3"
+            >
+                <img :src="'/images/icons/'+getNextLanguage()+'_flag.svg'" width="25">
             </b-button>
         </div>
 
@@ -39,6 +46,7 @@
 <script>
 import circleImage from '../../../images/logo-circle.svg'
 import BButton from "../b-Button";
+import {getActiveLanguage} from "laravel-vue-i18n";
 
 export default {
     components: {BButton},
@@ -60,6 +68,15 @@ export default {
         changeLinksState() {
             $('#nav-list').toggleClass('hidden').toggleClass('flex')
         },
+        getNextLanguage(){
+            return this.getCurrentLanguage() === 'ru' ? 'en' : 'ru'
+        },
+        getCurrentLanguage(){
+            return getActiveLanguage()
+        },
+        selectLanguage(lang){
+            window.location.href = '/?lang='+lang
+        }
     },
 }
 </script>

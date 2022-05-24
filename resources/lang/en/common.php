@@ -1,6 +1,7 @@
 <?php
 return [
     'test' => 'Test',
+    'blog_name' => 'CodeLit blog',
     'warning' => 'Warning',
     'this_site_uses' => 'This site uses',
     'cookies' => 'Cookies',
@@ -17,6 +18,7 @@ return [
     'read_resume' => 'Read resume',
     'view_contacts' => 'View contacts',
     'what_i_do' => 'What can I do',
+    'what_i_know' => 'What do I know',
     'about_me' => 'About me',
     'my_projects' => 'My projects',
     'documents' => 'Documents',
@@ -24,5 +26,6 @@ return [
     'my_certificates' => 'My certificates',
     'contact_with_me' => 'Contact with me',
     'links' => 'Links',
+    'my_stack' => 'My stack',
 
 ];

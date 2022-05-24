@@ -40,7 +40,7 @@
                 <div class="text-sm md:text-base">
                     <h2 class="pb-1">{{ $t('common.what_i_do') }}?</h2>
                     <h5 class="my-4">
-                        Мой стек:
+                        {{ $t('common.my_stack') }}:
                         <b-text-icon classes="fab fa-php">PHP</b-text-icon>
                         ,
 <!--                        <b-text-icon classes="fab fa-golang">GoLang</b-text-icon>-->
@@ -81,7 +81,7 @@
                         <li>Понятно и довольно быстро обучать других людей, заинтересованных в обучении.</li>
                     </ul>
                     <br><br><br>
-                    <h2 class="pb-1">Что я знаю?</h2>
+                    <h2 class="pb-1">{{$t('common.what_i_know')}}?</h2>
                     <h5 class="my-4">
                         Фреймворки:
                         <i class="fab fa-laravel"></i> Laravel, Django.

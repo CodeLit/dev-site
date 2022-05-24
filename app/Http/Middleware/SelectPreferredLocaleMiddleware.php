@@ -9,7 +9,7 @@ use Symfony\Component\HttpFoundation\AcceptHeader;
 class SelectPreferredLocaleMiddleware
 {
     const SESSION_KEY = 'locale';
-    const LOCALES = ['ru', 'en'];
+    const LOCALES = ['en','ru'];
 
     public function handle(Request $request, Closure $next) {
         $session = $request->session();
