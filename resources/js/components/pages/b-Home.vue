@@ -7,7 +7,7 @@
                         <b-round-box
                             class="mx-auto md:w-60 w-40"
                             alt="User's avatar"
-                            url="/images/avatar.jpg"
+                            url="/images/profile-2.png"
                         />
                         <div class="flex flex-col text-center">
                             <p class="name text-white text-2xl mt-3">{{ $t('common.vladimir') }}</p>

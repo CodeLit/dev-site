@@ -1,5 +1,5 @@
 <template>
-    <img class="rounded-full bg-cover" :src="url" :alt="alt" />
+    <img class="rounded-full object-cover" :alt="alt" :src="url" />
 </template>
 
 <script>
