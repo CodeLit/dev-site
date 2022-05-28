@@ -8,9 +8,9 @@
         </div>
         <UseElementVisibility v-slot="{isVisible}">
             <iframe style="pointer-events: none"
-                v-if="!disable_preview" v-lazy="(get_external_html?'/iframe-redirect?url=':'')+link"
-                    loading="lazy"
-                    class="frame"></iframe>
+                v-if="!disable_preview && (isVisible || wasCreated)"
+                    v-lazy="(get_external_html?'/iframe-redirect?url=':'')+link"
+                    loading="lazy" class="frame" @load="appear"></iframe>
         </UseElementVisibility>
     </b-card>
 </template>
@@ -23,6 +23,16 @@ import { UseElementVisibility } from '@vueuse/components'
 export default {
     name: "b-Project",
     props: ['link','jobType','title','descriptionTrans','get_external_html', 'disable_preview'],
+    data() {
+        return {
+            wasCreated: false,
+        }
+    },
+    methods:{
+        appear() {
+            this.wasCreated = true
+        }
+    }
 }
 </script>
 
