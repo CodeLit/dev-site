@@ -7,7 +7,9 @@
             <p>{{$t('projects.'+descriptionTrans)}}</p>
         </div>
         <UseElementVisibility v-slot="{isVisible}">
-            <iframe v-if="!disable_preview" v-lazy="(get_external_html?'/iframe-redirect?url=':'')+link"
+            <iframe style="pointer-events: none"
+                v-if="!disable_preview" v-lazy="(get_external_html?'/iframe-redirect?url=':'')+link"
+                    loading="lazy"
                     class="frame"></iframe>
         </UseElementVisibility>
     </b-card>
@@ -20,7 +22,7 @@ import { UseElementVisibility } from '@vueuse/components'
 <script>
 export default {
     name: "b-Project",
-    props: ['link','jobType','title','descriptionTrans','get_external_html', 'disable_preview']
+    props: ['link','jobType','title','descriptionTrans','get_external_html', 'disable_preview'],
 }
 </script>
 

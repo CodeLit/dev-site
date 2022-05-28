@@ -1,7 +1,8 @@
 <template>
     <div style="height: 27rem">
         <UseElementVisibility v-slot="{isVisible}">
-            <iframe v-if="isVisible" v-lazy="src" loading="lazy" class="w-full h-full"></iframe>
+            <iframe :style="{'pointer-events':shouldDisableScrolling?'none':'all'}"
+                    v-if="isVisible" v-lazy="src" loading="lazy" class="w-full h-full"></iframe>
         </UseElementVisibility>
     </div>
 </template>
@@ -11,7 +12,15 @@ import { UseElementVisibility } from '@vueuse/components'
 </script>
 
 <script>
+import {VueScreenSizeMixin} from "vue-screen-size";
+
 export default {
-    props: ['src']
+    props: ['src'],
+    mixins: [VueScreenSizeMixin],
+    computed:{
+        shouldDisableScrolling(){
+            return this.$vssWidth < 800
+        }
+    }
 }
 </script>
