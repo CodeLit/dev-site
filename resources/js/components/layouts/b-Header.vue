@@ -1,5 +1,5 @@
 <template>
-    <header class="w-full p-7" :class="[{ 'md:absolute':  getCurrentRouteParams['header_absolute']}]">
+    <header class="w-full py-2 px-4 md:p-7" :class="[{ 'md:absolute':  getCurrentRouteParams['header_absolute']}]">
         <b-nav />
     </header>
 </template>

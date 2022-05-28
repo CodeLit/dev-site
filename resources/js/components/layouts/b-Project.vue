@@ -6,9 +6,16 @@
             <p>{{$t('projects.type')}}: {{$t('projects.'+jobType)}}</p>
             <p>{{$t('projects.'+descriptionTrans)}}</p>
         </div>
-        <iframe v-if="!disable_preview" v-lazy="(get_external_html?'/iframe-redirect?url=':'')+link" class="frame"></iframe>
+        <UseElementVisibility v-slot="{isVisible}">
+            <iframe v-if="!disable_preview" v-lazy="(get_external_html?'/iframe-redirect?url=':'')+link"
+                    class="frame"></iframe>
+        </UseElementVisibility>
     </b-card>
 </template>
+
+<script setup>
+import { UseElementVisibility } from '@vueuse/components'
+</script>
 
 <script>
 export default {
