@@ -72,7 +72,7 @@
                     <h2 class="pb-1">{{ $t('common.what_i_know') }}?</h2>
                     <h5 class="my-4">
                         {{ $t('common.frameworks') }}:
-                        <i class="fab fa-laravel"></i> Laravel, Django.
+                        <i class="fab fa-laravel"></i> Laravel, <i class="fab fa-vuejs"></i> Vue, Django, Yii, Flask.
                     </h5>
                     <ul v-html="$t('info.second_block')"></ul>
                 </div>
