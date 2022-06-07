@@ -20,7 +20,7 @@
                     <p class="mb-4">{{ $t('common.home_description') }}.</p>
                     <div class="flex justify-center gap-5">
                         <b-button class="px-6 py-3 rounded-full"
-                                  onclick="$('#who-am-i')[0].scrollIntoView({block: 'start', behavior: 'smooth'})">
+                                  onclick="window.open('/pdf/Resume.pdf', '_blank').focus()">
                             {{ $t('common.read_resume') }}
                         </b-button>
                         <b-button class="px-6 py-3 rounded-full"
@@ -41,7 +41,7 @@
                     <h2 class="pb-1">{{ $t('common.what_i_do') }}?</h2>
                     <h5 class="my-4">
                         {{ $t('common.my_stack') }}:
-                        <b-text-icon classes="fab fa-php">PHP,</b-text-icon>
+                        <b-text-icon classes="fab fa-php">PHP, </b-text-icon>
                         <!--                        <b-text-icon classes="fab fa-golang">GoLang</b-text-icon>-->
                         <!--                        ,-->
                         <i class="fab fa-html5"></i> <i class="fab fa-js"></i> <i class="fab fa-css3"></i> Web,
@@ -70,7 +70,8 @@
                     <h2 class="pb-1">{{ $t('common.what_i_know') }}?</h2>
                     <h5 class="my-4">
                         {{ $t('common.frameworks') }}:
-                        <i class="fab fa-laravel"></i> Laravel, <i class="fab fa-vuejs"></i> Vue, Django, Yii, Flask.
+                        <i class="fab fa-laravel"></i> Laravel, <i class="fab fa-vuejs"></i> Vue, Django, Yii, Flask,
+                        <i class="fab fa-modx"></i> ModX.
                     </h5>
                     <ul v-html="$t('info.second_block')"></ul>
                 </div>
