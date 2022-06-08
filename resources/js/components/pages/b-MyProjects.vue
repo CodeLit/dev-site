@@ -3,7 +3,7 @@
         <div class="card-container mx-auto">
             <b-project link="https://rosretail.com" job-type="teamwork" description-trans="rosretail" />
             <b-project link="https://arendator.moscow" job-type="teamwork" description-trans="arendator"/>
-            <b-project job-type="solo_work" description-trans="telegram-bots" disable_preview="true" />
+            <b-project title="Telegram Bots" job-type="solo_work" description-trans="telegram-bots" disable_preview="true" />
             <b-project link="https://sofilena.ru" job-type="teamwork" description-trans="sofilena"/>
             <b-project link="http://bonussofilena.ru" get_external_html="true" disable_preview="true"
                        job-type="solo_work" description-trans="bonussofilena"/>

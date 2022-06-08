@@ -1,7 +1,7 @@
 <template>
     <b-card class="mb-5 pb-4">
         <div class="p-4">
-            <h1>{{title}}</h1>
+            <h4 v-if="title" class="mb-3">{{title}}</h4>
             <a v-if="link" target="_blank" :href="link">{{removeProtocol(link)}}</a>
             <p>{{$t('projects.type')}}: {{$t('projects.'+jobType)}}</p>
             <p v-if="descriptionTrans" v-html="$t('projects.'+descriptionTrans)"></p>
