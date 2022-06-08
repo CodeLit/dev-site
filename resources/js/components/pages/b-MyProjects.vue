@@ -7,7 +7,15 @@
             <b-project link="https://sofilena.ru" job-type="teamwork" description-trans="sofilena"/>
             <b-project link="http://bonussofilena.ru" get_external_html="true" disable_preview="true"
                        job-type="solo_work" description-trans="bonussofilena"/>
-<!--        TODO: Добавить телеграм-ботов, и прочие маленькие проекты.-->
+            <b-project link="https://whitewill.london" job-type="teamwork" />
+            <b-project link="https://marinadubai.ae" job-type="teamwork" />
+            <b-project link="https://kupitekvartiru.com" job-type="teamwork" />
+            <b-project link="https://moscowcitysale.ru" job-type="teamwork" />
+            <b-project link="https://kupiteloft.ru" job-type="teamwork" />
+            <b-project link="https://hamovnyki.ru" job-type="teamwork" />
+            <b-project link="https://silverbor.moscow" job-type="teamwork" />
+            <b-project link="https://barvikha.moscow" job-type="teamwork" />
+            <b-project link="https://osobnyaki.com" job-type="teamwork" />
         </div>
         <b-footer blurred="1"/>
     </div>
