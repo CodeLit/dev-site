@@ -2,9 +2,9 @@
     <b-card class="mb-5 pb-4">
         <div class="p-4">
             <h1>{{title}}</h1>
-            <a target="_blank" :href="link">{{link}}</a>
+            <a v-if="link" target="_blank" :href="link">{{link}}</a>
             <p>{{$t('projects.type')}}: {{$t('projects.'+jobType)}}</p>
-            <p>{{$t('projects.'+descriptionTrans)}}</p>
+            <p v-html="$t('projects.'+descriptionTrans)"></p>
         </div>
         <UseElementVisibility v-slot="{isVisible}">
             <iframe style="pointer-events: none"
