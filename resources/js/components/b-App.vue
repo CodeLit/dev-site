@@ -1,4 +1,4 @@
-<template>
+<template xmlns="http://www.w3.org/1999/html">
     <div class="app w-screen" ref="app" :style="{'background-image':$store.getters.getPageImage}">
         <b-header class="top-0 left-0" />
 
@@ -39,6 +39,10 @@
                 >
             </div>
         </b-card>
+        <transition name="fade">
+            <b-card v-if="isArrowUpVisible" @click="scrollToTop()"
+                class="up-scroller sticky p-9 z-10 w-fit ml-auto cursor-pointer select-none"></b-card>
+        </transition>
     </div>
 </template>
 
@@ -47,11 +51,13 @@ import bCircle from './b-Circle.vue'
 import BRoundBox from './b-RoundBox.vue'
 import BButton from "./b-Button";
 import Cookies from "js-cookie";
+import BCard from "./b-Card";
 export default {
-    components: {BButton, bCircle, BRoundBox },
+    components: {BCard, BButton, bCircle, BRoundBox },
     data() {
         return {
-            cookiesAccepted: false
+            cookiesAccepted: false,
+            windowTop: 0,
         }
     },
     methods: {
@@ -59,10 +65,25 @@ export default {
             Cookies.set('cookiesAccepted', true, { expires: 3 })
             this.cookiesAccepted = true
         },
+        scrollToTop(){
+            $('body')[0].scrollIntoView({block: 'start', behavior: 'smooth'})
+        },
+        onScroll(e) {
+            this.windowTop = window.top.scrollY
+        }
+    },
+    computed: {
+        isArrowUpVisible(){
+            return (this.windowTop > window.innerHeight*1.5)
+        }
     },
     mounted() {
+        window.addEventListener("scroll", this.onScroll)
         this.cookiesAccepted =  Cookies.get('cookiesAccepted')
-    }
+    },
+    beforeDestroy() {
+        window.removeEventListener("scroll", this.onScroll)
+    },
 }
 </script>
 
@@ -72,6 +93,25 @@ export default {
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
+}
+
+.up-scroller {
+    content: '';
+    right: 2rem;
+    bottom: 2rem;
+    border: white solid 1px;
+    border-radius: 50%;
+    transition: visibility 1s;
+}
+
+.up-scroller:before{
+    content: '⇧';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    font-size: 2rem;
+    font-weight: bold;
 }
 
 .fade-enter-active,
