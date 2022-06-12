@@ -96,12 +96,10 @@ export default {
 }
 
 .up-scroller {
-    content: '';
     right: 2rem;
     bottom: 2rem;
     border: white solid 1px;
     border-radius: 50%;
-    transition: visibility 1s;
 }
 
 .up-scroller:before{
