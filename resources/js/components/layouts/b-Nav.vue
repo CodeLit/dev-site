@@ -2,16 +2,13 @@
     <nav class="navbar mt-3 mb-1 flex items-center justify-between">
         <router-link
             :to="{name: 'home'}"
-            class="block text-center nav-logo flex-shrink-0 text-4xl rounded-full w-24 h-24 relative self-start"
-        >
-            <img :src="circleImage" class="w-full h-full" />
-
-            <div
-                class="absolute left-1/2 top-1/2 text-white"
-                style="transform: translateX(-50%) translateY(-55%)"
-            >
-                Blog
-            </div>
+            class="block text-center nav-logo flex-shrink-0 text-4xl rounded-full w-24 h-24 relative self-start">
+            <b-button class="active w-full h-full rounded-full">
+                <div class="absolute left-1/2 top-1/2 text-white"
+                    style="transform: translateX(-50%) translateY(-55%)">
+                    Blog
+                </div>
+            </b-button>
         </router-link>
 
         <div id="nav-list" class="hidden sm:flex flex-col sm:flex-row">
@@ -45,15 +42,12 @@
 </template>
 
 <script>
-import circleImage from '../../../images/logo-circle.svg'
 import BButton from "../b-Button";
 import {getActiveLanguage} from "laravel-vue-i18n";
+import BCard from "../b-Card";
 
 export default {
-    components: {BButton},
-    data() {
-        return { circleImage }
-    },
+    components: {BCard, BButton},
     methods: {
         getPages(){
             return this.$router.options.routes

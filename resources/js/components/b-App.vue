@@ -39,9 +39,9 @@
                 >
             </div>
         </b-card>
-        <transition name="fade">
+        <transition name="fade" class="up-scroller sticky">
             <b-card v-if="isArrowUpVisible" @click="scrollToTop()"
-                class="up-scroller sticky p-9 z-10 w-fit ml-auto cursor-pointer select-none"></b-card>
+                    class="p-9 z-10 w-fit ml-auto cursor-pointer select-none"></b-card>
         </transition>
     </div>
 </template>
@@ -116,12 +116,10 @@ export default {
 
 .fade-enter-active,
 .fade-leave-active {
-    transition-duration: 1s;
-    transition-property: opacity;
-    transition-timing-function: ease;
+    transition: opacity 0.4s ease;
 }
-.fade-enter,
-.fade-leave-active {
+.fade-enter-from,
+.fade-leave-to {
     opacity: 0
 }
 
