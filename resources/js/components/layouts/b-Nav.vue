@@ -6,7 +6,7 @@
             <b-button class="active w-full h-full rounded-full">
                 <div class="absolute left-1/2 top-1/2 text-white"
                     style="transform: translateX(-50%) translateY(-55%)">
-                    Blog
+                    Dev
                 </div>
             </b-button>
         </router-link>
