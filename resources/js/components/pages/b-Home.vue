@@ -20,7 +20,7 @@
                     <p class="mb-4">{{ $t('common.home_description') }}.</p>
                     <div class="flex justify-center gap-5">
                         <b-button class="px-6 py-3 rounded-full"
-                                  onclick="window.open('/pdf/Resume.pdf', '_blank').focus()">
+                                  onclick="window.open('/pdf/CV_Gelunov.pdf', '_blank').focus()">
                             {{ $t('common.read_resume') }}
                         </b-button>
                         <b-button class="px-6 py-3 rounded-full"

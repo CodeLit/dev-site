@@ -10,10 +10,10 @@ return [
     'okay_fine' => 'Fine',
     'vladimir' => 'Vladimir',
     'developer' => 'Developer',
-    'home_description' => "If you want to read about me, my resume, then you
+    'home_description' => "If you want to read about me, my CV, then you
                          hit the address. All information on this resource presented in an understandable
                          form",
-    'read_resume' => 'Read resume',
+    'read_resume' => 'Read CV',
     'view_contacts' => 'View contacts',
     'what_i_do' => 'What can I do',
     'what_i_know' => 'What do I know',
