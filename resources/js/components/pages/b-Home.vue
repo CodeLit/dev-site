@@ -5,9 +5,10 @@
                 <b-card class="p-5" style="box-shadow: 1px 1px white inset">
                     <div class="flex flex-col flex-center">
                         <b-round-box
+                            style="border-radius: 7%"
                             class="mx-auto md:w-60 w-40"
                             alt="User's avatar"
-                            url="/images/profile-2.png"
+                            url="/images/profile-3.png"
                         />
                         <div class="flex flex-col text-center">
                             <p class="name text-white text-2xl mt-3">{{ $t('common.vladimir') }}</p>
@@ -15,23 +16,24 @@
                         </div>
                     </div>
                 </b-card>
-                <div class="p-8 mx-auto md:text-xl text-sm">
-                    <h2 class="mb-4 text-center">{{ $t('common.welcome_to_blog') }}!</h2>
-                    <p class="mb-4">{{ $t('common.home_description') }}.</p>
-                    <div class="flex justify-center gap-5">
-                        <b-button class="px-6 py-3 rounded-full"
-                                  onclick="window.open('/pdf/CV_Gelunov.pdf', '_blank').focus()">
-                            {{ $t('common.read_resume') }}
-                        </b-button>
-                        <b-button class="px-6 py-3 rounded-full"
-                                  onclick="$('#contacts')[0].scrollIntoView({block: 'start', behavior: 'smooth'})">
-                            {{ $t('common.view_contacts') }}
-                        </b-button>
-                        <!--                        <b-button class="px-6 py-3 rounded-full"-->
-                        <!--                                  @click.native="setPage('learn')">Хочу учиться!</b-button>-->
+                <div class="p-8 mx-auto md:text-xl text-sm flex place-items-center">
+                    <div>
+                        <h2 class="mb-4 text-center">{{ $t('common.welcome_to_blog') }}!</h2>
+                        <p class="mb-4">{{ $t('common.home_description') }}.</p>
+                        <div class="flex justify-center gap-5">
+                            <b-button class="px-6 py-3 rounded-full"
+                                      onclick="window.open('/pdf/CV_Gelunov.pdf', '_blank').focus()">
+                                {{ $t('common.read_resume') }}
+                            </b-button>
+                            <b-button class="px-6 py-3 rounded-full"
+                                      onclick="$('#contacts')[0].scrollIntoView({block: 'start', behavior: 'smooth'})">
+                                {{ $t('common.view_contacts') }}
+                            </b-button>
+                            <!--                        <b-button class="px-6 py-3 rounded-full"-->
+                            <!--                                  @click.native="setPage('learn')">Хочу учиться!</b-button>-->
 
+                        </div>
                     </div>
-
                 </div>
             </b-card>
         </b-parallax>
