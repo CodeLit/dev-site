@@ -1,7 +1,7 @@
 <?php
 return [
     'test' => 'Test',
-    'blog_name' => 'CodeLit Dev',
+    'blog_name' => "Vladimir's Dev Site",
     'warning' => 'Warning',
     'this_site_uses' => 'This site uses',
     'cookies' => 'Cookies',

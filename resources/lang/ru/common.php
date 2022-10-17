@@ -1,7 +1,7 @@
 <?php
 return [
     'test' => 'Тест',
-    'blog_name' => 'Блог CodeLit',
+    'blog_name' => 'Dev Сайт Владимира',
     'warning' => 'Предупреждение',
     'this_site_uses' => 'Этот сайт использует',
     'cookies' => 'Печенье',
