@@ -13,8 +13,7 @@ return [
     'deploying_own_project'=>'Deploy my own projects from scratch to the release stage, set up interaction between
                              applications, websites via HTTP/REST API.',
     'deploying_with_docker' => 'Deploy projects, build images with <i class="fab fa-docker"></i> Docker.',
-    'my_own_projects' => 'Write projects for online games, I have my own server project <a href="https://neolife.tk"
-                                                                                                target="_blank">NeoLife</a>.',
+    'my_own_projects' => 'Write server projects for online games, II used to have my own project NeoLife.',
     'servers_on_linux' => 'Configure servers based on <i class="fab fa-linux"></i> Linux /
                              <i class="fab fa-fedora"></i> Fedora (mainly <i class="fab fa-centos"></i> Centos 8),
                              automate routine tasks with Cron.',

@@ -13,8 +13,7 @@ return [
     'deploying_own_project' => 'Разворачивать собственные проекты с нуля до стадии релиза, настраивать взаимодействие между
                             приложениями, сайтами через HTTP/REST API.',
     'deploying_with_docker' => 'Разворачивать проекты, создавать образы с помощью <i class="fab fa-docker"></i> Docker.',
-    'my_own_projects' => 'Писать проекты для онлайн-игр, имею собственный проект серверов <a href="https://neolife.tk"
-                                                                                               target="_blank">NeoLife</a>.',
+    'my_own_projects' => 'Писать проекты для онлайн-игр, имел собственный проект серверов NeoLife.',
     'servers_on_linux' => 'Настраивать сервера на базе <i class="fab fa-linux"></i> Linux /
                             <i class="fab fa-fedora"></i> Fedora (в основном <i class="fab fa-centos"></i> Centos 8),
                             автоматизировать рутинные задачи с помощью Cron.',
