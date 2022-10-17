@@ -14,31 +14,31 @@
             class="right-20 sm:right-56 top-96 sm:top-20"
             style="transform: rotate(225deg)"
         />
-        <b-card
-            v-if="!cookiesAccepted"
-            class="fixed flex place-items-center left-2 bottom-2 px-5 py-3  w-full lg:w-1/2 border-white border-l-2"
-        >
-            <b-round-box
-                width="120"
-                class="mr-3"
-                alt="Cookies image"
-                url="/images/cookies.png"
-            />
-            <div>
-                <h4>{{ $t('common.warning') }}.</h4>
-                {{ $t('common.this_site_uses') }}
-                <a
-                    href="https://support.mozilla.org/ru/kb/kuki-informaciya-kotoruyu-veb-sajty-hranyat-na-vas"
-                    target="__blank"
-                    >{{ $t('common.cookies') }}</a
-                >. {{ $t('common.dont_like_cookies') }}.
-                <b-button
-                    class="px-3 py-1 inline-block float-right mr-10 "
-                    @click.native="acceptCookies"
-                    >{{ $t('common.okay_fine') }}</b-button
-                >
-            </div>
-        </b-card>
+<!--        <b-card-->
+<!--            v-if="!cookiesAccepted"-->
+<!--            class="fixed flex place-items-center left-2 bottom-2 px-5 py-3  w-full lg:w-1/2 border-white border-l-2"-->
+<!--        >-->
+<!--            <b-round-box-->
+<!--                width="120"-->
+<!--                class="mr-3"-->
+<!--                alt="Cookies image"-->
+<!--                url="/images/cookies.png"-->
+<!--            />-->
+<!--            <div>-->
+<!--                <h4>{{ $t('common.warning') }}.</h4>-->
+<!--                {{ $t('common.this_site_uses') }}-->
+<!--                <a-->
+<!--                    href="https://support.mozilla.org/ru/kb/kuki-informaciya-kotoruyu-veb-sajty-hranyat-na-vas"-->
+<!--                    target="__blank"-->
+<!--                    >{{ $t('common.cookies') }}</a-->
+<!--                >. {{ $t('common.dont_like_cookies') }}.-->
+<!--                <b-button-->
+<!--                    class="px-3 py-1 inline-block float-right mr-10 "-->
+<!--                    @click.native="acceptCookies"-->
+<!--                    >{{ $t('common.okay_fine') }}</b-button-->
+<!--                >-->
+<!--            </div>-->
+<!--        </b-card>-->
         <transition name="fade" class="up-scroller sticky">
             <b-card v-if="isArrowUpVisible" @click="scrollToTop()"
                     class="p-9 z-10 w-fit ml-auto cursor-pointer select-none"></b-card>
