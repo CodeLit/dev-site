@@ -1,6 +1,6 @@
 /node_modules
-/public/**/*.css
-/public/**/*.js
+/public/build/**/*.css
+/public/build/**/*.js
 /public/hot
 /public/storage
 /public/images
