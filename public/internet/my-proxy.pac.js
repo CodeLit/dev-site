@@ -1,3 +1,5 @@
+// Скрипт проксирует входящий трафик по определённым правилам
+
 function FindProxyForURL(url, host) {
 
     // Easier to copy
@@ -87,10 +89,11 @@ function FindProxyForURL(url, host) {
 212.103.125.48:1080
 193.203.61.35:8443`
 
+
     let socks5List = socks5String.split(/\s/) // split by spaces and tabs and newlines
 
     // use proxy for specific domains
-    if (shExpMatch(host, "music.youtube.com|*.example.ru")) {
+    if (shExpMatch(host, "music.youtube.com|*.example.ru|2ip.ru")) {
         for (const socks5ListKey in socks5List) {
             socks5List[socks5ListKey] = 'SOCKS5 '+socks5List[socks5ListKey]
         }
