@@ -11,8 +11,7 @@
                             url="/images/profile-3.png"
                         />
                         <div class="flex flex-col text-center">
-                            <p class="name text-white text-2xl mt-3">{{ $t(getName() + '.name') }}</p>
-                            test
+                            <p class="name text-white text-2xl mt-3">{{ $t(devName+'.name') }}</p>
                             <p class="job text-gray-200 text-lg">{{ $t('common.developer') }}</p>
                         </div>
                     </div>
@@ -111,11 +110,9 @@ export default {
             iq: 10,
         }
     },
-    methods: {
-        getName: function () {
+    computed: {
+        devName: function () {
             let param = new URLSearchParams(window.location.search)
-            console.log("test")
-            console.log(param.get("name"))
             if(param.get("name")==="vitaliy")
                 return param.get("name")
             else
