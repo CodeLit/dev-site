@@ -8,7 +8,7 @@ return [
     'dont_like_cookies' => "If you don't like cookies, you can turn them off in your browser settings",
     'welcome_to_blog' => 'Welcome to my website',
     'okay_fine' => 'Fine',
-    'vitaliy' => 'Vitaliy',
+    'name' => 'Vitaliy',
     'developer' => 'Developer',
     'home_description' => "If you want to read about me, my CV, then you
                          hit the address. All information on this resource presented in an understandable
