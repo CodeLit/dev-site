@@ -11,7 +11,7 @@
                             url="/images/profile-3.png"
                         />
                         <div class="flex flex-col text-center">
-                            <p class="name text-white text-2xl mt-3">{{ $t('common.vladimir') }}</p>
+                            <p class="name text-white text-2xl mt-3">{{ $t(getName() + '.name') }}</p>
                             <p class="job text-gray-200 text-lg">{{ $t('common.developer') }}</p>
                         </div>
                     </div>
@@ -43,7 +43,7 @@
                     <h2 class="pb-1">{{ $t('common.what_i_do') }}?</h2>
                     <h5 class="my-4">
                         {{ $t('common.my_stack') }}:
-                        <b-text-icon classes="fab fa-php">PHP, </b-text-icon>
+                        <b-text-icon classes="fab fa-php">PHP,</b-text-icon>
                         <!--                        <b-text-icon classes="fab fa-golang">GoLang</b-text-icon>-->
                         <!--                        ,-->
                         <i class="fab fa-html5"></i> <i class="fab fa-js"></i> <i class="fab fa-css3"></i> Web,
@@ -56,7 +56,7 @@
                         </li>
                         <li>{{ $t('info.auto_deploy_with') }} <i class="fab fa-git-alt"></i> Git
                             {{ $t('info.hooks_or_using') }} SSH, {{ $t('info.as_manually_through') }} git push
-                            production. {{$t('info.resolve_branch_conflicts')}}.
+                            production. {{ $t('info.resolve_branch_conflicts') }}.
                         </li>
                         <li v-html="$t('info.work_with_integrations')"></li>
                         <li v-html="$t('info.deploying_own_project')"></li>
@@ -73,7 +73,7 @@
                     <h5 class="my-4">
                         {{ $t('common.frameworks') }}:
                         <i class="fab fa-laravel"></i> Laravel, <i class="fab fa-vuejs"></i> Vue, Django, Yii, Flask.
-<!--                        <i class="fab fa-modx"></i> ModX.-->
+                        <!--                        <i class="fab fa-modx"></i> ModX.-->
                     </h5>
                     <ul v-html="$t('info.second_block')"></ul>
                 </div>
@@ -103,6 +103,23 @@ export default {
     components: {Documents, BFooter, BDocument, BButton, BCard, BParallax, BTextIcon},
     mounted() {
         this.$store.commit('unsetPageImage')
+    },
+    data() {
+        return {
+            name: "common.name",
+            iq: 10,
+        }
+    },
+    methods: {
+        getName: function () {
+            let param = new URLSearchParams(window.location.search)
+            console.log("test")
+            console.log(param.get("name"))
+            if(param.get("name")==="vitaliy")
+                return param.get("name")
+            else
+                return "common"
+        }
     }
 }
 </script>
