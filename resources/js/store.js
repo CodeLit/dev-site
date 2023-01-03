@@ -1,12 +1,12 @@
-import { createStore } from 'vuex'
+import {createStore} from 'vuex'
 
 export default createStore({
     state: {
         questions: [],
-        pageImage: 'none'
+        pageImage: 'none',
     },
     actions: {
-        ajaxQuestionsFromDB({ commit }) {
+        ajaxQuestionsFromDB({commit}) {
             axios
                 .get('api/questions')
                 .then(response => {
@@ -14,7 +14,7 @@ export default createStore({
                 })
                 .catch(error => console.log('Ошибка!', error))
         },
-        createQuestion({ commit }, question) {
+        createQuestion({commit}, question) {
             axios
                 .post('/api/questions', question)
                 .then(res => {
@@ -42,7 +42,7 @@ export default createStore({
             return (state.questions = data)
         },
         setPageImage(state, data) {
-            state.pageImage = 'url('+data+')'
+            state.pageImage = 'url(' + data + ')'
         },
         unsetPageImage(state) {
             state.pageImage = 'none'
@@ -50,10 +50,21 @@ export default createStore({
 
     },
     getters: {
-        questions({ questions }) {
+        getTransSuffix() {
+            let param = new URLSearchParams(window.location.search)
+            let paramName = param.get("name")
+
+            switch (paramName) {
+                case 'vitaliy':
+                    return '.'+paramName
+                default:
+                    return '';
+            }
+        },
+        questions({questions}) {
             return questions
         },
-        getPageImage({pageImage}){
+        getPageImage({pageImage}) {
             return pageImage
         }
     },
