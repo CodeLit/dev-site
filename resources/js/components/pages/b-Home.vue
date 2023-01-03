@@ -11,8 +11,8 @@
                             url="/images/profile-3.png"
                         />
                         <div class="flex flex-col text-center">
-                            <p class="name text-white text-2xl mt-3">{{ $t(devName+'.name') }}</p>
-                            <p class="job text-gray-200 text-lg">{{ $t('common.developer') }}</p>
+                            <p class="name text-white text-2xl mt-3">{{ $t('common'+$store.getters.getTransSuffix+'.name') }}</p>
+                            <p class="job text-gray-200 text-lg">{{ $t('common'+$store.getters.getTransSuffix+'.developer') }}</p>
                         </div>
                     </div>
                 </b-card>
@@ -103,21 +103,6 @@ export default {
     components: {Documents, BFooter, BDocument, BButton, BCard, BParallax, BTextIcon},
     mounted() {
         this.$store.commit('unsetPageImage')
-    },
-    data() {
-        return {
-            name: "common.name",
-            iq: 10,
-        }
-    },
-    computed: {
-        devName: function () {
-            let param = new URLSearchParams(window.location.search)
-            if(param.get("name")==="vitaliy")
-                return param.get("name")
-            else
-                return "common"
-        }
     }
 }
 </script>
