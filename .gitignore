@@ -3,7 +3,7 @@
 /public/build/**/*.js
 /public/hot
 /public/storage
-/public/images
+/public/img
 /storage/*.key
 /vendor
 .env
@@ -47,3 +47,4 @@ yarn-error.log*
 # cache
 .eslintcache
 /public/mix-manifest.json
+resources/views/layout/favicon.blade.php

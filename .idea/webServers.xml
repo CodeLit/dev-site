@@ -9,6 +9,13 @@
           </advancedOptions>
         </fileTransfer>
       </webServer>
+      <webServer id="cb83c984-a4e2-4d73-a0a4-09ba94b769e6" name="home">
+        <fileTransfer accessType="SFTP" host="progressrp.ru" port="22" sshConfigId="27dc380d-4a1a-4e3b-9fa8-34a96e84c992" sshConfig="root@progressrp.ru:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="200000" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
     </option>
   </component>
 </project>
