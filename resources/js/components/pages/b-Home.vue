@@ -1,6 +1,6 @@
 <template>
     <div>
-        <b-parallax img_url="/images/sky/kristopher-roller.jpg" class="min-h-screen flex flex-col justify-center">
+        <b-parallax img_url="/img/sky/kristopher-roller.jpg" class="min-h-screen flex flex-col justify-center">
             <b-card :blur_amount="20" class="flex flex-col md:flex-row max-w-screen-xl m-7 sm:mx-32 xl:mx-auto">
                 <b-card class="p-5" style="box-shadow: 1px 1px white inset">
                     <div class="flex flex-col flex-center">
@@ -8,7 +8,7 @@
                             style="border-radius: 7%"
                             class="mx-auto md:w-60 w-40"
                             alt="User's avatar"
-                            url="/images/profile-3.png"
+                            url="/img/profile-3.png"
                         />
                         <div class="flex flex-col text-center">
                             <p class="name text-white text-2xl mt-3">{{ $t('common'+$store.getters.getTransSuffix+'.name') }}</p>
@@ -22,7 +22,7 @@
                         <p class="mb-4">{{ $t('common.home_description') }}.</p>
                         <div class="flex justify-center gap-5">
                             <b-button class="px-6 py-3 rounded-full"
-                                      onclick="window.open('/pdf/CV_Gelunov.pdf', '_blank').focus()">
+                                      onclick="window.open('https://docs.google.com/document/d/1GXXEQ_ost2oaqeDfVITj3eSrrcgj7oUybV-n8CrUKUA/edit?usp=sharing', '_blank').focus()">
                                 {{ $t('common.read_resume') }}
                             </b-button>
                             <b-button class="px-6 py-3 rounded-full"
@@ -83,7 +83,7 @@
                 </b-button>
             </div>
         </b-card>
-        <b-parallax img_url="/images/humans/macbook-and-books.jpg" class="min-h-screen text-center py-72">
+        <b-parallax img_url="/img/humans/macbook-and-books.jpg" class="min-h-screen text-center py-72">
             <documents/>
         </b-parallax>
 
