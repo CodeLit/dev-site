@@ -26,7 +26,7 @@
                 @click="selectLanguage(getNextLanguage())"
                 class="inline-block rounded-full px-3"
             >
-                <img :src="'/img/icons/'+getNextLanguage()+'_flag.svg'" width="25"
+                <img :src="'/img/svg/icons/'+getNextLanguage()+'_flag.svg'" width="25"
                  class="mx-auto py-4">
             </b-button>
         </div>

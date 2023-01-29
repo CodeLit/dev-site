@@ -43,6 +43,7 @@ mix.setPublicPath('public')
             quality: 50
         },
     })
+    .copy('resources/images/svg', 'public/img/svg')
     .favicon({
         inputPath: 'resources/images/favicon',
         inputFile: '*.{jpg,png,svg}',
