@@ -3,9 +3,16 @@
   <component name="WebServers">
     <option name="servers">
       <webServer id="a34152f0-2cc9-4285-a975-a3743960a721" name="prod">
-        <fileTransfer rootFolder="/var/www/clients/client4/web3/home/nlitblog" accessType="SFTP" host="195.88.208.88" port="22" sshConfigId="1880378e-775e-45e4-8fb7-a732854798d5" sshConfig="nlitblog@195.88.208.88:22 password">
+        <fileTransfer rootFolder="/var/www/clients/client4/web3/home/nlitblog/web/project" accessType="SFTP" host="185.158.112.130" port="22" sshConfigId="1880378e-775e-45e4-8fb7-a732854798d5" sshConfig="nlitblog@185.158.112.130:22 password">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="200000" passiveMode="true" shareSSLContext="true" isUseRsync="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+      <webServer id="cb83c984-a4e2-4d73-a0a4-09ba94b769e6" name="home">
+        <fileTransfer accessType="SFTP" host="progressrp.ru" port="22" sshConfigId="27dc380d-4a1a-4e3b-9fa8-34a96e84c992" sshConfig="root@progressrp.ru:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="200000" passiveMode="true" shareSSLContext="true" />
           </advancedOptions>
         </fileTransfer>
       </webServer>

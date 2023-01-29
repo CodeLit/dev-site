@@ -12,7 +12,7 @@ export default {
     name: "b-Documents",
     components: {bDocuments,bFooter},
     mounted() {
-        this.$store.commit('setPageImage','/images/backgrounds/business-people.jpg')
+        this.$store.commit('setPageImage','/img/backgrounds/business-people.webp')
     }
 }
 </script>

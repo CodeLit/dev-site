@@ -3,6 +3,8 @@ const LiveReloadPlugin = require('webpack-livereload-plugin')
 
 require('laravel-mix-tailwind')
 require('laravel-vue-i18n/mix')
+require('laravel-mix-favicon');
+require('laravel-mix-webp')
 
 /*
  |--------------------------------------------------------------------------
@@ -14,8 +16,16 @@ require('laravel-vue-i18n/mix')
  | file for the application as well as bundling up all the JS files.
  |
  */
-mix.js('resources/js/app.js', 'public/build/js')
-    .copy( 'resources/images', 'public/images')
+mix.setPublicPath('public')
+    .webpackConfig({
+        stats: {
+            // children: true,
+        },
+        plugins: [new LiveReloadPlugin()],
+    })
+    .sourceMaps()
+    .disableNotifications()
+    .js('resources/js/app.js', 'public/build/js')
     .vue({
         options: {
             compilerOptions: {
@@ -26,12 +36,28 @@ mix.js('resources/js/app.js', 'public/build/js')
     .sass('resources/scss/app.scss', 'public/build/css')
     .tailwind()
     .i18n('resources/lang')
-    .sourceMaps()
-    .disableNotifications()
-    .webpackConfig({
-        stats: {
-            // children: true,
+    .ImageWebp({
+        from: 'resources/images',
+        to: 'public/img',
+        imageminWebpOptions: {
+            quality: 50
         },
-        plugins: [new LiveReloadPlugin()],
+    })
+    .copy('resources/images/svg', 'public/img/svg')
+    .favicon({
+        inputPath: 'resources/images/favicon',
+        inputFile: '*.{jpg,png,svg}',
+        publicPath: 'public',
+        output: 'img/favicon',
+        dataFile: 'data/faviconData.json',
+        blade: 'resources/views/layout/favicon.blade.php',
+        reload: false,
+        debug: false,
+        configPath: './realfavicongenerator-config.json',
+        cleaner: {
+            use: false,
+            path: null,
+            timestamp: true
+        }
     })
     .version()
