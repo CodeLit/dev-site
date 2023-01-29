@@ -4,7 +4,7 @@ const LiveReloadPlugin = require('webpack-livereload-plugin')
 require('laravel-mix-tailwind')
 require('laravel-vue-i18n/mix')
 require('laravel-mix-favicon');
-require('laravel-mix-imagemin');
+require('laravel-mix-webp')
 
 /*
  |--------------------------------------------------------------------------
@@ -36,35 +36,13 @@ mix.setPublicPath('public')
     .sass('resources/scss/app.scss', 'public/build/css')
     .tailwind()
     .i18n('resources/lang')
-    // Copy all files within `resources` matching `img/**.*` into the public path, preserving the file tree.
-    // Minify all images, `optipng` with `optimizationLevel` 5, disabling `jpegtran`, and adding `mozjpeg`.
-    .imagemin(
-        'resources/images', // not affects on anything, it's patterns option
-
-        // copy-webpack-plugin config
-        {
-            patterns: [
-                {from: "resources/images", to: "img"},
-            ],
-            options: {
-                concurrency: 100,
-            },
+    .ImageWebp({
+        from: 'resources/images',
+        to: 'public/img',
+        imageminWebpOptions: {
+            quality: 50
         },
-
-        // imagemin-webpack-plugin config
-        {
-            optipng: {
-                optimizationLevel: 5
-            },
-            jpegtran: null,
-            plugins: [
-                require("imagemin-mozjpeg")({
-                    quality: 100,
-                    progressive: true,
-                }),
-            ],
-        }
-    )
+    })
     .favicon({
         inputPath: 'resources/images/favicon',
         inputFile: '*.{jpg,png,svg}',
