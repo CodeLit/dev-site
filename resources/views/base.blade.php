@@ -8,7 +8,9 @@
     <title>{{__('common.blog_name')}}</title>
 
     {{-- Favicons--}}
-    @include('layout.favicon')
+    @if(view()->exists('layout.favicon'))
+        @include('layout.favicon')
+    @endif
 
 
     {{-- Fonts--}}
