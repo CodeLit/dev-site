@@ -43,7 +43,7 @@
                     <h2 class="pb-1">{{ $t('common.what_i_do') }}?</h2>
                     <h5 class="my-4">
                         {{ $t('common.my_stack') }}:
-                        <b-text-icon classes="fab fa-php">PHP,</b-text-icon>
+                        <b-text-icon classes="fab fa-php">PHP, </b-text-icon>
                         <!--                        <b-text-icon classes="fab fa-golang">GoLang</b-text-icon>-->
                         <!--                        ,-->
                         <i class="fab fa-html5"></i> <i class="fab fa-js"></i> <i class="fab fa-css3"></i> Web,

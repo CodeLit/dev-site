@@ -23,7 +23,7 @@
     <script src="/build/js/app.js"></script>
 
     {{-- Icons --}}
-    <script type="module" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"></script>
+    <script defer type="module" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"></script>
 
     @env('local')
         {{-- Livereload --}}
