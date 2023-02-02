@@ -46,7 +46,7 @@
                         <b-text-icon classes="fab fa-php">PHP, </b-text-icon>
                         <!--                        <b-text-icon classes="fab fa-golang">GoLang</b-text-icon>-->
                         <!--                        ,-->
-                        <i class="fab fa-html5"></i> <i class="fab fa-js"></i> <i class="fab fa-css3"></i> Web,
+                        <i class="fab fa-html5"></i> HTML5, <i class="fab fa-js"></i> JS, <i class="fab fa-css3"></i> CSS,
                         <b-text-icon classes="fab fa-python">Python.</b-text-icon>
                     </h5>
                     <ul>
