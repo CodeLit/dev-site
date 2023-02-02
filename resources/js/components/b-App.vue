@@ -22,7 +22,7 @@
 <!--                width="120"-->
 <!--                class="mr-3"-->
 <!--                alt="Cookies image"-->
-<!--                url="/images/cookies.png"-->
+<!--                url="/img/cookies.png"-->
 <!--            />-->
 <!--            <div>-->
 <!--                <h4>{{ $t('common.warning') }}.</h4>-->

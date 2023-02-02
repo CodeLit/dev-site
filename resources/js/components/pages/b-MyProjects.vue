@@ -29,7 +29,7 @@ import bFooter from "../layouts/b-Footer"
 export default {
     components: {bProject, bFooter},
     mounted() {
-        this.$store.commit('setPageImage', '/images/backgrounds/laptop-on-table.jpg')
+        this.$store.commit('setPageImage', '/img/backgrounds/laptop-on-table.webp')
     }
 }
 </script>

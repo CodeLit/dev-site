@@ -1,6 +1,6 @@
 <template>
     <div>
-        <b-parallax img_url="/images/sky/kristopher-roller.jpg" class="min-h-screen flex flex-col justify-center">
+        <b-parallax img_url="/img/sky/kristopher-roller.webp" class="min-h-screen flex flex-col justify-center">
             <b-card :blur_amount="20" class="flex flex-col md:flex-row max-w-screen-xl m-7 sm:mx-32 xl:mx-auto">
                 <b-card class="p-5" style="box-shadow: 1px 1px white inset">
                     <div class="flex flex-col flex-center">
@@ -8,11 +8,11 @@
                             style="border-radius: 7%"
                             class="mx-auto md:w-60 w-40"
                             alt="User's avatar"
-                            url="/images/profile-3.png"
+                            url="/img/profile-3.webp"
                         />
                         <div class="flex flex-col text-center">
-                            <p class="name text-white text-2xl mt-3">{{ $t('common.vladimir') }}</p>
-                            <p class="job text-gray-200 text-lg">{{ $t('common.developer') }}</p>
+                            <p class="name text-white text-2xl mt-3">{{ $t('common'+$store.getters.getTransSuffix+'.name') }}</p>
+                            <p class="job text-gray-200 text-lg">{{ $t('common'+$store.getters.getTransSuffix+'.developer') }}</p>
                         </div>
                     </div>
                 </b-card>
@@ -22,7 +22,7 @@
                         <p class="mb-4">{{ $t('common.home_description') }}.</p>
                         <div class="flex justify-center gap-5">
                             <b-button class="px-6 py-3 rounded-full"
-                                      onclick="window.open('/pdf/CV_Gelunov.pdf', '_blank').focus()">
+                                      onclick="window.open('https://docs.google.com/document/d/1GXXEQ_ost2oaqeDfVITj3eSrrcgj7oUybV-n8CrUKUA/edit?usp=sharing', '_blank').focus()">
                                 {{ $t('common.read_resume') }}
                             </b-button>
                             <b-button class="px-6 py-3 rounded-full"
@@ -43,7 +43,7 @@
                     <h2 class="pb-1">{{ $t('common.what_i_do') }}?</h2>
                     <h5 class="my-4">
                         {{ $t('common.my_stack') }}:
-                        <b-text-icon classes="fab fa-php">PHP, </b-text-icon>
+                        <b-text-icon classes="fab fa-php">PHP,</b-text-icon>
                         <!--                        <b-text-icon classes="fab fa-golang">GoLang</b-text-icon>-->
                         <!--                        ,-->
                         <i class="fab fa-html5"></i> <i class="fab fa-js"></i> <i class="fab fa-css3"></i> Web,
@@ -56,7 +56,7 @@
                         </li>
                         <li>{{ $t('info.auto_deploy_with') }} <i class="fab fa-git-alt"></i> Git
                             {{ $t('info.hooks_or_using') }} SSH, {{ $t('info.as_manually_through') }} git push
-                            production. {{$t('info.resolve_branch_conflicts')}}.
+                            production. {{ $t('info.resolve_branch_conflicts') }}.
                         </li>
                         <li v-html="$t('info.work_with_integrations')"></li>
                         <li v-html="$t('info.deploying_own_project')"></li>
@@ -73,7 +73,7 @@
                     <h5 class="my-4">
                         {{ $t('common.frameworks') }}:
                         <i class="fab fa-laravel"></i> Laravel, <i class="fab fa-vuejs"></i> Vue, Django, Yii, Flask.
-<!--                        <i class="fab fa-modx"></i> ModX.-->
+                        <!--                        <i class="fab fa-modx"></i> ModX.-->
                     </h5>
                     <ul v-html="$t('info.second_block')"></ul>
                 </div>
@@ -83,7 +83,7 @@
                 </b-button>
             </div>
         </b-card>
-        <b-parallax img_url="/images/humans/macbook-and-books.jpg" class="min-h-screen text-center py-72">
+        <b-parallax img_url="/img/humans/macbook-and-books.webp" class="min-h-screen text-center py-72">
             <documents/>
         </b-parallax>
 
