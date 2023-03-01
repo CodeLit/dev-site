@@ -23,6 +23,7 @@
     },
     "require-dev": {
         "laravel/breeze": "^1.1",
+        "laravel/sail": "^1.19",
         "phpunit/phpunit": "^9.0"
     },
     "config": {
