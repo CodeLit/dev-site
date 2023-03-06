@@ -26,9 +26,10 @@ services:
       - mysql
   mix:
     build:
-      dockerfile: docker/mix.dockerfile
+      dockerfile: docker/mix/Dockerfile
     volumes:
-      - '.:/app'
+      - './public:/app/public'
+      - './resources:/app/resources'
     ports:
       - '35729:35729'
   mysql:

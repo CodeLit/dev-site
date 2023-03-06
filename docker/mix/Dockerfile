@@ -11,11 +11,11 @@ RUN apt install -y libtiff-dev
 RUN apt install -y libjpeg-dev
 RUN apt install -y libwebp-dev
 
-COPY . .
+COPY package*.json .
 
 RUN npm install
 
-EXPOSE 35729
+COPY . .
 
 CMD npm run watch
 
