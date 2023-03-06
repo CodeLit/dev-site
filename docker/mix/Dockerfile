@@ -16,16 +16,6 @@ COPY package*.json .
 RUN npm install
 
 COPY . .
+RUN chmod +x docker/mix/run.sh
 
-CMD npm run watch
-
-
-#!/usr/bin/env bash
-
-#source .env
-#
-#if [ "$APP_ENV" == 'local' ]; then
-#    npm run hot
-#else
-#    npm run prod
-#fi
+CMD docker/mix/run.sh
