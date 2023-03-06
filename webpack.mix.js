@@ -21,7 +21,9 @@ mix.setPublicPath('public')
         stats: {
             // children: true,
         },
-        plugins: [new LiveReloadPlugin()],
+        plugins: [new LiveReloadPlugin({
+            appendScriptTag: true
+        })],
     })
     .sourceMaps()
     .disableNotifications()

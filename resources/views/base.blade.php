@@ -27,11 +27,6 @@
     {{-- Icons --}}
     <script defer type="module" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"></script>
 
-    @env('local')
-        {{-- Livereload --}}
-        <script src="http://localhost:35729/livereload.js"></script>
-    @endenv
-
 </head>
 <body>
 <div id="app">
