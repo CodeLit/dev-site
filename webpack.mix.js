@@ -6,6 +6,16 @@ require('laravel-vue-i18n/mix')
 require('laravel-mix-favicon')
 require('laravel-mix-webp')
 
+if (process.arch !== 'x64') {
+    console.warn('=================================================')
+    console.warn('WARNING! Your architecture is',process.arch,'!')
+    console.warn('If you have any troubles with images, try to use:')
+    console.warn('export DOCKER_DEFAULT_PLATFORM=linux/x86_64')
+    console.warn('command to make it work.')
+    console.warn('You need also install all required dependencies on your system.')
+    console.warn('=================================================')
+}
+
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management
@@ -64,13 +74,3 @@ mix.setPublicPath('public')
         }
     })
     .version()
-
-if (process.arch !== 'x64') {
-    console.warn('=================================================')
-    console.warn('WARNING! Your architecture is',process.arch,'!')
-    console.warn('If you have any troubles with images, try to use:')
-    console.warn('export DOCKER_DEFAULT_PLATFORM=linux/x86_64')
-    console.warn('command to make it work.')
-    console.warn('You need also install all required dependencies on your system.')
-    console.warn('=================================================')
-}

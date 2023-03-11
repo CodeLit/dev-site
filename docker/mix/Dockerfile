@@ -1,10 +1,9 @@
-FROM node:alpine3.16
+FROM node:18-alpine3.16
 
 WORKDIR /app
 
 RUN apk update
-RUN apk --no-cache add bash curl libpng-dev libjpeg libwebp-dev
-RUN apk --no-cache add gcompat mesa-gl libxi
+RUN apk --no-cache add bash curl libpng-dev libjpeg libwebp-dev gcompat mesa-gl libxi
 RUN npm install -g npm@latest
 
 COPY package.json .
