@@ -1,21 +1,17 @@
-FROM ubuntu:22.04
+FROM node:alpine3.16
 
 WORKDIR /app
 
-RUN apt update
-RUN apt install -y curl
-RUN apt install -y nodejs
-RUN apt install -y npm
-RUN apt install -y libpng-dev
-RUN apt install -y libtiff-dev
-RUN apt install -y libjpeg-dev
-RUN apt install -y libwebp-dev
+RUN apk update
+RUN apk --no-cache add bash curl libpng-dev libjpeg libwebp-dev
+RUN apk --no-cache add gcompat mesa-gl libxi
+RUN npm install -g npm@latest
 
-COPY package*.json .
+COPY package.json .
+COPY yarn.lock .
 
-RUN npm install
+RUN yarn install
 
-COPY . .
-RUN chmod +x docker/mix/run.sh
+COPY --chown=node . .
 
-CMD docker/mix/run.sh
+CMD if [ "$APP_ENV" == 'local' ]; then npm run watch; else npm run prod; fi
