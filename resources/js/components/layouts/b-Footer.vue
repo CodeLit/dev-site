@@ -1,5 +1,5 @@
 <template>
-    <footer class="footer px-5 pt-7 flex justify-around" :style="{'backdrop-filter':(blurred?'blur(12px)':'none')}">
+    <footer class="footer px-5 py-7 flex justify-around" :style="{'backdrop-filter':(blurred?'blur(12px)':'none')}">
         <div id="contacts">
             <h3>{{ $t('common.contact_with_me') }}</h3>
             <br>
@@ -45,8 +45,5 @@ export default {
 <style scoped>
     .contact-link{
         margin: 0 10px;
-    }
-    .footer {
-        margin-bottom: -3rem;
     }
 </style>
