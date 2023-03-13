@@ -30,6 +30,10 @@
                 <ion-icon name="logo-github"></ion-icon>
                 GitHub
             </b-link>
+            <b-link url="https://www.linkedin.com/in/codelit/" blank class="contact-link">
+                <ion-icon name="logo-linkedin"></ion-icon>
+                LinkedIn
+            </b-link>
         </div>
     </footer>
 </template>
