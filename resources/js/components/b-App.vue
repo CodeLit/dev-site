@@ -18,11 +18,12 @@
         <b-cookies />
 
         <transition name='fade'>
-            <div class='up-scroller_wrapper'>
+            <div class='up-scroller_wrapper' v-if='isArrowUpVisible'>
                 <div class='relative'>
-                        <b-card v-if='isArrowUpVisible' @click='scrollToTop()'
-                                class='up-scroller z-10 w-fit ml-auto cursor-pointer select-none'>
-                        </b-card>
+                    <b-card @click='scrollToTop()'
+                            class='up-scroller z-10 w-fit ml-auto cursor-pointer select-none'>
+                        ⇧
+                    </b-card>
                 </div>
             </div>
         </transition>
@@ -78,9 +79,8 @@ export default {
 .up-scroller_wrapper {
     height: 1px;
     position: sticky;
-    right: 2rem;
-    bottom: 2rem;
-    transition: visibility 1s;
+    right: 25px;
+    bottom: 25px;
 
     .up-scroller {
         position: absolute;
@@ -93,16 +93,10 @@ export default {
         transform: translatex(-2rem);
         height: 5rem;
         width: 5rem;
-
-        &:before {
-            content: '⇧';
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translateX(-50%) translateY(-50%);
-            font-size: 2rem;
-            font-weight: bold;
-        }
+        font-size: 2rem;
+        font-weight: bold;
+        line-height: 4.8rem;
+        text-align: center;
     }
 
 }
