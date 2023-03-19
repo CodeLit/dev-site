@@ -23,8 +23,8 @@
 </template>
 <script>
 
-import bProject from "../layouts/b-Project"
-import bFooter from "../layouts/b-Footer"
+import bProject from '../layouts/b-Project'
+import bFooter from '../layouts/b-Footer'
 
 export default {
     components: {bProject, bFooter},

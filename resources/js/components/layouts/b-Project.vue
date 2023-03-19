@@ -18,8 +18,7 @@
 </template>
 
 <script setup>
-import { UseElementVisibility } from '@vueuse/components'
-</script>
+import { UseElementVisibility } from '@vueuse/components'</script>
 
 <script>
 export default {

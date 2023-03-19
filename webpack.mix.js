@@ -8,7 +8,7 @@ require('laravel-mix-webp')
 
 if (process.arch !== 'x64') {
     console.warn('=================================================')
-    console.warn('WARNING! Your architecture is',process.arch,'!')
+    console.warn('WARNING! Your architecture is', process.arch, '!')
     console.warn('If you have any troubles with images, try to use:')
     console.warn('export DOCKER_DEFAULT_PLATFORM=linux/x86_64')
     console.warn('command to make it work.')
@@ -32,7 +32,7 @@ mix.setPublicPath('public')
             // children: true,
         },
         plugins: [new LiveReloadPlugin({
-            appendScriptTag: true
+            appendScriptTag: true,
         })],
     })
     .sourceMaps()
@@ -70,7 +70,7 @@ mix.setPublicPath('public')
         cleaner: {
             use: false,
             path: null,
-            timestamp: true
-        }
+            timestamp: true,
+        },
     })
     .version()

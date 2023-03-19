@@ -15,8 +15,8 @@
 </template>
 
 <script>
-import BCard from "../b-Card";
-import bFolder from "../bGDocsFolder.vue";
+import BCard from '../b-Card'
+import bFolder from '../bGDocsFolder.vue'
 
 export default {
     name: "bDocuments",

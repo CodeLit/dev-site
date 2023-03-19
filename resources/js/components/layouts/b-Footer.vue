@@ -39,7 +39,8 @@
 </template>
 
 <script>
-import BLink from "../b-Link";
+import BLink from '../b-Link'
+
 export default {
     components: {BLink},
     props: ['blurred']

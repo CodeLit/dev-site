@@ -92,13 +92,13 @@
     </div>
 </template>
 <script>
-import BParallax from "../b-Parallax";
-import BCard from "../b-Card";
-import BButton from "../b-Button";
-import BDocument from "../b-Document";
-import BFooter from "../layouts/b-Footer";
-import Documents from "../layouts/b-DocumentsLayout";
-import BTextIcon from "../b-TextIcon";
+import BParallax from '../b-Parallax'
+import BCard from '../b-Card'
+import BButton from '../b-Button'
+import BDocument from '../b-Document'
+import BFooter from '../layouts/b-Footer'
+import Documents from '../layouts/b-DocumentsLayout'
+import BTextIcon from '../b-TextIcon'
 
 export default {
     components: {Documents, BFooter, BDocument, BButton, BCard, BParallax, BTextIcon},

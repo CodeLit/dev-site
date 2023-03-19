@@ -1,7 +1,7 @@
 # For more information: https://laravel.com/docs/sail
 version: '3'
 services:
-  laravel.test:
+  laravel:
     build:
       context: ./docker/8.2
       dockerfile: Dockerfile
@@ -37,6 +37,9 @@ services:
       - type: bind
         source: ./yarn.lock
         target: /app/yarn.lock
+      - type: bind
+        source: ./webpack.mix.js
+        target: /app/webpack.mix.js
     ports:
       - '35729:35729'
     env_file:
