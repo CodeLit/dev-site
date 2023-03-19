@@ -1,6 +1,6 @@
 body {
-    background: radial-gradient(circle at bottom left, $bg-secondary 0%, $bg-primary 100%) no-repeat;
     background-size: 100%;
+    background: black radial-gradient(circle at bottom left, $bg-secondary 0%, $bg-primary 100%) no-repeat;
     color: $text;
 }
 
