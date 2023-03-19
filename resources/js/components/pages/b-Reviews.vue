@@ -20,8 +20,9 @@
 
 <style></style>
 <script>
-import BCard from "../b-Card";
-import BHeader from "../layouts/b-Header";
+import BCard from '../b-Card'
+import BHeader from '../layouts/b-Header'
+
 export default {
     components: {BHeader, BCard}
 }

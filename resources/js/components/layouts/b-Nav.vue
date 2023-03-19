@@ -42,9 +42,9 @@
 </template>
 
 <script>
-import BButton from "../b-Button";
-import {getActiveLanguage} from "laravel-vue-i18n";
-import BCard from "../b-Card";
+import BButton from '../b-Button'
+import { getActiveLanguage } from 'laravel-vue-i18n'
+import BCard from '../b-Card'
 
 export default {
     components: {BCard, BButton},

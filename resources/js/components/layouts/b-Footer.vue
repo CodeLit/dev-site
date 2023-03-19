@@ -1,5 +1,5 @@
 <template>
-    <footer class="footer px-5 pt-7 flex justify-around" :style="{'backdrop-filter':(blurred?'blur(12px)':'none')}">
+    <footer class="footer px-5 py-7 flex justify-around" :style="{'backdrop-filter':(blurred?'blur(12px)':'none')}">
         <div id="contacts">
             <h3>{{ $t('common.contact_with_me') }}</h3>
             <br>
@@ -30,12 +30,17 @@
                 <ion-icon name="logo-github"></ion-icon>
                 GitHub
             </b-link>
+            <b-link url="https://www.linkedin.com/in/codelit/" blank class="contact-link">
+                <ion-icon name="logo-linkedin"></ion-icon>
+                LinkedIn
+            </b-link>
         </div>
     </footer>
 </template>
 
 <script>
-import BLink from "../b-Link";
+import BLink from '../b-Link'
+
 export default {
     components: {BLink},
     props: ['blurred']
@@ -45,8 +50,5 @@ export default {
 <style scoped>
     .contact-link{
         margin: 0 10px;
-    }
-    .footer {
-        margin-bottom: -3rem;
     }
 </style>

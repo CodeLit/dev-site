@@ -3,8 +3,18 @@ const LiveReloadPlugin = require('webpack-livereload-plugin')
 
 require('laravel-mix-tailwind')
 require('laravel-vue-i18n/mix')
-require('laravel-mix-favicon');
+require('laravel-mix-favicon')
 require('laravel-mix-webp')
+
+if (process.arch !== 'x64') {
+    console.warn('=================================================')
+    console.warn('WARNING! Your architecture is', process.arch, '!')
+    console.warn('If you have any troubles with images, try to use:')
+    console.warn('export DOCKER_DEFAULT_PLATFORM=linux/x86_64')
+    console.warn('command to make it work.')
+    console.warn('You need also install all required dependencies on your system.')
+    console.warn('=================================================')
+}
 
 /*
  |--------------------------------------------------------------------------
@@ -21,7 +31,9 @@ mix.setPublicPath('public')
         stats: {
             // children: true,
         },
-        plugins: [new LiveReloadPlugin()],
+        plugins: [new LiveReloadPlugin({
+            appendScriptTag: true,
+        })],
     })
     .sourceMaps()
     .disableNotifications()
@@ -37,10 +49,11 @@ mix.setPublicPath('public')
     .tailwind()
     .i18n('resources/lang')
     .ImageWebp({
+        // requires libwebp-dev in ubuntu
         from: 'resources/images',
         to: 'public/img',
         imageminWebpOptions: {
-            quality: 50
+            quality: 50,
         },
     })
     .copy('resources/images/svg', 'public/img/svg')
@@ -57,7 +70,7 @@ mix.setPublicPath('public')
         cleaner: {
             use: false,
             path: null,
-            timestamp: true
-        }
+            timestamp: true,
+        },
     })
     .version()

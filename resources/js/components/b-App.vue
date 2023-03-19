@@ -1,93 +1,74 @@
-<template xmlns="http://www.w3.org/1999/html">
-    <div class="app w-screen" ref="app" :style="{'background-image':$store.getters.getPageImage}">
-        <b-header class="top-0 left-0" />
+<template>
+    <div class='app w-screen' ref='app' :style="{'background-image':$store.getters.getPageImage}">
+        <b-header class='top-0 left-0' />
 
-        <router-view v-slot="{ Component }">
-            <transition name="scale" mode="out-in">
-                <component :is="Component" />
+        <router-view v-slot='{ Component }'>
+            <transition name='scale' mode='out-in'>
+                <component :is='Component' />
             </transition>
         </router-view>
 
-        <b-circle-bg class="left-20 sm:left-56 top-10 sm:top-72 rotate-45" />
+        <b-circle-bg class='left-20 sm:left-56 top-10 sm:top-72 rotate-45' />
 
         <b-circle-bg
-            class="right-20 sm:right-56 top-96 sm:top-20"
-            style="transform: rotate(225deg)"
+            class='right-20 sm:right-56 top-96 sm:top-20'
+            style='transform: rotate(225deg)'
         />
-<!--        <b-card-->
-<!--            v-if="!cookiesAccepted"-->
-<!--            class="fixed flex place-items-center left-2 bottom-2 px-5 py-3  w-full lg:w-1/2 border-white border-l-2"-->
-<!--        >-->
-<!--            <b-round-box-->
-<!--                width="120"-->
-<!--                class="mr-3"-->
-<!--                alt="Cookies image"-->
-<!--                url="/img/cookies.png"-->
-<!--            />-->
-<!--            <div>-->
-<!--                <h4>{{ $t('common.warning') }}.</h4>-->
-<!--                {{ $t('common.this_site_uses') }}-->
-<!--                <a-->
-<!--                    href="https://support.mozilla.org/ru/kb/kuki-informaciya-kotoruyu-veb-sajty-hranyat-na-vas"-->
-<!--                    target="__blank"-->
-<!--                    >{{ $t('common.cookies') }}</a-->
-<!--                >. {{ $t('common.dont_like_cookies') }}.-->
-<!--                <b-button-->
-<!--                    class="px-3 py-1 inline-block float-right mr-10 "-->
-<!--                    @click.native="acceptCookies"-->
-<!--                    >{{ $t('common.okay_fine') }}</b-button-->
-<!--                >-->
-<!--            </div>-->
-<!--        </b-card>-->
-        <transition name="fade" class="up-scroller sticky">
-            <b-card v-if="isArrowUpVisible" @click="scrollToTop()"
-                    class="p-9 z-10 w-fit ml-auto cursor-pointer select-none"></b-card>
+
+        <b-cookies />
+
+        <transition name='fade'>
+            <div class='up-scroller_wrapper' v-if='isArrowUpVisible'>
+                <div class='relative'>
+                    <b-card @click='scrollToTop()'
+                            class='up-scroller z-10 w-fit ml-auto cursor-pointer select-none'>
+                        ⇧
+                    </b-card>
+                </div>
+            </div>
         </transition>
+
     </div>
 </template>
 
 <script>
 import bCircle from './b-Circle.vue'
 import BRoundBox from './b-RoundBox.vue'
-import BButton from "./b-Button";
-import Cookies from "js-cookie";
-import BCard from "./b-Card";
+import BButton from './b-Button'
+import BCard from './b-Card'
+import BFooter from './layouts/b-Footer.vue'
+import BCookies from './layouts/b-Cookies.vue'
+
 export default {
-    components: {BCard, BButton, bCircle, BRoundBox },
+    components: { BCookies, BFooter, BCard, BButton, bCircle, BRoundBox },
     data() {
         return {
-            cookiesAccepted: false,
             windowTop: 0,
         }
     },
     methods: {
-        acceptCookies() {
-            Cookies.set('cookiesAccepted', true, { expires: 3 })
-            this.cookiesAccepted = true
-        },
-        scrollToTop(){
-            $('body')[0].scrollIntoView({block: 'start', behavior: 'smooth'})
+        scrollToTop() {
+            $('body')[0].scrollIntoView({ block: 'start', behavior: 'smooth' })
         },
         onScroll(e) {
             this.windowTop = window.top.scrollY
-        }
+        },
     },
     computed: {
-        isArrowUpVisible(){
-            return (this.windowTop > window.innerHeight*1.5)
-        }
+        isArrowUpVisible() {
+            return (this.windowTop > window.innerHeight * 1.5)
+        },
     },
     mounted() {
-        window.addEventListener("scroll", this.onScroll)
-        this.cookiesAccepted =  Cookies.get('cookiesAccepted')
+        window.addEventListener('scroll', this.onScroll)
     },
     beforeDestroy() {
-        window.removeEventListener("scroll", this.onScroll)
+        window.removeEventListener('scroll', this.onScroll)
     },
 }
 </script>
 
-<style scoped>
+<style lang='scss' scoped>
 .app {
     background-position: center;
     background-size: cover;
@@ -95,27 +76,36 @@ export default {
     background-attachment: fixed;
 }
 
-.up-scroller {
-    right: 2rem;
-    bottom: 2rem;
-    border: white solid 1px;
-    border-radius: 50%;
-}
+.up-scroller_wrapper {
+    height: 1px;
+    position: sticky;
+    right: 25px;
+    bottom: 25px;
 
-.up-scroller:before{
-    content: '⇧';
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translateX(-50%) translateY(-50%);
-    font-size: 2rem;
-    font-weight: bold;
+    .up-scroller {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        content: '';
+        border: white solid 1px;
+        border-radius: 50%;
+        float: right;
+        transform: translatex(-2rem);
+        height: 5rem;
+        width: 5rem;
+        font-size: 2rem;
+        font-weight: bold;
+        line-height: 4.8rem;
+        text-align: center;
+    }
+
 }
 
 .fade-enter-active,
 .fade-leave-active {
     transition: opacity 0.4s ease;
 }
+
 .fade-enter-from,
 .fade-leave-to {
     opacity: 0
@@ -125,6 +115,7 @@ export default {
 .scale-leave-active {
     transition: all 0.5s ease;
 }
+
 .scale-enter-from,
 .scale-leave-to {
     opacity: 0;

@@ -6,8 +6,9 @@
 </template>
 
 <script>
-import bDocuments from "../layouts/b-DocumentsLayout"
-import bFooter from "../layouts/b-Footer"
+import bDocuments from '../layouts/b-DocumentsLayout'
+import bFooter from '../layouts/b-Footer'
+
 export default {
     name: "b-Documents",
     components: {bDocuments,bFooter},

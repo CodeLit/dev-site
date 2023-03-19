@@ -1,7 +1,19 @@
-import {createApp} from "vue";
-import Popper from "popper.js";
-import cash from "cash-dom";
-import lodash from "lodash";
+import { createApp } from 'vue'
+import Popper from 'popper.js'
+import cash from 'cash-dom'
+import lodash from 'lodash'
+import './font-awesome'
+
+import 'es6-promise/auto' // для старых браузеров
+import store from './store' // vuex
+import { createRouter, createWebHistory } from 'vue-router'
+
+import routes from './routes'
+import VueLazyLoading from 'vue-lazy-loading'
+import BApp from './components/b-App'
+
+
+import { i18nVue, loadLanguageAsync } from 'laravel-vue-i18n'
 
 /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support
@@ -41,26 +53,10 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest'
 //     forceTLS: true
 // });
 
-import './font-awesome'
-
-import 'es6-promise/auto' // для старых браузеров
-
-import store from './store' // vuex
-
-import {createRouter,createWebHistory} from "vue-router";
-
-import routes from "./routes";
-
 const router = new createRouter({
     history: createWebHistory(),
     routes,
 })
-
-import VueLazyLoading from 'vue-lazy-loading'
-import BApp from "./components/b-App";
-
-
-import {i18nVue, loadLanguageAsync} from 'laravel-vue-i18n'
 
 let app = createApp(BApp)
 app.use(router)

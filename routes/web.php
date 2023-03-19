@@ -14,9 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('base');
+Route::get('/ping', function () {
+    return response('pong', 200);
 });
+
 
 Route::get('/iframe-redirect', function () {
     $url = request()->get('url');
@@ -27,5 +28,5 @@ Route::get('/iframe-redirect', function () {
 });
 
 Route::get('/{any}', function () {
-    return view('site');
+    return view('base');
 })->where( 'any', '.*')->name('gateway');
