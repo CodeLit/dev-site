@@ -48,3 +48,6 @@ yarn-error.log*
 .eslintcache
 /public/mix-manifest.json
 resources/views/layout/favicon.blade.php
+
+/backups
+/usefull
