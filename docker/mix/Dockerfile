@@ -8,9 +8,8 @@ RUN npm install -g npm@latest
 
 COPY package.json .
 COPY yarn.lock .
+COPY tailwind.js .
 
 RUN yarn install
-
-COPY --chown=node . .
 
 CMD if [ "$APP_ENV" == 'local' ]; then npm run watch; else npm run prod; fi
