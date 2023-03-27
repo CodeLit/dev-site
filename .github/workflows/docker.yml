@@ -13,11 +13,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Deployment
-        uses: chaplyk/docker-compose-remote-action@v1.1
+        uses: TapTap21/docker-remote-deployment-action@v1.0
         with:
-          ssh_host: ${{ secrets.SSH_HOST }}
+          remote_docker_host: ${{ secrets.SSH_HOST }}
           ssh_user: ${{ secrets.SSH_USERNAME }}
-          ssh_key: ${{ secrets.SSH_PRIVATE_KEY }}
-          compose_file: docker-compose.yml
-          pull: true
-          build: true
+          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
+          ssh_public_key: ${{ secrets.SSH_PUBLIC_KEY }}
+          stack_file_name: docker-compose.yml
+          args: -p myapp up -d
