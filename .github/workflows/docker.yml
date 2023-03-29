@@ -16,8 +16,8 @@ jobs:
         run: |
           touch .env
           echo "${{ secrets.SERVER_ENV_PROD }}" > .env
-      - name: Build image
-        run: docker compose -f docker-compose.prod.yml build
+#      - name: Build image
+#        run: docker compose build
       - name: Deployment
         uses: TapTap21/docker-remote-deployment-action@v1.0
         with:
