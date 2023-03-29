@@ -12,6 +12,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+      - name: Create env file
+        run: |
+          touch .env
+          echo "${{ secrets.SERVER_ENV_PROD }}" > .env
+      - name: Build image
+        run: docker compose -f docker-compose.prod.yml build
       - name: Deployment
         uses: TapTap21/docker-remote-deployment-action@v1.0
         with:
@@ -20,4 +26,4 @@ jobs:
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
           ssh_public_key: ${{ secrets.SSH_PUBLIC_KEY }}
           stack_file_name: docker-compose.yml
-          args: -p myapp up -d
+          args: up -d
