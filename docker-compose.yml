@@ -42,7 +42,8 @@ services:
     platform: linux/x86_64
     container_name: dev-site-laravel-mix
     build:
-      dockerfile: docker/mix/Dockerfile
+      dockerfile: ./docker/mix/Dockerfile
+      context: .
     volumes:
       - type: bind
         source: ./public
