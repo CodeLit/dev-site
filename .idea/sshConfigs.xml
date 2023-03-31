@@ -3,7 +3,6 @@
   <component name="SshConfigs">
     <configs>
       <sshConfig authType="PASSWORD" connectionConfig="{&quot;serverAliveInterval&quot;:200}" host="195.88.208.88" id="8d002d76-73a5-4b1a-822d-82d774bcee13" port="22" nameFormat="DESCRIPTIVE" username="root" useOpenSSHConfig="true" />
-      <sshConfig authType="PASSWORD" connectionConfig="{&quot;serverAliveInterval&quot;:200}" host="185.158.112.130" id="1880378e-775e-45e4-8fb7-a732854798d5" port="22" nameFormat="DESCRIPTIVE" username="nlitblog" useOpenSSHConfig="true" />
     </configs>
   </component>
 </project>
