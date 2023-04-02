@@ -1,4 +1,4 @@
-name: Docker-compose-deploy
+name: Host-deploy
 
 on:
   push:
@@ -31,3 +31,11 @@ jobs:
           script: |
             cd ~/dev_site
             docker-compose up --build -d
+            composer install -q --no-dev --no-ansi --no-interaction --no-progress --no-suggest --prefer-dist --optimize-autoloader
+            php artisan down
+            php artisan migrate --force --no-interaction
+            php artisan config:cache
+            php artisan route:cache
+            php artisan view:cache
+            php artisan optimize
+            php artisan up
