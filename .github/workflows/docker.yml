@@ -12,7 +12,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: copy file via ssh password
+      - name: Copy files via ssh
         uses: appleboy/scp-action@master
         with:
           host: ${{ secrets.SSH_HOST }}
@@ -21,24 +21,13 @@ jobs:
           port: 22
           source: "*"
           target: "~/dev_site"
-#      - name: Deployment
-#        uses: appleboy/ssh-action@master
-#        with:
-#          key: ${{ secrets.SSH_PRIVATE_KEY }}
-#          host: ${{ secrets.SSH_HOST }}
-#          username: ${{ secrets.SSH_USERNAME }}
-#          port: 22
-#          script: |
-#            cd ~/dev_site
-#            git checkout -f
-#            git pull
-#            composer install -q --no-dev --no-ansi --no-interaction --no-progress --no-suggest --prefer-dist --optimize-autoloader
-#            php artisan down
-#            php artisan migrate --force --no-interaction
-#            php artisan config:cache
-#            php artisan route:cache
-#            php artisan view:cache
-#            php artisan optimize
-#            php artisan up
-#            npm install
-#            npm run production
+      - name: Deployment
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: 22
+          script: |
+            cd ~/dev_site
+            docker-compose up --build -d
