@@ -1,4 +1,4 @@
-name: Docker
+name: Docker-compose-deploy
 
 on:
   push:
@@ -21,7 +21,7 @@ jobs:
           port: 22
           source: "*"
           target: "~/dev_site"
-      - name: Deployment
+      - name: Run commands via ssh
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.SSH_HOST }}
