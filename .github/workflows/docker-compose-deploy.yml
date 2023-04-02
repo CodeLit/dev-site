@@ -1,0 +1,28 @@
+# Unused pipeline <<<
+
+name: Docker compose deploy
+
+#on:
+#  push:
+#    branches: [ main ]
+#  pull_request:
+#    branches: [ main ]
+
+docker-compose-deploy:
+  runs-on: ubuntu-latest
+  #    needs: [ laravel-deploy ]
+  steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+    - name: Create env file
+      run: |
+        touch .env
+        echo "${{ secrets.SERVER_ENV_PROD }}" > .env
+    - name: Docker-Compose Remote Deployment
+      uses: alex-ac/github-action-ssh-docker-compose@master
+      with:
+        ssh_host: ${{ secrets.SSH_HOST }}
+        ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
+        ssh_user: ${{ secrets.SSH_USERNAME }}
+        docker_compose_prefix: dev_site
+        docker_compose_filename: docker-compose.yml

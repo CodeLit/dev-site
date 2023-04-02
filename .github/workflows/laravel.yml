@@ -2,11 +2,11 @@
 
 name: Laravel
 
-on:
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+#on:
+#  push:
+#    branches: [ master ]
+#  pull_request:
+#    branches: [ master ]
 
 jobs:
   backend-build-tests:
@@ -56,13 +56,10 @@ jobs:
       - name: Deployment
         uses: appleboy/ssh-action@master
         with:
-#          Приватный ключ хранится в IspConfig у shell-пользователя,
-#          Публичный - в github actions secrets.
-#          Почему-то не работает. Вместо него стал использовать пароль.
 #          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USERNAME }}
-          password: ${{ secrets.SSH_PASSWORD }}
+#          host: ${{ secrets.SSH_HOST }}
+#          username: ${{ secrets.SSH_USERNAME }}
+#          password: ${{ secrets.SSH_PASSWORD }}
           port: 22
           script: |
             cd /var/www/clients/client4/web3/web/project

@@ -7,20 +7,38 @@ on:
     branches: [ main ]
 
 jobs:
-  deploy:
+  laravel-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Create env file
-        run: |
-          touch .env
-          echo "${{ secrets.SERVER_ENV_PROD }}" > .env
-      - name: Docker-Compose Remote Deployment
-        uses: alex-ac/github-action-ssh-docker-compose@master
+      - name: copy file via ssh password
+        uses: appleboy/scp-action@master
         with:
-          ssh_host: ${{ secrets.SSH_HOST }}
-          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
-          ssh_user: ${{ secrets.SSH_USERNAME }}
-          docker_compose_prefix: dev_site
-          docker_compose_filename: docker-compose.yml
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.KEY }}
+          port: 22
+          source: "*"
+          target: "~/dev_site"
+#      - name: Deployment
+#        uses: appleboy/ssh-action@master
+#        with:
+#          key: ${{ secrets.SSH_PRIVATE_KEY }}
+#          host: ${{ secrets.SSH_HOST }}
+#          username: ${{ secrets.SSH_USERNAME }}
+#          port: 22
+#          script: |
+#            cd ~/dev_site
+#            git checkout -f
+#            git pull
+#            composer install -q --no-dev --no-ansi --no-interaction --no-progress --no-suggest --prefer-dist --optimize-autoloader
+#            php artisan down
+#            php artisan migrate --force --no-interaction
+#            php artisan config:cache
+#            php artisan route:cache
+#            php artisan view:cache
+#            php artisan optimize
+#            php artisan up
+#            npm install
+#            npm run production
