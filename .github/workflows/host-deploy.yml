@@ -31,3 +31,4 @@ jobs:
           script: |
             cd ~/dev_site
             docker-compose up --build -d
+# TODO: Убрать --build
