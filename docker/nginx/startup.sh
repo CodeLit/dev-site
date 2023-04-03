@@ -17,5 +17,5 @@ crond -l 2 -b
 
 # Start nginx in foreground
 echo "NGINX started, daemon will restart every 6 hours now.";
-nginx -c /etc/nginx/nginx.conf
 
+nginx
