@@ -55,4 +55,10 @@ elif [ -f /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini ]; then
   rm -rf /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 fi
 
+composer update --working-dir=/var/www/laravel/current
+#php artisan config:cache
+#php artisan route:cache
+#php artisan view:cache
+#php artisan optimize
+
 exec "$@"
