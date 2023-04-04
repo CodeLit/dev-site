@@ -10,7 +10,7 @@ RUN apk update \
 
 RUN apk add --no-cache curl
 
-RUN apk add --no-cache certbot python3-certbot-nginx
+RUN apk add --no-cache certbot certbot-nginx
 
 RUN set -x ; \
     addgroup -g 82 -S www-data ; \
