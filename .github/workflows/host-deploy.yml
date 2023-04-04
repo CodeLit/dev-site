@@ -31,5 +31,5 @@ jobs:
           port: 22
           script: |
             cd ~/dev_site
-            docker-compose up --build -d
-# TODO: Убрать --build
+            docker-compose up -d
+
