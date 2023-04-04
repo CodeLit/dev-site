@@ -1,27 +1,26 @@
 ## My beautiful website project
 
+This is a home project to demonstrate the techniques I have learned.
+
+[//]: # (<p align="center">)
+
+[//]: # (<img src="https://codelit.tk/favicon/android-chrome-512x512.png" width="400">)
+
+[//]: # (</p>)
+
+<p align="center">
+<a href="https://github.com/CodeLit/dev_site/actions"><img src="https://github.com/CodeLit/dev_site/workflows/Host-deploy/badge.svg" alt="Build Status"></a>
+</p>
+
 Please enjoy your stay!
-
-<p align="center">
-<img src="https://codelit.tk/favicon/android-chrome-512x512.png" width="400">
-</p>
-
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
-
 
 ## Used technologies:
 - Laravel PHP framework
 - Vue.js
 - Tailwind.js
 - Scss
-- Webpack
-- Docker
-- Docker compose
+- Webpack (laravel mix)
+- Docker, docker compose
 
 ## Launching dev enviroment:
 ```

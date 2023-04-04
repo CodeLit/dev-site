@@ -51,5 +51,4 @@ yarn-error.log*
 resources/views/layout/favicon.blade.php
 
 /backups
-/usefull
 /keys
