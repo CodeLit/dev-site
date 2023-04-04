@@ -61,4 +61,6 @@ composer update --working-dir=/var/www/laravel/current
 #php artisan view:cache
 #php artisan optimize
 
+chmod -R 777 /var/www/laravel/current
+
 exec "$@"
