@@ -15,8 +15,8 @@ services:
     container_name: nginx-webserver
     restart: unless-stopped
     volumes:
-      - ${NGINX_SSL_PATH}:/etc/nginx/ssl:ro
-      - ./certbot/www:/var/www/certbot/:ro
+      - ${NGINX_SSL_PATH}:/etc/nginx/ssl
+      - ./certbot/www:/var/www/certbot/
       - ${APP_CODE_PATH_HOST}:${APP_CODE_PATH_CONTAINER}${APP_CODE_CONTAINER_FLAG}
       - ${NGINX_HOST_LOG_PATH}:/var/log/nginx
       - ${NGINX_SITES_PATH}:/etc/nginx/sites-available
