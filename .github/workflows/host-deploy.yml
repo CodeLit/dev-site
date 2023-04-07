@@ -30,6 +30,7 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
           script: |
+            chmod -R 777 ~/dev_site
             cd ~/dev_site
             docker-compose up -d
 
