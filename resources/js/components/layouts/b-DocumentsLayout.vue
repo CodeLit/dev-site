@@ -20,7 +20,7 @@ import bFolder from '../bGDocsFolder.vue'
 
 export default {
     name: "bDocuments",
-    components: {BCard, bFolder}
+    components: {BCard, bFolder},
 }
 </script>
 

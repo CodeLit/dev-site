@@ -1,10 +1,10 @@
-# Обновление сертификатов SSL
+# Updating SSL certificates
 https://mindsers.blog/post/https-using-nginx-certbot-docker/
-# Сперва убираем из laravel.conf 443 порт, сертификаты, и всё что связанно с ssl
-# Запускаем nginx
+# First we remove the 443 port, certificates, and ssl-related stuff from laravel.conf
+# Then we start nginx
 
-# Создать сертификат в первый раз
+# Create a certificate for the first time
 docker compose run --rm  certbot certonly --webroot --webroot-path /var/www/certbot/ -d codelit.tk
 
-# Последующее обновление сертификата каждые 3 месяца
+# Certificate renewal every 3 months thereafter
 docker compose run --rm certbot renew

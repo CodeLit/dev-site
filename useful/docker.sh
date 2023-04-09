@@ -1,8 +1,8 @@
-# Удалить и остановить все контейнеры
+# Delete and stop all containers
 docker stop $(docker ps -q) /
 docker container prune -f
 
-# Очистить кеш докера
+# Clear docker cache
 docker builder prune -f
 
 docker-compose up --build -d

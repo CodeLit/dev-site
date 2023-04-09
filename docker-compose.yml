@@ -31,32 +31,32 @@ services:
     volumes:
       - ./certbot/www/:/var/www/certbot/:rw
       - ./certbot/conf/:/etc/letsencrypt/:rw
-#  mix:
-#    platform: linux/x86_64
-#    container_name: dev_site_laravel_mix
-#    build:
-#      dockerfile: ./docker/mix/Dockerfile
-#      context: .
-#    volumes:
-#      - type: bind
-#        source: ./public
-#        target: /app/public
-#      - type: bind
-#        source: ./resources
-#        target: /app/resources
-#      - type: bind
-#        source: ./package.json
-#        target: /app/package.json
-#      - type: bind
-#        source: ./yarn.lock
-#        target: /app/yarn.lock
-#      - type: bind
-#        source: ./webpack.mix.js
-#        target: /app/webpack.mix.js
-#    ports:
-#      - '35729:35729'
-#    env_file:
-#      - .env
+  mix:
+    platform: linux/x86_64
+    container_name: dev_site_laravel_mix
+    build:
+      dockerfile: ./docker/mix/Dockerfile
+      context: .
+    volumes:
+      - type: bind
+        source: ./public
+        target: /app/public
+      - type: bind
+        source: ./resources
+        target: /app/resources
+      - type: bind
+        source: ./package.json
+        target: /app/package.json
+      - type: bind
+        source: ./yarn.lock
+        target: /app/yarn.lock
+      - type: bind
+        source: ./webpack.mix.js
+        target: /app/webpack.mix.js
+    ports:
+      - '35729:35729'
+    env_file:
+      - .env
 #  mysql:
 #    image: 'mysql/mysql-server:8.0'
 #    container_name: dev_site_mysql
