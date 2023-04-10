@@ -1,5 +1,5 @@
 <template>
-    <iframe :src='src' style='width:100%; height:600px; border:0;'></iframe>
+    <iframe :src='src' class='g-frame'></iframe>
 </template>
 
 <script>
@@ -10,5 +10,9 @@ export default {
 </script>
 
 <style scoped>
-
+.g-frame {
+    width: 100%;
+    min-height: 500px;
+    border: 0;
+}
 </style>
