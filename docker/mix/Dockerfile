@@ -10,6 +10,7 @@ COPY package.json .
 COPY yarn.lock .
 COPY tailwind.js .
 COPY webpack.mix.js .
+COPY realfavicongenerator-config.json .
 
 RUN yarn install
 
