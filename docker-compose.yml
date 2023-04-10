@@ -36,23 +36,9 @@ services:
     container_name: dev_site_laravel_mix
     build:
       dockerfile: ./docker/mix/Dockerfile
-      context: .
     volumes:
-      - type: bind
-        source: ./public
-        target: /app/public
-      - type: bind
-        source: ./resources
-        target: /app/resources
-      - type: bind
-        source: ./package.json
-        target: /app/package.json
-      - type: bind
-        source: ./yarn.lock
-        target: /app/yarn.lock
-      - type: bind
-        source: ./webpack.mix.js
-        target: /app/webpack.mix.js
+      - ./public:/mix/public
+      - ./resources:/mix/resources
     ports:
       - '35729:35729'
     env_file:
