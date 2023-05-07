@@ -18,7 +18,7 @@ return [
     'what_i_do' => 'What can I do',
     'what_i_know' => 'What do I know',
     'about_me' => 'About me',
-    'my_projects' => 'My projects',
+    'my_projects' => 'Examples of work',
     'documents' => 'Documents',
     'other_documents' => 'Other documents',
     'my_certificates' => 'My certificates',

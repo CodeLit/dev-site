@@ -1,6 +1,6 @@
 # Updating SSL certificates
 https://mindsers.blog/post/https-using-nginx-certbot-docker/
-# First we remove the 443 port, certificates, and ssl-related stuff from laravel.conf
+# First we remove the 443 port, certificates, and ssl-related stuff from dev_site.conf
 # Then we start nginx
 
 # Create a certificate for the first time
