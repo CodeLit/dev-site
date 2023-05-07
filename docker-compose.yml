@@ -5,7 +5,9 @@ services:
       context: "./docker/php-fpm"
     restart: unless-stopped
     volumes:
-      - ${APP_CODE_PATH_HOST}:${APP_CODE_PATH_CONTAINER}${APP_CODE_CONTAINER_FLAG}
+#      - "/Users/vladimir/Projects/dev_site:/var/www/laravel/codelit"
+      - ${SITE_APP_CODE_PATH_HOST}:${SITE_APP_CODE_PATH_CONTAINER}${APP_CODE_CONTAINER_FLAG}
+      - ${PROGRESS_APP_CODE_PATH_HOST}:${PROGRESS_APP_CODE_PATH_CONTAINER}${APP_CODE_CONTAINER_FLAG}
     networks:
       - sail
     expose:
@@ -18,7 +20,8 @@ services:
     volumes:
       - ${NGINX_SSL_PATH}:/etc/nginx/ssl
       - ./certbot/www:/var/www/certbot/
-      - ${APP_CODE_PATH_HOST}:${APP_CODE_PATH_CONTAINER}${APP_CODE_CONTAINER_FLAG}
+      - ${SITE_APP_CODE_PATH_HOST}:${SITE_APP_CODE_PATH_CONTAINER}${APP_CODE_CONTAINER_FLAG}
+      - ${PROGRESS_APP_CODE_PATH_HOST}:${PROGRESS_APP_CODE_PATH_CONTAINER}${APP_CODE_CONTAINER_FLAG}
       - ${NGINX_HOST_LOG_PATH}:/var/log/nginx
       - ${NGINX_SITES_PATH}:/etc/nginx/sites-available
     ports:
@@ -54,7 +57,6 @@ services:
 #      MYSQL_DATABASE: '${DB_DATABASE}'
 #      MYSQL_USER: '${DB_USERNAME}'
 #      MYSQL_PASSWORD: '${DB_PASSWORD}'
-#      MYSQL_ALLOW_EMPTY_PASSWORD: 1
 #    volumes:
 #      - '${DATA_PATH_HOST}/mysql:/var/lib/mysql'
 #      - './vendor/laravel/sail/database/mysql/create-testing-database.sh:/docker-entrypoint-initdb.d/10-create-testing-database.sh'
