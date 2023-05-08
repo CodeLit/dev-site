@@ -32,5 +32,5 @@ jobs:
           script: |
             chmod -R 777 ~/dev_site
             cd ~/dev_site
-            docker-compose up -d
+            docker-compose up -d --remove-orphans
 
