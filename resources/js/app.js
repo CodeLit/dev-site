@@ -14,6 +14,7 @@ import BApp from './components/b-App'
 
 
 import { i18nVue, loadLanguageAsync } from 'laravel-vue-i18n'
+import globalMixins from './mixins/globalMixins'
 
 /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support
@@ -65,6 +66,7 @@ app.use(i18nVue,{
     resolve: lang => import(`../lang/${lang}.json`),
 })
 app.use(VueLazyLoading)
+app.mixin(globalMixins)
 
 /**
  * The following block of code may be used to automatically register your

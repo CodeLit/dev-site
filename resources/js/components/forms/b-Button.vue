@@ -5,7 +5,7 @@
 </template>
 
 <style lang="scss" scoped>
-@use '../../scss/variables' as vars;
+@use '../../../scss/variables' as vars;
 
 .button-blurred {
     backdrop-filter: blur(79px);
@@ -38,3 +38,4 @@
     outline: none;
 }
 </style>
+

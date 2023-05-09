@@ -94,7 +94,7 @@
 <script>
 import BParallax from '../b-Parallax'
 import BCard from '../b-Card'
-import BButton from '../b-Button'
+import BButton from '../forms/b-Button.vue'
 import BDocument from '../b-Document'
 import BFooter from '../layouts/b-Footer'
 import Documents from '../layouts/b-DocumentsLayout'

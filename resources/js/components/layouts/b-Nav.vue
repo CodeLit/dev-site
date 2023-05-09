@@ -13,70 +13,27 @@
 
         <div id='nav-list' class='hidden sm:flex flex-col sm:flex-row'>
             <b-button
-                v-for='route in getPages()'
+                v-for='route in $router.options.routes'
                 :key='route.path'
-                :class='[{ active: getCurrentPage() === route.path }]'
+                :class='[{ active: $route.fullPath === route.path }]'
                 class='inline-block col-2 rounded-full px-6 py-3 lg:mx-6 flex-nowrap mb-2 sm:mb-0'
                 @click='changePage(route)'
             >
                 {{ $t(route.trans) }}
             </b-button>
 
-            <b-button
-                class='inline-block rounded-full px-3'
-                @click='selectLanguage(getNextLanguage())'
-            >
-                <img :src="'/img/svg/icons/'+getNextLanguage()+'_flag.svg'" class='mx-auto py-4'
-                     width='25'>
-            </b-button>
+            <b-language-button></b-language-button>
         </div>
-
-        <!--        For mobile devices, the hide button -->
-        <b-button
-            id='nav-toggle'
-            class='nav-toggle sm:hidden'
-            @click.native.prevent='changeLinksState'
-        >
-            <ion-icon name='menu-sharp' size='large'></ion-icon
-            >
-        </b-button>
     </nav>
 </template>
 
 <script>
-import BButton from '../b-Button'
-import { getActiveLanguage } from 'laravel-vue-i18n'
+import BButton from '../forms/b-Button.vue'
 import BCard from '../b-Card'
+import BLanguageButton from '../forms/b-LanguageButton.vue'
 
 export default {
-    components: { BCard, BButton },
-    methods: {
-        getPages() {
-            return this.$router.options.routes
-        },
-        getCurrentPage() {
-            return this.$route.fullPath
-        },
-        changePage(route) {
-            let page = route.path
-            if (this.getCurrentPage() !== page)
-                this.$router.push(page)
-        },
-        changeLinksState() {
-            $('#nav-list').toggleClass('hidden').toggleClass('flex')
-        },
-        getNextLanguage() {
-            return this.getCurrentLanguage() === 'ru' ? 'en' : 'ru'
-        },
-        getCurrentLanguage() {
-            return getActiveLanguage()
-        },
-        selectLanguage(lang) {
-            let url = new URL(window.location.href)
-            url.searchParams.set('lang', lang)
-            window.location.href = url.toString()
-        },
-    },
+    components: { BLanguageButton, BCard, BButton },
 }
 </script>
 
@@ -96,11 +53,5 @@ export default {
         line-height: 1em;
         font-variant-ligatures: no-contextual;
     }
-}
-
-.nav-toggle {
-    border-radius: 0.5em;
-    padding: 0.7em;
-    line-height: 0;
 }
 </style>
