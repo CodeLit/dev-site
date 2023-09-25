@@ -14,7 +14,7 @@ This is a home project to demonstrate the techniques I have learned.
 
 Please enjoy your stay!
 
-## Used technologies:
+## Used technologies
 - Laravel PHP framework
 - Vue.js
 - Tailwind.js
@@ -22,7 +22,7 @@ Please enjoy your stay!
 - Webpack (laravel mix)
 - Docker, docker compose
 
-## Launching dev enviroment:
+## Launching dev environment
 ```
 docker-compose up -d
 ```
