@@ -1,9 +1,6 @@
-# IDE
-.idea
-.vscode
-*.code-workspace
-
-/**/build/**/*
+/node_modules
+/public/build/**/*.css
+/public/build/**/*.js
 /public/hot
 /public/storage
 /public/img
@@ -33,6 +30,9 @@ node_modules
 # testing
 /coverage
 
+# production
+build
+
 # misc
 .DS_Store
 .env.local
@@ -52,5 +52,3 @@ resources/views/layout/favicon.blade.php
 
 /backups
 /keys
-
-!.gitkeep

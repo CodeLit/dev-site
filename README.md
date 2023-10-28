@@ -3,7 +3,9 @@
 This is a home project to demonstrate the techniques I have learned.
 
 [//]: # (<p align="center">)
+
 [//]: # (<img src="https://codelit.tk/favicon/android-chrome-512x512.png" width="400">)
+
 [//]: # (</p>)
 
 <p align="center">
