@@ -4,7 +4,7 @@ name: Deploy static content to Pages
 on:
   # Runs on pushes targeting the default branch
   push:
-    branches: ["main", "#29"]
+    branches: ["main"]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -35,6 +35,9 @@ jobs:
         run: |
           sh shell/install.bash
           sh shell/build.bash
+      - name: Copy public folder to root of a project
+        run: |
+          cp -rf public/* .
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Upload artifact
