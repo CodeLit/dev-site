@@ -3,34 +3,56 @@ name: Host-deploy
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
   workflow_dispatch: # Allows you to run this workflow manually from the Actions tab
 
 jobs:
-  deploy:
+  build-and-push:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+      - uses: actions/upload-artifact@v3
+        with:
+          name: job-artifact
+          path: docker-compose.yml
+      - name: Docker-compose build
+        run: docker-compose build
+      - name: Log in to the container registry
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ vars.REGISTRY_USERNAME }}
+          password: ${{ secrets.REGISTRY_PASSWORD }}
+      - name: Push to the container registry
+        run: docker-compose push
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build-and-push
+    steps:
+      - uses: actions/download-artifact@v3
+        with:
+          name: job-artifact
+
       - name: Copy files via ssh
         uses: appleboy/scp-action@master
         with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USERNAME }}
+          host: ${{ vars.SSH_HOST }}
+          username: ${{ vars.SSH_USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
-          source: "*"
-          target: "~/dev_site"
+          source: 'docker-compose.yml'
+          target: '${{ vars.SSH_PROJECT_FOLDER }}'
+
       - name: Run commands via ssh
         uses: appleboy/ssh-action@master
         with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USERNAME }}
+          host: ${{ vars.SSH_HOST }}
+          username: ${{ vars.SSH_USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
           script: |
-            chmod -R 777 ~/dev_site
-            cd ~/dev_site
+            cd ${{ vars.SSH_PROJECT_FOLDER }}
+            docker-compose down
+            docker-compose pull
             docker-compose up -d --remove-orphans
-
