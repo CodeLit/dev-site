@@ -12,5 +12,5 @@ COPY package.json yarn.lock ./
 
 COPY . .
 
-RUN ["sh", "shell/install.sh"]
-CMD ["sh", "shell/build.sh"]
+RUN ["bash", "shell/install.sh"]
+CMD ["bash", "shell/build.sh"]
