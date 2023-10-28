@@ -30,7 +30,7 @@
 </head>
 <body>
 <div id="app">
-    <noscript>Please enable JavaScript on this page.</noscript>
+    <noscript>Пожалуйста, включите JavaScript на странице.</noscript>
 </div>
 </body>
 </html>
