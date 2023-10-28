@@ -1,20 +1,26 @@
 version: '3'
 services:
   mix:
+    image: ghcr.io/codelit/dev-site
     platform: linux/x86_64
     build:
       dockerfile: ./docker/mix/Dockerfile
       context: .
-    volumes:
-      - .:/mix
-    #    ports:
-    #      - '35729:35729' # Livereload
+    ports:
+      - '35729:35729' # Livereload
     env_file:
       - .env
+    volumes:
+      - dev-site:/app
   composer:
+    depends_on:
+      - mix
     image: composer/composer
     tty: true
-    volumes:
-      - $PWD:/app
     working_dir: /app
-    command: install
+    command: install && sh shell/composer-post-install.sh
+    volumes:
+      - dev-site:/app
+
+volumes:
+  dev-site:
