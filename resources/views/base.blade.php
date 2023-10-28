@@ -30,6 +30,7 @@
     </head>
     <body>
         <div id="app">
+            <h1>Vue.js Application</h1>
             <noscript>Please enable JavaScript on this page.</noscript>
         </div>
     </body>

@@ -51,6 +51,7 @@ yarn-error.log*
 /public/mix-manifest.json
 resources/views/layout/favicon.blade.php
 
+backups-config.json
 /backups
 /keys
 
