@@ -1,4 +1,4 @@
-import { createApp } from 'vue'
+import {createApp} from 'vue'
 import Popper from 'popper.js'
 import cash from 'cash-dom'
 import lodash from 'lodash'
@@ -6,14 +6,14 @@ import './font-awesome'
 
 import 'es6-promise/auto' // для старых браузеров
 import store from './store' // vuex
-import { createRouter, createWebHistory } from 'vue-router'
+import {createRouter, createWebHistory} from 'vue-router'
 
 import routes from './routes'
 import VueLazyLoading from 'vue-lazy-loading'
 import BApp from './components/b-App'
 
 
-import { i18nVue, loadLanguageAsync } from 'laravel-vue-i18n'
+import {i18nVue, loadLanguageAsync} from 'laravel-vue-i18n'
 import globalMixins from './mixins/globalMixins'
 
 /**
@@ -26,7 +26,7 @@ try {
     window.Popper = Popper
     window.$ = cash
 } catch (e) {
-    console.error('Ошибка импорта библиотек!', e.message)
+    console.error('Libraries importing error!', e.message)
 }
 
 /**
@@ -73,7 +73,7 @@ app.mixin(globalMixins)
  * Vue components. It will recursively scan this directory for the Vue
  * components and automatically register them with their "basename".
  *
- * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
+ * E.g. ./components/ExampleComponent.vue -> <example-component></example-component>
  */
 const requireComponent = require.context('./components', true, /\.vue$/i)
 
@@ -95,6 +95,6 @@ requireComponent.keys().forEach(fileName => {
 
 let lang = $('html').attr('lang')
 
-loadLanguageAsync(lang).then(r => {
+loadLanguageAsync(lang).then(() => {
     app.mount('#app')
 })

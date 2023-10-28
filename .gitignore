@@ -3,6 +3,7 @@
 .vscode
 *.code-workspace
 
+/resources/lang/*.json
 /**/build/**/*
 /public/hot
 /public/storage
