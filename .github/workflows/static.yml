@@ -31,6 +31,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+      - name: Build
+        run: |
+          sh shell/install.sh
+          sh shell/build.sh
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Upload artifact
@@ -38,10 +42,6 @@ jobs:
         with:
           # Upload entire repository
           path: '.'
-      - name: Build
-        run: |
-          sh shell/install.sh
-          sh shell/build.sh
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
