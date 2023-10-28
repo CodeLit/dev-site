@@ -53,4 +53,4 @@ jobs:
           port: 22
           script: |
             cd ${{ vars.SSH_PROJECT_FOLDER }}
-            sh shell/deploy.sh
+            sh shell/deploy.bash
