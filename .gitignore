@@ -3,8 +3,7 @@
 .vscode
 *.code-workspace
 
-/public/build/**/*.css
-/public/build/**/*.js
+/**/build/**/*
 /public/hot
 /public/storage
 /public/img
@@ -34,9 +33,6 @@ node_modules
 # testing
 /coverage
 
-# production
-build
-
 # misc
 .DS_Store
 .env.local
@@ -56,3 +52,5 @@ resources/views/layout/favicon.blade.php
 
 /backups
 /keys
+
+!.gitkeep
