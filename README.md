@@ -6,7 +6,7 @@ This is a home project to demonstrate the techniques I have learned.
 [//]: # (<img src="https://codelit.tk/favicon/android-chrome-512x512.png" width="400">)
 [//]: # (</p>)
 
-<p align="center">
+<p>
 <a href="https://github.com/CodeLit/dev_site/actions"><img src="https://github.com/CodeLit/dev_site/workflows/Host-deploy/badge.svg" alt="Build Status"></a>
 </p>
 
@@ -20,9 +20,16 @@ Please enjoy your stay!
 - Webpack (laravel mix)
 - Docker, docker compose
 
-## Launching dev environment
+## Launch dev environment
+- Install PHP 8.2, Composer, Node LTS, yarn
+- Run composer install
+- Run yarn install
+- Run yarn watch
+- Use php server to run public/index.php file
+
+## Build container
 ```
-docker-compose up -d
+docker-compose up --build -d
 ```
 
 ## About Laravel
