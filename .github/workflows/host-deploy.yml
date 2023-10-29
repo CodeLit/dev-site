@@ -58,4 +58,6 @@ jobs:
           port: 22
           script: |
             cd ${{ vars.SSH_PROJECT_FOLDER }}
-            sh shell/deploy.bash
+            docker-compose down
+            docker-compose pull
+            docker-compose up -d --remove-orphans
