@@ -1,16 +1,17 @@
-FROM --platform=linux/x86_64 node:18-alpine
-
-EXPOSE 35729
-
-RUN apk update
-RUN apk --no-cache add bash curl libpng-dev libjpeg gcompat mesa-gl libxi
-RUN npm install -g npm@latest
+FROM php:8.2-alpine
 
 WORKDIR /app
 
-COPY package.json yarn.lock ./
+RUN apk update
+RUN apk add --no-cache nodejs npm yarn curl git bash libpng-dev libjpeg gcompat mesa-gl libxi
+RUN npm install -g npm@latest
+
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 COPY . .
 
-RUN ["bash", "shell/install.bash"]
-CMD ["bash", "shell/build.bash"]
+# We won't build in mounted folder until the container starts.
+# Build after, to avoid creating empty volumes.
+CMD ["bash", "shell/build.sh"]
+
+EXPOSE 35729

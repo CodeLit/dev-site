@@ -10,12 +10,3 @@ services:
       - '35729:35729' # Livereload
     volumes:
       - .:/app
-  composer:
-    depends_on:
-      - mix
-    image: composer/composer
-    tty: true
-    working_dir: /app
-    command: install
-    volumes:
-      - .:/app
