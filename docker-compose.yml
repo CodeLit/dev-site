@@ -16,6 +16,6 @@ services:
     image: composer/composer
     tty: true
     working_dir: /app
-    command: install && sh shell/composer-post-install.bash
+    command: install
     volumes:
       - .:/app
