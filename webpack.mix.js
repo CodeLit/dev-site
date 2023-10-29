@@ -4,7 +4,6 @@ const LiveReloadPlugin = require('webpack-livereload-plugin')
 require('laravel-mix-tailwind')
 require('laravel-vue-i18n/mix')
 require('laravel-mix-favicon')
-require('laravel-mix-webp')
 
 if (process.arch !== 'x64') {
     console.warn('=================================================')
@@ -48,14 +47,6 @@ mix.setPublicPath('public')
     .sass('resources/scss/app.scss', 'public/build/css')
     .tailwind()
     .i18n('resources/lang')
-    .ImageWebp({
-        // requires libwebp-dev in ubuntu
-        from: 'resources/images',
-        to: 'public/img',
-        imageminWebpOptions: {
-            quality: 50,
-        },
-    })
     .copy('resources/images/svg', 'public/img/svg')
     .favicon({
         inputPath: 'resources/images/favicon',
