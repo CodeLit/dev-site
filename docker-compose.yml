@@ -6,7 +6,6 @@ services:
     build:
       dockerfile: ./docker/mix/Dockerfile
       context: .
-    ports:
-      - '35729:35729' # Livereload
+    user: ${UID}:${GID}
     volumes:
       - .:/app
