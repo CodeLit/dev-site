@@ -8,10 +8,8 @@ services:
       context: .
     ports:
       - '35729:35729' # Livereload
-    env_file:
-      - .env
     volumes:
-      - dev-site:/app
+      - .:/app
   composer:
     depends_on:
       - mix
@@ -20,7 +18,4 @@ services:
     working_dir: /app
     command: install && sh shell/composer-post-install.bash
     volumes:
-      - dev-site:/app
-
-volumes:
-  dev-site:
+      - .:/app
