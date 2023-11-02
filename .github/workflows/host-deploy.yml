@@ -33,4 +33,4 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             cd ${{ vars.SSH_PROJECT_FOLDER }}
-            && bash shell/deploy.sh
+            bash shell/deploy.sh
