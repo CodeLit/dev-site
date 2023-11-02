@@ -10,13 +10,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Set up SSH
-        uses: webfactory/ssh-agent@v0.8.0
+      - name: rsync deployments
+        uses: burnett01/rsync-deployments@6.0.0
         with:
-          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
-      - name: Rsync files to remote server
-        run: |
-          rsync -avzr --delete \
+          switches: -avzr --delete \
             --exclude='.git' \
-            --exclude='.env' \
-            ./ ${{ vars.SSH_USERNAME }}@${{ vars.SSH_HOST }}:${{ vars.SSH_PROJECT_FOLDER }}
+            --exclude='.env'
+          path: ./
+          remote_path: ${{ vars.SSH_PROJECT_FOLDER }}
+          remote_host: ${{ vars.SSH_HOST }}
+          remote_user: ${{ vars.SSH_USERNAME }}
+          remote_key: ${{ secrets.SSH_PRIVATE_KEY }}
+          
