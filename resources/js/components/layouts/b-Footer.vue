@@ -4,7 +4,7 @@
             <h3>{{ $t('common.contact_with_me') }}</h3>
             <br>
             <div class="flex">
-<!--                <b-link url="tel:+79187467928" class="contact-link">-->
+                <!--                <b-link url="tel:+77051127899" class="contact-link">-->
 <!--                    <ion-icon name="call"></ion-icon>-->
 <!--                    Позвонить-->
 <!--                </b-link>-->
@@ -13,7 +13,7 @@
                     <i class="fab fa-telegram-plane"></i>
                     Telegram
                 </b-link>
-                <b-link url="https://wa.me/79187467928" blank class="contact-link">
+                <b-link blank class='contact-link' url='https://wa.me/77051127899'>
                     <ion-icon name="logo-whatsapp"></ion-icon>
                     WhatsApp
                 </b-link>
