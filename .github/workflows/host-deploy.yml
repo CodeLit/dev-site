@@ -34,3 +34,4 @@ jobs:
           script: |
             cd ${{ vars.SSH_PROJECT_FOLDER }}
             bash shell/deploy.sh
+            docker system prune -af
