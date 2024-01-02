@@ -1,8 +1,3 @@
-# IDE
-.idea
-.vscode
-*.code-workspace
-
 /resources/lang/*.json
 /**/build/**/*
 /public/hot

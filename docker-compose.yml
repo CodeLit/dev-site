@@ -2,7 +2,6 @@ version: '3'
 services:
   mix:
     image: ghcr.io/codelit/dev-site
-    platform: linux/x86_64
     build:
       dockerfile: ./docker/mix/Dockerfile
       context: .
