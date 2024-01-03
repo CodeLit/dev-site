@@ -43,8 +43,8 @@
 </template>
 
 <script>
-import BButton from '../forms/b-Button.vue'
-import BLanguageButton from '../forms/b-LanguageButton.vue'
+import BButton from '../common/b-Button.vue'
+import BLanguageButton from '../common/b-LanguageButton.vue'
 
 export default {
     name: 'b-NavMobile',

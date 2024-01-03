@@ -12,22 +12,24 @@ This is a home project to demonstrate the techniques I have learned.
 
 Please enjoy your stay!
 
-## Used technologies
-- Laravel PHP framework
-- Vue.js
-- Tailwind.js
-- Scss
-- Webpack (laravel mix)
-- Docker, docker compose
+## Technologies used
+- `Laravel PHP framework`
+- `Vue.js`
+- `Tailwind.js`
+- `Scss`
+- `Webpack (laravel mix)`
+- `Docker, docker compose`
 
-## Launch dev environment
+## Dev env launch
+
+### Manual
 - Install PHP 8.2, Composer, Node LTS, yarn
-- Run composer install
-- Run yarn install
-- Run yarn watch
-- Use php server to run public/index.php file
+- Run `composer install`
+- Run `yarn install`
+- Run `yarn run watch`
+- Use php web server to run `public/index.php` file
 
-## Build container
+### Using Docker container
 ```
 docker-compose up --build -d
 ```

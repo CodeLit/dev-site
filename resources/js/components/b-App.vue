@@ -34,7 +34,7 @@
 <script>
 import bCircle from './b-Circle.vue'
 import BRoundBox from './b-RoundBox.vue'
-import BButton from './forms/b-Button.vue'
+import BButton from './common/b-Button.vue'
 import BCard from './b-Card'
 import BFooter from './layouts/b-Footer.vue'
 import BCookies from './layouts/b-Cookies.vue'
