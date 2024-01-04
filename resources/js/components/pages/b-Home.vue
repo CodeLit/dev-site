@@ -1,18 +1,20 @@
 <template>
     <div>
-        <b-parallax img_url="/img/sky/kristopher-roller.webp" class="min-h-screen flex flex-col justify-center">
+        <b-parallax class="min-h-screen flex flex-col justify-center" img_url="/img/sky/kristopher-roller.webp">
             <b-card :blur_amount="20" class="flex flex-col md:flex-row max-w-screen-xl m-7 sm:mx-32 xl:mx-auto">
                 <b-card class="p-5" style="box-shadow: 1px 1px white inset">
                     <div class="flex flex-col flex-center">
                         <b-round-box
-                            style="border-radius: 7%"
-                            class="mx-auto md:w-60 w-40"
                             alt="User's avatar"
+                            class="mx-auto md:w-60 w-40"
+                            style="border-radius: 7%"
                             url="/img/profile-3.webp"
                         />
                         <div class="flex flex-col text-center">
-                            <p class="name text-white text-2xl mt-3">{{ $t('common'+$store.getters.getTransSuffix+'.name') }}</p>
-                            <p class="job text-gray-200 text-lg">{{ $t('common'+$store.getters.getTransSuffix+'.developer') }}</p>
+                            <p class="name text-white text-2xl mt-3">
+                                {{ $t('common' + $store.getters.getTransSuffix + '.name') }}</p>
+                            <p class="job text-gray-200 text-lg">
+                                {{ $t('common' + $store.getters.getTransSuffix + '.developer') }}</p>
                         </div>
                     </div>
                 </b-card>
@@ -43,10 +45,11 @@
                     <h2 class="pb-1">{{ $t('common.what_i_do') }}?</h2>
                     <h5 class="my-4">
                         {{ $t('common.my_stack') }}:
-                        <b-text-icon classes="fab fa-php">PHP, </b-text-icon>
+                        <b-text-icon classes="fab fa-php">PHP,</b-text-icon>
                         <!--                        <b-text-icon classes="fab fa-golang">GoLang</b-text-icon>-->
                         <!--                        ,-->
-                        <i class="fab fa-html5"></i> HTML5, <i class="fab fa-js"></i> JS, <i class="fab fa-css3"></i> CSS,
+                        <i class="fab fa-html5"></i> HTML5, <i class="fab fa-js"></i> JS, <i class="fab fa-css3"></i>
+                        CSS,
                         <b-text-icon classes="fab fa-python">Python,</b-text-icon>
                         <b-text-icon classes="fab fa-golang">GO.</b-text-icon>
                     </h5>
@@ -84,16 +87,16 @@
                 </b-button>
             </div>
         </b-card>
-        <b-parallax img_url="/img/humans/macbook-and-books.webp" class="min-h-screen text-center py-72">
-            <documents/>
+        <b-parallax class="min-h-screen text-center py-72" img_url="/img/humans/macbook-and-books.webp">
+            <documents />
         </b-parallax>
 
-        <b-footer/>
+        <b-footer />
     </div>
 </template>
 <script>
 import BParallax from '../b-Parallax'
-import BCard from '../b-Card'
+import BCard from '../common/b-Card.vue'
 import BButton from '../common/b-Button.vue'
 import BDocument from '../b-Document'
 import BFooter from '../layouts/b-Footer'
@@ -101,9 +104,9 @@ import Documents from '../layouts/b-DocumentsLayout'
 import BTextIcon from '../b-TextIcon'
 
 export default {
-    components: {Documents, BFooter, BDocument, BButton, BCard, BParallax, BTextIcon},
+    components: { Documents, BFooter, BDocument, BButton, BCard, BParallax, BTextIcon },
     mounted() {
         this.$store.commit('unsetPageImage')
-    }
+    },
 }
 </script>

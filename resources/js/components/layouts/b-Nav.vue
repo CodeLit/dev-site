@@ -29,7 +29,7 @@
 
 <script>
 import BButton from '../common/b-Button.vue'
-import BCard from '../b-Card'
+import BCard from '../common/b-Card.vue'
 import BLanguageButton from './b-LanguageDropdown.vue'
 
 

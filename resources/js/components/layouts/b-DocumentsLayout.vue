@@ -15,12 +15,12 @@
 </template>
 
 <script>
-import BCard from '../b-Card'
+import BCard from '../common/b-Card.vue'
 import bFolder from '../bGDocsFolder.vue'
 
 export default {
-    name: "bDocuments",
-    components: {BCard, bFolder},
+    name: 'bDocuments',
+    components: { BCard, bFolder },
 }
 </script>
 

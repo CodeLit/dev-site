@@ -39,7 +39,7 @@
 </template>
 
 <script>
-import BLink from '../b-Link'
+import BLink from '../common/b-Link.vue'
 
 export default {
     components: { BLink },

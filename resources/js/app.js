@@ -1,4 +1,4 @@
-import {createApp} from 'vue'
+import { createApp } from 'vue'
 import Popper from 'popper.js'
 import cash from 'cash-dom'
 import lodash from 'lodash'
@@ -6,15 +6,21 @@ import './font-awesome'
 
 import 'es6-promise/auto' // для старых браузеров
 import store from './store' // vuex
-import {createRouter, createWebHistory} from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router'
 
 import routes from './routes'
 import VueLazyLoading from 'vue-lazy-loading'
 import BApp from './components/b-App'
 
-
-import {i18nVue, loadLanguageAsync} from 'laravel-vue-i18n'
+import { i18nVue, loadLanguageAsync } from 'laravel-vue-i18n'
 import globalMixins from './mixins/globalMixins'
+
+// Vuetify
+import '@mdi/font/css/materialdesignicons.css'
+import 'vuetify/styles'
+import { createVuetify } from 'vuetify'
+import * as components from 'vuetify/components'
+import * as directives from 'vuetify/directives'
 
 /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support
@@ -62,7 +68,7 @@ const router = new createRouter({
 let app = createApp(BApp)
 app.use(router)
 app.use(store)
-app.use(i18nVue,{
+app.use(i18nVue, {
     resolve: lang => import(`../lang/${lang}.json`),
 })
 app.use(VueLazyLoading)
@@ -85,7 +91,7 @@ requireComponent.keys().forEach(fileName => {
         fileName
             .split('/')
             .pop()
-            .split('.')[0]
+            .split('.')[0],
     )
     // Поиск опций компонента в `.default`, который будет существовать,
     // если компонент экспортирован с помощью `export default`,
@@ -95,6 +101,11 @@ requireComponent.keys().forEach(fileName => {
 
 let lang = $('html').attr('lang')
 
+const vuetify = createVuetify({
+    components,
+    directives,
+})
+
 loadLanguageAsync(lang).then(() => {
-    app.mount('#app')
+    app.use(vuetify).mount('#app')
 })

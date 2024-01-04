@@ -20,10 +20,10 @@
 
 <style></style>
 <script>
-import BCard from '../b-Card'
+import BCard from '../common/b-Card.vue'
 import BHeader from '../layouts/b-Header'
 
 export default {
-    components: {BHeader, BCard}
+    components: { BHeader, BCard },
 }
 </script>

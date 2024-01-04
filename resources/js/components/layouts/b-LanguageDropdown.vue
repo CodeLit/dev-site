@@ -1,7 +1,7 @@
 <template>
     <div class="languages-wrapper">
         <b-button
-            class='inline-block rounded-full px-3'
+            class='inline-block rounded-full px-3' @click=""
         >
             <img :alt="getCurrentLanguage()" :src="'/img/svg/flags/'+getCurrentLanguage()+'_flag.svg'"
                  class='mx-auto py-4' width='25'>
@@ -59,7 +59,6 @@ export default {
     &:hover {
         .dropdown {
             visibility: visible;
-
         }
     }
 }
