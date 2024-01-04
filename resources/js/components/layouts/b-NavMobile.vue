@@ -28,7 +28,7 @@
             <div class='flex items-center ml-auto h-fit'>
                 <b-language-button class='lang_btn mr-2' />
 
-                <!--        For mobile devices, the hide button -->
+                <!-- For mobile devices, the hide button -->
                 <b-button
                     id='nav-toggle'
                     class='nav-toggle'
