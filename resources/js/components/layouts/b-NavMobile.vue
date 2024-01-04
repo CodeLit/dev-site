@@ -44,7 +44,7 @@
 
 <script>
 import BButton from '../common/b-Button.vue'
-import BLanguageButton from '../common/b-LanguageButton.vue'
+import BLanguageButton from './b-LanguageDropdown.vue'
 
 export default {
     name: 'b-NavMobile',
