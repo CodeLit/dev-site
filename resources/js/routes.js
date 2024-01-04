@@ -9,6 +9,7 @@ export default [
         name: 'home',
         component: bHome,
         header_absolute: true,
+        meta: { transition: 'fade' },
     },
     {
         path: '/my-projects',
@@ -23,7 +24,7 @@ export default [
     {
         path: '/documents',
         trans: 'common.documents',
-        component: bDocuments
+        component: bDocuments,
     },
     // {
     //     path: '/learning',

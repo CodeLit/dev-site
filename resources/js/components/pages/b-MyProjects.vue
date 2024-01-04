@@ -1,7 +1,9 @@
 <template>
     <div>
-        <div class="card-container mx-auto">
-            <b-button class="ml-auto" @click="switchMode">Image/iFrame</b-button>
+        <div class="card-container mx-auto flex justify-end mb-4">
+            <b-button class="button-blurred bg-white-gradient text-white px-6 py-3 rounded-full"
+                      @click="switchMode">Image/iFrame
+            </b-button>
         </div>
 
         <div class="card-container mx-auto">
@@ -23,7 +25,8 @@
             <b-project :mode="mode" job-type="teamwork" link="osobnyaki.com" title="Osobnyaki" />
             <b-project :mode="mode" job-type="teamwork" link="silverbor.moscow" title="Silver Bor" />
             <b-project :mode="mode" class="pb-0" description-trans="telegram-bots"
-                       disable_preview="true" job-type="solo_work" logo="/img/svg/logos/telegram.svg" title="Telegram Bots" />
+                       disable_preview="true" job-type="solo_work" logo="/img/svg/logos/telegram.svg"
+                       title="Telegram Bots" />
 
         </div>
         <b-footer blurred="1" />
