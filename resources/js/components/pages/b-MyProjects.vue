@@ -2,7 +2,6 @@
     <div>
         <div class="card-container mx-auto flex justify-end mb-4">
             <div>
-                <b-icon></b-icon>
                 <v-switch v-model="iframeMode" class="text-white" color="success" inset label="iFrame mode"></v-switch>
             </div>
         </div>
