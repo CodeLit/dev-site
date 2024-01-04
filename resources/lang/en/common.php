@@ -9,7 +9,7 @@ return [
     'welcome_to_blog' => 'Welcome to my website',
     'okay_fine' => 'Fine',
     'name' => 'Vladimir',
-    'developer' => 'Developer',
+    'developer' => 'Senior FullStack Developer',
     'home_description' => "If you want to read about me, my CV, then you
                          hit the address. All information on this resource presented in an understandable
                          form",

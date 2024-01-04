@@ -45,13 +45,13 @@
                     <h2 class="pb-1">{{ $t('common.what_i_do') }}?</h2>
                     <h5 class="my-4">
                         {{ $t('common.my_stack') }}:
-                        <b-text-icon classes="fab fa-php">PHP,</b-text-icon>
+                        <b-text-icon classes="fab fa-php">PHP,&nbsp;</b-text-icon>
                         <!--                        <b-text-icon classes="fab fa-golang">GoLang</b-text-icon>-->
                         <!--                        ,-->
                         <i class="fab fa-html5"></i> HTML5, <i class="fab fa-js"></i> JS, <i class="fab fa-css3"></i>
                         CSS,
-                        <b-text-icon classes="fab fa-python">Python,</b-text-icon>
-                        <b-text-icon classes="fab fa-golang">GO.</b-text-icon>
+                        <b-text-icon classes="fab fa-python">Python,&nbsp;</b-text-icon>
+                        <b-text-icon classes="fab fa-golang">GoLang.</b-text-icon>
                     </h5>
                     <ul>
                         <li>{{ $t('info.various_languages') }} (<i
@@ -102,9 +102,10 @@ import BDocument from '../b-Document'
 import BFooter from '../layouts/b-Footer'
 import Documents from '../layouts/b-DocumentsLayout'
 import BTextIcon from '../b-TextIcon'
+import BRoundBox from '../b-RoundBox.vue'
 
 export default {
-    components: { Documents, BFooter, BDocument, BButton, BCard, BParallax, BTextIcon },
+    components: { BRoundBox, Documents, BFooter, BDocument, BButton, BCard, BParallax, BTextIcon },
     mounted() {
         this.$store.commit('unsetPageImage')
     },
