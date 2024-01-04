@@ -8,9 +8,10 @@ use Illuminate\Http\Request;
 class SelectPreferredLocaleMiddleware
 {
     const SESSION_KEY = 'locale';
-    const LOCALES = ['en','ru'];
+    const LOCALES = ['en', 'ge', 'ru', 'fr'];
 
-    public function handle(Request $request, Closure $next) {
+    public function handle(Request $request, Closure $next)
+    {
         $session = $request->session();
 
         if (!$session->has(self::SESSION_KEY)) {

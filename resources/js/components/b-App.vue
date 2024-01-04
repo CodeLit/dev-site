@@ -1,10 +1,10 @@
 <template>
-    <div class='app w-screen' ref='app' :style="{'background-image':$store.getters.getPageImage}">
+    <div ref='app' :style="{'background-image':$store.getters.getPageImage}" class='app w-screen'>
         <b-header class='top-0 left-0' />
 
-        <router-view v-slot='{ Component }'>
-            <transition name='scale' mode='out-in'>
-                <component :is='Component' />
+        <router-view v-slot='{ Component, route }'>
+            <transition :name="route.meta.transition || 'fade'" mode='out-in'>
+                <component :is='Component' :key="route.path" />
             </transition>
         </router-view>
 
@@ -18,11 +18,12 @@
         <b-cookies />
 
         <transition name='fade'>
-            <div class='up-scroller_wrapper' v-if='isArrowUpVisible'>
+            <div v-if='isArrowUpVisible' class='up-scroller_wrapper'>
                 <div class='relative'>
-                    <b-card @click='scrollToTop()'
-                            class='up-scroller z-10 w-fit ml-auto cursor-pointer select-none'>
-                        ⇧
+                    <b-card
+                        class='up-scroller z-10 w-fit ml-auto cursor-pointer select-none text-xl flex items-center justify-center'
+                        @click='scrollToTop()'>
+                        <b-icon :path='mdiArrowUpThick()' class="w-8 h-8"></b-icon>
                     </b-card>
                 </div>
             </div>
@@ -34,19 +35,24 @@
 <script>
 import bCircle from './b-Circle.vue'
 import BRoundBox from './b-RoundBox.vue'
-import BButton from './forms/b-Button.vue'
-import BCard from './b-Card'
+import BButton from './common/b-Button.vue'
+import BCard from './common/b-Card.vue'
 import BFooter from './layouts/b-Footer.vue'
 import BCookies from './layouts/b-Cookies.vue'
+import BIcon from './common/b-Icon.vue'
+import { mdiArrowUpThick } from '@mdi/js'
 
 export default {
-    components: { BCookies, BFooter, BCard, BButton, bCircle, BRoundBox },
+    components: { BIcon, BCookies, BFooter, BCard, BButton, bCircle, BRoundBox },
     data() {
         return {
             windowTop: 0,
         }
     },
     methods: {
+        mdiArrowUpThick() {
+            return mdiArrowUpThick
+        },
         scrollToTop() {
             $('body')[0].scrollIntoView({ block: 'start', behavior: 'smooth' })
         },
@@ -86,16 +92,12 @@ export default {
         position: absolute;
         right: 0;
         bottom: 0;
-        content: '';
         border: white solid 1px;
         border-radius: 50%;
         float: right;
         transform: translatex(-2rem);
         height: 5rem;
         width: 5rem;
-        font-size: 2rem;
-        font-weight: bold;
-        line-height: 4.8rem;
         text-align: center;
     }
 

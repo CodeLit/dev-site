@@ -1,9 +1,9 @@
 module.exports = {
-    content: [
+    content: [ // Don't add all files. It can break a watcher. Might be a conflict with a l18n plugin.
         './storage/framework/views/*.php',
-        './resources/**/*.blade.php',
-        './resources/**/*.js',
-        './resources/**/*.vue',
+        './resources/js/**/*.{js,vue}',
+        './resources/scss/**/*.scss',
+        './resources/views/**/*.php',
     ],
     variants: {
         extend: {},
@@ -21,3 +21,4 @@ module.exports = {
         },
     },
 }
+

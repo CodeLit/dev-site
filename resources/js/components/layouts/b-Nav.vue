@@ -28,9 +28,10 @@
 </template>
 
 <script>
-import BButton from '../forms/b-Button.vue'
-import BCard from '../b-Card'
-import BLanguageButton from '../forms/b-LanguageButton.vue'
+import BButton from '../common/b-Button.vue'
+import BCard from '../common/b-Card.vue'
+import BLanguageButton from './b-LanguageDropdown.vue'
+
 
 export default {
     components: { BLanguageButton, BCard, BButton },

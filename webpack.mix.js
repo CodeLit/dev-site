@@ -50,15 +50,15 @@ mix.setPublicPath('public')
     .i18n('resources/lang')
     .ImageWebp({
         // requires libwebp-dev in ubuntu
-        from: 'resources/images',
+        from: 'resources/img',
         to: 'public/img',
         imageminWebpOptions: {
             quality: 50,
         },
     })
-    .copy('resources/images/svg', 'public/img/svg')
+    .copy('resources/img/svg', 'public/img/svg')
     .favicon({
-        inputPath: 'resources/images/favicon',
+        inputPath: 'resources/img/favicon',
         inputFile: '*.{jpg,png,svg}',
         publicPath: 'public',
         output: 'img/favicon',

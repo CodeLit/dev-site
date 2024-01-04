@@ -28,7 +28,7 @@
             <div class='flex items-center ml-auto h-fit'>
                 <b-language-button class='lang_btn mr-2' />
 
-                <!--        For mobile devices, the hide button -->
+                <!-- For mobile devices, the hide button -->
                 <b-button
                     id='nav-toggle'
                     class='nav-toggle'
@@ -43,8 +43,8 @@
 </template>
 
 <script>
-import BButton from '../forms/b-Button.vue'
-import BLanguageButton from '../forms/b-LanguageButton.vue'
+import BButton from '../common/b-Button.vue'
+import BLanguageButton from './b-LanguageDropdown.vue'
 
 export default {
     name: 'b-NavMobile',
