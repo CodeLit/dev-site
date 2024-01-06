@@ -26,10 +26,13 @@
 
 </head>
 <body>
+>
 <div id="app">
-    <h1>Vue.js Application</h1>
-    Build of this application is not loaded.
-    Please use yarn install and yarn run production to build the application.
+    <div style="color: transparent">
+        <h2>Vue.js Application</h2>
+        Build of this application is not loaded.
+        Please use yarn install and yarn run production to build the application.
+    </div>
     <noscript>Please enable JavaScript on this page.</noscript>
 </div>
 </body>
