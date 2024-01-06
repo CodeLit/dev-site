@@ -1,34 +1,26 @@
 <template>
     <div>
-        <div class="card-container mx-auto flex justify-end mb-4">
+        <div class="card-container mx-auto flex justify-between items-center mb-4">
+            <div class="tags w-50">
+                <b-button v-for="(count, tag) in existingTags" :key="tag" :class="{'active': selectedTag === tag}"
+                          class="ml-4 px-4 py-2 rounded-full"
+                          color="primary" @click="selectTag(tag)">
+                    {{ tag }} ({{ count }})
+                </b-button>
+            </div>
             <div>
                 <v-switch v-model="iframeMode" class="text-white" color="success" inset label="iFrame mode"></v-switch>
             </div>
         </div>
-        <div class="card-container mx-auto">
-            <b-project :mode="getMode()" job-type="teamwork" link="whitewill.london" title="WhiteWill" />
-            <b-project :mode="getMode()" job-type="teamwork" link="marinadubai.ae" title="Marina Dubai" />
-            <b-project :mode="getMode()" description-trans="rosretail" job-type="teamwork" link="rosretail.com"
-                       title="RosRetail" />
-            <b-project :mode="getMode()" description-trans="arendator" job-type="teamwork"
-                       link="arendator.moscow" title="Arendator Moscow" />
-            <b-project :mode="getMode()" job-type="teamwork" link="moscowcitysale.ru" title="MoscowCitySale" />
-            <b-project :mode="getMode()" job-type="teamwork" link="kupitekvartiru.com" title="KupiteKvartiru" />
-            <b-project :mode="getMode()" job-type="teamwork" link="hamovnyki.ru" title="Hamovnyki" />
-            <b-project :mode="getMode()" job-type="teamwork" link="kupiteloft.ru" title="KupiteLoft" />
-            <b-project :mode="getMode()" job-type="teamwork" link="barvikha.moscow" title="Barvikha" />
-            <b-project :mode="getMode()" description-trans="sofilena" job-type="teamwork" link="sofilena.ru"
-                       title="SofiLena" />
-            <!--            <b-project title="BonusSofilena" get_external_html="true" disable_preview="true"-->
-            <!--                       job-type="solo_work" description-trans="bonussofilena"/>-->
-            <b-project :mode="getMode()" job-type="teamwork" link="osobnyaki.com" title="Osobnyaki" />
-            <b-project :mode="getMode()" job-type="teamwork" link="silverbor.moscow" title="Silver Bor" />
-            <b-project :mode="getMode()" class="pb-0" description-trans="telegram-bots"
-                       disable_preview="true" job-type="solo_work" logo="/img/svg/logos/telegram.svg"
-                       title="Telegram Bots" />
+        <TransitionGroup
+            name="list" tag="div"
+        >
+            <b-project v-for="project in projects"
+                       v-show="selectedTag === 'all' || project.tags.includes(selectedTag)"
+                       :key="project.link" :mode="getMode()" v-bind="project" />
 
-        </div>
-        <b-footer blurred="1" />
+        </TransitionGroup>
+        <b-footer blurred="1" class="mt-auto" />
     </div>
 </template>
 <script>
@@ -38,7 +30,7 @@ import bProject from '../layouts/b-Project'
 import bFooter from '../layouts/b-Footer'
 import BButton from '../common/b-Button.vue'
 import BIcon from '../common/b-Icon.vue'
-
+import projects from './projects'
 
 export default {
     components: { BIcon, BButton, bProject, bFooter },
@@ -47,18 +39,65 @@ export default {
     },
     data() {
         return {
+            projects: projects,
             iframeMode: false,
+            selectedTag: 'all',
         }
+    },
+    computed: {
+        existingTags() {
+            let tags = {
+                all: projects.length,
+            }
+            for (const projectsKey in projects) {
+                const project = projects[projectsKey]
+                if (project.tags) {
+                    for (const tag of project.tags) {
+                        if (tags[tag]) {
+                            tags[tag] += 1
+                        } else {
+                            tags[tag] = 1
+                        }
+                    }
+                }
+            }
+            return tags
+        },
     },
     methods: {
         getMode() {
             return this.iframeMode ? 'iframe' : 'image'
+        },
+        selectTag(tag) {
+            if (this.selectedTag === tag) {
+                this.selectedTag = 'all'
+            } else {
+                this.selectedTag = tag
+            }
         },
     },
 }
 </script>
 <style scoped>
 .card-container {
-    width: 90vw;
+    width: 95vw;
+}
+
+.list-move, /* apply transition to moving elements */
+.list-enter-active,
+.list-leave-active {
+    transition: all 0.5s ease;
+}
+
+.list-enter-from,
+.list-leave-to {
+    opacity: 0;
+    transform: translateX(30px);
+}
+
+/* ensure leaving items are taken out of layout flow so that moving
+   animations can be calculated correctly. */
+.list-leave-active {
+    position: absolute;
 }
 </style>

@@ -1,10 +1,11 @@
 <template>
-    <div ref='app' :style="{'background-image':$store.getters.getPageImage}" class='app w-screen'>
+    <div ref='app' :style="{'background-image':$store.getters.getPageImage}"
+         class='app w-screen min-h-screen flex flex-col'>
         <b-header class='top-0 left-0' />
 
         <router-view v-slot='{ Component, route }'>
             <transition :name="route.meta.transition || 'fade'" mode='out-in'>
-                <component :is='Component' :key="route.path" />
+                <component :is='Component' :key="route.path" class="page h-100 flex flex-col" />
             </transition>
         </router-view>
 
