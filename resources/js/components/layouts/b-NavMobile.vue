@@ -34,7 +34,7 @@
                     class='nav-toggle'
                     @click.native.prevent='changeLinksState'
                 >
-                    <ion-icon name='menu-sharp' size='large'></ion-icon>
+                    <menu-icon h="30px" style="fill: white" w="30px" />
                 </b-button>
             </div>
 
@@ -45,10 +45,11 @@
 <script>
 import BButton from '../common/b-Button.vue'
 import BLanguageButton from './b-LanguageDropdown.vue'
+import MenuIcon from 'vue-ionicons/dist/md-menu.vue'
 
 export default {
     name: 'b-NavMobile',
-    components: { BLanguageButton, BButton },
+    components: { BLanguageButton, BButton, MenuIcon },
     data: function() {
         return {
             nav_toggled: false,

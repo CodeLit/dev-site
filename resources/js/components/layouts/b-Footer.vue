@@ -4,7 +4,7 @@
             <h3>{{ $t('common.contact_with_me') }}</h3>
             <br>
             <div class="flex">
-                <!--                <b-link url="tel:+77051127899" class="contact-link">-->
+                <!--                <b-link url="tel:+77051234567" class="contact-link">-->
                 <!--                    <ion-icon name="call"></ion-icon>-->
                 <!--                    Позвонить-->
                 <!--                </b-link>-->
@@ -14,11 +14,11 @@
                     Telegram
                 </b-link>
                 <b-link blank class='contact-link' url='https://wa.me/77051127899'>
-                    <ion-icon name="logo-whatsapp"></ion-icon>
+                    <whatsapp-icon class="ionic-icon" />
                     WhatsApp
                 </b-link>
                 <b-link class="contact-link align-middle" url="skype:live:.cid.af3a8373b1f5ead2?chat">
-                    <ion-icon name="logo-skype"></ion-icon>
+                    <skype-icon class="ionic-icon" />
                     Skype
                 </b-link>
             </div>
@@ -27,11 +27,11 @@
             <h3>{{ $t('common.links') }}</h3>
             <br>
             <b-link blank class="contact-link" url="https://github.com/CodeLit">
-                <ion-icon name="logo-github"></ion-icon>
+                <git-hub-icon class="ionic-icon" />
                 GitHub
             </b-link>
             <b-link blank class="contact-link" url="https://www.linkedin.com/in/codelit/">
-                <ion-icon name="logo-linkedin"></ion-icon>
+                <linkedin-icon class="ionic-icon" />
                 LinkedIn
             </b-link>
         </div>
@@ -40,9 +40,13 @@
 
 <script>
 import BLink from '../common/b-Link.vue'
+import WhatsappIcon from 'vue-ionicons/dist/logo-whatsapp.vue'
+import SkypeIcon from 'vue-ionicons/dist/logo-skype.vue'
+import GitHubIcon from 'vue-ionicons/dist/logo-github.vue'
+import LinkedinIcon from 'vue-ionicons/dist/logo-linkedin.vue'
 
 export default {
-    components: { BLink },
+    components: { BLink, WhatsappIcon, SkypeIcon, GitHubIcon, LinkedinIcon },
     props: ['blurred'],
 }
 </script>
@@ -50,5 +54,10 @@ export default {
 <style scoped>
 .contact-link {
     margin: 0 10px;
+}
+
+.ionic-icon {
+    fill: white;
+    display: inline-block;
 }
 </style>

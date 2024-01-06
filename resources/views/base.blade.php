@@ -24,9 +24,6 @@
     {{-- Js --}}
     <script src="/build/js/app.js" type="text/javascript"></script>
 
-    {{-- Icons --}}
-    <script defer type="module" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"></script>
-
 </head>
 <body>
 <div id="app">
