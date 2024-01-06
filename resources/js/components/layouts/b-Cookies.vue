@@ -4,10 +4,11 @@
         class='fixed flex place-items-center left-2 bottom-2 px-5 py-3  w-full lg:w-1/2 border-white border-l-2'
     >
         <b-round-box
-            width='84'
-            class='mr-3'
             alt='Cookies image'
+            class='mr-3'
+            height='84'
             url='/img/cookies.webp'
+            width='84'
         />
         <div>
             <h4>{{ $t('common.warning') }}.</h4>

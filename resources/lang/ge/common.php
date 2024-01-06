@@ -2,6 +2,7 @@
 return [
     'test' => 'Test',
     'blog_name' => "Vladimir's Entwicklungsseite",
+    'meta_description' => 'Vladimirs persönliche Website zur Demonstration von Programmier und Webentwicklungsfähigkeiten',
     'warning' => 'Warnung',
     'this_site_uses' => 'Diese Seite verwendet',
     'cookies' => 'Cookies',

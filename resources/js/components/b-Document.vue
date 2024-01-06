@@ -1,8 +1,9 @@
 <template>
     <div style="height: 27rem">
         <UseElementVisibility v-slot="{isVisible}">
-            <iframe :style="{'pointer-events':shouldDisableScrolling?'none':'all'}"
-                    v-if="isVisible || wasCreated" v-lazy="src" loading="lazy" class="w-full h-full"
+            <iframe v-if="isVisible || wasCreated"
+                    v-lazy="src" :style="{'pointer-events':shouldDisableScrolling?'none':'all'}" class="w-full h-full" loading="lazy"
+                    title="Google Document"
                     @load="appear"></iframe>
         </UseElementVisibility>
     </div>
@@ -12,7 +13,7 @@
 import { UseElementVisibility } from '@vueuse/components'</script>
 
 <script>
-import {VueScreenSizeMixin} from "vue-screen-size";
+import { VueScreenSizeMixin } from 'vue-screen-size'
 
 export default {
     props: ['src'],
@@ -22,15 +23,15 @@ export default {
         }
     },
     mixins: [VueScreenSizeMixin],
-    computed:{
-        shouldDisableScrolling(){
+    computed: {
+        shouldDisableScrolling() {
             return this.$vssWidth < 800
-        }
+        },
     },
-    methods:{
+    methods: {
         appear() {
             this.wasCreated = true
-        }
-    }
+        },
+    },
 }
 </script>
