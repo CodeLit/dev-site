@@ -1,17 +1,18 @@
 <template>
-  <a class="text-center" :href="url" :target="blank ? `_blank` : ``"
-    ><slot></slot
-  ></a>
+    <a :href="url" :target="blank ? `_blank` : ``" class="text-center"
+    >
+        <slot />
+    </a>
 </template>
 
 <script>
 export default {
-  props: {
-    url: {
-      type: String,
-      default: '#',
+    props: {
+        url: {
+            type: String,
+            default: '#',
+        },
+        blank: Boolean,
     },
-    blank: Boolean,
-  },
 }
 </script>
