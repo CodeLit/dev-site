@@ -42,7 +42,7 @@ yarn-error.log*
 # cache
 .eslintcache
 /public/mix-manifest.json
-resources/views/layout/favicon.blade.php
+resources/views/favicon.blade.php
 
 backups-config.json
 /backups

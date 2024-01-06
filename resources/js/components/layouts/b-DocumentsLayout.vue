@@ -16,7 +16,7 @@
 
 <script>
 import BCard from '../common/b-Card.vue'
-import bFolder from '../bGDocsFolder.vue'
+import bFolder from './b-GoogleDocsFolder.vue'
 
 export default {
     name: 'bDocuments',
