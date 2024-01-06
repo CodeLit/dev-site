@@ -28,6 +28,7 @@
 <body>
 >
 <div id="app">
+    >
     <div style="color: transparent">
         <h2>Vue.js Application</h2>
         Build of this application is not loaded.
