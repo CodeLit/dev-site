@@ -83,10 +83,6 @@ export default {
     background-attachment: fixed;
 }
 
-.page {
-
-}
-
 .up-scroller_wrapper {
     height: 1px;
     position: sticky;
