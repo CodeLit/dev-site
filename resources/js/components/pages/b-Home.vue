@@ -4,11 +4,13 @@
             <b-card :blur_amount="20" class="flex flex-col md:flex-row max-w-screen-xl m-7 sm:mx-32 xl:mx-auto">
                 <b-card class="p-5" style="box-shadow: 1px 1px white inset">
                     <div class="flex flex-col flex-center">
-                        <b-round-box
+                        <img
                             alt="User's avatar"
-                            class="mx-auto md:w-60 w-40 h-70"
+                            class="mx-auto md:w-60 object-cover"
+                            height="777"
+                            src="/img/profile-3.webp"
                             style="border-radius: 7%"
-                            url="/img/profile-3.webp"
+                            width="563"
                         />
                         <div class="flex flex-col text-center">
                             <p class="name text-white text-2xl mt-3">
@@ -102,10 +104,9 @@ import BDocument from '../b-Document'
 import BFooter from '../layouts/b-Footer'
 import Documents from '../layouts/b-DocumentsLayout'
 import BTextIcon from '../b-TextIcon'
-import BRoundBox from '../b-RoundBox.vue'
 
 export default {
-    components: { BRoundBox, Documents, BFooter, BDocument, BButton, BCard, BParallax, BTextIcon },
+    components: { Documents, BFooter, BDocument, BButton, BCard, BParallax, BTextIcon },
     mounted() {
         this.$store.commit('unsetPageImage')
     },
