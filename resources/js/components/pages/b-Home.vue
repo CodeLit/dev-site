@@ -6,7 +6,7 @@
                     <div class="flex flex-col flex-center">
                         <b-round-box
                             alt="User's avatar"
-                            class="mx-auto md:w-60 w-40"
+                            class="mx-auto md:w-60 w-40 h-70"
                             style="border-radius: 7%"
                             url="/img/profile-3.webp"
                         />
@@ -43,7 +43,7 @@
             <div class="container">
                 <div class="text-sm md:text-base">
                     <h2 class="pb-1">{{ $t('common.what_i_do') }}?</h2>
-                    <h5 class="my-4">
+                    <p class="my-4 text-2xl">
                         {{ $t('common.my_stack') }}:
                         <b-text-icon classes="fab fa-php">PHP,&nbsp;</b-text-icon>
                         <!--                        <b-text-icon classes="fab fa-golang">GoLang</b-text-icon>-->
@@ -52,7 +52,7 @@
                         CSS,
                         <b-text-icon classes="fab fa-python">Python,&nbsp;</b-text-icon>
                         <b-text-icon classes="fab fa-golang">GoLang.</b-text-icon>
-                    </h5>
+                    </p>
                     <ul>
                         <li>{{ $t('info.various_languages') }} (<i
                             class="fab fa-npm"></i> npm, composer, pip, {{ $t('info.and_others') }}),
@@ -74,11 +74,11 @@
                     </ul>
                     <br><br><br>
                     <h2 class="pb-1">{{ $t('common.what_i_know') }}?</h2>
-                    <h5 class="my-4">
+                    <p class="my-4 text-2xl">
                         {{ $t('common.frameworks') }}:
                         <i class="fab fa-laravel"></i> Laravel, <i class="fab fa-vuejs"></i> Vue, Django, Yii, Flask.
                         <!--                        <i class="fab fa-modx"></i> ModX.-->
-                    </h5>
+                    </p>
                     <ul v-html="$t('info.second_block')"></ul>
                 </div>
                 <b-button class="px-6 py-3 rounded-full mt-5"

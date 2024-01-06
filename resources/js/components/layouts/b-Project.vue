@@ -15,8 +15,8 @@
             <div v-if="mode === 'iframe'" class="iframe-wrapper flex items-center justify-center">
                 <iframe v-show="loaded"
                         :src="(get_external_html?'/iframe-redirect?url=':'')+addProtocol(link)"
-                        class="frame"
-                        style="pointer-events: none" @load.once="appear"></iframe>
+                        :title="title"
+                        class="frame" style="pointer-events: none" @load.once="appear"></iframe>
                 <v-progress-circular v-if="!loaded" :size="70" indeterminate></v-progress-circular>
             </div>
             <img v-if="mode === 'image'" :alt="title" :src="'/img/websites/'+link+'.webp'" loading="lazy">

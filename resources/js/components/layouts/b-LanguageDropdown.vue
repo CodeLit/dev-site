@@ -4,7 +4,7 @@
             class='inline-block rounded-full px-3' @click=""
         >
             <img :alt="getCurrentLanguage()" :src="'/img/svg/flags/'+getCurrentLanguage()+'_flag.svg'"
-                 class='mx-auto py-4' width='25'>
+                 class='mx-auto py-4' height="25" width='25'>
         </b-button>
         <div class="dropdown">
             <b-button v-for="language in languages" :key="language"
@@ -12,7 +12,7 @@
                       @click='selectLanguage(language)'
             >
                 <img :alt="language" :src="'/img/svg/flags/'+language+'_flag.svg'"
-                     class='mx-auto py-4' width='25'>
+                     class='mx-auto py-4' height="25" width='25'>
             </b-button>
         </div>
     </div>

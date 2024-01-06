@@ -3,6 +3,7 @@
 return [
     'test' => 'Test',
     'blog_name' => "Site Dev de Vladimir",
+    'meta_description' => 'Site web personnel de Vladimir pour la démonstration de compétences en programmation et développement web',
     'warning' => 'Attention',
     'this_site_uses' => 'Ce site utilise',
     'cookies' => 'Cookies',

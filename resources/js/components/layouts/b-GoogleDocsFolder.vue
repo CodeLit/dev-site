@@ -1,6 +1,7 @@
 <template>
     <div class='google-frame-wrapper'>
-        <iframe v-show="loaded" :src='src' class="google-frame" @load="loaded = true"></iframe>
+        <iframe v-show="loaded" :src='src' class="google-frame" title="Google Documents Folder"
+                @load="loaded = true"></iframe>
         <v-progress-circular v-if="!loaded" :size="70" indeterminate></v-progress-circular>
     </div>
 </template>
