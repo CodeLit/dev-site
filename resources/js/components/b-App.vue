@@ -42,9 +42,11 @@ import BFooter from './layouts/b-Footer.vue'
 import BCookies from './layouts/b-Cookies.vue'
 import BIcon from './common/b-Icon.vue'
 import { mdiArrowUpThick } from '@mdi/js'
+import BCircleBg from './b-CircleBg.vue'
+import BHeader from './layouts/b-Header.vue'
 
 export default {
-    components: { BIcon, BCookies, BFooter, BCard, BButton, bCircle, BRoundBox },
+    components: { BHeader, BIcon, BCookies, BFooter, BCard, BButton, bCircle, BRoundBox, BCircleBg },
     data() {
         return {
             windowTop: 0,
@@ -57,7 +59,7 @@ export default {
         scrollToTop() {
             $('body')[0].scrollIntoView({ block: 'start', behavior: 'smooth' })
         },
-        onScroll(e) {
+        onScroll() {
             this.windowTop = window.top.scrollY
         },
     },
