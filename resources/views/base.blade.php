@@ -11,7 +11,7 @@
 
     {{-- Favicons--}}
     @if(view()->exists('layout.favicon'))
-        @include('favicon')
+        @include('layout.favicon')
     @endif
 
     {{-- Fonts--}}

@@ -1,7 +1,15 @@
 export default [
     {
+        link: 'github.com/ITECOMMPAY/ecommpay-commercetools-integration',
+        title: 'Commercetools Integration',
+        jobType: 'teamwork',
+        tags: ['plugin'],
+        disablePreview: true,
+        logo: '/img/logos/commercetools.webp',
+        altPadding: true,
+    }, {
         link: 'appexchange.salesforce.com/appxListingDetail?listingId=a03092b3-26ee-4266-a676-b8038714892e',
-        title: 'Salesforce Commerce Cloud Plugin',
+        title: 'Salesforce Commerce Cloud Integration',
         jobType: 'teamwork',
         tags: ['plugin'],
         disablePreview: true,
