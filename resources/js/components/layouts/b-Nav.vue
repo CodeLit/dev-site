@@ -16,7 +16,7 @@
                 v-for='route in $router.options.routes'
                 :key='route.path'
                 :class='[{ active: $route.fullPath === route.path }]'
-                class='inline-block col-2 rounded-full px-6 py-3 lg:mx-6 flex-nowrap mb-2 sm:mb-0'
+                class='inline-block col-2 rounded-full px-6 py-3 lg:mx-6 flex-nowrap'
                 @click='changePage(route)'
             >
                 {{ $t(route.trans) }}

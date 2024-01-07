@@ -3,7 +3,7 @@
         <div class="card-container mx-auto flex justify-between items-center mb-4">
             <div class="tags w-50">
                 <b-button v-for="(count, tag) in existingTags" :key="tag" :class="{'active': selectedTag === tag}"
-                          class="ml-4 px-4 py-2 rounded-full"
+                          class="mr-4 mb-2 px-4 py-2 rounded-full"
                           color="primary" @click="selectTag(tag)">
                     {{ tag }} ({{ count }})
                 </b-button>
@@ -13,7 +13,7 @@
             </div>
         </div>
         <TransitionGroup
-            name="list" tag="div"
+            name="list"
         >
             <b-project v-for="project in projects"
                        v-show="selectedTag === 'all' || project.tags.includes(selectedTag)"

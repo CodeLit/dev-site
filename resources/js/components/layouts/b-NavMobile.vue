@@ -4,7 +4,8 @@
             <router-link
                 v-if='!nav_toggled'
                 :to="{name: 'home'}"
-                class='mr-auto inline-block text-center nav-logo flex-shrink-0 relative self-start'>
+                class='mr-auto inline-block text-center nav-logo flex-shrink-0 relative self-start'
+            >
                 <b-button class='active w-full h-full nav-logo__button'>
                     <div class='nav-logo__div absolute left-1/2 top-1/2 text-white'
                          style='transform: translateX(-50%) translateY(-55%)'>
@@ -19,13 +20,13 @@
                     :key='route.path'
                     :class='[{ active: $route.fullPath === route.path }]'
                     class='nav_link inline-block col-2 rounded-full px-6 py-3 flex-nowrap'
-                    @click='changePage(route)'
+                    @click='callChangePageMixin(route)'
                 >
                     {{ $t(route.trans) }}
                 </b-button>
             </div>
 
-            <div class='flex items-center ml-auto h-fit'>
+            <div class='flex items-center ml-auto h-fit items-center'>
                 <b-language-button class='lang_btn mr-2' />
 
                 <!-- For mobile devices, the hide button -->
@@ -59,6 +60,10 @@ export default {
         changeLinksState() {
             $('#nav-list').toggleClass('hidden').toggleClass('flex')
             this.nav_toggled = !this.nav_toggled
+        },
+        callChangePageMixin(route) {
+            this.changeLinksState()
+            this.changePage(route)
         },
     },
 }

@@ -6,7 +6,7 @@ export default createStore({
         pageImage: 'none',
     },
     actions: {
-        ajaxQuestionsFromDB({commit}) {
+        ajaxQuestionsFromDB({ commit }) {
             axios
                 .get('api/questions')
                 .then(response => {
@@ -14,7 +14,7 @@ export default createStore({
                 })
                 .catch(error => console.log('Ошибка!', error))
         },
-        createQuestion({commit}, question) {
+        createQuestion({ commit }, question) {
             axios
                 .post('/api/questions', question)
                 .then(res => {
@@ -31,12 +31,9 @@ export default createStore({
         },
         deleteQuestion(state, question) {
             let index = state.questions.findIndex(
-                item => item.id === question.id
+                item => item.id === question.id,
             )
             state.questions.splice(index, 1)
-        },
-        setCurrentPage(state, page) {
-            state.currentPage = page
         },
         setQuestions(state, data) {
             return (state.questions = data)
@@ -46,26 +43,26 @@ export default createStore({
         },
         unsetPageImage(state) {
             state.pageImage = 'none'
-        }
+        },
 
     },
     getters: {
         getTransSuffix() {
             let param = new URLSearchParams(window.location.search)
-            let paramName = param.get("name")
+            let paramName = param.get('name')
 
             switch (paramName) {
                 case 'vitaliy':
-                    return '.'+paramName
+                    return '.' + paramName
                 default:
-                    return '';
+                    return ''
             }
         },
-        questions({questions}) {
+        questions({ questions }) {
             return questions
         },
-        getPageImage({pageImage}) {
+        getPageImage({ pageImage }) {
             return pageImage
-        }
+        },
     },
 })

@@ -1,39 +1,40 @@
 <template>
-    <footer :style="{'backdrop-filter':(blurred?'blur(12px)':'none')}" class="footer px-5 py-7 flex justify-around">
-        <div id="contacts">
-            <h3>{{ $t('common.contact_with_me') }}</h3>
-            <br>
-            <div class="flex">
-                <!--                <b-link url="tel:+77051234567" class="contact-link">-->
-                <!--                    <ion-icon name="call"></ion-icon>-->
-                <!--                    Позвонить-->
-                <!--                </b-link>-->
+    <footer :style="{'backdrop-filter':(blurred?'blur(12px)':'none')}"
+            class="footer px-10 py-7 flex justify-start md:justify-around">
+        <div class="footer-inner w-75">
+            <div id="contacts">
+                <h3 class="info-title">{{ $t('common.contact_with_me') }}</h3>
+                <div class="flex">
+                    <!--                <b-link url="tel:+77051234567" class="contact-link">-->
+                    <!--                    <ion-icon name="call"></ion-icon>-->
+                    <!--                    Позвонить-->
+                    <!--                </b-link>-->
 
-                <b-link blank class="contact-link" url="https://telegram.im/@Lit32">
-                    <i class="fab fa-telegram-plane"></i>
-                    Telegram
+                    <b-link blank class="contact-link" url="https://telegram.im/@Lit32">
+                        <i class="fab fa-telegram-plane"></i>
+                        Telegram
+                    </b-link>
+                    <b-link blank class='contact-link' url='https://wa.me/77051127899'>
+                        <whatsapp-icon class="ionic-icon" />
+                        WhatsApp
+                    </b-link>
+                    <b-link class="contact-link align-middle" url="skype:live:.cid.af3a8373b1f5ead2?chat">
+                        <skype-icon class="ionic-icon" />
+                        Skype
+                    </b-link>
+                </div>
+            </div>
+            <div class="links-wrapper">
+                <h3 class="info-title">{{ $t('common.links') }}</h3>
+                <b-link blank class="contact-link" url="https://github.com/CodeLit">
+                    <git-hub-icon class="ionic-icon" />
+                    GitHub
                 </b-link>
-                <b-link blank class='contact-link' url='https://wa.me/77051127899'>
-                    <whatsapp-icon class="ionic-icon" />
-                    WhatsApp
-                </b-link>
-                <b-link class="contact-link align-middle" url="skype:live:.cid.af3a8373b1f5ead2?chat">
-                    <skype-icon class="ionic-icon" />
-                    Skype
+                <b-link blank class="contact-link" url="https://www.linkedin.com/in/codelit/">
+                    <linkedin-icon class="ionic-icon" />
+                    LinkedIn
                 </b-link>
             </div>
-        </div>
-        <div>
-            <h3>{{ $t('common.links') }}</h3>
-            <br>
-            <b-link blank class="contact-link" url="https://github.com/CodeLit">
-                <git-hub-icon class="ionic-icon" />
-                GitHub
-            </b-link>
-            <b-link blank class="contact-link" url="https://www.linkedin.com/in/codelit/">
-                <linkedin-icon class="ionic-icon" />
-                LinkedIn
-            </b-link>
         </div>
     </footer>
 </template>
@@ -51,13 +52,21 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .contact-link {
-    margin: 0 10px;
+    margin-right: 10px;
 }
 
 .ionic-icon {
     fill: white;
     display: inline-block;
+}
+
+.info-title {
+    margin-bottom: 10px;
+}
+
+.links-wrapper {
+    margin-top: 20px;
 }
 </style>

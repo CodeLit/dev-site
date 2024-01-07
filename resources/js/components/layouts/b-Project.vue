@@ -4,8 +4,10 @@
             <div class="flex items-center">
                 <img v-if="logo" :alt="title" :src="logo" class="w-16 m-3">
                 <div>
-                    <h4 v-if="title" class="mb-3 mt-1.5">{{ title }}</h4>
-                    <a v-if="link" :href="addProtocol(link)" target="_blank">{{ removeProtocol(link) }}</a>
+                    <h4 v-if="title" class="mb-3 mt-1.5 leading-6">{{ title }}</h4>
+                    <a v-if="link" :href="addProtocol(link)" target="_blank">
+                        {{ isMobile ? shortenText(removeProtocol(link)) : removeProtocol(link) }}
+                    </a>
                     <!--            <p>{{$t('projects.type')}}: {{$t('projects.'+jobType)}}</p>-->
                     <p v-if="descriptionTrans" v-html="$t('projects.'+descriptionTrans)"></p>
                 </div>
@@ -49,6 +51,14 @@ export default {
         },
         removeProtocol(link) {
             return link.replace(/(^\w+:|^)\/\//, '')
+        },
+        shortenText(text) {
+            let maxLength = 20
+            if (text.length < maxLength) {
+                return text
+            } else {
+                return text.substring(0, maxLength) + '...'
+            }
         },
     },
 }
