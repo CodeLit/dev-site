@@ -7,12 +7,17 @@
 </template>
 
 <script>
-export default {}
+import BNavMobile from './b-NavMobile.vue'
+import BNav from './b-Nav.vue'
+
+export default {
+    components: { BNav, BNavMobile },
+}
 </script>
 
 <style scoped>
 @media screen and (max-width: 770px) {
-    header{
+    header {
         background-color: rgba(255, 255, 255, 0.15);
     }
 }

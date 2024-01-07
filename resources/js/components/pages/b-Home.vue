@@ -5,8 +5,8 @@
                 <b-card class="p-5" style="box-shadow: 1px 1px white inset">
                     <div class="flex flex-col flex-center">
                         <img
-                            alt="User's avatar"
-                            class="mx-auto md:w-60 object-cover"
+                            alt="User's photo"
+                            class="user-photo mx-auto md:w-60 object-cover"
                             height="777"
                             src="/img/profile-3.webp"
                             style="border-radius: 7%"
@@ -112,3 +112,11 @@ export default {
     },
 }
 </script>
+
+<style lang="scss" scoped>
+@media screen and (max-width: 770px) {
+    .user-photo {
+        width: 200px;
+    }
+}
+</style>

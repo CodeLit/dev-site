@@ -3,6 +3,8 @@
          class='app w-screen min-h-screen flex flex-col'>
         <b-header class='top-0 left-0' />
 
+        <div v-if="isMobile && $route.name !== 'home'" class="space-above-content h-24"></div>
+
         <router-view v-slot='{ Component, route }'>
             <transition :name="route.meta.transition || 'fade'" mode='out-in'>
                 <component :is='Component' :key="route.path" class="page h-100 flex flex-col" />
@@ -19,14 +21,12 @@
         <b-cookies />
 
         <transition name='fade'>
-            <div v-if='isArrowUpVisible' class='up-scroller_wrapper'>
-                <div class='relative'>
-                    <b-card
-                        class='up-scroller z-10 w-fit ml-auto cursor-pointer select-none text-xl flex items-center justify-center'
-                        @click='scrollToTop()'>
-                        <b-icon :path='mdiArrowUpThick()' class="w-8 h-8"></b-icon>
-                    </b-card>
-                </div>
+            <div v-if='isArrowUpVisible' class='up-scroller_wrapper relative'>
+                <b-card
+                    class='up-scroller z-10 w-fit ml-auto cursor-pointer select-none text-xl flex items-center justify-center'
+                    @click='scrollToTop()'>
+                    <b-icon :path='mdiArrowUpThick()' class="w-8 h-8"></b-icon>
+                </b-card>
             </div>
         </transition>
 
@@ -90,6 +90,7 @@ export default {
     position: sticky;
     right: 25px;
     bottom: 25px;
+    width: 100%;
 
     .up-scroller {
         position: absolute;
@@ -102,6 +103,11 @@ export default {
         height: 5rem;
         width: 5rem;
         text-align: center;
+    }
+
+    @media screen and (max-width: 768px) {
+        right: 10px;
+        bottom: 10px;
     }
 
 }

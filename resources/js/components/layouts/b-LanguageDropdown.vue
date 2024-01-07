@@ -1,14 +1,14 @@
 <template>
     <div class="languages-wrapper">
         <b-button
-            class='inline-block rounded-full px-3' @click=""
+            class='inline-block rounded-full px-3 h-full' @click=""
         >
             <img :alt="getCurrentLanguage()" :src="'/img/svg/flags/'+getCurrentLanguage()+'_flag.svg'"
                  class='mx-auto py-4' height="25" width='25'>
         </b-button>
         <div class="dropdown">
             <b-button v-for="language in languages" :key="language"
-                      :class="{hidden:getCurrentLanguage() === language}" class='inline-block rounded-full px-3'
+                      :class="{hidden:getCurrentLanguage() === language}" class='inline-block rounded-full px-3 h-full'
                       @click='selectLanguage(language)'
             >
                 <img :alt="language" :src="'/img/svg/flags/'+language+'_flag.svg'"
@@ -45,6 +45,9 @@ export default {
 .languages-wrapper {
     position: relative;
     z-index: 999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     .dropdown {
         display: flex;
@@ -52,7 +55,7 @@ export default {
 
         visibility: hidden;
         position: absolute;
-        top: 90%;
+        top: 100%;
         left: 0;
     }
 
