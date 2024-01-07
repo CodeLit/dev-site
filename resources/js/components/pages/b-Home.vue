@@ -2,7 +2,7 @@
     <div>
         <b-parallax class="min-h-screen flex flex-col justify-center" img_url="/img/sky/kristopher-roller.webp">
             <b-card :blur_amount="20" class="flex flex-col md:flex-row max-w-screen-xl m-7 sm:mx-32 xl:mx-auto">
-                <b-card class="p-5" style="box-shadow: 1px 1px white inset">
+                <b-card class="md:p-5 p-3" style="box-shadow: 1px 1px white inset">
                     <div class="flex flex-col flex-center">
                         <img
                             alt="User's photo"
@@ -20,16 +20,16 @@
                         </div>
                     </div>
                 </b-card>
-                <div class="p-8 mx-auto md:text-xl text-sm flex place-items-center">
+                <div class="md:p-8 p-3 mx-auto md:text-xl text-sm flex place-items-center">
                     <div>
-                        <h2 class="mb-4 text-center">{{ $t('common.welcome_to_blog') }}!</h2>
-                        <p class="mb-4">{{ $t('common.home_description') }}.</p>
+                        <h2 class="md:mb-4 text-center">{{ $t('common.welcome_to_blog') }}!</h2>
+                        <p class="md:mb-4 mb-1">{{ $t('common.home_description') }}.</p>
                         <div class="flex justify-center gap-5">
-                            <b-button class="px-6 py-3 rounded-full"
+                            <b-button class="md:px-6 md:py-3 p-2  rounded-full"
                                       onclick="window.open('https://docs.google.com/document/d/1GXXEQ_ost2oaqeDfVITj3eSrrcgj7oUybV-n8CrUKUA/edit?usp=sharing', '_blank').focus()">
                                 {{ $t('common.read_resume') }}
                             </b-button>
-                            <b-button class="px-6 py-3 rounded-full"
+                            <b-button class="md:px-6 md:py-3 px-3 rounded-full"
                                       onclick="$('#contacts')[0].scrollIntoView({block: 'start', behavior: 'smooth'})">
                                 {{ $t('common.view_contacts') }}
                             </b-button>
@@ -114,9 +114,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@media screen and (max-width: 770px) {
+@media screen and (max-height: 500px) {
     .user-photo {
-        width: 200px;
+        width: 27%;
+    }
+}
+
+@media screen and (max-height: 900px) {
+    .user-photo {
+        width: 40%;
     }
 }
 </style>
