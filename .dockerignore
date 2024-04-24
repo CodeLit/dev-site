@@ -1,3 +1,11 @@
 vendor
 node_modules
 keys
+.git
+public/mix-manifest.json
+public/build/*
+public/img/*
+bootstrap/cache/*
+storage/framework/cache/*
+storage/framework/sessions/*
+storage/framework/views/*

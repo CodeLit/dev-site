@@ -1,10 +1,42 @@
-version: '3'
+version: '3.5'
 services:
-  mix:
+  dev:
+    container_name: dev
     image: ghcr.io/codelit/dev-site
+    restart: always
+    depends_on:
+      - mysql
     build:
-      dockerfile: ./docker/mix/Dockerfile
+      dockerfile: Dockerfile
       context: .
-    user: ${UID}:${GID}
+    env_file:
+      - .env
     volumes:
-      - .:/app
+      - ./vendor:/app/vendor
+      - ./storage/app:/app/storage/app
+      - ./storage/logs:/app/storage/logs
+    networks:
+      - internal
+      - nginx
+  mysql:
+    image: mysql:8.3
+    restart: always
+    env_file:
+      - .env
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_USER: ${DB_USERNAME}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+    networks:
+      - internal
+
+
+networks:
+  nginx:
+    external: true
+    name: nginx
+    driver: bridge
+  internal:
+    internal: true
+    driver: bridge
