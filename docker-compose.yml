@@ -1,7 +1,7 @@
 version: '3.5'
 services:
-  dev:
-    container_name: dev
+  dev-site:
+    container_name: dev-site
     image: ghcr.io/codelit/dev-site
     restart: always
     depends_on:
@@ -12,10 +12,11 @@ services:
     env_file:
       - .env
     volumes:
-      - ./node_modules:/shared/node_modules
-      - ./vendor:/shared/vendor
+      # Important data files
       - ./storage/app:/app/storage/app
       - ./storage/logs:/app/storage/logs
+      # Nginx static files shared volumes
+      - dev-site:/app/public
     networks:
       - internal
       - nginx
@@ -41,3 +42,7 @@ networks:
   internal:
     internal: true
     driver: bridge
+
+volumes:
+  dev-site:
+    name: dev-site

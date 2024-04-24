@@ -1,7 +1,8 @@
 version: '3.5'
 services:
-  dev:
+  dev-site:
     tty: true
     volumes:
+      # Development setup
       - ./node_modules:/shared/node_modules
       - ./vendor:/shared/vendor
