@@ -32,6 +32,4 @@ RUN chmod -R 777 ./storage/
 
 EXPOSE 9000
 
-WORKDIR /app/public
-
-ENTRYPOINT ["php-fpm"]
+ENTRYPOINT ["/bin/sh", "/app/docker/entrypoint.sh"]

@@ -1,6 +1,5 @@
 vendor
 node_modules
-keys
 .git
 public/mix-manifest.json
 public/build/*

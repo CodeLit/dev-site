@@ -7,12 +7,13 @@ services:
     depends_on:
       - mysql
     build:
-      dockerfile: Dockerfile
+      dockerfile: docker/Dockerfile
       context: .
     env_file:
       - .env
     volumes:
-      - ./vendor:/app/vendor
+      - ./node_modules:/shared/node_modules
+      - ./vendor:/shared/vendor
       - ./storage/app:/app/storage/app
       - ./storage/logs:/app/storage/logs
     networks:
