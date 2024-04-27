@@ -1,10 +1,22 @@
-version: '3'
+version: '3.5'
 services:
-  mix:
+  dev-site:
+    container_name: dev-site
     image: ghcr.io/codelit/dev-site
+    restart: always
+    tty: true
     build:
-      dockerfile: ./docker/mix/Dockerfile
+      dockerfile: docker/Dockerfile
       context: .
-    user: ${UID}:${GID}
+    env_file:
+      - .env
     volumes:
-      - .:/app
+      # Important data files
+      - ./storage/app:/app/storage/app
+      - ./storage/logs:/app/storage/logs
+      # Nginx static files shared volumes
+      - dev-site:/app
+
+volumes:
+  dev-site:
+    name: dev-site

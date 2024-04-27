@@ -33,5 +33,5 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             cd ${{ vars.SSH_PROJECT_FOLDER }}
-            bash shell/deploy.sh
-            docker system prune -af
+            if [ ! -f .env ] cp .env.example .env fi
+            make prod
