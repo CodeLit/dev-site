@@ -17,9 +17,11 @@ WORKDIR /app
 COPY . .
 RUN composer install
 
-FROM php:8.3-fpm-alpine as app
+FROM alpine as app
 
 WORKDIR /app
+
+RUN apk update && apk add --no-cache bash
 
 COPY --from=node /app/node_modules ./node_modules
 COPY --from=node /app/public ./public
@@ -31,5 +33,6 @@ RUN chmod -R 777 ./bootstrap/cache/
 RUN chmod -R 777 ./storage/
 
 EXPOSE 9000
+VOLUME [ "/app/public" ]
 
-ENTRYPOINT ["/bin/sh", "/app/docker/entrypoint.sh"]
+ENTRYPOINT ["bash", "./docker/entrypoint.sh"]

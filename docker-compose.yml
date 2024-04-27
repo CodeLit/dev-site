@@ -4,6 +4,7 @@ services:
     container_name: dev-site
     image: ghcr.io/codelit/dev-site
     restart: always
+    tty: true
     depends_on:
       - mysql
     build:
@@ -36,9 +37,8 @@ services:
 
 networks:
   nginx:
-    external: true
     name: nginx
-    driver: bridge
+    external: true
   internal:
     internal: true
     driver: bridge
