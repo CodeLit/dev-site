@@ -12,12 +12,14 @@ services:
       - .env
     volumes:
       # Important data files
-      - .env:/app/.env
       - ./storage/app:/app/storage/app
       - ./storage/logs:/app/storage/logs
-      # Nginx static files shared volumes
-      - dev-site:/app
+      # Shared files after the container started
+      - ./node_modules:/shared/node_modules
+      - ./vendor:/shared/vendor
+      - ./public:/shared/public
 
 volumes:
   dev-site:
     name: dev-site
+

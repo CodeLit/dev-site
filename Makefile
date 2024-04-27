@@ -1,5 +1,5 @@
 up:
-	docker-compose -f docker-compose.yml -f docker-compose-dev.yml up -d --build --force-recreate --remove-orphans
+	docker-compose up -d --build --force-recreate --remove-orphans
 
 attach:
 	docker-compose exec -it dev-site bash
