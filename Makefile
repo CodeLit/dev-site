@@ -15,4 +15,5 @@ down:
 
 prod:
 	if [ ! -f .env ]; then cp .env.example .env; fi
-	docker-compose up -d --remove-orphans && docker-compose down --rmi all
+	docker-compose up -d --remove-orphans
+#&& docker-compose down --rmi all
