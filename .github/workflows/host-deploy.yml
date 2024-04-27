@@ -16,6 +16,11 @@ jobs:
         with:
           switches: -avzr --delete
             --exclude=".git/"
+            --exclude="node_modules/"
+            --exclude="vendor/"
+            --exclude="storage/app/*"
+            --exclude="public/build/*"
+            --exclude="public/img/*"
           path: ./
           remote_path: ${{ vars.SSH_PROJECT_FOLDER }}
           remote_host: ${{ vars.SSH_HOST }}
