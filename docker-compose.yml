@@ -5,8 +5,6 @@ services:
     image: ghcr.io/codelit/dev-site
     restart: always
     tty: true
-    depends_on:
-      - mysql
     build:
       dockerfile: docker/Dockerfile
       context: .
@@ -17,31 +15,7 @@ services:
       - ./storage/app:/app/storage/app
       - ./storage/logs:/app/storage/logs
       # Nginx static files shared volumes
-      - dev-site:/app/public
-    networks:
-      - internal
-      - nginx
-  mysql:
-    image: mysql:8.3
-    restart: always
-    env_file:
-      - .env
-    environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: ${DB_DATABASE}
-      MYSQL_USER: ${DB_USERNAME}
-      MYSQL_PASSWORD: ${DB_PASSWORD}
-    networks:
-      - internal
-
-
-networks:
-  nginx:
-    name: nginx
-    external: true
-  internal:
-    internal: true
-    driver: bridge
+      - dev-site:/app
 
 volumes:
   dev-site:

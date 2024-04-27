@@ -33,5 +33,5 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             cd ${{ vars.SSH_PROJECT_FOLDER }}
-            if [ ! -f .env ] cp .env.example .env
-            docker-compose up -d --build --force-recreate --remove-orphans
+            if [ ! -f .env ] cp .env.example .env fi
+            make prod
