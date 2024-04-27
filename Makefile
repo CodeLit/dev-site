@@ -15,5 +15,4 @@ down:
 
 prod:
 	if [ ! -f .env ]; then cp .env.example .env; fi
-	sudo chmod -R 777 bootstrap/cache storage/
 	docker-compose up -d --remove-orphans
