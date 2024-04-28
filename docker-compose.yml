@@ -16,7 +16,6 @@ services:
       - ./node_modules:/shared/node_modules
       - ./vendor:/shared/vendor
       - ./public:/shared/public
-      - ./resources/views/layout:/shared/resources/views/layout
 
 volumes:
   dev-site:
