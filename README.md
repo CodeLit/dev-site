@@ -48,6 +48,6 @@ code C:/Windows/System32/Drivers/etc/hosts
 ```
 
 Open in browser:
-[http:/codelit.local](http:/codelit.local)
+[http://codelit.local](http://codelit.local)
 or
-[http:/dev-site.local](http:/dev-site.local)
+[http://dev-site.local](http://dev-site.local)
