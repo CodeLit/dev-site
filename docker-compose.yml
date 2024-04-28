@@ -5,6 +5,7 @@ services:
     image: ghcr.io/codelit/dev-site
     restart: always
     tty: true
+    user: ${UID}:${GID}
     build:
       dockerfile: docker/Dockerfile
       context: .
