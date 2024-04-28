@@ -1,35 +1,24 @@
-FROM node:lts-alpine as node
-
-WORKDIR /app
-
-RUN apk add --no-cache libpng-dev libjpeg libwebp-dev gcompat mesa-gl libxi
-
-RUN npm install -g npm@latest
-COPY package.json yarn.lock ./
-RUN yarn install
-COPY . .
-RUN yarn prod
-
 FROM composer:lts as composer
 
 WORKDIR /app
 
-COPY . .
-RUN composer install
+COPY composer.json composer.lock ./
+RUN composer install --prefer-dist --no-autoloader --no-scripts
 
-FROM alpine as app
+FROM oven/bun:alpine as app
 
 WORKDIR /app
 
-RUN apk update && apk add --no-cache bash rsync
+RUN apk update && apk add --no-cache bash rsync # libpng-dev libjpeg libwebp-dev mesa-gl libxi
 
-COPY --from=node /app/node_modules ./node_modules
-COPY --from=node /app/public ./public
+COPY package.json bun.lockb ./
+
+RUN bun install --frozen-lockfile --production && bun pm cache rm
+
 COPY --from=composer /app/vendor ./vendor
 
 COPY . .
 
 EXPOSE 9000
-VOLUME [ "/app" ]
 
 ENTRYPOINT ["bash", "./docker/entrypoint.sh"]
