@@ -21,7 +21,7 @@ FROM alpine as app
 
 WORKDIR /app
 
-RUN apk update && apk add --no-cache bash
+RUN apk update && apk add --no-cache bash rsync
 
 COPY --from=node /app/node_modules ./node_modules
 COPY --from=node /app/public ./public
