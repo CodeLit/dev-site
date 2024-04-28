@@ -34,7 +34,7 @@ jobs:
       - name: Rsync deploy
         uses: burnett01/rsync-deployments@6.0.0
         with:
-          switches: -zhrvP
+          switches: -zhrv
             --exclude=".env"
             --exclude=".git/"
             --exclude="node_modules/"
