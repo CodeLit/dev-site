@@ -29,9 +29,6 @@ COPY --from=composer /app/vendor ./vendor
 
 COPY . .
 
-RUN chmod -R 777 ./bootstrap/cache/
-RUN chmod -R 777 ./storage/
-
 EXPOSE 9000
 VOLUME [ "/app" ]
 
