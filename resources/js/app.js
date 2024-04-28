@@ -1,8 +1,11 @@
+import '../scss/app.scss'
 import { createApp } from 'vue'
 import Popper from 'popper.js'
 import cash from 'cash-dom'
 import lodash from 'lodash'
 import './font-awesome'
+
+import axios from 'axios'
 
 import 'es6-promise/auto' // для старых браузеров
 import store from './store' // vuex
@@ -10,7 +13,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 
 import routes from './routes'
 import VueLazyLoading from 'vue-lazy-loading'
-import BApp from './components/b-App'
+import BApp from './components/b-App.vue'
 
 import { i18nVue, loadLanguageAsync } from 'laravel-vue-i18n'
 import globalMixins from './mixins/globalMixins'
@@ -22,43 +25,21 @@ import { createVuetify } from 'vuetify'
 import * as components from 'vuetify/components'
 import * as directives from 'vuetify/directives'
 
-/**
- * We'll load jQuery and the Bootstrap jQuery plugin which provides support
- * for JavaScript based Bootstrap features such as modals and tabs. This
- * code may be modified to fit the specific needs of your application.
- */
+import.meta.glob([
+    '../img/**',
+    '../fonts/**',
+])
+
 try {
     window._ = lodash
     window.Popper = Popper
     window.$ = cash
+    window.axios = axios
 } catch (e) {
     console.error('Libraries importing error!', e.message)
 }
 
-/**
- * We'll load the axios HTTP library which allows us to easily issue requests
- * to our Laravel back-end. This library automatically handles sending the
- * CSRF token as a header based on the value of the "XSRF" token cookie.
- */
-window.axios = require('axios')
-
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest'
-
-/**
- * Echo exposes an expressive API for subscribing to channels and listening
- * for events that are broadcast by Laravel. Echo and event broadcasting
- * allows your team to easily build robust real-time web applications.
- */
-// import Echo from 'laravel-echo';
-
-// window.Pusher = require('pusher-js');
-
-// window.Echo = new Echo({
-//     broadcaster: 'pusher',
-//     key: process.env.MIX_PUSHER_APP_KEY,
-//     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
-//     forceTLS: true
-// });
 
 const router = new createRouter({
     history: createWebHistory(),
@@ -81,23 +62,23 @@ app.mixin(globalMixins)
  *
  * E.g. ./components/ExampleComponent.vue -> <example-component></example-component>
  */
-const requireComponent = require.context('./components', true, /\.vue$/i)
-
-requireComponent.keys().forEach(fileName => {
-    // Получение конфигурации компонента
-    const componentConfig = requireComponent(fileName)
-    // Получение имени компонента
-    const componentName = _.kebabCase(
-        fileName
-            .split('/')
-            .pop()
-            .split('.')[0],
-    )
-    // Поиск опций компонента в `.default`, который будет существовать,
-    // если компонент экспортирован с помощью `export default`,
-    // иначе будет использован корневой уровень модуля.
-    app.component(componentName, componentConfig.default || componentConfig)
-})
+// const requireComponent = require.context('./components', true, /\.vue$/i)
+//
+// requireComponent.keys().forEach(fileName => {
+//     // Получение конфигурации компонента
+//     const componentConfig = requireComponent(fileName)
+//     // Получение имени компонента
+//     const componentName = _.kebabCase(
+//         fileName
+//             .split('/')
+//             .pop()
+//             .split('.')[0],
+//     )
+//     // Поиск опций компонента в `.default`, который будет существовать,
+//     // если компонент экспортирован с помощью `export default`,
+//     // иначе будет использован корневой уровень модуля.
+//     app.component(componentName, componentConfig.default || componentConfig)
+// })
 
 let lang = $('html').attr('lang')
 

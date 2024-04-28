@@ -4,14 +4,16 @@
             <b-card :blur_amount="20" class="flex flex-col md:flex-row max-w-screen-xl m-7 sm:mx-32 xl:mx-auto">
                 <b-card class="md:p-5 p-3" style="box-shadow: 1px 1px white inset">
                     <div class="flex flex-col flex-center">
-                        <img
-                            alt="User's photo"
-                            class="user-photo mx-auto md:w-60 object-cover"
-                            height="777"
-                            src="/img/profile-3.webp"
-                            style="border-radius: 7%"
-                            width="563"
-                        />
+                        <!--                        <img-->
+                        <!--                            alt="User's photo"-->
+                        <!--                            class="user-photo mx-auto md:w-60 object-cover"-->
+                        <!--                            height="777"-->
+                        <!--                            src="/img/profile-3.webp"-->
+                        <!--                            style="border-radius: 7%"-->
+                        <!--                            width="563"-->
+                        <!--                        />-->
+                        123
+                        1236
                         <div class="flex flex-col text-center">
                             <p class="name text-white text-2xl mt-3">
                                 {{ $t('common' + $store.getters.getTransSuffix + '.name') }}</p>
@@ -97,13 +99,13 @@
     </div>
 </template>
 <script>
-import BParallax from '../b-Parallax'
-import BCard from '../common/b-Card.vue'
-import BButton from '../common/b-Button.vue'
-import BDocument from '../b-Document'
-import BFooter from '../layouts/b-Footer'
-import Documents from '../layouts/b-DocumentsLayout'
-import BTextIcon from '../b-TextIcon'
+import BParallax from '../components/b-Parallax.vue'
+import BCard from '../components/common/b-Card.vue'
+import BButton from '../components/common/b-Button.vue'
+import BDocument from '../components/b-Document.vue'
+import BFooter from '../components/layouts/b-Footer.vue'
+import Documents from '../components/layouts/b-DocumentsLayout.vue'
+import BTextIcon from '../components/b-TextIcon.vue'
 
 export default {
     components: { Documents, BFooter, BDocument, BButton, BCard, BParallax, BTextIcon },

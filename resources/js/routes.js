@@ -1,6 +1,6 @@
-import bHome from './components/pages/b-Home'
-import bDocuments from './components/pages/b-Documents'
-import bMyWorks from './components/pages/b-MyProjects'
+import bHome from './pages/b-Home.vue'
+import bDocuments from './pages/b-Documents.vue'
+import bMyWorks from './pages/b-MyProjects.vue'
 
 export default [
     {

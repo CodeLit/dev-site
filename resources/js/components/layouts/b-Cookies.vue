@@ -30,9 +30,12 @@
 <script>
 import { getActiveLanguage } from 'laravel-vue-i18n'
 import Cookies from 'js-cookie'
+import bRoundBox from '../b-RoundBox.vue'
+import bButton from '../common/b-Button.vue'
 
 export default {
     name: 'b-Cookies',
+    components: { bRoundBox, bButton },
     data() {
         return {
             cookiesAccepted: false,

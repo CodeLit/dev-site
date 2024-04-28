@@ -26,11 +26,11 @@
 <script>
 
 
-import bProject from '../layouts/b-Project'
-import bFooter from '../layouts/b-Footer'
-import BButton from '../common/b-Button.vue'
-import BIcon from '../common/b-Icon.vue'
-import projects from './projects'
+import bProject from '../components/layouts/b-Project.vue'
+import bFooter from '../components/layouts/b-Footer.vue'
+import BButton from '../components/common/b-Button.vue'
+import BIcon from '../components/common/b-Icon.vue'
+import projects from '../projects'
 
 export default {
     components: { BIcon, BButton, bProject, bFooter },

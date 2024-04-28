@@ -20,9 +20,11 @@
 
 <script>
 import { getActiveLanguage } from 'laravel-vue-i18n'
+import BButton from '../common/b-Button.vue'
 
 
 export default {
+    components: { BButton },
     data() {
         return {
             languages: ['en', 'ge', 'ru', 'fr'],
