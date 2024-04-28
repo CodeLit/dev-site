@@ -13,6 +13,9 @@ build:
 down:
 	docker-compose down
 
+pull:
+	docker-compose pull
+
 prod:
 	if [ ! -f .env ]; then cp .env.example .env; fi
 	docker-compose up -d --remove-orphans
