@@ -1,13 +1,9 @@
 {
     "private": true,
+    "type": "module",
     "scripts": {
-        "dev": "npm run development",
-        "development": "mix",
-        "watch": "mix watch",
-        "watch-poll": "mix watch -- --watch-options-poll=1000",
-        "hot": "mix watch --hot",
-        "prod": "mix --production",
-        "production": "npm run prod"
+        "dev": "bun run vite",
+        "prod": "bun run vite build"
     },
     "dependencies": {
         "@fortawesome/fontawesome-svg-core": "^6.1.1",
@@ -19,12 +15,12 @@
         "@mdi/js": "^7.4.47",
         "@tailwindcss/forms": "^0.4.0",
         "@types/js-cookie": "^2.2.6",
+        "@types/lodash": "^4.17.0",
+        "@vitejs/plugin-vue": "^5.0.4",
         "@vueuse/components": "^8.5.0",
         "@vueuse/core": "^8.5.0",
-        "autoprefixer": "10.4.5",
         "axios": "^1.6.0",
         "cash-dom": "^8.1.0",
-        "cross-env": "^7.0",
         "es6-promise": "^4.2.8",
         "js-cookie": "^2.2.1",
         "laravel-mix": "^6.0.11",
@@ -41,6 +37,7 @@
         "tailwindcss": "^3.0.24",
         "terser": "^5.15.0",
         "update-browserslist-db": "1.0.13",
+        "vite": "^5.2.10",
         "vue": "^3.2.36",
         "vue-ionicons": "^3.0.5",
         "vue-lazy-loading": "^1.0.3",
@@ -54,6 +51,9 @@
         "webpack-livereload-plugin": "^3.0.2"
     },
     "devDependencies": {
+        "autoprefixer": "10.4.5",
+        "cross-env": "^7.0",
+        "laravel-vite-plugin": "^1.0.2",
         "prettier": "2.8.4"
     }
 }
