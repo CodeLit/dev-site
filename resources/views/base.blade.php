@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+@use('Illuminate\Support\Facades\Vite')
+
+    <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
@@ -10,19 +12,11 @@
 
     <title>{{__('common.blog_name')}}</title>
 
-    {{-- Favicons--}}
-    @if(view()->exists('layout.favicon'))
-        @include('layout.favicon')
-    @endif
-
     {{-- Fonts--}}
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
-    {{-- Css --}}
-    <link href="/build/css/app.css" rel="stylesheet">
-
-    {{-- Js --}}
-    <script src="/build/js/app.js" type="text/javascript"></script>
+    {{-- Js and Css entrypoints --}}
+    @vite('resources/js/app.js')
 
 </head>
 <body>

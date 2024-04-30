@@ -10,7 +10,7 @@ return [
     'welcome_to_blog' => 'Willkommen auf meiner Webseite',
     'okay_fine' => 'In Ordnung',
     'name' => 'Vladimir',
-    'developer' => 'Senior FullStack Entwickler',
+    'developer' => 'Senior FullStack Developer',
     'home_description' => 'Wenn Sie mehr über mich erfahren möchten, schauen Sie sich meinen Lebenslauf an. Alle Informationen auf dieser Ressource sind verständlich dargestellt',
     'read_resume' => 'Lebenslauf lesen',
     'view_contacts' => 'Kontakte anzeigen',

@@ -8,6 +8,8 @@ services:
     build:
       dockerfile: docker/Dockerfile
       context: .
+    env_file:
+      - .env
     volumes:
       # Important data files
       - ./storage/app:/app/storage/app

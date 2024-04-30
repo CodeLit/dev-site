@@ -2,8 +2,18 @@
 
 cd /app || exit
 
-# Copying node_modules and vendor to shared folder
-# From easy to copy to hard
-rsync -ahrvP --remove-source-files /app/public /app/node_modules /app/vendor /shared
+source .env
+
+# Copying node_modules and vendor to shared folder in background
+# From easy to copy to hard. -v to show verbose output
+rsync -ahr /app/public /app/node_modules /app/vendor /shared &
+
+# If APP_ENV=local run Vite in dev mode
+if [ "$APP_ENV" = "local" ]; then
+    bun install --frozen-lockfile --dev # install dev dependencies
+    bun dev
+else
+    bun prod
+fi
 
 bash

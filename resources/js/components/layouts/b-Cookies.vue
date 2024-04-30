@@ -1,13 +1,19 @@
+<script setup>
+import bRoundBox from '../b-RoundBox.vue'
+import bButton from '../common/b-Button.vue'
+import cookiesImg from '../../../img/cookies.png'
+</script>
+
 <template>
     <b-card
         v-if='!cookiesAccepted'
         class='fixed flex place-items-center left-2 bottom-2 px-5 py-3  w-full lg:w-1/2 border-white border-l-2'
     >
         <b-round-box
+            :url='cookiesImg'
             alt='Cookies image'
             class='mr-3'
             height='84'
-            url='/img/cookies.webp'
             width='84'
         />
         <div>

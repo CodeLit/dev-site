@@ -1,0 +1,40 @@
+import { fileURLToPath, URL } from 'url'
+import { defineConfig } from 'vite'
+import laravel from 'laravel-vite-plugin'
+import vue from '@vitejs/plugin-vue'
+import i18n from 'laravel-vue-i18n/vite'
+
+export default defineConfig({
+    server: {
+        hmr: {
+            host: 'localhost',
+        },
+        strictPort: true,
+        watch: { // For docker livereload
+            usePolling: true,
+        },
+    },
+    plugins: [
+        laravel({
+            input: 'resources/js/app.js',
+            refresh: true,
+        }),
+        vue({
+            template: {
+                transformAssetUrls: {
+                    base: false,
+                    includeAbsolute: false,
+                },
+            },
+        }),
+        i18n('resources/lang'),
+    ],
+    resolve: {
+        alias: [
+            { find: '@', replacement: fileURLToPath(new URL('./resources', import.meta.url)) },
+        ],
+    },
+    optimizeDeps: {
+        include: [],
+    },
+})

@@ -1,3 +1,6 @@
+<script setup>
+import bCard from '../common/b-Card.vue'
+</script>
 <template>
     <b-card :class="{'pb-4': !altPadding}" class="mb-5 mx-4">
         <div class="p-4">
@@ -21,7 +24,8 @@
                         class="frame" style="pointer-events: none" @load.once="appear"></iframe>
                 <v-progress-circular v-if="!loaded" :size="70" indeterminate></v-progress-circular>
             </div>
-            <img v-if="mode === 'image'" :alt="title" :src="'/img/websites/'+link+'.webp'" loading="lazy">
+            <img v-if="mode === 'image'" :alt="title" :src="getImage(link)"
+                 loading="lazy">
         </div>
     </b-card>
 </template>
@@ -59,6 +63,9 @@ export default {
             } else {
                 return text.substring(0, maxLength) + '...'
             }
+        },
+        getImage(link) {
+            return new URL('../../../img/websites/' + link + '.png', import.meta.url)
         },
     },
 }

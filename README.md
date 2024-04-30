@@ -38,16 +38,3 @@ Please enjoy your stay!
 ```
 docker-compose up --build -d
 ```
-
-```sh
-# Open hosts file in editor
-code C:/Windows/System32/Drivers/etc/hosts
-# And add:
-127.0.0.1 codelit.local
-127.0.0.1 dev-site.local
-```
-
-Open in browser:
-[http://codelit.local](http://codelit.local)
-or
-[http://dev-site.local](http://dev-site.local)
