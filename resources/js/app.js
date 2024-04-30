@@ -1,5 +1,5 @@
 import '../scss/app.scss'
-import { createApp, defineAsyncComponent } from 'vue'
+import { createApp } from 'vue'
 import Popper from 'popper.js'
 import cash from 'cash-dom'
 import lodash from 'lodash'
@@ -54,30 +54,6 @@ app.use(i18nVue, {
 })
 app.use(VueLazyLoading)
 app.mixin(globalMixins)
-
-
-/**
- * The following block of code may be used to automatically register your
- * Vue components. It will recursively scan this directory for the Vue
- * components and automatically register them with their "basename".
- * E.g. ./components/bExampleComponent.vue -> <b-example-component></b-example-component>
- */
-const requireComponent = import.meta.glob('./components/**/*.vue')
-
-Object.keys(requireComponent).forEach(fileName => {
-    let componentName = fileName
-        .split('/')
-        .pop()
-        .replace(/\.\w+$/, '')
-
-    // Convert all letters to lowercase and split by dash
-    componentName = componentName.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase()
-
-    app.component(componentName, defineAsyncComponent(() =>
-        import(fileName),
-    ))
-})
-
 
 let lang = $('html').attr('lang')
 

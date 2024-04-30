@@ -4,7 +4,7 @@
             class='inline-block rounded-full px-3 h-full' @click=""
         >
             <img :alt="getCurrentLanguage()"
-                 :src="flagUrl(this.getCurrentLanguage())"
+                 :src="importImg('/svg/flags/'+ this.getCurrentLanguage() + '_flag.svg')"
                  class='mx-auto py-4' height="25" width='25'>
         </b-button>
 
@@ -13,7 +13,7 @@
                       :class="{hidden:getCurrentLanguage() === language}" class='inline-block rounded-full px-3 h-full'
                       @click='selectLanguage(language)'
             >
-                <img :alt="language" :src="flagUrl(language)"
+                <img :alt="language" :src="importImg('/svg/flags/'+ language + '_flag.svg')"
                      class='mx-auto py-4' height="25" width='25'>
             </b-button>
         </div>
@@ -37,9 +37,6 @@ export default {
             let url = new URL(window.location.href)
             url.searchParams.set('lang', lang)
             window.location.href = url.toString()
-        },
-        flagUrl(lang) {
-            return new URL('../../../img/svg/flags/' + lang + '_flag.svg', import.meta.url)
         },
         getCurrentLanguage() {
             return getActiveLanguage()

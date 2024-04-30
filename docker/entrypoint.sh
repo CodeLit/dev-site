@@ -4,7 +4,10 @@ cd /app || exit
 
 source .env
 
-rm /app/public/hot
+if [ "$APP_ENV" = "production" ]; then
+   bun prod
+   rm /app/public/hot
+fi
 
 # Copying node_modules and vendor to shared folder in background
 # From easy to copy to hard. -v to show verbose output
@@ -14,8 +17,6 @@ rsync -ahr /app/public /app/node_modules /app/vendor /shared &
 if [ "$APP_ENV" = "local" ]; then
     bun install --frozen-lockfile --dev # install dev dependencies
     bun dev
-else
-    bun prod
 fi
 
 bash

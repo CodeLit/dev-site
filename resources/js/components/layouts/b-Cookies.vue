@@ -2,6 +2,7 @@
 import bRoundBox from '../b-RoundBox.vue'
 import bButton from '../common/b-Button.vue'
 import cookiesImg from '../../../img/cookies.png'
+import bCard from '../common/b-Card.vue'
 </script>
 
 <template>

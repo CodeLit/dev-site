@@ -5,6 +5,17 @@ export default {
             if (this.$route.fullPath !== page)
                 this.$router.push(page)
         },
+        importImg(path) {
+            const assets = import.meta.glob('/resources/img/**', { eager: true })
+            path = '/resources/img' + path
+            const getAssetUrl = () => {
+                if (assets[path]) {
+                    return assets[path].default
+                }
+            }
+
+            return getAssetUrl()
+        },
     },
     computed: {
         getCurrentRouteParams() {

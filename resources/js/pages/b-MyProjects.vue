@@ -1,3 +1,9 @@
+<script setup>
+import bProject from '../components/layouts/b-Project.vue'
+import bFooter from '../components/layouts/b-Footer.vue'
+import bButton from '../components/common/b-Button.vue'
+</script>
+
 <template>
     <div>
         <div class="card-container mx-auto flex justify-between items-center mb-4">
