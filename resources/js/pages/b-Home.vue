@@ -10,39 +10,37 @@ import laptopImage from '../../img/humans/macbook-and-books.jpg'
 </script>
 <template>
     <div>
-        <div class="flex justify-center align-center">
-            <div class="rounded-full test-class">TEST 123</div>
-            <h1 class="text-3xl font-bold underline">
-                Hello world!
-            </h1>
-        </div>
         <b-parallax :img_url="skyImage" class="min-h-screen flex flex-col justify-center">
             <b-card :blur_amount="20" class="flex flex-col md:flex-row max-w-screen-xl m-7 sm:mx-32 xl:mx-auto">
-                <b-card class="md:p-5 p-3" style="box-shadow: 1px 1px white inset">
-                    <div class="flex flex-col flex-center">
-                        <!--                        <img-->
-                        <!--                            alt="User's photo"-->
-                        <!--                            class="user-photo mx-auto md:w-60 object-cover"-->
-                        <!--                            height="777"-->
-                        <!--                            src="/img/profile-3.webp"-->
-                        <!--                            style="border-radius: 7%"-->
-                        <!--                            width="563"-->
-                        <!--                        />-->
-                        <div class="flex flex-col text-center">
-                            <p class="name text-white text-2xl mt-3">
-                                {{ $t('common' + $store.getters.getTransSuffix + '.name') }}</p>
-                            <p class="job text-gray-200 text-lg">
-                                {{ $t('common' + $store.getters.getTransSuffix + '.developer') }}</p>
-                        </div>
-                    </div>
-                </b-card>
+                <!--                <b-card class="md:p-5 p-3 flex flex-col items-center justify-center"-->
+                <!--                        style="box-shadow: 1px 1px white inset">-->
+                <!--                    <div class="flex flex-col">-->
+                <!--                                                <img-->
+                <!--                                                    alt="User's photo"-->
+                <!--                                                    class="user-photo mx-auto md:w-60 object-cover"-->
+                <!--                                                    height="777"-->
+                <!--                                                    src="/img/profile-3.webp"-->
+                <!--                                                    style="border-radius: 7%"-->
+                <!--                                                    width="563"-->
+                <!--                                                />-->
+                <!--                                                <div class="flex flex-col text-center">-->
+                <!--                                                    <p class="name text-white text-2xl mt-3">-->
+                <!--                                                        {{ $t('common' + $store.getters.getTransSuffix + '.name') }}</p>-->
+                <!--                                                    <p class="job text-gray-200 text-lg">-->
+                <!--                                                        {{ $t('common' + $store.getters.getTransSuffix + '.developer') }}</p>-->
+                <!--                                                </div>-->
+                <!--                    </div>-->
+                <!--                </b-card>-->
                 <div class="md:p-8 p-3 mx-auto md:text-xl text-sm flex place-items-center">
                     <div>
                         <h2 class="md:mb-4 text-center">{{ $t('common.welcome_to_blog') }}!</h2>
                         <p class="md:mb-4 mb-1">{{ $t('common.home_description') }}.</p>
+                        <p class="job text-gray-200 text-lg text-center my-3">
+                            {{ $t('common' + $store.getters.getTransSuffix + '.name')
+                            }} - {{ $t('common' + $store.getters.getTransSuffix + '.developer') }}</p>
                         <div class="flex justify-center gap-5">
                             <b-button class="md:px-6 md:py-3 p-2  rounded-full"
-                                      onclick="window.open('https://docs.google.com/document/d/1GXXEQ_ost2oaqeDfVITj3eSrrcgj7oUybV-n8CrUKUA/edit?usp=sharing', '_blank').focus()">
+                                      onclick="window.open('https://docs.google.com/document/d/1GXXEQ_ost2oaqeDfVITj3eSrrcgj7oUybV-n8CrUKUA', '_blank').focus()">
                                 {{ $t('common.read_resume') }}
                             </b-button>
                             <b-button class="md:px-6 md:py-3 px-3 rounded-full"

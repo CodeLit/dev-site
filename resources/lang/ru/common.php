@@ -10,7 +10,7 @@ return [
     'welcome_to_blog' => 'Добро пожаловать на мой сайт',
     'okay_fine' => 'Хорошо',
     'name' => 'Владимир',
-    'developer' => 'Senior FullStack Разработчик',
+    'developer' => 'Senior FullStack Developer',
     'home_description' => 'Если хотите прочитать обо мне, то вы
                         попали по адресу. Вся информация на данном ресурсе изложена в понятном
                         виде',

@@ -24,7 +24,7 @@ import bCard from '../common/b-Card.vue'
                         class="frame" style="pointer-events: none" @load.once="appear"></iframe>
                 <v-progress-circular v-if="!loaded" :size="70" indeterminate></v-progress-circular>
             </div>
-            <img v-if="mode === 'image'" :alt="title" :src="import('../../../img/websites/'+link+'.png')"
+            <img v-if="mode === 'image'" :alt="title" :src="getImage(link)"
                  loading="lazy">
         </div>
     </b-card>
@@ -63,6 +63,9 @@ export default {
             } else {
                 return text.substring(0, maxLength) + '...'
             }
+        },
+        getImage(link) {
+            return new URL('../../../img/websites/' + link + '.png', import.meta.url)
         },
     },
 }
