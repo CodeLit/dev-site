@@ -1,6 +1,22 @@
+<script setup>
+import skyImage from '../../img/sky/kristopher-roller.jpg'
+import bParallax from '../components/b-Parallax.vue'
+import bCard from '../components/common/b-Card.vue'
+import bButton from '../components/common/b-Button.vue'
+import bFooter from '../components/layouts/b-Footer.vue'
+import documents from '../components/layouts/b-DocumentsLayout.vue'
+import bTextIcon from '../components/b-TextIcon.vue'
+import laptopImage from '../../img/humans/macbook-and-books.jpg'
+</script>
 <template>
     <div>
-        <b-parallax class="min-h-screen flex flex-col justify-center" img_url="/img/sky/kristopher-roller.webp">
+        <div class="flex justify-center align-center">
+            <div class="rounded-full test-class">TEST 123</div>
+            <h1 class="text-3xl font-bold underline">
+                Hello world!
+            </h1>
+        </div>
+        <b-parallax :img_url="skyImage" class="min-h-screen flex flex-col justify-center">
             <b-card :blur_amount="20" class="flex flex-col md:flex-row max-w-screen-xl m-7 sm:mx-32 xl:mx-auto">
                 <b-card class="md:p-5 p-3" style="box-shadow: 1px 1px white inset">
                     <div class="flex flex-col flex-center">
@@ -12,8 +28,6 @@
                         <!--                            style="border-radius: 7%"-->
                         <!--                            width="563"-->
                         <!--                        />-->
-                        123
-                        1236
                         <div class="flex flex-col text-center">
                             <p class="name text-white text-2xl mt-3">
                                 {{ $t('common' + $store.getters.getTransSuffix + '.name') }}</p>
@@ -91,24 +105,16 @@
                 </b-button>
             </div>
         </b-card>
-        <b-parallax class="min-h-screen text-center py-72" img_url="/img/humans/macbook-and-books.webp">
+        <b-parallax :img_url="laptopImage" class="min-h-screen text-center py-72">
             <documents />
         </b-parallax>
 
         <b-footer />
     </div>
 </template>
-<script>
-import BParallax from '../components/b-Parallax.vue'
-import BCard from '../components/common/b-Card.vue'
-import BButton from '../components/common/b-Button.vue'
-import BDocument from '../components/b-Document.vue'
-import BFooter from '../components/layouts/b-Footer.vue'
-import Documents from '../components/layouts/b-DocumentsLayout.vue'
-import BTextIcon from '../components/b-TextIcon.vue'
 
+<script>
 export default {
-    components: { Documents, BFooter, BDocument, BButton, BCard, BParallax, BTextIcon },
     mounted() {
         this.$store.commit('unsetPageImage')
     },

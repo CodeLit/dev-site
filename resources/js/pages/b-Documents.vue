@@ -1,3 +1,8 @@
+<script setup>
+import bDocuments from '../components/layouts/b-DocumentsLayout.vue'
+import bFooter from '../components/layouts/b-Footer.vue'
+</script>
+
 <template>
     <div>
         <b-documents class="docs w-screen mt-12 md:mt-0" />
@@ -6,14 +11,12 @@
 </template>
 
 <script>
-import bDocuments from '../components/layouts/b-DocumentsLayout.vue'
-import bFooter from '../components/layouts/b-Footer.vue'
+import backgroundImg from '../../img/backgrounds/business-people.jpg'
 
 export default {
     name: 'b-Documents',
-    components: { bDocuments, bFooter },
     mounted() {
-        this.$store.commit('setPageImage', '/img/backgrounds/business-people.webp')
+        this.$store.commit('setPageImage', backgroundImg)
     },
 }
 </script>

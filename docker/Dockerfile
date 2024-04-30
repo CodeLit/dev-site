@@ -9,7 +9,7 @@ FROM oven/bun:alpine as app
 
 WORKDIR /app
 
-RUN apk update && apk add --no-cache bash rsync # libpng-dev libjpeg libwebp-dev mesa-gl libxi
+RUN apk update && apk add --no-cache bash rsync
 
 COPY package.json bun.lockb ./
 

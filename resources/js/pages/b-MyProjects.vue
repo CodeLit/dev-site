@@ -25,17 +25,12 @@
 </template>
 <script>
 
-
-import bProject from '../components/layouts/b-Project.vue'
-import bFooter from '../components/layouts/b-Footer.vue'
-import BButton from '../components/common/b-Button.vue'
-import BIcon from '../components/common/b-Icon.vue'
+import backgroundImg from '../../img/backgrounds/laptop-on-table.jpg'
 import projects from '../projects'
 
 export default {
-    components: { BIcon, BButton, bProject, bFooter },
     mounted() {
-        this.$store.commit('setPageImage', '/img/backgrounds/laptop-on-table.webp')
+        this.$store.commit('setPageImage', backgroundImg)
     },
     data() {
         return {

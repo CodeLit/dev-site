@@ -1,5 +1,5 @@
 import '../scss/app.scss'
-import { createApp } from 'vue'
+import { createApp, defineAsyncComponent } from 'vue'
 import Popper from 'popper.js'
 import cash from 'cash-dom'
 import lodash from 'lodash'
@@ -7,7 +7,7 @@ import './font-awesome'
 
 import axios from 'axios'
 
-import 'es6-promise/auto' // для старых браузеров
+import 'es6-promise/auto' // for old browsers
 import store from './store' // vuex
 import { createRouter, createWebHistory } from 'vue-router'
 
@@ -55,30 +55,29 @@ app.use(i18nVue, {
 app.use(VueLazyLoading)
 app.mixin(globalMixins)
 
+
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
  * components and automatically register them with their "basename".
- *
- * E.g. ./components/ExampleComponent.vue -> <example-component></example-component>
+ * E.g. ./components/bExampleComponent.vue -> <b-example-component></b-example-component>
  */
-// const requireComponent = require.context('./components', true, /\.vue$/i)
-//
-// requireComponent.keys().forEach(fileName => {
-//     // Получение конфигурации компонента
-//     const componentConfig = requireComponent(fileName)
-//     // Получение имени компонента
-//     const componentName = _.kebabCase(
-//         fileName
-//             .split('/')
-//             .pop()
-//             .split('.')[0],
-//     )
-//     // Поиск опций компонента в `.default`, который будет существовать,
-//     // если компонент экспортирован с помощью `export default`,
-//     // иначе будет использован корневой уровень модуля.
-//     app.component(componentName, componentConfig.default || componentConfig)
-// })
+const requireComponent = import.meta.glob('./components/**/*.vue')
+
+Object.keys(requireComponent).forEach(fileName => {
+    let componentName = fileName
+        .split('/')
+        .pop()
+        .replace(/\.\w+$/, '')
+
+    // Convert all letters to lowercase and split by dash
+    componentName = componentName.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase()
+
+    app.component(componentName, defineAsyncComponent(() =>
+        import(fileName),
+    ))
+})
+
 
 let lang = $('html').attr('lang')
 

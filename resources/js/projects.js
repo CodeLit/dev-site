@@ -1,3 +1,7 @@
+import commercetoolsLogo from '../img/logos/commercetools.png'
+import salesforceLogo from '../img/svg/logos/salesforce.svg'
+import telegramLogo from '../img/svg/logos/telegram.svg'
+
 export default [
     {
         link: 'github.com/ITECOMMPAY/ecommpay-commercetools-integration',
@@ -5,7 +9,7 @@ export default [
         jobType: 'teamwork',
         tags: ['plugin'],
         disablePreview: true,
-        logo: '/img/logos/commercetools.webp',
+        logo: commercetoolsLogo,
         altPadding: true,
     }, {
         link: 'appexchange.salesforce.com/appxListingDetail?listingId=a03092b3-26ee-4266-a676-b8038714892e',
@@ -13,7 +17,7 @@ export default [
         jobType: 'teamwork',
         tags: ['plugin'],
         disablePreview: true,
-        logo: '/img/svg/logos/salesforce.svg',
+        logo: salesforceLogo,
         altPadding: true,
     },
     {
@@ -95,7 +99,7 @@ export default [
         descriptionTrans: 'telegram-bots',
         disablePreview: true,
         jobType: 'solo_work',
-        logo: '/img/svg/logos/telegram.svg',
+        logo: telegramLogo,
         title: 'Telegram Bots',
         tags: ['telegram bot'],
         altPadding: true,
