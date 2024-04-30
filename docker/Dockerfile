@@ -3,7 +3,8 @@ FROM composer:lts as composer
 WORKDIR /app
 
 COPY composer.json composer.lock ./
-RUN composer install --prefer-dist --no-autoloader --no-scripts
+COPY database ./database
+RUN composer install --prefer-dist --no-scripts
 
 FROM oven/bun:alpine as app
 

@@ -4,6 +4,8 @@ cd /app || exit
 
 source .env
 
+rm /app/public/hot
+
 # Copying node_modules and vendor to shared folder in background
 # From easy to copy to hard. -v to show verbose output
 rsync -ahr /app/public /app/node_modules /app/vendor /shared &
