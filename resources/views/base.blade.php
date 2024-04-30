@@ -16,6 +16,8 @@
     {{-- Js and Css entrypoints --}}
     @vite('resources/js/app.js')
 
+    {{-- Favicon --}}
+    <link rel="icon" type="image/png" href="{{asset('/favicon/icon.png')}}">
 </head>
 <body>
 <div id="app">
