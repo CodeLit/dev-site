@@ -17,7 +17,7 @@ down:
 
 prod:
 	make down
-	docker-compose up -d --remove-orphans --force-recreate
+	docker-compose -f docker-compose.prod.yml -f docker-compose.yml up -d --remove-orphans --force-recreate
 
 pull:
 	docker-compose pull
