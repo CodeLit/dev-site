@@ -16,7 +16,6 @@ down:
 	docker-compose down
 
 prod:
-	if [ ! -f .env ]; then cp .env.example .env; fi
 	make down
 	docker-compose up -d --remove-orphans --force-recreate
 

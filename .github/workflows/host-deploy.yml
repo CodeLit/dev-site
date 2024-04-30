@@ -55,5 +55,5 @@ jobs:
           script: |
             cd ${{ vars.SSH_PROJECT_FOLDER }}
             make pull
-            make down
+            if [ ! -f .env ]; then cp .env.example .env; fi
             make prod
