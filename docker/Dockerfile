@@ -8,7 +8,6 @@ COPY database ./database
 RUN composer install --prefer-dist --no-scripts
 COPY . .
 RUN composer install --prefer-dist
-RUN composer dump-autoload
 
 FROM oven/bun:alpine as app
 
