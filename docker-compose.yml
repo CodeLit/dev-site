@@ -12,6 +12,7 @@ services:
       - .env
     volumes:
       # Important data files
+      - .env:/app/.env
       - ./storage/app:/app/storage/app
       - ./storage/logs:/app/storage/logs
       # Shared files after the container started
