@@ -1,4 +1,4 @@
 version: '3.5'
-services:
-  dev-site:
-    user: "${UID}:${GID}"
+#services:
+#  dev-site:
+#    user: "${UID}:${GID}"

@@ -6,7 +6,7 @@ source .env
 
 if [ "$APP_ENV" = "production" ]; then
    bun prod
-   rm /app/public/hot
+   rm -f /app/public/hot
 fi
 
 # Copying node_modules and vendor to shared folder in background
