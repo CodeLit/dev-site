@@ -8,13 +8,11 @@ export default {
         importImg(path) {
             const assets = import.meta.glob('/resources/img/**', { eager: true })
             path = '/resources/img' + path
-            const getAssetUrl = () => {
-                if (assets[path]) {
-                    return assets[path].default
-                }
-            }
 
-            return getAssetUrl()
+            // It'll return a url path of the asset
+            if (assets[path]) {
+                return assets[path].default
+            }
         },
     },
     computed: {
