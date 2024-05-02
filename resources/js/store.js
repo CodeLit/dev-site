@@ -4,6 +4,7 @@ export default createStore({
     state: {
         questions: [],
         pageImage: 'none',
+        openedModalsCount: 0,
     },
     actions: {
         ajaxQuestionsFromDB({ commit }) {
@@ -44,7 +45,18 @@ export default createStore({
         unsetPageImage(state) {
             state.pageImage = 'none'
         },
-
+        openModal(state) {
+            state.openedModalsCount++
+            $('body').addClass('disable-scrolling')
+        },
+        closeModal(state) {
+            if (state.openedModalsCount > 0) {
+                state.openedModalsCount--
+            }
+            if (state.openedModalsCount === 0) {
+                $('body').removeClass('disable-scrolling')
+            }
+        },
     },
     getters: {
         getTransSuffix() {
