@@ -44,7 +44,7 @@
 </template>
 
 <script>
-import BLink from '../common/b-Link.vue'
+import BLink from '@components/common/b-Link.vue'
 import WhatsappIcon from 'vue-ionicons/dist/logo-whatsapp.vue'
 import SkypeIcon from 'vue-ionicons/dist/logo-skype.vue'
 import GitHubIcon from 'vue-ionicons/dist/logo-github.vue'

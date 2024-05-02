@@ -1,6 +1,6 @@
 <script setup>
-import bDocuments from '../components/layouts/b-DocumentsLayout.vue'
-import bFooter from '../components/layouts/b-Footer.vue'
+import bDocuments from '@layouts/b-DocumentsLayout.vue'
+import bFooter from '@layouts/b-Footer.vue'
 </script>
 
 <template>
@@ -11,7 +11,7 @@ import bFooter from '../components/layouts/b-Footer.vue'
 </template>
 
 <script>
-import backgroundImg from '../../img/backgrounds/business-people.jpg'
+import backgroundImg from '@img/backgrounds/business-people.jpg'
 
 export default {
     name: 'b-Documents',
