@@ -15,3 +15,7 @@
     );
     // background-color: rgba(255, 255, 255, 0.027);
 }
+
+body.disable-scrolling {
+    overflow: hidden;
+}

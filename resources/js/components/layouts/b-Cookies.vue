@@ -8,7 +8,7 @@ import bCard from '../common/b-Card.vue'
 <template>
     <b-card
         v-if='!cookiesAccepted'
-        class='fixed flex place-items-center left-2 bottom-2 px-5 py-3  w-full lg:w-1/2 border-white border-l-2'
+        class='cookies fixed flex place-items-center left-2 bottom-2 px-5 py-3  w-full lg:w-1/2 border-white border-l-2'
     >
         <b-round-box
             :url='cookiesImg'
@@ -70,5 +70,7 @@ export default {
 </script>
 
 <style scoped>
-
+.cookies {
+    z-index: 200;
+}
 </style>

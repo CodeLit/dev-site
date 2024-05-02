@@ -1,3 +1,13 @@
+<script setup>
+import BCard from './common/b-Card.vue'
+import BCookies from './layouts/b-Cookies.vue'
+import BIcon from './common/b-Icon.vue'
+import { mdiArrowUpThick } from '@mdi/js'
+import BCircleBg from './b-CircleBg.vue'
+import BHeader from './layouts/b-Header.vue'
+import BModalsBackground from '@/js/components/layouts/b-ModalsBackground.vue'
+</script>
+
 <template>
     <div ref='app' :style="{'background-image':$store.getters.getPageImage}"
          class='app w-screen min-h-screen flex flex-col'>
@@ -30,23 +40,13 @@
             </div>
         </transition>
 
+        <b-modals-background />
     </div>
 </template>
 
 <script>
-import bCircle from './b-Circle.vue'
-import BRoundBox from './b-RoundBox.vue'
-import BButton from './common/b-Button.vue'
-import BCard from './common/b-Card.vue'
-import BFooter from './layouts/b-Footer.vue'
-import BCookies from './layouts/b-Cookies.vue'
-import BIcon from './common/b-Icon.vue'
-import { mdiArrowUpThick } from '@mdi/js'
-import BCircleBg from './b-CircleBg.vue'
-import BHeader from './layouts/b-Header.vue'
 
 export default {
-    components: { BHeader, BIcon, BCookies, BFooter, BCard, BButton, bCircle, BRoundBox, BCircleBg },
     data() {
         return {
             windowTop: 0,
