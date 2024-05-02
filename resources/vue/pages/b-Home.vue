@@ -11,7 +11,7 @@ import BContactsModal from '@layouts/b-ContactsModal.vue'
 </script>
 <template>
     <div class="home-page">
-        <b-contacts-modal v-if="contactsOpened" @close="this.contactsOpened = false" />
+        <b-contacts-modal v-if="contactsOpened" @close="contactsOpened = false" />
         <b-parallax :img_url="skyImage" class="min-h-screen flex flex-col justify-center">
             <b-card :blur_amount="20" class="flex flex-col md:flex-row max-w-screen-xl m-7 sm:mx-32 xl:mx-auto">
                 <!--                <b-card class="md:p-5 p-3 flex flex-col items-center justify-center"-->
