@@ -57,6 +57,10 @@ export default createStore({
                 $('html').removeClass('disable-scrolling')
             }
         },
+        closeAllModals(state) {
+            state.openedModalsCount = 0
+            $('html').removeClass('disable-scrolling')
+        },
     },
     getters: {
         getTransSuffix() {
