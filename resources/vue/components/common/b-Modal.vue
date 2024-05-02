@@ -4,7 +4,7 @@ import bButton from '../common/b-Button.vue'
 </script>
 
 <template>
-    <div :style="{'z-index': zIndex}" class="modal">
+    <div :ref="'modal-' + modalIndex" :style="{'z-index': zIndex}" class="modal">
         <b-card class="modal-content p-5">
             <div class="flex">
                 <div>
@@ -35,6 +35,16 @@ export default {
     computed: {
         zIndex() {
             return this.modalIndex + 100
+        },
+        openedModalsCount() {
+            return this.$store.state.openedModalsCount
+        },
+    },
+    watch: {
+        openedModalsCount(newCount, oldCount) {
+            if (newCount <= 0) {
+                this.$emit('close')
+            }
         },
     },
 }

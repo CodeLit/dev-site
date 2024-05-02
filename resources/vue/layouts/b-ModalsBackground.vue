@@ -3,7 +3,7 @@
 </script>
 
 <template>
-    <div v-if="openedModalsCount > 0" class="modals-background"></div>
+    <div v-if="openedModalsCount > 0" class="modals-background" @click="$store.commit('closeAllModals')"></div>
 </template>
 
 <script>
