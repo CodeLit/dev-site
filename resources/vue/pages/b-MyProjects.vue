@@ -1,6 +1,6 @@
 <script setup>
-import bProject from '../components/layouts/b-Project.vue'
-import bFooter from '../components/layouts/b-Footer.vue'
+import bProject from '@layouts/b-Project.vue'
+import bFooter from '@layouts/b-Footer.vue'
 import bButton from '../components/common/b-Button.vue'
 </script>
 
@@ -31,8 +31,8 @@ import bButton from '../components/common/b-Button.vue'
 </template>
 <script>
 
-import backgroundImg from '../../img/backgrounds/laptop-on-table.jpg'
-import projects from '../projects'
+import backgroundImg from '@img/backgrounds/laptop-on-table.jpg'
+import projects from '@js/projects.js'
 
 export default {
     mounted() {

@@ -22,7 +22,7 @@
 
 <script>
 
-import BButton from '../common/b-Button.vue'
+import BButton from '@components/common/b-Button.vue'
 import { getActiveLanguage } from 'laravel-vue-i18n'
 
 export default {

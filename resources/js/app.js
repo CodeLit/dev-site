@@ -13,7 +13,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 
 import routes from './routes'
 import VueLazyLoading from 'vue-lazy-loading'
-import BApp from './components/b-App.vue'
+import BApp from '@v/b-App.vue'
 
 import { i18nVue, loadLanguageAsync } from 'laravel-vue-i18n'
 import globalMixins from './mixins/globalMixins'

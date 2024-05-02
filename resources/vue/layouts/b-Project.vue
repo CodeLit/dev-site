@@ -1,5 +1,5 @@
 <script setup>
-import bCard from '../common/b-Card.vue'
+import bCard from '@components/common/b-Card.vue'
 </script>
 <template>
     <b-card :class="{'pb-4': !altPadding}" class="mb-5 mx-4">

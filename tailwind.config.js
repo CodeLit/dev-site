@@ -1,8 +1,8 @@
 /** @type {import('tailwindcss').Config} */
 export default {
     content: [ // Don't add all files. It can break a watcher. Might be a conflict with a l18n plugin.
-        './storage/framework/views/*.php',
-        './resources/js/**/*.{js,vue}',
+        './resources/js/**/*.js',
+        './resources/vue/**/*.vue',
         './resources/scss/**/*.scss',
         './resources/views/**/*.php',
     ],
