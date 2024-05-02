@@ -3,6 +3,9 @@ up:
 	make down
 	docker-compose -f docker-compose.dev.yml -f docker-compose.yml up --remove-orphans --force-recreate
 
+restart:
+	docker-compose restart
+
 attach:
 	docker-compose exec -it dev-site bash
 

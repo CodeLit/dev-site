@@ -1,15 +1,17 @@
 <script setup>
-import skyImage from '../../img/sky/kristopher-roller.jpg'
+import skyImage from '@img/sky/kristopher-roller.jpg'
 import bParallax from '../components/b-Parallax.vue'
 import bCard from '../components/common/b-Card.vue'
 import bButton from '../components/common/b-Button.vue'
-import bFooter from '../components/layouts/b-Footer.vue'
-import documents from '../components/layouts/b-DocumentsLayout.vue'
+import bFooter from '@layouts/b-Footer.vue'
+import documents from '@layouts/b-DocumentsLayout.vue'
 import bTextIcon from '../components/b-TextIcon.vue'
-import laptopImage from '../../img/humans/macbook-and-books.jpg'
+import laptopImage from '@img/humans/macbook-and-books.jpg'
+import BContactsModal from '@layouts/b-ContactsModal.vue'
 </script>
 <template>
-    <div>
+    <div class="home-page">
+        <b-contacts-modal v-if="contactsOpened" @close="this.contactsOpened = false" />
         <b-parallax :img_url="skyImage" class="min-h-screen flex flex-col justify-center">
             <b-card :blur_amount="20" class="flex flex-col md:flex-row max-w-screen-xl m-7 sm:mx-32 xl:mx-auto">
                 <!--                <b-card class="md:p-5 p-3 flex flex-col items-center justify-center"-->
@@ -40,11 +42,11 @@ import laptopImage from '../../img/humans/macbook-and-books.jpg'
                             }} - {{ $t('common' + $store.getters.getTransSuffix + '.developer') }}</p>
                         <div class="flex justify-center gap-5">
                             <b-button class="md:px-6 md:py-3 p-2  rounded-full"
-                                      onclick="window.open('https://docs.google.com/document/d/1GXXEQ_ost2oaqeDfVITj3eSrrcgj7oUybV-n8CrUKUA', '_blank').focus()">
+                                      @click="openResume()">
                                 {{ $t('common.read_resume') }}
                             </b-button>
                             <b-button class="md:px-6 md:py-3 px-3 rounded-full"
-                                      onclick="$('#contacts')[0].scrollIntoView({block: 'start', behavior: 'smooth'})">
+                                      @click="openContacts()">
                                 {{ $t('common.view_contacts') }}
                             </b-button>
                             <!--                        <b-button class="px-6 py-3 rounded-full"-->
@@ -98,7 +100,7 @@ import laptopImage from '../../img/humans/macbook-and-books.jpg'
                     <ul v-html="$t('info.second_block')"></ul>
                 </div>
                 <b-button class="px-6 py-3 rounded-full mt-5"
-                          onclick="$('#contacts')[0].scrollIntoView({block: 'start', behavior: 'smooth'})">
+                          @click="openContacts()">
                     {{ $t('common.contact_with_me') }}
                 </b-button>
             </div>
@@ -106,15 +108,28 @@ import laptopImage from '../../img/humans/macbook-and-books.jpg'
         <b-parallax :img_url="laptopImage" class="min-h-screen text-center py-72">
             <documents />
         </b-parallax>
-
         <b-footer />
     </div>
 </template>
 
 <script>
 export default {
+    data() {
+        return {
+            contactsOpened: false,
+        }
+    },
     mounted() {
         this.$store.commit('unsetPageImage')
+    },
+    methods: {
+        openContacts() {
+            // $('#contacts')[0].scrollIntoView({block: 'start', behavior: 'smooth'})
+            this.contactsOpened = true
+        },
+        openResume() {
+            window.open('https://docs.google.com/document/d/1GXXEQ_ost2oaqeDfVITj3eSrrcgj7oUybV-n8CrUKUA', '_blank').focus()
+        },
     },
 }
 </script>
