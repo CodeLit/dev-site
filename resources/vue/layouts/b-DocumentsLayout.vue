@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import BCard from '../common/b-Card.vue'
+import BCard from '@components/common/b-Card.vue'
 import bFolder from './b-GoogleDocsFolder.vue'
 
 export default {

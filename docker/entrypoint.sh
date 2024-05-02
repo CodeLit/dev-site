@@ -15,6 +15,7 @@ rsync -ahr /app/public /app/node_modules /app/vendor /shared &
 # If APP_ENV=local run Vite in dev mode
 if [ "$APP_ENV" = "local" ]; then
     bun install --frozen-lockfile --dev # install dev dependencies
+    rm -rf /shared/public/build
     bun dev
 else
     rm -f /shared/public/hot

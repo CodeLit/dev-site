@@ -13,7 +13,7 @@ export default {
             if (assets[path]) {
                 return assets[path].default
             }
-        },
+        }
     },
     computed: {
         getCurrentRouteParams() {

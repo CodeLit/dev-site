@@ -21,7 +21,7 @@
 <style></style>
 <script>
 import BCard from '../components/common/b-Card.vue'
-import BHeader from '../components/layouts/b-Header.vue'
+import BHeader from '@layouts/b-Header.vue'
 
 export default {
     components: { BHeader, BCard },

@@ -32,6 +32,14 @@ export default defineConfig({
     resolve: {
         alias: [
             { find: '@', replacement: fileURLToPath(new URL('./resources', import.meta.url)) },
+            { find: '@img', replacement: fileURLToPath(new URL('./resources/img', import.meta.url)) },
+            { find: '@scss', replacement: fileURLToPath(new URL('./resources/scss', import.meta.url)) },
+            { find: '@js', replacement: fileURLToPath(new URL('./resources/js', import.meta.url)) },
+            // Don't create @vue because it's conflicts with node_modules
+            { find: '@v', replacement: fileURLToPath(new URL('./resources/vue', import.meta.url)) },
+            { find: '@layouts', replacement: fileURLToPath(new URL('./resources/vue/layouts', import.meta.url)) },
+            { find: '@components', replacement: fileURLToPath(new URL('./resources/vue/components', import.meta.url)) },
+            { find: '@pages', replacement: fileURLToPath(new URL('./resources/vue/pages', import.meta.url)) },
         ],
     },
     optimizeDeps: {

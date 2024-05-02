@@ -1,14 +1,14 @@
 <script setup>
-import bRoundBox from '../b-RoundBox.vue'
-import bButton from '../common/b-Button.vue'
-import cookiesImg from '../../../img/cookies.png'
-import bCard from '../common/b-Card.vue'
+import bRoundBox from '@components/b-RoundBox.vue'
+import bButton from '@components/common/b-Button.vue'
+import cookiesImg from '@img/cookies.png'
+import bCard from '@components/common/b-Card.vue'
 </script>
 
 <template>
     <b-card
         v-if='!cookiesAccepted'
-        class='fixed flex place-items-center left-2 bottom-2 px-5 py-3  w-full lg:w-1/2 border-white border-l-2'
+        class='cookies fixed flex place-items-center left-2 bottom-2 px-5 py-3  w-full lg:w-1/2 border-white border-l-2'
     >
         <b-round-box
             :url='cookiesImg'
@@ -70,5 +70,7 @@ export default {
 </script>
 
 <style scoped>
-
+.cookies {
+    z-index: 200;
+}
 </style>
