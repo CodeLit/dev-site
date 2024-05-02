@@ -47,14 +47,14 @@ export default createStore({
         },
         openModal(state) {
             state.openedModalsCount++
-            $('body').addClass('disable-scrolling')
+            $('html').addClass('disable-scrolling')
         },
         closeModal(state) {
             if (state.openedModalsCount > 0) {
                 state.openedModalsCount--
             }
             if (state.openedModalsCount === 0) {
-                $('body').removeClass('disable-scrolling')
+                $('html').removeClass('disable-scrolling')
             }
         },
     },
