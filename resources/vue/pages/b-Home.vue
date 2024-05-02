@@ -7,14 +7,11 @@ import bFooter from '@layouts/b-Footer.vue'
 import documents from '@layouts/b-DocumentsLayout.vue'
 import bTextIcon from '../components/b-TextIcon.vue'
 import laptopImage from '@img/humans/macbook-and-books.jpg'
-import BModal from '@components/common/b-Modal.vue'
+import BContactsModal from '@layouts/b-ContactsModal.vue'
 </script>
 <template>
     <div class="home-page">
-        <b-modal v-if="contactsOpened" @close="this.contactsOpened = false">
-            <h1>Contacts</h1>
-            <p>Fill in your contacts</p>
-        </b-modal>
+        <b-contacts-modal v-if="contactsOpened" @close="this.contactsOpened = false" />
         <b-parallax :img_url="skyImage" class="min-h-screen flex flex-col justify-center">
             <b-card :blur_amount="20" class="flex flex-col md:flex-row max-w-screen-xl m-7 sm:mx-32 xl:mx-auto">
                 <!--                <b-card class="md:p-5 p-3 flex flex-col items-center justify-center"-->
@@ -45,7 +42,7 @@ import BModal from '@components/common/b-Modal.vue'
                             }} - {{ $t('common' + $store.getters.getTransSuffix + '.developer') }}</p>
                         <div class="flex justify-center gap-5">
                             <b-button class="md:px-6 md:py-3 p-2  rounded-full"
-                                      @click="window.open('https://docs.google.com/document/d/1GXXEQ_ost2oaqeDfVITj3eSrrcgj7oUybV-n8CrUKUA', '_blank').focus()">
+                                      @click="openResume()">
                                 {{ $t('common.read_resume') }}
                             </b-button>
                             <b-button class="md:px-6 md:py-3 px-3 rounded-full"
@@ -129,6 +126,9 @@ export default {
         openContacts() {
             // $('#contacts')[0].scrollIntoView({block: 'start', behavior: 'smooth'})
             this.contactsOpened = true
+        },
+        openResume() {
+            window.open('https://docs.google.com/document/d/1GXXEQ_ost2oaqeDfVITj3eSrrcgj7oUybV-n8CrUKUA', '_blank').focus()
         },
     },
 }
