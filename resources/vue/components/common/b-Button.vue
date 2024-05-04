@@ -1,5 +1,5 @@
 <template>
-    <button class="button-blurred bg-white-gradient text-white">
+    <button class="btn bg-white-gradient text-white">
         <slot></slot>
     </button>
 </template>
@@ -7,16 +7,16 @@
 <style lang="scss" scoped>
 @use '@scss/variables' as vars;
 
-.button-blurred {
+.btn {
     backdrop-filter: blur(79px);
     background: linear-gradient(rgba(255, 255, 255, 0.1), vars.$blur);
     /* Note: backdrop-filter has minimal browser support */
     box-shadow: 0 -1px rgba(255, 255, 255, 0.5) inset;
-    transition: box-shadow 0.4s ease-in;
+    transition: box-shadow 0.4s ease-in, transform 0.05s ease-in;
     overflow: hidden;
 }
 
-.button-blurred:after {
+.btn:after {
     content: '';
     position: absolute;
     top: 0;
@@ -26,20 +26,22 @@
     background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .4), transparent);
 }
 
-.button-blurred:hover:after {
+.btn:hover:after {
     transition: left .35s;
     left: 100%;
 }
 
-.button-blurred:hover, .button-blurred.active {
+.btn:hover, .btn.active {
     box-shadow: 0 -1px white inset;
 }
 
-.button-blurred.active,
-:focus,
-:focus-within {
-    background: linear-gradient(vars.$blur, rgba(255, 255, 255, 0.3));
-    outline: none;
+.btn:active {
+    transform: translateY(2px);
+
+    &:focus, &:focus-within {
+        background: linear-gradient(vars.$blur, rgba(255, 255, 255, 0.3));
+        outline: none;
+    }
 }
 </style>
 
