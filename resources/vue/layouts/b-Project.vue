@@ -1,5 +1,6 @@
 <script setup>
 import bCard from '@components/common/b-Card.vue'
+import BButton from '../components/common/b-Button.vue'
 </script>
 <template>
     <b-card :class="{'pb-4': !altPadding}" class="mb-5 mx-4">
@@ -13,6 +14,13 @@ import bCard from '@components/common/b-Card.vue'
                     </a>
                     <!--            <p>{{$t('projects.type')}}: {{$t('projects.'+jobType)}}</p>-->
                     <p v-if="descriptionTrans" v-html="$t('projects.'+descriptionTrans)"></p>
+                    <div class="tags">
+                        <b-button v-for="(tag, i) in tags" :key="i" :class="{'active': selectedTag === tag}"
+                                  class="mr-4 mt-2 px-3 py-1 rounded-full"
+                                  color="primary" @click="selectTag(tag)">
+                            {{ tag }}
+                        </b-button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -35,7 +43,7 @@ import bCard from '@components/common/b-Card.vue'
 export default {
     name: 'b-Project',
     props: ['link', 'jobType', 'title', 'descriptionTrans', 'get_external_html', 'disablePreview',
-        'mode', 'logo', 'selectedTags', 'tags', 'altPadding'],
+        'mode', 'logo', 'selectedTags', 'tags', 'altPadding', 'selectedTag'],
     data() {
         return {
             wasCreated: false,
@@ -63,6 +71,9 @@ export default {
             } else {
                 return text.substring(0, maxLength) + '...'
             }
+        },
+        selectTag(tag) {
+            this.$emit('selectTag', tag)
         },
     },
 }

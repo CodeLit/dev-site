@@ -2,11 +2,12 @@
 import bProject from '@layouts/b-Project.vue'
 import bFooter from '@layouts/b-Footer.vue'
 import bButton from '../components/common/b-Button.vue'
+import projects from '@js/projects.js'
 </script>
 
 <template>
     <div>
-        <div class="card-container mx-auto flex justify-between items-center mb-4">
+        <div class="card-container mx-auto flex justify-between items-center my-1">
             <div class="tags w-50">
                 <b-button v-for="(count, tag) in existingTags" :key="tag" :class="{'active': selectedTag === tag}"
                           class="mr-4 mb-2 px-4 py-2 rounded-full"
@@ -21,9 +22,9 @@ import bButton from '../components/common/b-Button.vue'
         <TransitionGroup
             name="list"
         >
-            <b-project v-for="project in projects"
+            <b-project v-for="(project,i) in projects"
                        v-show="selectedTag === 'all' || project.tags.includes(selectedTag)"
-                       :key="project.link" :mode="getMode()" v-bind="project" />
+                       :key="i" :mode="getMode()" :selectedTag="selectedTag" v-bind="project" @selectTag="selectTag" />
 
         </TransitionGroup>
         <b-footer blurred="1" class="mt-auto" />
@@ -32,7 +33,7 @@ import bButton from '../components/common/b-Button.vue'
 <script>
 
 import backgroundImg from '@img/backgrounds/laptop-on-table.jpg'
-import projects from '@js/projects.js'
+
 
 export default {
     mounted() {
@@ -79,7 +80,7 @@ export default {
     },
 }
 </script>
-<style scoped>
+<style lang="scss" scoped>
 .card-container {
     width: 95vw;
 }
