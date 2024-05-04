@@ -100,8 +100,8 @@ export default [
         disablePreview: true,
         jobType: 'solo_work',
         logo: telegramLogo,
-        title: 'Telegram Bots',
-        tags: ['telegram bot'],
+        title: 'Telegram, Whatsapp Bots',
+        tags: ['bot'],
         altPadding: true,
     },
 ]
