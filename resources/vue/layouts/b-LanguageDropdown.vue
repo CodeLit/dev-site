@@ -1,16 +1,20 @@
+<script setup>
+import BButton from '@components/common/b-Button.vue'
+</script>
+
 <template>
     <div class="languages-wrapper">
         <b-button
             class='inline-block rounded-full px-3 h-full' @click=""
         >
-            <img :alt="getCurrentLanguage()"
-                 :src="importImg('/svg/flags/'+ this.getCurrentLanguage() + '_flag.svg')"
+            <img :alt="currentLanguage"
+                 :src="importImg('/svg/flags/'+ currentLanguage + '_flag.svg')"
                  class='mx-auto py-4' height="25" width='25'>
         </b-button>
 
-        <div class="dropdown">
+        <div v-if="!languageJustSelected" class="dropdown">
             <b-button v-for="language in languages" :key="language"
-                      :class="{hidden:getCurrentLanguage() === language}" class='inline-block rounded-full px-3 h-full'
+                      :class="{hidden:currentLanguage === language}" class='inline-block rounded-full px-3 h-full'
                       @click='selectLanguage(language)'
             >
                 <img :alt="language" :src="importImg('/svg/flags/'+ language + '_flag.svg')"
@@ -21,15 +25,13 @@
 </template>
 
 <script>
-
-import BButton from '@components/common/b-Button.vue'
 import { getActiveLanguage } from 'laravel-vue-i18n'
 
 export default {
-    components: { BButton },
     data() {
         return {
             languages: ['en', 'ge', 'ru', 'fr'],
+            languageJustSelected: false,
         }
     },
     methods: {
@@ -37,9 +39,12 @@ export default {
             let url = new URL(window.location.href)
             url.searchParams.set('lang', lang)
             window.location.href = url.toString()
+            this.languageJustSelected = lang
         },
-        getCurrentLanguage() {
-            return getActiveLanguage()
+    },
+    computed: {
+        currentLanguage() {
+            return this.languageJustSelected || getActiveLanguage()
         },
     },
 }
