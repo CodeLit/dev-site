@@ -2,7 +2,6 @@ version: '3.5'
 services:
   dev-site:
     container_name: dev-site
-    image: ghcr.io/codelit/dev-site
     restart: always
     tty: true
     build:
@@ -19,8 +18,3 @@ services:
       - ./node_modules:/shared/node_modules
       - ./vendor:/shared/vendor
       - ./public:/shared/public
-
-volumes:
-  dev-site:
-    name: dev-site
-
