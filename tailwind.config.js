@@ -1,3 +1,5 @@
+// import tailwindForms from "@tailwindcss/forms"
+
 /** @type {import('tailwindcss').Config} */
 export default {
     content: [ // Don't add all files. It can break a watcher. Might be a conflict with a l18n plugin.
@@ -9,7 +11,9 @@ export default {
     variants: {
         extend: {},
     },
-    plugins: [require('@tailwindcss/forms')],
+    plugins: [
+        // tailwindForms,
+    ],
     theme: {
         container: {
             padding: {
