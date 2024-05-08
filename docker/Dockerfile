@@ -7,7 +7,6 @@ RUN composer install --no-dev --prefer-dist --no-scripts --no-autoloader
 COPY database ./database
 RUN composer install --no-dev --prefer-dist --no-scripts
 COPY . .
-RUN composer install --no-dev --prefer-dist
 
 FROM oven/bun:alpine as app
 
