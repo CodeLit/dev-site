@@ -1,8 +1,6 @@
 import '../scss/app.scss'
 import { createApp } from 'vue'
-import Popper from 'popper.js'
 import cash from 'cash-dom'
-import lodash from 'lodash'
 import './font-awesome'
 
 import axios from 'axios'
@@ -31,8 +29,6 @@ import.meta.glob([
 ])
 
 try {
-    window._ = lodash
-    window.Popper = Popper
     window.$ = cash
     window.axios = axios
 } catch (e) {

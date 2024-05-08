@@ -17,7 +17,7 @@ RUN apk update && apk add --no-cache bash rsync
 
 COPY package.json bun.lockb ./
 
-RUN bun install --frozen-lockfile --production && bun pm cache rm
+RUN bun install --production && bun pm cache rm
 
 COPY --from=composer /app/vendor ./vendor
 
