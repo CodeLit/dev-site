@@ -9,7 +9,6 @@
     "license": "MIT",
     "require": {
         "php": "^8.2",
-        "barryvdh/laravel-ide-helper": "^3.0",
         "doctrine/dbal": "^3.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/framework": "^11.0",
@@ -24,7 +23,8 @@
     "require-dev": {
         "laravel/breeze": "^2.0",
         "laravel/sail": "^1.19",
-        "phpunit/phpunit": "^10.0"
+        "phpunit/phpunit": "^10.0",
+        "barryvdh/laravel-ide-helper": "^3.0"
     },
     "config": {
         "optimize-autoloader": true,
