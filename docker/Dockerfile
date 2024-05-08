@@ -6,7 +6,6 @@ COPY composer.json composer.lock ./
 RUN composer install --no-dev --prefer-dist --no-scripts --no-autoloader
 COPY database ./database
 RUN composer install --no-dev --prefer-dist --no-scripts
-COPY . .
 
 FROM oven/bun:alpine as app
 
