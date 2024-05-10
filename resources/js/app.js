@@ -14,7 +14,7 @@ import VueLazyLoading from 'vue-lazy-loading'
 import BApp from '@v/b-App.vue'
 
 import { i18nVue, loadLanguageAsync } from 'laravel-vue-i18n'
-import globalMixins from './mixins.js'
+import mixins from './mixins.js'
 
 // Vuetify
 import '@mdi/font/css/materialdesignicons.css'
@@ -49,7 +49,7 @@ app.use(i18nVue, {
     resolve: lang => import(`../lang/${lang}.json`),
 })
 app.use(VueLazyLoading)
-app.mixin(globalMixins)
+app.mixin(mixins)
 
 let lang = $('html').attr('lang')
 
