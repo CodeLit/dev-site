@@ -17,6 +17,7 @@ jobs:
           switches: -zhrv --delete
             --exclude=".env"
             --exclude=".git/"
+            --exclude=".idea/"
             --exclude="public/"
             --exclude="node_modules/"
             --exclude="vendor/"
