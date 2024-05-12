@@ -9,11 +9,11 @@ export default {
             const assets = import.meta.glob('/resources/img/**', { eager: true })
             path = '/resources/img' + path
 
-            // It'll return a url path of the asset
+            // It'll return an url path of the asset
             if (assets[path]) {
                 return assets[path].default
             }
-        }
+        },
     },
     computed: {
         getCurrentRouteParams() {

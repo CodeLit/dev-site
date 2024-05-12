@@ -31,11 +31,10 @@ import.meta.glob([
 try {
     window.$ = cash
     window.axios = axios
+    window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest'
 } catch (e) {
     console.error('Libraries importing error!', e.message)
 }
-
-window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest'
 
 const router = new createRouter({
     history: createWebHistory(),
