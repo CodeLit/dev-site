@@ -7,6 +7,7 @@ services:
     build:
       dockerfile: docker/Dockerfile
       context: .
+    user: 1000:1000 # Fix for GitHub auto-rsync builds and removing old files
     env_file:
       - .env
     volumes:
