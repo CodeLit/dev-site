@@ -9,7 +9,7 @@ attach:
 	docker-compose exec -it dev-site bash
 
 logs:
-	docker-compose logs
+	docker-compose logs --tail=100
 
 build:
 	docker-compose build
