@@ -9,15 +9,15 @@ RUN composer install --prefer-dist --no-scripts
 COPY . .
 RUN composer install --prefer-dist
 
-FROM oven/bun:alpine as app
+FROM node:lts-alpine as app
 
 WORKDIR /app
 
 RUN apk update && apk add --no-cache bash rsync
 
-COPY package.json bun.lockb ./
+COPY package.json yarn.lock ./
 
-RUN bun install --production && bun pm cache rm
+RUN yarn install --production && yarn cache clean
 
 COPY --from=composer /app/vendor ./vendor
 

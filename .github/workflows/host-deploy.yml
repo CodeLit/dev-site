@@ -18,6 +18,8 @@ jobs:
             --exclude=".env"
             --exclude=".git/"
             --exclude=".idea/"
+            --exclude=".vscode/"
+            --exclude=".github/"
             --exclude="public/build/"
             --exclude="node_modules/"
             --exclude="vendor/"

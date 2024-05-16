@@ -1,7 +1,6 @@
 up:
-	make build
 	make down
-	docker-compose -f docker-compose.dev.yml -f docker-compose.yml up --remove-orphans --force-recreate
+	docker-compose -f docker-compose.dev.yml -f docker-compose.yml up --build --remove-orphans --force-recreate
 
 restart:
 	docker-compose restart
@@ -19,9 +18,8 @@ down:
 	docker-compose down
 
 prod:
-	make build
 	make down
-	docker-compose up -d --remove-orphans --force-recreate
+	docker-compose up -d --build --remove-orphans --force-recreate
 
 pull:
 	docker-compose pull
