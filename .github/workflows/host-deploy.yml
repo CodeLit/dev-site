@@ -19,7 +19,6 @@ jobs:
             --exclude=".git/"
             --exclude=".idea/"
             --exclude="public/build/"
-            --exclude="public/hot"
             --exclude="node_modules/"
             --exclude="vendor/"
             --exclude="storage/app/*"
