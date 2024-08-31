@@ -35,7 +35,7 @@
         "vue-screen-size": "^2.1.0",
         "vuetify": "^3.6.3",
         "vuex": "^4.1.0",
-        "webpack": "^5.91.0",
+        "webpack": "^5.94.0",
         "webpack-cli": "^5.1.4"
     },
     "devDependencies": {
