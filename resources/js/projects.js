@@ -1,4 +1,5 @@
-import commercetoolsLogo from '../img/logos/commercetools.png'
+import commercetoolsLogo from '@img/logos/commercetools-logo.png'
+import wordPressLogo from '@img/logos/wp-wc-logo.png'
 import salesforceLogo from '../img/svg/logos/salesforce.svg'
 import telegramLogo from '../img/svg/logos/telegram.svg'
 
@@ -11,7 +12,17 @@ export default [
         disablePreview: true,
         logo: commercetoolsLogo,
         altPadding: true,
-    }, {
+    },
+    {
+        link: 'github.com/ITECOMMPAY/woocommerce-ecommpay',
+        title: 'WordPress WooCommerce Integration',
+        jobType: 'teamwork',
+        tags: ['plugin'],
+        disablePreview: true,
+        logo: wordPressLogo,
+        altPadding: true,
+    },
+    {
         link: 'appexchange.salesforce.com/appxListingDetail?listingId=a03092b3-26ee-4266-a676-b8038714892e',
         title: 'Salesforce Commerce Cloud Integration',
         jobType: 'teamwork',

@@ -30,7 +30,7 @@ Please enjoy your stay!
 - Install PHP 8.2, Composer, Node LTS, yarn
 - Run `composer install`
 - Run `yarn install`
-- Run `yarn run watch`
+- Run `yarn dev`
 - Use php web server to run `public/index.php` file
 
 ### Using Docker container
