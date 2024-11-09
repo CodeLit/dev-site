@@ -14,11 +14,21 @@ use Inertia\Inertia;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', function () {
+    return Inertia::render('HomePage');
+})->name('home');
+
+Route::get('/my-works', function () {
+    return Inertia::render('MyProjects');
+})->name('my-works');
+
+Route::get('/documents', function () {
+    return Inertia::render('Documents');
+})->name('documents');
 
 Route::get('/ping', function () {
     return response('pong', 200);
 });
-
 
 Route::get('/iframe-redirect', function () {
     $url = request()->get('url');
@@ -27,11 +37,3 @@ Route::get('/iframe-redirect', function () {
     if (empty($url)) abort(404);
     return $res->getBody();
 });
-
-Route::get('/', function () {
-    return Inertia::render('HomePage');
-})->name('home');
-
-//Route::get('/{any}', function () {
-//    return view('app');
-//})->where( 'any', '.*')->name('gateway');

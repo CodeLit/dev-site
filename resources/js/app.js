@@ -1,4 +1,4 @@
-import '../scss/app.scss'
+import '@scss/app.scss'
 import { createApp, h } from 'vue'
 import cash from 'cash-dom'
 import './app/font-awesome.js'
@@ -8,6 +8,7 @@ import { createInertiaApp } from '@inertiajs/vue3'
 import AppLayout from '@js/layouts/b-App.vue'
 import { createPinia } from 'pinia'
 import { createI18n } from 'vue-i18n'
+import VueLazyLoading from 'vue-lazy-loading'
 
 // Vuetify
 import '@mdi/font/css/materialdesignicons.css'
@@ -62,7 +63,7 @@ createInertiaApp({
                 legacy: false,
                 resolve: lang => import(`../lang/${lang}.json`),
             }))
-            // .use(VueLazyLoading)
+            .use(VueLazyLoading)
             .use(createPinia())
             .use(vuetify)
 

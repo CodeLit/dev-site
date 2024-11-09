@@ -1,10 +1,11 @@
 import bHome from '@js/pages/HomePage.vue'
 import bDocuments from '@/pages/DocumentsPage.vue'
 import bMyWorks from '@/pages/MyProjectsPage.vue'
+import { route } from 'ziggy-js'
 
-export default [
+export const routes = [
     {
-        path: '/',
+        path: route('home'),
         trans: 'common.about_me',
         name: 'home',
         component: bHome,
@@ -12,7 +13,7 @@ export default [
         meta: { transition: 'fade' },
     },
     {
-        path: '/my-projects',
+        path: route('my-works'),
         trans: 'common.my_projects',
         component: bMyWorks,
     },
@@ -22,7 +23,7 @@ export default [
     //     component: bReviews
     // },
     {
-        path: '/documents',
+        path: route('documents'),
         trans: 'common.documents',
         component: bDocuments,
     },

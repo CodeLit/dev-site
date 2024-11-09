@@ -2,7 +2,11 @@
 import { useI18n } from 'vue-i18n'
 import BButton from '@js/components/common/b-Button.vue'
 import BLanguageButton from './b-LanguageDropdown.vue'
-import { Link, router } from '@inertiajs/vue3'
+import { Link, router, usePage } from '@inertiajs/vue3'
+import { routes } from '@/app/routes.js'
+import { route } from 'ziggy-js'
+
+const page = usePage()
 
 const { t } = useI18n()
 
@@ -16,7 +20,7 @@ const changePage = (routePath) => {
     <nav class="navbar mt-3 mb-1 flex items-center justify-between">
         <Link
             class="block text-center nav-logo flex-shrink-0 relative self-start"
-            href="/home"
+            :href="route('home')"
         >
             <b-button class="active w-full h-full nav-logo__button">
                 <div
@@ -29,15 +33,15 @@ const changePage = (routePath) => {
         </Link>
 
         <div id="nav-list" class="hidden sm:flex flex-col sm:flex-row">
-            <!--            <b-button-->
-            <!--                v-for="route in router.options.routes"-->
-            <!--                :key="route.path"-->
-            <!--                :class="{ active: router.currentRoute.value.path === route.path }"-->
-            <!--                class="inline-block col-2 rounded-full px-6 py-3 lg:mx-6 flex-nowrap"-->
-            <!--                @click="() => changePage(route.path)"-->
-            <!--            >-->
-            <!--                {{ t(route.trans) }}-->
-            <!--            </b-button>-->
+            <b-button
+                v-for="route in routes"
+                :key="route.path"
+                :class="{ active: page.props.route?.path === route.path }"
+                class="inline-block col-2 rounded-full px-6 py-3 lg:mx-6 flex-nowrap"
+                @click="() => changePage(route.path)"
+            >
+                {{ t(route.trans) }}
+            </b-button>
 
             <b-language-button></b-language-button>
         </div>
