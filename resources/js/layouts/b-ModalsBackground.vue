@@ -1,20 +1,18 @@
 <script setup>
+import { computed } from 'vue'
+import { useDevSiteStore } from '@/App/store.js'
 
+const devSiteStore = useDevSiteStore()
+const openedModalsCount = computed(() => devSiteStore.openedModalsCount)
+
+const closeAllModals = () => {
+    devSiteStore.closeAllModals()
+}
 </script>
 
 <template>
-    <div v-if="openedModalsCount > 0" class="modals-background" @click="$store.commit('closeAllModals')"></div>
+    <div v-if="openedModalsCount > 0" class="modals-background" @click="closeAllModals"></div>
 </template>
-
-<script>
-export default {
-    computed: {
-        openedModalsCount() {
-            return this.$store.state.openedModalsCount
-        },
-    },
-}
-</script>
 
 <style lang="scss" scoped>
 .modals-background {

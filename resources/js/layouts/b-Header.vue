@@ -1,21 +1,22 @@
-<template>
-    <header :class="[{ 'absolute':  (getCurrentRouteParams['header_absolute']||isMobile)}]"
-            class='w-full py-2 px-4 md:p-7 z-10'>
-        <b-nav-mobile v-if='isMobile'></b-nav-mobile>
-        <b-nav v-else></b-nav>
-    </header>
-</template>
-
-<script>
+<script setup>
+import { computed } from 'vue'
 import BNavMobile from './b-NavMobile.vue'
 import BNav from './b-Nav.vue'
-import { getCurrentRouteParams, isMobile } from '@/app/helpers.js'
+import { isMobile } from '@/app/helpers.js'
 
-export default {
-    methods: { isMobile, getCurrentRouteParams },
-    components: { BNav, BNavMobile },
-}
+const headerClass = computed(() => {
+    return {
+        'absolute': {}.header_absolute || isMobile(),
+    }
+})
 </script>
+
+<template>
+    <header :class="[headerClass, 'w-full py-2 px-4 md:p-7 z-10']">
+        <b-nav-mobile v-if="isMobile()" />
+        <b-nav v-else />
+    </header>
+</template>
 
 <style scoped>
 @media screen and (max-width: 770px) {

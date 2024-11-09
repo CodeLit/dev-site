@@ -7,9 +7,16 @@ import 'es6-promise/auto' // for old browsers
 import { createInertiaApp } from '@inertiajs/vue3'
 import AppLayout from '@js/layouts/b-App.vue'
 import { createPinia } from 'pinia'
+import { createI18n } from 'vue-i18n'
+
 // Vuetify
 import '@mdi/font/css/materialdesignicons.css'
 import 'vuetify/styles'
+import { createVuetify } from 'vuetify'
+import * as components from 'vuetify/components'
+import * as directives from 'vuetify/directives'
+// End Vuetify
+import { loadLanguageAsync } from 'laravel-vue-i18n'
 
 const appName = import.meta.env.VITE_APP_NAME || 'Dev Site'
 
@@ -17,6 +24,12 @@ import.meta.glob([
     '../img/**',
     '../fonts/**',
 ])
+
+
+const vuetify = createVuetify({
+    components,
+    directives,
+})
 
 try {
     window.$ = cash
@@ -36,24 +49,24 @@ createInertiaApp({
         return page
     },
     setup({ el, App, props, plugin }) {
-        // let lang = $('html').attr('lang')
-        //
-        // const vuetify = createVuetify({
-        //     components,
-        //     directives,
-        // })
-        //
-        // loadLanguageAsync(lang).then(() => {
-        //     app.use(vuetify)
-        // })
+        let lang = $('html').attr('lang')
 
-        return createApp({ render: () => h(App, props) })
-            // .use(i18nVue, {
-            //     resolve: lang => import(`../lang/${lang}.json`),
-            // })
+        loadLanguageAsync(lang).then(() => {
+            console.log(`Language ${lang} is loaded.`)
+        })
+
+        let app = createApp({ render: () => h(App, props) })
+            .use(createI18n({
+                locale: navigator.language.slice(0, 2),
+                fallbackLocale: 'en',
+                legacy: false,
+                resolve: lang => import(`../lang/${lang}.json`),
+            }))
             // .use(VueLazyLoading)
             .use(createPinia())
-            .mount(el)
+            .use(vuetify)
+
+        return app.mount(el)
     },
     progress: {
         delay: 250,

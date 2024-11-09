@@ -1,75 +1,73 @@
+<script setup>
+import { computed, ref } from 'vue'
+import { useI18n } from 'vue-i18n'
+import BButton from '@js/components/common/b-Button.vue'
+import BLanguageButton from './b-LanguageDropdown.vue'
+import MenuIcon from 'vue-ionicons/dist/md-menu.vue'
+import { Link, router } from '@inertiajs/vue3'
+import { route } from 'ziggy-js'
+
+const navToggled = ref(false)
+const { t } = useI18n()
+
+// Toggle navigation visibility
+const toggleNav = () => {
+    navToggled.value = !navToggled.value
+}
+
+// Determine if the route is active
+const isActiveRoute = (routeName) => computed(() => router.currentRoute.value.name === routeName)
+
+// Navigate to the specified route
+const navigateTo = (routeName) => {
+    toggleNav()
+    router.visit(route(routeName))
+}
+</script>
+
 <template>
     <div>
-        <div class='flex'>
-            <router-link
-                v-if='!nav_toggled'
-                :to="{name: 'home'}"
-                class='mr-auto inline-block text-center nav-logo flex-shrink-0 relative self-start'
+        <div class="flex">
+            <Link
+                v-if="!navToggled"
+                :href="route('home')"
+                class="mr-auto inline-block text-center nav-logo flex-shrink-0 relative self-start"
             >
-                <b-button class='active w-full h-full nav-logo__button'>
-                    <div class='nav-logo__div absolute left-1/2 top-1/2 text-white'
-                         style='transform: translateX(-50%) translateY(-55%)'>
+                <b-button class="active w-full h-full nav-logo__button">
+                    <div
+                        class="nav-logo__div absolute left-1/2 top-1/2 text-white"
+                        style="transform: translateX(-50%) translateY(-55%)"
+                    >
                         {{ '<\/> DEV' }}
                     </div>
                 </b-button>
-            </router-link>
+            </Link>
 
-            <div id='nav-list' class='hidden flex flex-col flex-row'>
-                <b-button
-                    v-for='route in $router.options.routes'
-                    :key='route.path'
-                    :class='[{ active: $route.fullPath === route.path }]'
-                    class='nav_link inline-block col-2 rounded-full px-6 py-3 flex-nowrap'
-                    @click='callChangePageMixin(route)'
-                >
-                    {{ $t(route.trans) }}
-                </b-button>
+            <div id="nav-list" :class="navToggled ? 'flex' : 'hidden'" class="flex-col flex-row">
+                <!--                <b-button-->
+                <!--                    v-for="route in router.options.routes"-->
+                <!--                    :key="route.name"-->
+                <!--                    :class="{ active: isActiveRoute(route.name).value }"-->
+                <!--                    class="nav_link inline-block col-2 rounded-full px-6 py-3 flex-nowrap"-->
+                <!--                    @click="() => navigateTo(route.name)"-->
+                <!--                >-->
+                <!--                    {{ t(route.trans) }}-->
+                <!--                </b-button>-->
             </div>
 
-            <div class='flex items-center ml-auto h-fit items-center'>
-                <b-language-button class='lang_btn mr-2' />
+            <div class="flex items-center ml-auto h-fit items-center">
+                <b-language-button class="lang_btn mr-2" />
 
-                <!-- For mobile devices, the hide button -->
-                <b-button
-                    id='nav-toggle'
-                    class='nav-toggle'
-                    @click.native.prevent='changeLinksState'
-                >
+                <!-- Toggle button for mobile navigation -->
+                <b-button id="nav-toggle" class="nav-toggle" @click="toggleNav">
                     <menu-icon h="30px" style="fill: white" w="30px" />
                 </b-button>
             </div>
-
         </div>
     </div>
 </template>
 
-<script>
-import BButton from '@js/components/common/b-Button.vue'
-import BLanguageButton from './b-LanguageDropdown.vue'
-import MenuIcon from 'vue-ionicons/dist/md-menu.vue'
-
-export default {
-    name: 'b-NavMobile',
-    components: { BLanguageButton, BButton, MenuIcon },
-    data: function() {
-        return {
-            nav_toggled: false,
-        }
-    },
-    methods: {
-        changeLinksState() {
-            $('#nav-list').toggleClass('hidden').toggleClass('flex')
-            this.nav_toggled = !this.nav_toggled
-        },
-        callChangePageMixin(route) {
-            this.changeLinksState()
-            this.changePage(route)
-        },
-    },
-}
-</script>
-
-<style lang='scss' scoped>
+<style lang="scss" scoped>
 .nav-logo {
     width: 139px;
     height: 57px;

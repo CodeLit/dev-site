@@ -1,10 +1,35 @@
 <script setup>
-import bCard from './b-Card.vue'
-import bButton from './b-Button.vue'
+import { computed, onMounted, onUnmounted, ref, watch } from 'vue'
+import { useDevSiteStore } from '@/App/store.js'
+import BCard from './b-Card.vue'
+import BButton from './b-Button.vue'
+
+const devSiteStore = useDevSiteStore()
+const modalIndex = ref(0)
+
+onMounted(() => {
+    devSiteStore.openModal()
+    modalIndex.value = devSiteStore.openedModalsCount
+})
+
+onUnmounted(() => {
+    devSiteStore.closeModal()
+})
+
+const zIndex = computed(() => modalIndex.value + 100)
+
+watch(
+    () => devSiteStore.openedModalsCount,
+    (newCount) => {
+        if (newCount <= 0) {
+            emit('close')
+        }
+    },
+)
 </script>
 
 <template>
-    <div :ref="'modal-' + modalIndex" :style="{'z-index': zIndex}" class="modal">
+    <div :ref="'modal-' + modalIndex" :style="{ 'z-index': zIndex }" class="modal">
         <b-card class="modal-content p-5">
             <div class="flex">
                 <div>
@@ -17,38 +42,6 @@ import bButton from './b-Button.vue'
         </b-card>
     </div>
 </template>
-
-<script>
-export default {
-    data() {
-        return {
-            modalIndex: 0,
-        }
-    },
-    mounted() {
-        this.$store.commit('openModal')
-        this.modalIndex = this.$store.state.openedModalsCount
-    },
-    unmounted() {
-        this.$store.commit('closeModal')
-    },
-    computed: {
-        zIndex() {
-            return this.modalIndex + 100
-        },
-        openedModalsCount() {
-            return this.$store.state.openedModalsCount
-        },
-    },
-    watch: {
-        openedModalsCount(newCount, oldCount) {
-            if (newCount <= 0) {
-                this.$emit('close')
-            }
-        },
-    },
-}
-</script>
 
 <style lang="scss" scoped>
 .modal {

@@ -1,46 +1,37 @@
+<script setup>
+import { computed, ref } from 'vue'
+import { useDevSiteStore } from '@/App/store.js'
+import BButton from '@/components/common/b-Button.vue'
+
+const question = ref({
+    company: '',
+    text: '',
+    answer: '',
+})
+
+const devSiteStore = useDevSiteStore()
+
+const createQuestion = () => {
+    devSiteStore.createQuestion(question.value)
+    question.value = { company: '', text: '', answer: '' }
+}
+
+const isQuestionValid = computed(() => {
+    return question.value.answer && question.value.text
+})
+</script>
+
 <template>
-    <form
-        @submit="createQuestion(question)"
-        class="flex flex-col place-items-center"
-    >
+    <form class="flex flex-col place-items-center" @submit.prevent="createQuestion">
         <input v-model="question.company" placeholder="Кампания" />
-        <textarea
-            v-model="question.text"
-            placeholder="Текст вопроса"
-            cols="50"
-            rows="5"
-        ></textarea>
-        <textarea
-            v-model="question.answer"
-            placeholder="Ответ"
-            cols="50"
-            rows="5"
-        ></textarea>
-        <b-button
-            :disabled="!isQuestionValid"
-            @click.prevent="createQuestion(question)"
-            class="my-5 w-1/2"
-            >Добавить вопрос</b-button
-        >
+        <textarea v-model="question.text" cols="50" placeholder="Текст вопроса" rows="5"></textarea>
+        <textarea v-model="question.answer" cols="50" placeholder="Ответ" rows="5"></textarea>
+        <b-button :disabled="!isQuestionValid" class="my-5 w-1/2" @click.prevent="createQuestion">
+            Добавить вопрос
+        </b-button>
     </form>
 </template>
 
-<script>
-export default {
-    data() {
-        return {
-            question: {},
-        }
-    },
-    methods: {
-        createQuestion(question) {
-            this.$store.dispatch('createQuestion', question)
-        },
-    },
-    computed: {
-        isQuestionValid() {
-            return this.question.answer && this.question.text
-        },
-    },
-}
-</script>
+<style scoped>
+
+</style>

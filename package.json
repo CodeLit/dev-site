@@ -28,11 +28,11 @@
         "vue": "^3.4.27",
         "vue-ionicons": "^3.0.5",
         "vue-lazy-loading": "^1.0.3",
-        "vue-router": "^4.3.2",
         "vue-screen-size": "^2.1.0",
-        "vuetify": "^3.6.3",
+        "vuetify": "^3.7.4",
         "vuex": "^4.1.0",
-        "ziggy-js": "^2.3.0"
+        "ziggy-js": "^2.3.0",
+        "vue-i18n": "9"
     },
     "devDependencies": {
         "@tailwindcss/forms": "^0.5.7",

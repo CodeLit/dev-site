@@ -29,8 +29,8 @@ Route::get('/iframe-redirect', function () {
 });
 
 Route::get('/', function () {
-    return Inertia::render('Home');
-});
+    return Inertia::render('HomePage');
+})->name('home');
 
 //Route::get('/{any}', function () {
 //    return view('app');
