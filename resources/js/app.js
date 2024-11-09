@@ -5,9 +5,8 @@ import './app/font-awesome.js'
 import axios from 'axios'
 import 'es6-promise/auto' // for old browsers
 import { createInertiaApp } from '@inertiajs/vue3'
-// import VueLazyLoading from 'vue-lazy-loading'
 import AppLayout from '@js/layouts/b-App.vue'
-
+import { createPinia } from 'pinia'
 // Vuetify
 import '@mdi/font/css/materialdesignicons.css'
 import 'vuetify/styles'
@@ -27,33 +26,16 @@ try {
     console.error('Libraries importing error!', e.message)
 }
 
-
-// const router = new createRouter({
-//     history: createWebHistory(),
-//     routes,
-// })
-
 createInertiaApp({
     id: 'app',
-    // title: (title) => title ? `${title} - ${appName}` : appName,
+    title: (title) => title ? `${title} - ${appName}` : appName,
     resolve: name => {
-        const pages = import.meta.glob('../vue/pages/**/*.vue', { eager: true })
-        let page = pages[`../vue/pages/${name}.vue`]
-
+        const pages = import.meta.glob('./pages/**/*.vue', { eager: true })
+        let page = pages[`./pages/${name}.vue`]
         page.default.layout = page.default.layout || AppLayout
         return page
     },
     setup({ el, App, props, plugin }) {
-        let app = createApp({ render: () => h(App, props) })
-            // .use(router)
-        // .use(store)
-            // .use(i18nVue, {
-            //     resolve: lang => import(`../lang/${lang}.json`),
-            // })
-            // .use(VueLazyLoading)
-        // .mixin(mixins)
-
-
         // let lang = $('html').attr('lang')
         //
         // const vuetify = createVuetify({
@@ -65,14 +47,20 @@ createInertiaApp({
         //     app.use(vuetify)
         // })
 
-        return app.mount(el)
+        return createApp({ render: () => h(App, props) })
+            // .use(i18nVue, {
+            //     resolve: lang => import(`../lang/${lang}.json`),
+            // })
+            // .use(VueLazyLoading)
+            .use(createPinia())
+            .mount(el)
     },
-    // progress: {
-    //     delay: 250,
-    //     color: '#00ffd1',
-    //     includeCSS: true,
-    //     showSpinner: true,
-    // },
+    progress: {
+        delay: 250,
+        color: '#32166BFF',
+        includeCSS: true,
+        showSpinner: true,
+    },
 }).then(() => {
     console.log(`App ${appName} is created.`)
 })

@@ -1,84 +1,63 @@
-import { createStore } from 'vuex'
+import { defineStore } from 'pinia'
+import axios from 'axios'
 
-export default createStore({
-    state: {
+export const useDevSiteStore = defineStore('devSite', {
+    state: () => ({
         questions: [],
         pageImage: 'none',
         openedModalsCount: 0,
-    },
+    }),
     actions: {
-        ajaxQuestionsFromDB({ commit }) {
-            axios
-                .get('api/questions')
-                .then(response => {
-                    commit('setQuestions', response.data.questions)
-                })
-                .catch(error => console.log('Ошибка!', error))
+        async ajaxQuestionsFromDB() {
+            try {
+                const response = await axios.get('/api/questions')
+                this.setQuestions(response.data.questions)
+            } catch (error) {
+                console.log('Ошибка!', error)
+            }
         },
-        createQuestion({ commit }, question) {
-            axios
-                .post('/api/questions', question)
-                .then(res => {
-                    commit('createQuestion', res.data)
-                })
-                .catch(err => {
-                    console.log(err)
-                })
+        async createQuestion(question) {
+            try {
+                const response = await axios.post('/api/questions', question)
+                await this.createQuestion(response.data)
+            } catch (error) {
+                console.log(error)
+            }
         },
-    },
-    mutations: {
-        createQuestion(state, question) {
-            state.questions.unshift(question)
-        },
-        deleteQuestion(state, question) {
-            let index = state.questions.findIndex(
-                item => item.id === question.id,
-            )
-            state.questions.splice(index, 1)
-        },
-        setQuestions(state, data) {
-            return (state.questions = data)
-        },
-        setPageImage(state, data) {
-            state.pageImage = 'url(' + data + ')'
-        },
-        unsetPageImage(state) {
-            state.pageImage = 'none'
-        },
-        openModal(state) {
-            state.openedModalsCount++
+        openModal() {
+            this.openedModalsCount++
             $('html').addClass('disable-scrolling')
         },
-        closeModal(state) {
-            if (state.openedModalsCount > 0) {
-                state.openedModalsCount--
+        closeModal() {
+            if (this.openedModalsCount > 0) {
+                this.openedModalsCount--
             }
-            if (state.openedModalsCount === 0) {
+            if (this.openedModalsCount === 0) {
                 $('html').removeClass('disable-scrolling')
             }
         },
-        closeAllModals(state) {
-            state.openedModalsCount = 0
+        closeAllModals() {
+            this.openedModalsCount = 0
             $('html').removeClass('disable-scrolling')
+        },
+        setQuestions(data) {
+            this.questions = data
+        },
+        setPageImage(data) {
+            this.pageImage = `url(${data})`
+        },
+        unsetPageImage() {
+            this.pageImage = 'none'
         },
     },
     getters: {
         getTransSuffix() {
-            let param = new URLSearchParams(window.location.search)
-            let paramName = param.get('name')
+            const param = new URLSearchParams(window.location.search)
+            const paramName = param.get('name')
 
-            switch (paramName) {
-                case 'vitaliy':
-                    return '.' + paramName
-                default:
-                    return ''
-            }
+            return paramName === 'vitaliy' ? `.${paramName}` : ''
         },
-        questions({ questions }) {
-            return questions
-        },
-        getPageImage({ pageImage }) {
-            return pageImage
-        },
+        allQuestions: (state) => state.questions, // Переименован геттер
+        getPageImage: (state) => state.pageImage,
     },
 })

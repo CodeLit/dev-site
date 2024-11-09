@@ -9,8 +9,10 @@
 <script>
 import BNavMobile from './b-NavMobile.vue'
 import BNav from './b-Nav.vue'
+import { getCurrentRouteParams, isMobile } from '@/app/helpers.js'
 
 export default {
+    methods: { isMobile, getCurrentRouteParams },
     components: { BNav, BNavMobile },
 }
 </script>

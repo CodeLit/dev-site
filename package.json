@@ -6,11 +6,11 @@
         "build": "vite build --ssr"
     },
     "dependencies": {
-        "@inertiajs/vue3": "^1.2.0",
         "@fortawesome/fontawesome-svg-core": "^6.5.2",
         "@fortawesome/free-brands-svg-icons": "^6.5.2",
         "@fortawesome/free-solid-svg-icons": "^6.5.2",
         "@fortawesome/vue-fontawesome": "^3.0.6",
+        "@inertiajs/vue3": "^1.2.0",
         "@jamescoyle/vue-icon": "^0.1.2",
         "@mdi/font": "^7.4.47",
         "@mdi/js": "^7.4.47",
@@ -23,6 +23,7 @@
         "js-cookie": "^3.0.5",
         "laravel-vite-plugin": "^1.0.2",
         "laravel-vue-i18n": "^2.7.6",
+        "pinia": "^2.2.6",
         "sass": "^1.77.0",
         "vue": "^3.4.27",
         "vue-ionicons": "^3.0.5",
@@ -35,12 +36,12 @@
     },
     "devDependencies": {
         "@tailwindcss/forms": "^0.5.7",
+        "@types/js-cookie": "^3.0.6",
         "@vitejs/plugin-vue": "^5.0.4",
+        "tailwindcss": "^3.4.3",
         "vite": "^5.2.11",
         "vue-loader": "^17.4.2",
         "webpack": "^5.91.0",
-        "webpack-cli": "^5.1.4",
-        "@types/js-cookie": "^3.0.6",
-        "tailwindcss": "^3.4.3"
+        "webpack-cli": "^5.1.4"
     }
 }

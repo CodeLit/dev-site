@@ -1,4 +1,5 @@
 <script setup>
+import { computed, onMounted, onUnmounted, ref } from 'vue'
 import BCard from '@js/components/common/b-Card.vue'
 import BCookies from '@js/layouts/b-Cookies.vue'
 import BIcon from '@js/components/common/b-Icon.vue'
@@ -6,38 +7,51 @@ import { mdiArrowUpThick } from '@mdi/js'
 import BCircleBg from '@js/components/b-CircleBg.vue'
 import BHeader from '@js/layouts/b-Header.vue'
 import BModalsBackground from '@js/layouts/b-ModalsBackground.vue'
+// import { Head } from '@inertiajs/vue3'
+import { useDevSiteStore } from '@js/App/store.js'
+
+const devSiteStore = useDevSiteStore()
+const appRef = ref(null)
+const windowTop = ref(0)
+const isArrowUpVisible = computed(() => windowTop.value > window.innerHeight * 1.5)
+const scrollToTop = () => document.body.scrollIntoView({ block: 'start', behavior: 'smooth' })
+
+function onScroll() {
+    windowTop.value = window.scrollY
+}
+
+onMounted(() => {
+    window.addEventListener('scroll', onScroll)
+})
+
+onUnmounted(() => {
+    window.removeEventListener('scroll', onScroll)
+})
 </script>
 
 <template>
-    <div ref='app' :style="{'background-image':$store.getters.getPageImage}"
-         class='app w-screen min-h-screen flex flex-col'>
-        <b-header class='top-0 left-0' />
+    <!--    <Head>-->
+    <!--        <link :href="imageUrl('/favicon/favicon.ico')" rel="icon" type="image/x-icon" />-->
+    <!--    </Head>-->
+    <div ref="appRef" :style="{ 'background-image': devSiteStore.getPageImage }"
+         class="app w-screen min-h-screen flex flex-col">
+        <b-header class="top-0 left-0" />
 
-        <div v-if="isMobile && $route.name !== 'home'" class="space-above-content h-24"></div>
-
-        <!--        <router-view v-slot='{ Component, route }'>-->
-        <!--            <transition :name="route.meta.transition || 'fade'" mode='out-in'>-->
-        <!--                <component :is='Component' :key="route.path" class="page h-100 flex flex-col" />-->
-        <!--            </transition>-->
-        <!--        </router-view>-->
+        <!--        <div v-if="isMobile && $route.name !== 'home'" class="space-above-content h-24"></div>-->
 
         <slot />
 
-        <b-circle-bg class='left-20 sm:left-56 top-10 sm:top-72 rotate-45' />
-
-        <b-circle-bg
-            class='right-20 sm:right-56 top-96 sm:top-20'
-            style='transform: rotate(225deg)'
-        />
+        <b-circle-bg class="left-20 sm:left-56 top-10 sm:top-72 rotate-45" />
+        <b-circle-bg class="right-20 sm:right-56 top-96 sm:top-20" style="transform: rotate(225deg)" />
 
         <b-cookies />
 
-        <transition name='fade'>
-            <div v-if='isArrowUpVisible' class='up-scroller_wrapper relative'>
+        <transition name="fade">
+            <div v-if="isArrowUpVisible" class="up-scroller_wrapper relative">
                 <b-card
-                    class='up-scroller z-10 w-fit ml-auto cursor-pointer select-none text-xl flex items-center justify-center'
-                    @click='scrollToTop()'>
-                    <b-icon :path='mdiArrowUpThick()' class="w-8 h-8"></b-icon>
+                    class="up-scroller z-10 w-fit ml-auto cursor-pointer select-none text-xl flex items-center justify-center"
+                    @click="scrollToTop">
+                    <b-icon :path="mdiArrowUpThick" class="w-8 h-8"></b-icon>
                 </b-card>
             </div>
         </transition>
@@ -46,40 +60,7 @@ import BModalsBackground from '@js/layouts/b-ModalsBackground.vue'
     </div>
 </template>
 
-<script>
-
-export default {
-    data() {
-        return {
-            windowTop: 0,
-        }
-    },
-    methods: {
-        mdiArrowUpThick() {
-            return mdiArrowUpThick
-        },
-        scrollToTop() {
-            $('body')[0].scrollIntoView({ block: 'start', behavior: 'smooth' })
-        },
-        onScroll() {
-            this.windowTop = window.top.scrollY
-        },
-    },
-    computed: {
-        isArrowUpVisible() {
-            return (this.windowTop > window.innerHeight * 1.5)
-        },
-    },
-    mounted() {
-        window.addEventListener('scroll', this.onScroll)
-    },
-    beforeDestroy() {
-        window.removeEventListener('scroll', this.onScroll)
-    },
-}
-</script>
-
-<style lang='scss' scoped>
+<style lang="scss" scoped>
 .app {
     background-position: center;
     background-size: cover;
@@ -100,7 +81,6 @@ export default {
         bottom: 0;
         border: white solid 1px;
         border-radius: 50%;
-        float: right;
         transform: translatex(-2rem);
         height: 5rem;
         width: 5rem;
@@ -111,7 +91,6 @@ export default {
         right: 10px;
         bottom: 10px;
     }
-
 }
 
 .fade-enter-active,
@@ -121,7 +100,7 @@ export default {
 
 .fade-enter-from,
 .fade-leave-to {
-    opacity: 0
+    opacity: 0;
 }
 
 .scale-enter-active,

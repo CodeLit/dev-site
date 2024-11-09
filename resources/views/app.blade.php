@@ -6,28 +6,37 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=1, initial-scale=1, maximum-scale=5, minimum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="description" content="{{__('common.meta_description')}}.">
 
-    <title>{{__('common.blog_name')}}</title>
+    <title inertia>{{__('common.blog_name')}}</title>
 
     {{-- Fonts--}}
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
-    {{-- Js and Css entrypoints --}}
-    @vite('resources/js/app.js')
+    {{-- Ziggy JS routes --}}
+    @routes
 
-    {{-- Favicon --}}
-    <link rel="icon" type="image/png" href="{{asset('/favicon/icon.png')}}">
+    {{-- Js and Css entrypoints --}}
+    @vite(['resources/js/app.js', "resources/js/pages/{$page['component']}.vue"])
+
+    @inertiaHead
 </head>
 <body>
-<div id="app" style="height: 100vh;">
-    <h3 style="display: inline-block">></h3>
-    <div style="color: white; opacity: 0.09; margin-left: 10px; display: inline-block;">
-        <h3>Vue.js Application</h3>
-        Build of this application is not loaded.
-        Please use yarn install and yarn run production to build the application.
-    </div>
     <noscript>Please enable JavaScript on this page.</noscript>
-</div>
+    @inertia('app')
+    @yield('content')
+    @yield('scripts')
+    <style>
+        html:not([data-theme]) {
+            background-color: #D9F6FF;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            html:not([data-theme]) {
+                background-color: rgb(50, 22, 107);
+            }
+        }
+    </style>
 </body>
 </html>

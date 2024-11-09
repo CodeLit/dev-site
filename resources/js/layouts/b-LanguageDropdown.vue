@@ -1,5 +1,6 @@
 <script setup>
 import BButton from '@js/components/common/b-Button.vue'
+import { importImg } from '@/app/helpers.js'
 </script>
 
 <template>
