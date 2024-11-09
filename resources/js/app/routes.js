@@ -2,10 +2,12 @@ import bHome from '@js/pages/HomePage.vue'
 import bDocuments from '@/pages/DocumentsPage.vue'
 import bMyWorks from '@/pages/MyProjectsPage.vue'
 import { route } from 'ziggy-js'
-import { router } from '@inertiajs/vue3'
+import { router, usePage } from '@inertiajs/vue3'
+
+const page = usePage()
 
 export const getCurrentRoute = () => {
-    return routes.find(r => r.name === route().current())
+    return routes.find(r => route(r.name) === page.props.ziggy.location)
 }
 
 export const isActiveRoute = (routeName) => route().current(routeName)

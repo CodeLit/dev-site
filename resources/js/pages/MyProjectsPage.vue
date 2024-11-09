@@ -1,7 +1,7 @@
 <script setup>
 import { computed, onMounted, ref } from 'vue'
 import { useDevSiteStore } from '@/App/store.js'
-import bProject from '@js/layouts/b-Project.vue'
+import bProject from '@sections/ProjectSection.vue'
 import bFooter from '@js/layouts/b-Footer.vue'
 import bButton from '../components/common/b-Button.vue'
 import projects from '@js/app/projects.js'

@@ -9,6 +9,8 @@ import BHeader from '@sections/b-Header.vue'
 import BModalsBackground from '@js/layouts/b-ModalsBackground.vue'
 // import { Head } from '@inertiajs/vue3'
 import { useDevSiteStore } from '@js/App/store.js'
+import { getCurrentRoute } from '@/app/routes.js'
+import { isMobile } from '@/app/helpers.js'
 // import { importImg } from '@/app/helpers.js'
 
 const devSiteStore = useDevSiteStore()
@@ -38,7 +40,7 @@ onUnmounted(() => {
         <!--        </Head>-->
         <b-header class="top-0 left-0" />
 
-        <!--        <div v-if="isMobile && $route.name !== 'home'" class="space-above-content h-24"></div>-->
+        <div v-if="isMobile && getCurrentRoute().name !== 'home'" class="space-above-content h-24"></div>
 
         <slot />
 

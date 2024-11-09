@@ -1,6 +1,15 @@
 <script setup>
+import { onMounted } from 'vue'
+import { useDevSiteStore } from '@/App/store.js' // Pinia store для управления состоянием
 import bDocuments from '@js/layouts/b-DocumentsLayout.vue'
 import bFooter from '@js/layouts/b-Footer.vue'
+import backgroundImg from '@img/backgrounds/business-people.jpg'
+
+const store = useDevSiteStore()
+
+onMounted(() => {
+    store.setPageImage(backgroundImg)
+})
 </script>
 
 <template>
@@ -10,16 +19,6 @@ import bFooter from '@js/layouts/b-Footer.vue'
     </div>
 </template>
 
-<script>
-import backgroundImg from '@img/backgrounds/business-people.jpg'
-
-export default {
-    name: 'b-Documents',
-    mounted() {
-        this.$store.commit('setPageImage', backgroundImg)
-    },
-}
-</script>
 <style scoped>
 .docs {
     text-align: center;

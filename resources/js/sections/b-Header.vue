@@ -6,11 +6,10 @@ import { isMobile } from '@/app/helpers.js'
 import { getCurrentRoute } from '@/app/routes.js'
 
 
-console.warn(getCurrentRoute())
-
 const headerClass = computed(() => {
+    const currentRoute = getCurrentRoute()
     return {
-        'absolute': getCurrentRoute().header_absolute || isMobile(),
+        'absolute': currentRoute.header_absolute || isMobile(),
     }
 })
 </script>
