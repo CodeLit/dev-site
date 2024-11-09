@@ -16,21 +16,14 @@ import 'vuetify/styles'
 import { createVuetify } from 'vuetify'
 import * as components from 'vuetify/components'
 import * as directives from 'vuetify/directives'
-// End Vuetify
-import { loadLanguageAsync } from 'laravel-vue-i18n'
 
 const appName = import.meta.env.VITE_APP_NAME || 'Dev Site'
 
+// Glob import for assets
 import.meta.glob([
     '../img/**',
     '../fonts/**',
 ])
-
-
-const vuetify = createVuetify({
-    components,
-    directives,
-})
 
 try {
     window.$ = cash
@@ -39,6 +32,31 @@ try {
 } catch (e) {
     console.error('Libraries importing error!', e.message)
 }
+
+// Start languages/locales
+const messages = {}
+const localeFiles = import.meta.glob('@lang/php_*.json', { eager: true })
+
+for (const path in localeFiles) {
+    const match = path.match(/php_([^/]+)\.json$/)
+    if (match) {
+        const locale = match[1]
+        messages[locale] = localeFiles[path].default || localeFiles[path]
+    }
+}
+
+const i18n = createI18n({
+    locale: $('html').attr('lang') || navigator.language.slice(0, 2) || 'en',
+    fallbackLocale: 'en',
+    legacy: false,
+    messages,
+})
+// End languages/locales
+
+const vuetify = createVuetify({
+    components,
+    directives,
+})
 
 createInertiaApp({
     id: 'app',
@@ -50,19 +68,8 @@ createInertiaApp({
         return page
     },
     setup({ el, App, props, plugin }) {
-        let lang = $('html').attr('lang')
-
-        loadLanguageAsync(lang).then(() => {
-            console.log(`Language ${lang} is loaded.`)
-        })
-
-        let app = createApp({ render: () => h(App, props) })
-            .use(createI18n({
-                locale: navigator.language.slice(0, 2),
-                fallbackLocale: 'en',
-                legacy: false,
-                resolve: lang => import(`../lang/${lang}.json`),
-            }))
+        const app = createApp({ render: () => h(App, props) })
+            .use(i18n)
             .use(VueLazyLoading)
             .use(createPinia())
             .use(vuetify)
@@ -76,5 +83,5 @@ createInertiaApp({
         showSpinner: true,
     },
 }).then(() => {
-    console.log(`App ${appName} is created.`)
+    // console.log(`App ${appName} is created.`)
 })

@@ -42,6 +42,7 @@ export default defineConfig({
             { find: '@layouts', replacement: fileURLToPath(new URL('./resources/vue/layouts', import.meta.url)) },
             { find: '@components', replacement: fileURLToPath(new URL('./resources/vue/components', import.meta.url)) },
             { find: '@pages', replacement: fileURLToPath(new URL('./resources/vue/pages', import.meta.url)) },
+            { find: '@lang', replacement: fileURLToPath(new URL('./resources/lang', import.meta.url)) },
         ],
     },
     optimizeDeps: {
