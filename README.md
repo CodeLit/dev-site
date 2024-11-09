@@ -26,11 +26,12 @@ Please enjoy your stay!
 - [Vite](https://vitejs.dev/)
 - [Docker](https://www.docker.com/)
 - [Docker Compose](https://docs.docker.com/compose/)
+- [Task](https://taskfile.dev/)
 
 ## Setting up dev workspace
 
-- ### [Local](./docs/Setup-Local.md)
-- ### [Docker](./docs/Setup-Docker.md)
+- ### [Docker (recommended)](./docs/Setup-Docker.md)
+- ### [Local (manually)](./docs/Setup-Local.md)
 
 ### Environments
 
