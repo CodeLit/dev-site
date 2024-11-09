@@ -1,0 +1,10 @@
+services:
+  php:
+    build:
+      dockerfile: docker/PHP.production.dockerfile
+      context: .
+
+  node:
+    build:
+      dockerfile: docker/NodeClient.production.dockerfile
+      context: .

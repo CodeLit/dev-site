@@ -1,20 +1,38 @@
 version: '3.5'
 services:
-  dev-site:
-    container_name: dev-site
+  php:
     restart: always
-    tty: true
-    build:
-      dockerfile: docker/Dockerfile
-      context: .
     env_file:
       - .env
     volumes:
-      # Important data files
-      - .env:/app/.env
+      - ./.env:/app/.env:ro
+      - ./docker/php_settings.ini:/usr/local/etc/php/conf.d/php_settings.ini:ro
       - ./storage/app:/app/storage/app
       - ./storage/logs:/app/storage/logs
-      # Shared files after the container started
-      - ./node_modules:/shared/node_modules
-      - ./vendor:/shared/vendor
-      - ./public:/shared/public
+      - /app/vendor
+
+  node:
+    restart: always
+    env_file:
+      - .env
+    volumes:
+      - ./.env:/app/.env:ro
+      - /app/node_modules
+
+  mysql:
+    image: mysql:8.0.40
+    restart: always
+    volumes:
+      - ./data/mysql:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_USER: ${DB_USERNAME}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+    networks:
+      - dev-site
+
+networks:
+  dev-site:
+    name: dev-site
+    driver: bridge

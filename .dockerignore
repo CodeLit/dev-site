@@ -1,4 +1,7 @@
 .git
+.idea
+.vscode
+data
 vendor
 node_modules
 public/build/*
