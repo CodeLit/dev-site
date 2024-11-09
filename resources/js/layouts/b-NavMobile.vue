@@ -44,7 +44,7 @@
 </template>
 
 <script>
-import BButton from '@components/common/b-Button.vue'
+import BButton from '@js/components/common/b-Button.vue'
 import BLanguageButton from './b-LanguageDropdown.vue'
 import MenuIcon from 'vue-ionicons/dist/md-menu.vue'
 

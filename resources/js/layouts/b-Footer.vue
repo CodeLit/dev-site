@@ -1,7 +1,7 @@
 <script setup>
 
-import BContacts from '@layouts/b-Contacts.vue'
-import BLinks from '@layouts/b-Links.vue'
+import BContacts from '@js/layouts/b-Contacts.vue'
+import BLinks from '@js/layouts/b-Links.vue'
 </script>
 
 <template>

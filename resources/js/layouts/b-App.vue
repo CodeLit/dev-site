@@ -1,11 +1,11 @@
 <script setup>
-import BCard from '@components/common/b-Card.vue'
-import BCookies from '@layouts/b-Cookies.vue'
-import BIcon from '@components/common/b-Icon.vue'
+import BCard from '@js/components/common/b-Card.vue'
+import BCookies from '@js/layouts/b-Cookies.vue'
+import BIcon from '@js/components/common/b-Icon.vue'
 import { mdiArrowUpThick } from '@mdi/js'
-import BCircleBg from '@components/b-CircleBg.vue'
-import BHeader from '@layouts/b-Header.vue'
-import BModalsBackground from '@layouts/b-ModalsBackground.vue'
+import BCircleBg from '@js/components/b-CircleBg.vue'
+import BHeader from '@js/layouts/b-Header.vue'
+import BModalsBackground from '@js/layouts/b-ModalsBackground.vue'
 </script>
 
 <template>

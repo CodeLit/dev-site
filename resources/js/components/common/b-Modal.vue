@@ -1,6 +1,6 @@
 <script setup>
-import bCard from '../common/b-Card.vue'
-import bButton from '../common/b-Button.vue'
+import bCard from './b-Card.vue'
+import bButton from './b-Button.vue'
 </script>
 
 <template>

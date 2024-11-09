@@ -1,7 +1,7 @@
 <script setup>
 import GitHubIcon from 'vue-ionicons/dist/logo-github.vue'
 import LinkedinIcon from 'vue-ionicons/dist/logo-linkedin.vue'
-import BLink from '@components/common/b-Link.vue'
+import BLink from '@js/components/common/b-Link.vue'
 </script>
 
 <template>

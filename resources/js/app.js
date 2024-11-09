@@ -1,14 +1,12 @@
 import '../scss/app.scss'
 import { createApp, h } from 'vue'
 import cash from 'cash-dom'
-import './App/font-awesome.js'
+import './app/font-awesome.js'
 import axios from 'axios'
 import 'es6-promise/auto' // for old browsers
-import store from './App/store.js' // vuex
 import { createInertiaApp } from '@inertiajs/vue3'
 // import VueLazyLoading from 'vue-lazy-loading'
-import AppLayout from '@layouts/b-App.vue'
-import mixins from './App/mixins.js'
+import AppLayout from '@js/layouts/b-App.vue'
 
 // Vuetify
 import '@mdi/font/css/materialdesignicons.css'
@@ -48,12 +46,12 @@ createInertiaApp({
     setup({ el, App, props, plugin }) {
         let app = createApp({ render: () => h(App, props) })
             // .use(router)
-            .use(store)
+        // .use(store)
             // .use(i18nVue, {
             //     resolve: lang => import(`../lang/${lang}.json`),
             // })
             // .use(VueLazyLoading)
-            .mixin(mixins)
+        // .mixin(mixins)
 
 
         // let lang = $('html').attr('lang')

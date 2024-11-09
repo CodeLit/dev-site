@@ -5,11 +5,12 @@
 </template>
 
 <style lang="scss" scoped>
-@use '@scss/variables' as vars;
+//@use 'variables' as vars;
 
 .btn {
     backdrop-filter: blur(79px);
-    background: linear-gradient(rgba(255, 255, 255, 0.1), vars.$blur);
+    //background: linear-gradient(rgba(255, 255, 255, 0.1), vars.$blur);
+
     /* Note: backdrop-filter has minimal browser support */
     box-shadow: 0 -1px rgba(255, 255, 255, 0.5) inset;
     transition: box-shadow 0.4s ease-in, transform 0.05s ease-in;
@@ -39,7 +40,7 @@
     transform: translateY(2px);
 
     &:focus, &:focus-within {
-        background: linear-gradient(vars.$blur, rgba(255, 255, 255, 0.3));
+        //background: linear-gradient(vars.$blur, rgba(255, 255, 255, 0.3));
         outline: none;
     }
 }

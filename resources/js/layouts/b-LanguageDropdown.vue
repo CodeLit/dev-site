@@ -1,5 +1,5 @@
 <script setup>
-import BButton from '@components/common/b-Button.vue'
+import BButton from '@js/components/common/b-Button.vue'
 </script>
 
 <template>

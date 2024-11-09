@@ -1,8 +1,8 @@
 <script setup>
-import bProject from '@layouts/b-Project.vue'
-import bFooter from '@layouts/b-Footer.vue'
+import bProject from '@js/layouts/b-Project.vue'
+import bFooter from '@js/layouts/b-Footer.vue'
 import bButton from '../components/common/b-Button.vue'
-import projects from '@js/App/projects.js'
+import projects from '@js/app/projects.js'
 </script>
 
 <template>

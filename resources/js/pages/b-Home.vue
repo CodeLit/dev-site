@@ -3,11 +3,11 @@ import skyImage from '@img/sky/kristopher-roller.jpg'
 import bParallax from '../components/b-Parallax.vue'
 import bCard from '../components/common/b-Card.vue'
 import bButton from '../components/common/b-Button.vue'
-import bFooter from '@layouts/b-Footer.vue'
-import documents from '@layouts/b-DocumentsLayout.vue'
+import bFooter from '@js/layouts/b-Footer.vue'
+import documents from '@js/layouts/b-DocumentsLayout.vue'
 import bTextIcon from '../components/b-TextIcon.vue'
 import laptopImage from '@img/humans/macbook-and-books.jpg'
-import BContactsModal from '@layouts/b-ContactsModal.vue'
+import BContactsModal from '@js/layouts/b-ContactsModal.vue'
 </script>
 <template>
     <div class="home-page">

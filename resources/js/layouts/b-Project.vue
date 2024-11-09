@@ -1,5 +1,5 @@
 <script setup>
-import bCard from '@components/common/b-Card.vue'
+import bCard from '@js/components/common/b-Card.vue'
 import BButton from '../components/common/b-Button.vue'
 </script>
 <template>

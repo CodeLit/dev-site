@@ -20,10 +20,10 @@
     <link rel="icon" type="image/png" href="{{asset('/favicon/icon.png')}}">
 </head>
 <body>
-<div id="app">
-    >
-    <div style="color: transparent">
-        <h2>Vue.js Application</h2>
+<div id="app" style="height: 100vh;">
+    <h3 style="display: inline-block">></h3>
+    <div style="color: white; opacity: 0.09; margin-left: 10px; display: inline-block;">
+        <h3>Vue.js Application</h3>
         Build of this application is not loaded.
         Please use yarn install and yarn run production to build the application.
     </div>

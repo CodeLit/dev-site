@@ -28,8 +28,8 @@
 </template>
 
 <script>
-import BButton from '@components/common/b-Button.vue'
-import BCard from '@components/common/b-Card.vue'
+import BButton from '@js/components/common/b-Button.vue'
+import BCard from '@js/components/common/b-Card.vue'
 import BLanguageButton from './b-LanguageDropdown.vue'
 
 

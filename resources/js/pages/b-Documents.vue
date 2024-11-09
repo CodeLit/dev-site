@@ -1,6 +1,6 @@
 <script setup>
-import bDocuments from '@layouts/b-DocumentsLayout.vue'
-import bFooter from '@layouts/b-Footer.vue'
+import bDocuments from '@js/layouts/b-DocumentsLayout.vue'
+import bFooter from '@js/layouts/b-Footer.vue'
 </script>
 
 <template>
