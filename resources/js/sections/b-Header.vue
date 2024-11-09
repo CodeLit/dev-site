@@ -1,12 +1,16 @@
 <script setup>
 import { computed } from 'vue'
-import BNavMobile from './b-NavMobile.vue'
-import BNav from './b-Nav.vue'
+import BNavMobile from '@layouts/b-NavMobile.vue'
+import BNav from '@sections/b-Nav.vue'
 import { isMobile } from '@/app/helpers.js'
+import { getCurrentRoute } from '@/app/routes.js'
+
+
+console.warn(getCurrentRoute())
 
 const headerClass = computed(() => {
     return {
-        'absolute': {}.header_absolute || isMobile(),
+        'absolute': getCurrentRoute().header_absolute || isMobile(),
     }
 })
 </script>

@@ -2,7 +2,7 @@
 import WhatsappIcon from 'vue-ionicons/dist/logo-whatsapp.vue'
 import SkypeIcon from 'vue-ionicons/dist/logo-skype.vue'
 import EmailIcon from 'vue-ionicons/dist/md-mail.vue'
-import BLink from '@js/components/common/b-Link.vue'
+import BLink from '@components/common/b-Link.vue'
 </script>
 
 <template>

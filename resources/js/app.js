@@ -5,7 +5,7 @@ import './app/font-awesome.js'
 import axios from 'axios'
 import 'es6-promise/auto' // for old browsers
 import { createInertiaApp } from '@inertiajs/vue3'
-import AppLayout from '@js/layouts/b-App.vue'
+import AppLayout from '@layouts/AppLayout.vue'
 import { createPinia } from 'pinia'
 import { createI18n } from 'vue-i18n'
 import VueLazyLoading from 'vue-lazy-loading'
@@ -64,6 +64,7 @@ createInertiaApp({
     resolve: name => {
         const pages = import.meta.glob('./pages/**/*.vue', { eager: true })
         let page = pages[`./pages/${name}.vue`]
+
         page.default.layout = page.default.layout || AppLayout
         return page
     },

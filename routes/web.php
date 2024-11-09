@@ -19,11 +19,11 @@ Route::get('/', function () {
 })->name('home');
 
 Route::get('/my-works', function () {
-    return Inertia::render('MyProjects');
+    return Inertia::render('MyProjectsPage');
 })->name('my-works');
 
 Route::get('/documents', function () {
-    return Inertia::render('Documents');
+    return Inertia::render('DocumentsPage');
 })->name('documents');
 
 Route::get('/ping', function () {

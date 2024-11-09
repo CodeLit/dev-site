@@ -1,14 +1,15 @@
 <script setup>
 import { computed, onMounted, onUnmounted, ref } from 'vue'
 import BCard from '@js/components/common/b-Card.vue'
-import BCookies from '@js/layouts/b-Cookies.vue'
+import BCookies from '@sections/b-Cookies.vue'
 import BIcon from '@js/components/common/b-Icon.vue'
 import { mdiArrowUpThick } from '@mdi/js'
 import BCircleBg from '@js/components/b-CircleBg.vue'
-import BHeader from '@js/layouts/b-Header.vue'
+import BHeader from '@sections/b-Header.vue'
 import BModalsBackground from '@js/layouts/b-ModalsBackground.vue'
 // import { Head } from '@inertiajs/vue3'
 import { useDevSiteStore } from '@js/App/store.js'
+// import { importImg } from '@/app/helpers.js'
 
 const devSiteStore = useDevSiteStore()
 const appRef = ref(null)
@@ -30,11 +31,11 @@ onUnmounted(() => {
 </script>
 
 <template>
-    <!--    <Head>-->
-    <!--        <link :href="imageUrl('/favicon/favicon.ico')" rel="icon" type="image/x-icon" />-->
-    <!--    </Head>-->
     <div ref="appRef" :style="{ 'background-image': devSiteStore.getPageImage }"
          class="app w-screen min-h-screen flex flex-col">
+        <!--        <Head>-->
+        <!--            <link :href="importImg('/favicon/favicon.ico')" rel="icon" type="image/x-icon" />-->
+        <!--        </Head>-->
         <b-header class="top-0 left-0" />
 
         <!--        <div v-if="isMobile && $route.name !== 'home'" class="space-above-content h-24"></div>-->

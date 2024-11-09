@@ -2,6 +2,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
+    <title inertia>{{__('common.blog_name')}}</title>
     <meta charset="utf-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=1, initial-scale=1, maximum-scale=5, minimum-scale=1">
@@ -9,7 +10,6 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="description" content="{{__('common.meta_description')}}.">
 
-    <title inertia>{{__('common.blog_name')}}</title>
 
     {{-- Fonts--}}
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">

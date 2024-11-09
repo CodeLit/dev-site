@@ -1,8 +1,8 @@
 <script setup>
-import bRoundBox from '@js/components/b-RoundBox.vue'
-import bButton from '@js/components/common/b-Button.vue'
+import bRoundBox from '@components/b-RoundBox.vue'
+import bButton from '@components/common/b-Button.vue'
 import cookiesImg from '@img/cookies.png'
-import bCard from '@js/components/common/b-Card.vue'
+import bCard from '@components/common/b-Card.vue'
 </script>
 
 <template>

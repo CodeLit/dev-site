@@ -1,19 +1,14 @@
 <script setup>
 import { useI18n } from 'vue-i18n'
-import BButton from '@js/components/common/b-Button.vue'
-import BLanguageButton from './b-LanguageDropdown.vue'
-import { Link, router, usePage } from '@inertiajs/vue3'
-import { routes } from '@/app/routes.js'
+import BButton from '@components/common/b-Button.vue'
+import BLanguageButton from '@layouts/b-LanguageDropdown.vue'
+import { Link } from '@inertiajs/vue3'
+import { changePage, isActiveRoute, routes } from '@/app/routes.js'
 import { route } from 'ziggy-js'
 
-const page = usePage()
 
 const { t } = useI18n()
 
-// Navigate to the specified route
-const changePage = (routePath) => {
-    router.visit(routePath)
-}
 </script>
 
 <template>
@@ -34,13 +29,13 @@ const changePage = (routePath) => {
 
         <div id="nav-list" class="hidden sm:flex flex-col sm:flex-row">
             <b-button
-                v-for="route in routes"
-                :key="route.path"
-                :class="{ active: page.props.route?.path === route.path }"
+                v-for="r in routes"
+                :key="r.name"
+                :class="{ active: isActiveRoute(r.name) }"
                 class="inline-block col-2 rounded-full px-6 py-3 lg:mx-6 flex-nowrap"
-                @click="() => changePage(route.path)"
+                @click="() => changePage(route(r.name))"
             >
-                {{ t(route.trans) }}
+                {{ t(r.trans) }}
             </b-button>
 
             <b-language-button></b-language-button>

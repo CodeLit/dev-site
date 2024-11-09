@@ -1,8 +1,8 @@
 <script setup>
 
-import BLinks from '@js/layouts/b-Links.vue'
-import BContacts from '@js/layouts/b-Contacts.vue'
-import BModal from '@js/components/common/b-Modal.vue'
+import BLinks from '@layouts/b-Links.vue'
+import BContacts from '@sections/b-Contacts.vue'
+import BModal from '@components/common/b-Modal.vue'
 </script>
 
 <template>

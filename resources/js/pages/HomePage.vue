@@ -10,7 +10,7 @@ import bFooter from '@js/layouts/b-Footer.vue'
 import documents from '@js/layouts/b-DocumentsLayout.vue'
 import bTextIcon from '../components/b-TextIcon.vue'
 import laptopImage from '@img/humans/macbook-and-books.jpg'
-import BContactsModal from '@js/layouts/b-ContactsModal.vue'
+import BContactsModal from '@sections/b-ContactsModal.vue'
 
 const contactsOpened = ref(false)
 const { t } = useI18n()

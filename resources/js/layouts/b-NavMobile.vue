@@ -1,24 +1,21 @@
 <script setup>
-import { computed, ref } from 'vue'
+import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import BButton from '@js/components/common/b-Button.vue'
 import BLanguageButton from './b-LanguageDropdown.vue'
 import MenuIcon from 'vue-ionicons/dist/md-menu.vue'
 import { Link, router } from '@inertiajs/vue3'
 import { route } from 'ziggy-js'
+import { isActiveRoute, routes } from '@/app/routes.js'
 
 const navToggled = ref(false)
 const { t } = useI18n()
 
-// Toggle navigation visibility
 const toggleNav = () => {
     navToggled.value = !navToggled.value
 }
 
-// Determine if the route is active
-const isActiveRoute = (routeName) => computed(() => router.currentRoute.value.name === routeName)
 
-// Navigate to the specified route
 const navigateTo = (routeName) => {
     toggleNav()
     router.visit(route(routeName))
@@ -43,19 +40,19 @@ const navigateTo = (routeName) => {
                 </b-button>
             </Link>
 
-            <div id="nav-list" :class="navToggled ? 'flex' : 'hidden'" class="flex-col flex-row">
-                <!--                <b-button-->
-                <!--                    v-for="route in router.options.routes"-->
-                <!--                    :key="route.name"-->
-                <!--                    :class="{ active: isActiveRoute(route.name).value }"-->
-                <!--                    class="nav_link inline-block col-2 rounded-full px-6 py-3 flex-nowrap"-->
-                <!--                    @click="() => navigateTo(route.name)"-->
-                <!--                >-->
-                <!--                    {{ t(route.trans) }}-->
-                <!--                </b-button>-->
+            <div id="nav-list" :class="navToggled ? 'flex' : 'hidden'" class="flex-row">
+                <b-button
+                    v-for="r in routes"
+                    :key="r.name"
+                    :class="{ active: isActiveRoute(r.name) }"
+                    class="nav_link inline-block col-2 rounded-full px-6 py-3 flex-nowrap"
+                    @click="() => navigateTo(r.name)"
+                >
+                    {{ t(r.trans) }}
+                </b-button>
             </div>
 
-            <div class="flex items-center ml-auto h-fit items-center">
+            <div class="flex items-center ml-auto h-fit">
                 <b-language-button class="lang_btn mr-2" />
 
                 <!-- Toggle button for mobile navigation -->
