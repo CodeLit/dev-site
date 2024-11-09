@@ -6,6 +6,7 @@ import i18n from 'laravel-vue-i18n/vite'
 
 export default defineConfig({
     server: {
+        host: '0.0.0.0',
         hmr: {
             host: 'localhost',
         },

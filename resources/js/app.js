@@ -1,27 +1,20 @@
 import '../scss/app.scss'
-import { createApp } from 'vue'
+import { createApp, h } from 'vue'
 import cash from 'cash-dom'
-import './font-awesome'
-
+import './App/font-awesome.js'
 import axios from 'axios'
-
 import 'es6-promise/auto' // for old browsers
-import store from './store' // vuex
-import { createRouter, createWebHistory } from 'vue-router'
-
-import routes from './routes'
-import VueLazyLoading from 'vue-lazy-loading'
-import BApp from '@v/b-App.vue'
-
-import { i18nVue, loadLanguageAsync } from 'laravel-vue-i18n'
-import mixins from './mixins.js'
+import store from './App/store.js' // vuex
+import { createInertiaApp } from '@inertiajs/vue3'
+// import VueLazyLoading from 'vue-lazy-loading'
+import AppLayout from '@layouts/b-App.vue'
+import mixins from './App/mixins.js'
 
 // Vuetify
 import '@mdi/font/css/materialdesignicons.css'
 import 'vuetify/styles'
-import { createVuetify } from 'vuetify'
-import * as components from 'vuetify/components'
-import * as directives from 'vuetify/directives'
+
+const appName = import.meta.env.VITE_APP_NAME || 'Dev Site'
 
 import.meta.glob([
     '../img/**',
@@ -36,27 +29,52 @@ try {
     console.error('Libraries importing error!', e.message)
 }
 
-const router = new createRouter({
-    history: createWebHistory(),
-    routes,
-})
 
-let app = createApp(BApp)
-app.use(router)
-app.use(store)
-app.use(i18nVue, {
-    resolve: lang => import(`../lang/${lang}.json`),
-})
-app.use(VueLazyLoading)
-app.mixin(mixins)
+// const router = new createRouter({
+//     history: createWebHistory(),
+//     routes,
+// })
 
-let lang = $('html').attr('lang')
+createInertiaApp({
+    id: 'app',
+    // title: (title) => title ? `${title} - ${appName}` : appName,
+    resolve: name => {
+        const pages = import.meta.glob('../vue/pages/**/*.vue', { eager: true })
+        let page = pages[`../vue/pages/${name}.vue`]
 
-const vuetify = createVuetify({
-    components,
-    directives,
-})
+        page.default.layout = page.default.layout || AppLayout
+        return page
+    },
+    setup({ el, App, props, plugin }) {
+        let app = createApp({ render: () => h(App, props) })
+            // .use(router)
+            .use(store)
+            // .use(i18nVue, {
+            //     resolve: lang => import(`../lang/${lang}.json`),
+            // })
+            // .use(VueLazyLoading)
+            .mixin(mixins)
 
-loadLanguageAsync(lang).then(() => {
-    app.use(vuetify).mount('#app')
+
+        // let lang = $('html').attr('lang')
+        //
+        // const vuetify = createVuetify({
+        //     components,
+        //     directives,
+        // })
+        //
+        // loadLanguageAsync(lang).then(() => {
+        //     app.use(vuetify)
+        // })
+
+        return app.mount(el)
+    },
+    // progress: {
+    //     delay: 250,
+    //     color: '#00ffd1',
+    //     includeCSS: true,
+    //     showSpinner: true,
+    // },
+}).then(() => {
+    console.log(`App ${appName} is created.`)
 })

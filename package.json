@@ -2,10 +2,11 @@
     "private": true,
     "type": "module",
     "scripts": {
-        "dev": "vite --host 0.0.0.0",
-        "prod": "vite build"
+        "dev": "vite",
+        "build": "vite build --ssr"
     },
     "dependencies": {
+        "@inertiajs/vue3": "^1.2.0",
         "@fortawesome/fontawesome-svg-core": "^6.5.2",
         "@fortawesome/free-brands-svg-icons": "^6.5.2",
         "@fortawesome/free-solid-svg-icons": "^6.5.2",
@@ -29,7 +30,8 @@
         "vue-router": "^4.3.2",
         "vue-screen-size": "^2.1.0",
         "vuetify": "^3.6.3",
-        "vuex": "^4.1.0"
+        "vuex": "^4.1.0",
+        "ziggy-js": "^2.3.0"
     },
     "devDependencies": {
         "@tailwindcss/forms": "^0.5.7",

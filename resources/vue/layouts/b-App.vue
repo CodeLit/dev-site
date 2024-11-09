@@ -15,11 +15,13 @@ import BModalsBackground from '@layouts/b-ModalsBackground.vue'
 
         <div v-if="isMobile && $route.name !== 'home'" class="space-above-content h-24"></div>
 
-        <router-view v-slot='{ Component, route }'>
-            <transition :name="route.meta.transition || 'fade'" mode='out-in'>
-                <component :is='Component' :key="route.path" class="page h-100 flex flex-col" />
-            </transition>
-        </router-view>
+        <!--        <router-view v-slot='{ Component, route }'>-->
+        <!--            <transition :name="route.meta.transition || 'fade'" mode='out-in'>-->
+        <!--                <component :is='Component' :key="route.path" class="page h-100 flex flex-col" />-->
+        <!--            </transition>-->
+        <!--        </router-view>-->
+
+        <slot />
 
         <b-circle-bg class='left-20 sm:left-56 top-10 sm:top-72 rotate-45' />
 

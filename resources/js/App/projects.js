@@ -1,7 +1,7 @@
 import commercetoolsLogo from '@img/logos/commercetools-logo.png'
 import wordPressLogo from '@img/logos/wp-wc-logo.png'
-import salesforceLogo from '../img/svg/logos/salesforce.svg'
-import telegramLogo from '../img/svg/logos/telegram.svg'
+import salesforceLogo from '@img/svg/logos/salesforce.svg'
+import telegramLogo from '@img/svg/logos/telegram.svg'
 
 export default [
     {
