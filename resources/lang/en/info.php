@@ -31,7 +31,7 @@ return [
                         <li>Queries in GraphQL and FaunaDB</li>
                         <li>HTTP/REST API requests and responses, such as the Ajax library, or Axios</li>
                         <li>Asynchronous code, multithreading, Promises, and more</li>
-                        <li>Languages <i class="fab fa-python"></i> Python, GO, web languages,
+                        <li>Languages <i class="fab fa-python"></i> Python, web languages,
                             including
                             <i class="fab fa-php"></i> PHP,
                             <i class="fab fa-js"></i> JS and the EcmaScript standard,
