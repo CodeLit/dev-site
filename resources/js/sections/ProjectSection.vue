@@ -3,7 +3,7 @@ import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import bCard from '@js/components/common/b-Card.vue'
 import BButton from '../components/common/b-Button.vue'
-import { importImg } from '@/app/helpers.js'
+import { importImg, isMobile } from '@/app/helpers.js'
 
 const emit = defineEmits(['selectTag'])
 
@@ -23,7 +23,6 @@ const props = defineProps({
 })
 
 const loaded = ref(false)
-const isMobile = ref(window.innerWidth < 768)
 const { t } = useI18n()
 
 const appear = () => {
@@ -53,7 +52,7 @@ const selectTag = (tag) => {
                 <div>
                     <h4 v-if="title" class="mb-3 mt-1.5 leading-6">{{ title }}</h4>
                     <a v-if="link" :href="addProtocol(link)" target="_blank">
-                        {{ isMobile ? shortenText(removeProtocol(link)) : removeProtocol(link) }}
+                        {{ isMobile() ? shortenText(removeProtocol(link)) : removeProtocol(link) }}
                     </a>
                     <p v-if="descriptionTrans" v-html="t('projects.' + descriptionTrans)"></p>
                     <div class="tags">

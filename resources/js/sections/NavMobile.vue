@@ -1,8 +1,8 @@
 <script setup>
 import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
-import BButton from '@js/components/common/b-Button.vue'
-import BLanguageButton from './b-LanguageDropdown.vue'
+import BButton from '@components/common/b-Button.vue'
+import BLanguageButton from '@sections/LanguageDropdown.vue'
 import MenuIcon from 'vue-ionicons/dist/md-menu.vue'
 import { Link, router } from '@inertiajs/vue3'
 import { route } from 'ziggy-js'

@@ -151,5 +151,13 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="browsers_scanner" level="application" />
+    <orderEntry type="library" name="http-vue-loader" level="application" />
+    <orderEntry type="library" name="jquery-3.5.1" level="application" />
+    <orderEntry type="library" name="jquery.cookie" level="application" />
+    <orderEntry type="library" name="livereload" level="application" />
+    <orderEntry type="library" name="select2" level="application" />
+    <orderEntry type="library" name="twig.js" level="application" />
+    <orderEntry type="library" name="vue" level="application" />
   </component>
 </module>

@@ -1,7 +1,7 @@
 <script setup>
 import { computed } from 'vue'
-import BNavMobile from '@layouts/b-NavMobile.vue'
-import BNav from '@sections/b-Nav.vue'
+import BNavMobile from '@sections/NavMobile.vue'
+import BNav from '@sections/Nav.vue'
 import { isMobile } from '@/app/helpers.js'
 import { getCurrentRoute } from '@/app/routes.js'
 

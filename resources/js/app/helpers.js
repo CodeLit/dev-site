@@ -10,8 +10,12 @@ export function importImg(path) {
 }
 
 export function isMobile() {
-    const ua = navigator.userAgent || navigator.vendor || window.opera
-    return /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(ua.toLowerCase())
+    return (
+        typeof window.orientation !== 'undefined' ||
+        navigator.userAgentData?.mobile ||
+        /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(navigator.userAgent.toLowerCase()) ||
+        (window.innerWidth <= 768 && 'ontouchstart' in window)
+    )
 }
 
 export const isValidHttpUrl = function(string) {
@@ -24,5 +28,16 @@ export const isValidHttpUrl = function(string) {
     }
 
     return url.protocol === 'http:' || url.protocol === 'https:'
+}
+
+
+export const changeLanguage = (newLanguage) => {
+    localStorage.setItem('website-locale', newLanguage)
+    document.documentElement.setAttribute('lang', newLanguage)
+    if (newLanguage === 'ar') {
+        document.documentElement.setAttribute('dir', 'rtl')
+    } else {
+        document.documentElement.setAttribute('dir', 'ltr')
+    }
 }
 

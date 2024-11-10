@@ -5,7 +5,7 @@ import BCookies from '@sections/b-Cookies.vue'
 import BIcon from '@js/components/common/b-Icon.vue'
 import { mdiArrowUpThick } from '@mdi/js'
 import BCircleBg from '@js/components/b-CircleBg.vue'
-import BHeader from '@sections/b-Header.vue'
+import BHeader from '@sections/Header.vue'
 import BModalsBackground from '@js/layouts/b-ModalsBackground.vue'
 // import { Head } from '@inertiajs/vue3'
 import { useDevSiteStore } from '@js/App/store.js'
@@ -40,7 +40,7 @@ onUnmounted(() => {
         <!--        </Head>-->
         <b-header class="top-0 left-0" />
 
-        <div v-if="isMobile && getCurrentRoute().name !== 'home'" class="space-above-content h-24"></div>
+        <div v-if="isMobile() && getCurrentRoute().name !== 'home'" class="space-above-content h-24"></div>
 
         <slot />
 
