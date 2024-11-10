@@ -7,9 +7,8 @@ import bButton from '../components/common/b-Button.vue'
 import projects from '@js/app/projects.js'
 import backgroundImg from '@img/backgrounds/laptop-on-table.jpg'
 import { VSwitch } from 'vuetify/components'
-import { getCurrentRoute } from '@/app/routes.js'
-import { Head } from '@inertiajs/vue3'
 import { useI18n } from 'vue-i18n'
+import PageTitle from '@sections/PageTitle.vue'
 
 const { t } = useI18n()
 const devSiteStore = useDevSiteStore()
@@ -42,7 +41,7 @@ onMounted(() => {
 
 <template>
     <div>
-        <Head :title="t(getCurrentRoute().trans)" />
+        <PageTitle />
         <div class="card-container mx-auto flex justify-between items-center my-1">
             <div class="tags w-50">
                 <b-button v-for="(count, tag) in existingTags" :key="tag" :class="{ 'active': selectedTag === tag }"

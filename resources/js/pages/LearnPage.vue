@@ -1,5 +1,10 @@
+<script setup>
+import PageTitle from '@sections/PageTitle.vue'
+</script>
+
 <template>
     <div>
+        <PageTitle />
         <div class="container">
             <b-card>
                 Не следует, однако, забывать, что постоянный количественный рост

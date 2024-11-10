@@ -11,6 +11,7 @@ import documents from '@js/layouts/b-DocumentsLayout.vue'
 import bTextIcon from '../components/b-TextIcon.vue'
 import laptopImage from '@img/humans/macbook-and-books.jpg'
 import BContactsModal from '@sections/b-ContactsModal.vue'
+import PageTitle from '@sections/PageTitle.vue'
 
 const contactsOpened = ref(false)
 const { t } = useI18n()
@@ -31,6 +32,7 @@ onMounted(() => {
 
 <template>
     <div class="home-page">
+        <PageTitle />
         <b-contacts-modal v-if="contactsOpened" @close="contactsOpened = false" />
         <b-parallax :img_url="skyImage" class="min-h-screen flex flex-col justify-center">
             <b-card :blur_amount="20" class="flex flex-col md:flex-row max-w-screen-xl m-7 sm:mx-32 xl:mx-auto">

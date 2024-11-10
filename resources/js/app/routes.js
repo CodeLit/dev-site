@@ -24,6 +24,7 @@ export const routes = [
         name: 'home',
         header_absolute: true,
         meta: { transition: 'fade' },
+        empty_title: true,
     },
     {
         trans: 'common.my_projects',

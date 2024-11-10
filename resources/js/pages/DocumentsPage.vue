@@ -4,9 +4,8 @@ import { useDevSiteStore } from '@/App/store.js'
 import bDocuments from '@js/layouts/b-DocumentsLayout.vue'
 import bFooter from '@js/layouts/b-Footer.vue'
 import backgroundImg from '@img/backgrounds/business-people.jpg'
-import { getCurrentRoute } from '@/app/routes.js'
-import { Head } from '@inertiajs/vue3'
 import { useI18n } from 'vue-i18n'
+import PageTitle from '@sections/PageTitle.vue'
 
 const { t } = useI18n()
 
@@ -19,7 +18,7 @@ onMounted(() => {
 
 <template>
     <div>
-        <Head :title="t(getCurrentRoute().trans)" />
+        <PageTitle />
         <b-documents class="docs w-screen mt-12 md:mt-0" />
         <b-footer blurred="1" class="mt-20" />
     </div>
