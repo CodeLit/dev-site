@@ -69,13 +69,13 @@ createInertiaApp({
         return page
     },
     setup({ el, App, props, plugin }) {
-        const app = createApp({ render: () => h(App, props) })
+        return createApp({ render: () => h(App, props) })
+            .use(plugin)
             .use(i18n)
             .use(VueLazyLoading)
             .use(createPinia())
             .use(vuetify)
-
-        return app.mount(el)
+            .mount(el)
     },
     progress: {
         delay: 250,

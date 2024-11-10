@@ -1,6 +1,7 @@
 <template>
     <div>
         <div class="container">
+            <Head :title="t(getCurrentRoute().trans)" />
             <b-card>
                 <h1 class="text-center">Собеседования</h1>
                 Это самая важная часть любого найма. На этом этапе работник и кампания выясняют, подходят ли они друг
@@ -22,8 +23,11 @@
 <script>
 import BCard from '../components/common/b-Card.vue'
 import BHeader from '@sections/Header.vue'
+import { getCurrentRoute } from '@/app/routes.js'
+import { Head } from '@inertiajs/vue3'
 
 export default {
-    components: { BHeader, BCard },
+    methods: { getCurrentRoute },
+    components: { Head, BHeader, BCard },
 }
 </script>

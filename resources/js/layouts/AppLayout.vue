@@ -7,12 +7,13 @@ import { mdiArrowUpThick } from '@mdi/js'
 import BCircleBg from '@js/components/b-CircleBg.vue'
 import BHeader from '@sections/Header.vue'
 import BModalsBackground from '@js/layouts/b-ModalsBackground.vue'
-// import { Head } from '@inertiajs/vue3'
+import { Head } from '@inertiajs/vue3'
 import { useDevSiteStore } from '@js/App/store.js'
 import { getCurrentRoute } from '@/app/routes.js'
-import { isMobile } from '@/app/helpers.js'
-// import { importImg } from '@/app/helpers.js'
+import { importImg, isMobile } from '@/app/helpers.js'
+import { useI18n } from 'vue-i18n'
 
+const { t } = useI18n()
 const devSiteStore = useDevSiteStore()
 const appRef = ref(null)
 const windowTop = ref(0)
@@ -33,12 +34,13 @@ onUnmounted(() => {
 </script>
 
 <template>
+    <Head>
+        <link :href="importImg('/favicon/favicon.png')" rel="icon" type="image/x-icon" />
+    </Head>
     <div ref="appRef" :style="{ 'background-image': devSiteStore.getPageImage }"
          class="app w-screen min-h-screen flex flex-col">
-        <!--        <Head>-->
-        <!--            <link :href="importImg('/favicon/favicon.ico')" rel="icon" type="image/x-icon" />-->
-        <!--        </Head>-->
-        <b-header class="top-0 left-0" />
+
+    <b-header class="top-0 left-0" />
 
         <div v-if="isMobile() && getCurrentRoute().name !== 'home'" class="space-above-content h-24"></div>
 
