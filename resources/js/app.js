@@ -7,7 +7,7 @@ import 'es6-promise/auto' // for old browsers
 import { createInertiaApp } from '@inertiajs/vue3'
 import AppLayout from '@layouts/AppLayout.vue'
 import { createPinia } from 'pinia'
-import { createI18n } from 'vue-i18n'
+import { createI18n, useI18n } from 'vue-i18n'
 import VueLazyLoading from 'vue-lazy-loading'
 
 // Vuetify
@@ -60,7 +60,12 @@ const vuetify = createVuetify({
 
 createInertiaApp({
     id: 'app',
-    title: (title) => title ? `${title} - ${appName}` : appName,
+    title: function(title) {
+        const { t } = useI18n()
+        const appNameTranslated = t('common.blog_name') || appName
+        return title ? `${title} - ${appNameTranslated}` : appNameTranslated
+
+    },
     resolve: name => {
         const pages = import.meta.glob('./pages/**/*.vue', { eager: true })
         let page = pages[`./pages/${name}.vue`]

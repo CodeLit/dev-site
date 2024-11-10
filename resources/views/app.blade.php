@@ -34,7 +34,7 @@
 
         @media (prefers-color-scheme: dark) {
             html:not([data-theme]) {
-                background-color: rgb(50, 22, 107);
+                background-color: rgb(35, 141, 148);
             }
         }
     </style>

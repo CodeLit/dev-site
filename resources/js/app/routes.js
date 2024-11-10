@@ -12,6 +12,9 @@ export const isActiveRoute = (routeName) => {
 }
 
 export const changePage = (routePath) => {
+    if (routePath === page.props.ziggy.location) {
+        return
+    }
     router.visit(routePath)
 }
 
