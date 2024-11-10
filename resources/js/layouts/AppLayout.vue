@@ -44,7 +44,9 @@ onUnmounted(() => {
 
         <div v-if="isMobile() && getCurrentRoute().name !== 'home'" class="space-above-content h-24"></div>
 
-        <slot />
+        <transition appear mode="out-in" name="fade">
+            <slot />
+        </transition>
 
         <b-circle-bg class="left-20 sm:left-56 top-10 sm:top-72 rotate-45" />
         <b-circle-bg class="right-20 sm:right-56 top-96 sm:top-20" style="transform: rotate(225deg)" />
