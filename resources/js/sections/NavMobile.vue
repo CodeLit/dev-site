@@ -6,7 +6,7 @@ import BLanguageButton from '@sections/LanguageDropdown.vue'
 import MenuIcon from 'vue-ionicons/dist/md-menu.vue'
 import { Link, router } from '@inertiajs/vue3'
 import { route } from 'ziggy-js'
-import { isActiveRoute, routes } from '@/app/routes.js'
+import { routes } from '@/app/routes.js'
 
 const navToggled = ref(false)
 const { t } = useI18n()
@@ -40,12 +40,12 @@ const navigateTo = (routeName) => {
                 </b-button>
             </Link>
 
-            <div id="nav-list" :class="navToggled ? 'flex' : 'hidden'" class="flex-row">
+            <div id="nav-list" :class="navToggled ? 'flex' : 'hidden'" class="flex-row flex-wrap">
                 <b-button
                     v-for="r in routes"
                     :key="r.name"
                     :class="{ active: isActiveRoute(r.name) }"
-                    class="nav_link inline-block col-2 rounded-full px-6 py-3 flex-nowrap"
+                    class="nav_link inline-block col-2 rounded-full text-sm px-3 py-2 flex-nowrap"
                     @click="() => navigateTo(r.name)"
                 >
                     {{ t(r.trans) }}
