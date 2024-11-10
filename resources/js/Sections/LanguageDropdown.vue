@@ -1,7 +1,7 @@
 <script setup>
 import { onMounted, ref } from 'vue'
 import BButton from '@components/common/b-Button.vue'
-import { changeLanguage, importImg } from '@/app/helpers.js'
+import { changeLanguage, importImg } from '@/App/helpers.js'
 import { getActiveLanguage } from 'laravel-vue-i18n'
 import { useI18n } from 'vue-i18n'
 

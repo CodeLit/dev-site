@@ -1,9 +1,9 @@
 <script setup>
-import { importImg } from '@/app/helpers.js'
+import { importImg } from '@/App/helpers.js'
 import { Head } from '@inertiajs/vue3'
 import { useI18n } from 'vue-i18n'
 import { computed } from 'vue'
-import { getCurrentRoute } from '@/app/routes.js'
+import { getCurrentRoute } from '@/App/routes.js'
 
 const { t } = useI18n()
 

@@ -60,6 +60,8 @@ tasks:
 
   clean:
     desc: Stop docker environment and remove volumes
+    aliases:
+      - clear
     cmd: docker compose down -v
 
   restart:

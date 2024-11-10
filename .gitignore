@@ -1,4 +1,5 @@
 /data
+/bootstrap/ssr
 
 # Languages
 /resources/lang/*.json

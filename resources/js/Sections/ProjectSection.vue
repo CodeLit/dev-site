@@ -1,9 +1,9 @@
 <script setup>
 import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
-import bCard from '@js/components/common/b-Card.vue'
-import BButton from '../components/common/b-Button.vue'
-import { importImg, isMobile } from '@/app/helpers.js'
+import bCard from '@components/common/b-Card.vue'
+import BButton from '../Components/common/b-Button.vue'
+import { importImg, isMobile } from '@/App/helpers.js'
 
 const emit = defineEmits(['selectTag'])
 

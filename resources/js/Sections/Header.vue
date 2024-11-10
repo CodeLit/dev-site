@@ -2,8 +2,8 @@
 import { computed } from 'vue'
 import BNavMobile from '@sections/NavMobile.vue'
 import BNav from '@sections/Nav.vue'
-import { isMobile } from '@/app/helpers.js'
-import { getCurrentRoute } from '@/app/routes.js'
+import { isMobile } from '@/App/helpers.js'
+import { getCurrentRoute } from '@/App/routes.js'
 
 
 const headerClass = computed(() => {

@@ -6,7 +6,7 @@ import BLanguageButton from '@sections/LanguageDropdown.vue'
 import MenuIcon from 'vue-ionicons/dist/md-menu.vue'
 import { Link, router } from '@inertiajs/vue3'
 import { route } from 'ziggy-js'
-import { routes } from '@/app/routes.js'
+import { routes } from '@/App/routes.js'
 
 const navToggled = ref(false)
 const { t } = useI18n()

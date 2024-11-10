@@ -1,8 +1,8 @@
 <script setup>
 import { onMounted } from 'vue'
 import { useDevSiteStore } from '@/App/store.js'
-import bDocuments from '@js/layouts/b-DocumentsLayout.vue'
-import bFooter from '@js/layouts/b-Footer.vue'
+import bDocuments from '@layouts/b-DocumentsLayout.vue'
+import bFooter from '@layouts/b-Footer.vue'
 import backgroundImg from '@img/backgrounds/business-people.jpg'
 import { useI18n } from 'vue-i18n'
 import PageTitle from '@sections/PageTitle.vue'

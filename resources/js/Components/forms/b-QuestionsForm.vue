@@ -1,7 +1,7 @@
 <script setup>
 import { computed, ref } from 'vue'
 import { useDevSiteStore } from '@/App/store.js'
-import BButton from '@/components/common/b-Button.vue'
+import BButton from '@components/common/b-Button.vue'
 
 const question = ref({
     company: '',

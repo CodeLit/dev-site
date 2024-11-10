@@ -21,9 +21,9 @@
 
 <style></style>
 <script>
-import BCard from '../components/common/b-Card.vue'
+import BCard from '../Components/common/b-Card.vue'
 import BHeader from '@sections/Header.vue'
-import { getCurrentRoute } from '@/app/routes.js'
+import { getCurrentRoute } from '@/App/routes.js'
 import { Head } from '@inertiajs/vue3'
 import PageTitle from '@sections/PageTitle.vue'
 

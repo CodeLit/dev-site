@@ -1,7 +1,7 @@
 import '@scss/app.scss'
 import { createApp, h } from 'vue'
 import cash from 'cash-dom'
-import './app/font-awesome.js'
+import './App/font-awesome.js'
 import axios from 'axios'
 import 'es6-promise/auto' // for old browsers
 import { createInertiaApp } from '@inertiajs/vue3'
@@ -59,8 +59,8 @@ const vuetify = createVuetify({
 createInertiaApp({
     id: 'app',
     resolve: name => {
-        const pages = import.meta.glob('./pages/**/*.vue', { eager: true })
-        let page = pages[`./pages/${name}.vue`]
+        const pages = import.meta.glob('./Pages/**/*.vue', { eager: true })
+        let page = pages[`./Pages/${name}.vue`]
         page.default.layout = page.default.layout || AppLayout
         return page
     },
