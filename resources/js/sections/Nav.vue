@@ -3,9 +3,8 @@ import { useI18n } from 'vue-i18n'
 import BButton from '@components/common/b-Button.vue'
 import BLanguageButton from '@sections/LanguageDropdown.vue'
 import { Link } from '@inertiajs/vue3'
-import { changePage, routes } from '@/app/routes.js'
+import { changePage, isActiveRoute, routes } from '@/app/routes.js'
 import { route } from 'ziggy-js'
-
 
 const { t } = useI18n()
 

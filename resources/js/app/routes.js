@@ -10,7 +10,9 @@ export const getCurrentRoute = () => {
     return routes.find(r => route(r.name) === page.props.ziggy.location)
 }
 
-export const isActiveRoute = (routeName) => route().current(routeName)
+export const isActiveRoute = (routeName) => {
+    return getCurrentRoute().name === routeName
+}
 
 export const changePage = (routePath) => {
     router.visit(routePath)
