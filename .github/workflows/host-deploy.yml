@@ -37,18 +37,19 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Rsync deploy
-        uses: gritlogic/rsync-deployments@v1
+      - name: Deploy files with SCP
+        uses: appleboy/scp-action@v0.1.7
         with:
-          switches: -zhrv --delete
+          host: ${{ vars.SSH_HOST }}
+          username: ${{ vars.SSH_USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
           source: |
             Taskfile.yml
             .env.example
             docker-compose.yml
             docker-compose.production.yml
             docker/php_settings.ini
-          target: ${{ vars.SSH_USERNAME }}@${{ vars.SSH_HOST }}:${{ vars.SSH_PROJECT_FOLDER }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          target: ${{ vars.SSH_PROJECT_FOLDER }}
 
       - name: SSH to deploy on remote server
         uses: appleboy/ssh-action@master
