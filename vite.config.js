@@ -50,4 +50,11 @@ export default defineConfig({
     optimizeDeps: {
         include: [],
     },
+    css: {
+        preprocessorOptions: {
+            scss: {
+                api: 'modern',
+            },
+        },
+    },
 })
