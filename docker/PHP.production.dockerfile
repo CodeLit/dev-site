@@ -13,8 +13,15 @@ RUN tar -C /usr/local/bin -xzvf /tmp/dockerize-linux-amd64-v0.6.1.tar.gz && rm /
 WORKDIR /app
 
 COPY composer.json composer.lock ./
-RUN composer install --no-scripts --no-autoloader --no-dev --prefer-dist --no-progress --optimize-autoloader
+COPY database ./database
+RUN composer install --no-dev --optimize-autoloader --prefer-dist --no-progress --no-scripts
+
 COPY . .
+
+RUN php artisan config:cache && \
+    php artisan route:cache && \
+    php artisan view:cache && \
+    rm -rf /root/.composer
 
 EXPOSE 80
 
