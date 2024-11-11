@@ -1,16 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" serverName="DE progress host" remoteFilesAllowedToDisappearOnAutoupload="false" confirmBeforeUploading="false">
+  <component name="PublishConfigData" serverName="de-user-progress" remoteFilesAllowedToDisappearOnAutoupload="false" confirmBeforeUploading="false">
     <option name="confirmBeforeUploading" value="false" />
     <serverData>
-      <paths name="DE progress host">
-        <serverdata>
-          <mappings>
-            <mapping deploy="/projects/dev-site" local="$PROJECT_DIR$" web="/" />
-          </mappings>
-        </serverdata>
-      </paths>
-      <paths name="RU progress host">
+      <paths name="de-user-progress">
         <serverdata>
           <mappings>
             <mapping deploy="/projects/dev-site" local="$PROJECT_DIR$" web="/" />
