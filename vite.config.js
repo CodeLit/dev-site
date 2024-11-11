@@ -36,6 +36,9 @@ export default defineConfig({
         i18n('resources/lang'),
         vuetify({ autoImport: true }),
     ],
+    ssr: {
+        noExternal: ['vuetify'],
+    },
     resolve: {
         alias: [
             { find: '@resources', replacement: fileURLToPath(new URL('./resources', import.meta.url)) },

@@ -1,6 +1,7 @@
 version: '3.5'
 services:
   php:
+    container_name: dev_site_php
     depends_on:
       - mysql
     restart: always
@@ -12,20 +13,22 @@ services:
       - ./storage/app:/app/storage/app
       - ./storage/logs:/app/storage/logs
       - /app/vendor
-    ports:
-      - "9000:9000"
     networks:
-      - dev-site
+      - dev_site_network
 
   node:
+    container_name: dev_site_node
     restart: always
     env_file:
       - .env
     volumes:
       - ./.env:/app/.env:ro
       - /app/node_modules
+    networks:
+      - dev_site_network
 
   mysql:
+    container_name: dev_site_mysql
     image: mysql:8.0.40
     restart: always
     volumes:
@@ -36,9 +39,9 @@ services:
       MYSQL_USER: ${DB_USERNAME}
       MYSQL_PASSWORD: ${DB_PASSWORD}
     networks:
-      - dev-site
+      - dev_site_network
 
 networks:
-  dev-site:
-    name: dev-site
+  dev_site_network:
+    name: dev_site_network
     driver: bridge

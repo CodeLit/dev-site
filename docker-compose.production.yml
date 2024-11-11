@@ -3,10 +3,21 @@ services:
     build:
       dockerfile: docker/PHP.production.dockerfile
       context: .
+    volumes:
+      - ./public:/app/public
+    networks:
+      - nginx_network
 
   node:
     build:
       dockerfile: docker/NodeClient.production.dockerfile
       context: .
-    ports:
-      - "13714:13714" # SSR
+    volumes:
+      - ./public:/app/public
+    networks:
+      - nginx_network
+
+
+networks:
+  nginx_network:
+    external: true

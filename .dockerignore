@@ -1,6 +1,7 @@
 .git
 .idea
 .vscode
+.DS_Store
 data
 vendor
 node_modules
