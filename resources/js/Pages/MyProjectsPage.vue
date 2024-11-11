@@ -42,29 +42,29 @@ onMounted(() => {
         <PageTitle />
         <div class="card-container mx-auto flex justify-between items-center my-1">
             <div class="tags w-50">
-                <b-button v-for="(count, tag) in existingTags" :key="tag" :class="{ 'active': selectedTag === tag }"
+                <bButton v-for="(count, tag) in existingTags" :key="tag" :class="{ 'active': selectedTag === tag }"
                           class="mr-4 mb-2 px-4 py-2 rounded-full"
                           color="primary" @click="selectTag(tag)">
                     {{ tag }} ({{ count }})
-                </b-button>
+                </bButton>
             </div>
             <div>
-                <v-switch
+                <VSwitch
                     :value="iframeMode"
                     class="text-white"
                     color="success"
                     inset
                     label="iFrame mode"
                     @change="iframeMode = $event">
-                </v-switch>
+                </VSwitch>
             </div>
         </div>
         <transition-group name="list">
-            <b-project v-for="(project, i) in projects"
+            <bProject v-for="(project, i) in projects"
                        v-show="selectedTag === 'all' || project.tags.includes(selectedTag)"
                        :key="i" :mode="getMode" :selectedTag="selectedTag" v-bind="project" @selectTag="selectTag" />
         </transition-group>
-        <b-footer blurred="1" class="mt-auto" />
+        <bFooter blurred="1" class="mt-auto" />
     </div>
 </template>
 

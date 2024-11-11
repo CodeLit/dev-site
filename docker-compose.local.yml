@@ -17,8 +17,6 @@ services:
       - ./routes:/app/routes:ro
       - ./docker/php_xdebug.ini:/usr/local/etc/php/conf.d/php_xdebug.ini:ro
       - ./docker/php_dev_error_reporting.ini:/usr/local/etc/php/conf.d/php_error_reporting.ini:ro
-    networks:
-      - dev-site
 
   node:
     build:

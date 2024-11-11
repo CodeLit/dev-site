@@ -100,13 +100,6 @@ tasks:
       - stop
     cmd: docker compose down --remove-orphans
 
-  prod:
-    desc: Start docker environment in production mode
-    cmds:
-      - task: down
-      - docker compose up --build -d --remove-orphans --force-recreate
-      - task: post-create
-
   pull:
     desc: Pull latest docker images
     cmd: docker compose pull

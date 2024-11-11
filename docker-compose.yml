@@ -1,6 +1,8 @@
 version: '3.5'
 services:
   php:
+    depends_on:
+      - mysql
     restart: always
     env_file:
       - .env
@@ -10,6 +12,8 @@ services:
       - ./storage/app:/app/storage/app
       - ./storage/logs:/app/storage/logs
       - /app/vendor
+    networks:
+      - dev-site
 
   node:
     restart: always

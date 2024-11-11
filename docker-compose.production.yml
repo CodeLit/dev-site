@@ -8,3 +8,5 @@ services:
     build:
       dockerfile: docker/NodeClient.production.dockerfile
       context: .
+    ports:
+      - "13714:13714" # SSR
