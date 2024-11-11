@@ -10,8 +10,9 @@ export function importImg(path) {
 }
 
 export function isMobile() {
-    return (
-        typeof window.orientation !== 'undefined' ||
+    if (typeof window === 'undefined') return false
+
+    return (typeof window.orientation !== 'undefined' ||
         navigator.userAgentData?.mobile ||
         /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(navigator.userAgent.toLowerCase()) ||
         (window.innerWidth <= 768 && 'ontouchstart' in window)

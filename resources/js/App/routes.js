@@ -1,10 +1,17 @@
-import { route } from 'ziggy-js'
 import { router, usePage } from '@inertiajs/vue3'
 
-const page = usePage()
-
 export const getCurrentRoute = () => {
-    return routes.find(r => route(r.name) === page.props.ziggy.location)
+    const page = usePage()
+    const currentUri = new URL(page.props.ziggy.location).pathname.replace(/^\/+/, '')
+    const currentRouteName = Object.entries(page.props.ziggy.routes).find(
+        ([, route]) => route.uri === currentUri,
+    )?.[0] || null
+
+    if (!currentRouteName) {
+        return null
+    }
+
+    return routes.find((route) => route.name === currentRouteName)
 }
 
 export const isActiveRoute = (routeName) => {
@@ -12,6 +19,7 @@ export const isActiveRoute = (routeName) => {
 }
 
 export const changePage = (routePath) => {
+    const page = usePage()
     if (routePath === page.props.ziggy.location) {
         return
     }
