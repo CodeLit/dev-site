@@ -4,16 +4,7 @@ use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+
 Route::get('/', function () {
     return Inertia::render('HomePage');
 })->name('home');
@@ -28,7 +19,7 @@ Route::get('/documents', function () {
 
 Route::get('/ping', function () {
     return response('pong', 200);
-});
+})->name('ping');
 
 Route::get('/iframe-redirect', function () {
     $url = request()->get('url');

@@ -30,17 +30,25 @@ export const routes = [
         trans: 'common.my_projects',
         name: 'my-works',
     },
-    // {
-    //     path: '/reviews',
-    //     text: 'Собеседования',
-    // },
     {
-        path: route('documents'),
         trans: 'common.documents',
         name: 'documents',
     },
     // {
+    //     trans: 'common.my_projects',
+    //     name: 'my-works',
+    // },
+    // {
+    //     path: route('documents'),
+    //     trans: 'common.documents',
+    //     name: 'documents',
+    // },
+    // {
     //     path: '/learning',
     //     text: 'Обучение',
     // }
+    // {
+    //     path: '/reviews',
+    //     text: 'Собеседования',
+    // },
 ]

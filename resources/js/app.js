@@ -1,5 +1,5 @@
 import '@scss/app.scss'
-import { createApp, h } from 'vue'
+import { createSSRApp, h } from 'vue'
 import cash from 'cash-dom'
 import './App/font-awesome.js'
 import axios from 'axios'
@@ -65,7 +65,7 @@ createInertiaApp({
         return page
     },
     setup({ el, App, props, plugin }) {
-        return createApp({ render: () => h(App, props) })
+        return createSSRApp({ render: () => h(App, props) })
             .use(plugin)
             .use(i18n)
             .use(VueLazyLoading)
