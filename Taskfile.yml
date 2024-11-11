@@ -1,0 +1,286 @@
+version: '3'
+
+dotenv: # Read .env file
+  - .env
+
+tasks:
+  env:
+    desc: Ensure .env file exists by copying from .env.example if missing
+    cmd: if [ ! -f .env ]; then cp .env.example .env; fi
+
+  docker-override:
+    desc: Create docker-compose.override.yml if it doesn't exist
+    cmds:
+      - |
+        if [ ! -f docker-compose.override.yml ]; then
+          cp "docker-compose.${APP_ENV}.yml" docker-compose.override.yml
+        fi
+      - task: compare-files
+
+  compare-files:
+    desc: Compare docker-compose.override.yml to the environment-specific configuration
+    cmd: |
+      file="docker-compose.${APP_ENV}.yml"
+      if ! cmp -s "$file" docker-compose.override.yml; then
+        echo "⚠️ Content of docker-compose.override.yml differs from $file ⚠️"
+      fi
+
+  # Docker
+  default:
+    desc: Start docker environment in detached mode
+    aliases:
+      - up
+      - dev
+    preconditions:
+      - test -f docker-compose.yml
+    cmds:
+      - task: env
+      - task: docker-override
+      - echo "Running application $APP_NAME"
+      - docker compose up -d --remove-orphans
+      - task: key
+      - task: post-create
+
+  up-attach:
+    desc: Start docker environment with attached logs
+    cmds:
+      - docker compose up --remove-orphans
+
+  post-create:
+    desc: Post setup tasks after starting the environment
+    cmds:
+      - task: node-modules
+      - task: vendor
+
+  recreate:
+    desc: Clean up and recreate docker environment
+    cmds:
+      - task: clean
+      - task: default
+
+  clean:
+    desc: Stop docker environment and remove volumes
+    aliases:
+      - clear
+    cmd: docker compose down -v
+
+  restart:
+    desc: Restart docker containers
+    cmd: docker compose restart
+
+  attach:
+    desc: Attach to PHP container
+    cmd: docker compose exec php bash
+
+  logs:
+    desc: Show latest logs from docker containers
+    cmd: docker compose logs --tail=100
+
+  logs-attach:
+    desc: Start docker environment with attached logs for debugging
+    cmds:
+      - task: up-attach
+
+  build:
+    desc: Build docker images
+    cmd: docker compose build
+
+  rebuild:
+    desc: Rebuild and restart docker environment
+    aliases:
+      - remake
+    cmds:
+      - task: build
+      - task: down
+      - task: default
+
+  down:
+    desc: Stop docker environment
+    aliases:
+      - stop
+    cmd: docker compose down --remove-orphans
+
+  pull:
+    desc: Pull latest docker images
+    cmd: docker compose pull
+
+  push:
+    desc: Push docker images to registry
+    cmd: docker compose push
+
+  branch:
+    desc: Rebuild and reseed database for new branch
+    cmds:
+      - task: rebuild
+      - task: reseed
+  # End docker
+
+  # Composer
+  composer:
+    desc: Update composer dependencies and clear cache
+    cmds:
+      - task: update
+      - task: cache-clear
+      - task: vendor
+
+  install:
+    desc: Install composer dependencies
+    cmd: docker compose exec php composer install --no-interaction
+
+  update:
+    desc: Update composer dependencies
+    cmd: docker compose exec php composer update --no-interaction
+  # End composer
+
+  # Builds
+  vendor:
+    desc: Copy vendor folder from container
+    cmd: docker compose cp php:/app/vendor ./
+
+  # Bug: if it's getting error on Windows, then just elevate your privileges to Administrator
+  # Run PHPStorm with admin privileges
+  # Run shell with admin privileges
+  node-modules:
+    desc: Copy node_modules folder from container
+    cmds:
+      - docker compose cp node:/app/yarn.lock ./
+      - docker compose cp node:/app/node_modules ./
+  # End builds
+
+  # Laravel
+  key:
+    desc: Generate application key if not present
+    cmd: grep -q '^APP_KEY=$' .env && docker compose exec php php artisan key:generate --ansi || echo "APP_KEY is presented ✅ "
+
+  env-update:
+    desc: Update environment and rebuild cache
+    cmds:
+      - task: cache-clear
+      - task: rebuild
+
+  cache-clear:
+    desc: Clear all cached data for Laravel
+    aliases:
+      - cache
+      - clear-cache
+    cmds:
+      - docker compose exec php php artisan optimize:clear
+
+  publish:
+    desc: Publish vendor files
+    cmd: docker compose exec php php artisan vendor:publish
+
+  storage:
+    desc: Link storage for Laravel
+    cmd: docker compose exec php php artisan storage:link -q
+
+  clear-compiled:
+    desc: Clear compiled Laravel files
+    cmd: docker compose exec php php artisan clear-compiled
+  # End Laravel
+
+  # Database
+  make-migration:
+    desc: Create a new migration file (e.g., task make-migration -- create_user_course_table)
+    cmd: docker compose exec php php artisan make:migration {{.CLI_ARGS}}
+
+  migrate:
+    desc: Run database migrations
+    cmd: docker compose exec php php artisan migrate
+
+  rollback:
+    desc: Rollback last database migration
+    cmd: docker compose exec php php artisan migrate:rollback
+
+  seed:
+    desc: Seed database with data
+    cmd: docker compose exec php php artisan db:seed
+
+  refresh:
+    desc: Refresh migrations and seed database
+    cmd: docker compose exec php php artisan migrate:refresh --seed
+
+  fresh:
+    desc: Drop all tables and reseed database
+    aliases:
+      - reseed
+    cmd: docker compose exec php php artisan migrate:fresh --seed
+  # End database
+
+  # Frontend
+  yarn:
+    desc: Install frontend dependencies with yarn
+    aliases:
+      - npm
+    cmds:
+      - docker compose exec node yarn
+      - task: yarn-cache
+      - task: restart
+      - task: node-modules
+
+  yarn-add:
+    desc: Add a new frontend package with yarn
+    aliases:
+      - npm-add
+    cmds:
+      - docker compose exec node yarn add {{.CLI_ARGS}}
+      - task: node-modules
+
+  yarn-cache:
+    desc: Clear yarn cache
+    cmds:
+      - docker compose exec node yarn cache clean
+
+  vite:
+    desc: Run Vite frontend build
+    cmd: vite
+  # End frontend
+
+  # Ide helper
+  code:
+    desc: Generate IDE helper files for Laravel
+    cmds:
+      - task: clear-compiled
+      - task: ide
+      - task: ide-meta
+      - task: ide-models
+      - task: ide-eloquent
+
+  ide:
+    desc: Generate PHPDoc for Laravel Facades
+    cmds:
+      - docker compose exec php php artisan ide-helper:generate
+      - docker compose cp php:/app/_ide_helper.php ./
+
+  ide-models:
+    desc: Generate PHPDoc for Laravel Models
+    cmds:
+      - docker compose exec php php artisan ide-helper:models -q
+      - docker compose cp php:/app/_ide_helper_models.php ./
+
+  ide-meta:
+    desc: Generate PHPStorm Meta File
+    cmds:
+      - docker compose exec php php artisan ide-helper:meta
+      - docker compose cp php:/app/.phpstorm.meta.php ./
+
+  ide-eloquent:
+    desc: Generate PHPDoc for Eloquent models
+    cmds:
+      - docker compose exec php php artisan ide-helper:eloquent
+      - docker compose cp php:/app/vendor ./
+  # End ide helper
+
+  # Git
+  git-readd:
+    desc: Remove all files from git cache and re-add
+    cmds:
+      - git rm -rf --cached .
+      - git add .
+  # End git
+
+  # Code generation
+  make:
+    desc: Run Laravel artisan make command (e.g., task make -- migration create_user_course_table)
+    cmd: docker compose exec php php artisan make:{{.CLI_ARGS}}
+  # End code generation

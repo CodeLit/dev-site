@@ -1,20 +1,14 @@
-import '../scss/app.scss'
-import { createApp } from 'vue'
+import '@scss/app.scss'
+import { createSSRApp, h } from 'vue'
 import cash from 'cash-dom'
-import './font-awesome'
-
+import './App/font-awesome.js'
 import axios from 'axios'
-
 import 'es6-promise/auto' // for old browsers
-import store from './store' // vuex
-import { createRouter, createWebHistory } from 'vue-router'
-
-import routes from './routes'
+import { createInertiaApp } from '@inertiajs/vue3'
+import AppLayout from '@layouts/AppLayout.vue'
+import { createPinia } from 'pinia'
+import { createI18n } from 'vue-i18n'
 import VueLazyLoading from 'vue-lazy-loading'
-import BApp from '@v/b-App.vue'
-
-import { i18nVue, loadLanguageAsync } from 'laravel-vue-i18n'
-import mixins from './mixins.js'
 
 // Vuetify
 import '@mdi/font/css/materialdesignicons.css'
@@ -23,6 +17,7 @@ import { createVuetify } from 'vuetify'
 import * as components from 'vuetify/components'
 import * as directives from 'vuetify/directives'
 
+// Glob import for assets
 import.meta.glob([
     '../img/**',
     '../fonts/**',
@@ -36,27 +31,54 @@ try {
     console.error('Libraries importing error!', e.message)
 }
 
-const router = new createRouter({
-    history: createWebHistory(),
-    routes,
-})
+// Start languages/locales
+const messages = {}
+const localeFiles = import.meta.glob('@lang/php_*.json', { eager: true })
 
-let app = createApp(BApp)
-app.use(router)
-app.use(store)
-app.use(i18nVue, {
-    resolve: lang => import(`../lang/${lang}.json`),
-})
-app.use(VueLazyLoading)
-app.mixin(mixins)
+for (const path in localeFiles) {
+    const match = path.match(/php_([^/]+)\.json$/)
+    if (match) {
+        const locale = match[1]
+        messages[locale] = localeFiles[path].default || localeFiles[path]
+    }
+}
 
-let lang = $('html').attr('lang')
+const i18n = createI18n({
+    locale: $('html').attr('lang') || navigator.language.slice(0, 2) || 'en',
+    fallbackLocale: 'en',
+    legacy: false,
+    messages,
+})
+// End languages/locales
 
 const vuetify = createVuetify({
     components,
     directives,
 })
 
-loadLanguageAsync(lang).then(() => {
-    app.use(vuetify).mount('#app')
+createInertiaApp({
+    id: 'app',
+    resolve: name => {
+        const pages = import.meta.glob('./Pages/**/*.vue', { eager: true })
+        let page = pages[`./Pages/${name}.vue`]
+        page.default.layout = page.default.layout || AppLayout
+        return page
+    },
+    setup({ el, App, props, plugin }) {
+        return createSSRApp({ render: () => h(App, props) })
+            .use(plugin)
+            .use(i18n)
+            .use(VueLazyLoading)
+            .use(createPinia())
+            .use(vuetify)
+            .mount(el)
+    },
+    progress: {
+        delay: 250,
+        color: '#32166BFF',
+        includeCSS: true,
+        showSpinner: true,
+    },
+}).then(() => {
+    // console.log(`App ${appName} is created.`)
 })

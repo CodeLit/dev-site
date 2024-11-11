@@ -9,32 +9,56 @@ This is a home project to demonstrate the techniques I have learned.
 [//]: # (</p>)
 
 <p>
-<a href="https://github.com/CodeLit/dev_site/actions"><img src="https://github.com/CodeLit/dev_site/workflows/Host-deploy/badge.svg" alt="Build Status"></a>
+<a href="https://github.com/CodeLit/dev_site/actions">
+<img src="https://github.com/CodeLit/dev_site/workflows/Host-deploy/badge.svg" alt="Build Status">
+</a>
 </p>
 
 Please enjoy your stay!
 
 ## Technologies used
 
-- `Laravel PHP framework`
-- `Vue.js`
-- `Tailwind.js`
-- `Scss`
-- `Webpack (laravel mix)`
-- `Docker, docker compose`
+- [Laravel PHP framework](https://laravel.com/)
+- [Inertia](https://inertiajs.com/)
+- [VueJS](https://vuejs.org/)
+- [TailwindCSS](https://tailwindcss.com/)
+- [SCSS](https://sass-lang.com/)
+- [Vite](https://vitejs.dev/)
+- [Docker](https://www.docker.com/)
+- [Docker Compose](https://docs.docker.com/compose/)
+- [Task](https://taskfile.dev/)
 
-## Dev env launch
+## Setting up dev workspace
 
-### Manual
+- ### [Docker (recommended)](./docs/Setup-Docker.md)
+- ### [Local (manually)](./docs/Setup-Local.md)
 
-- Install PHP 8.2, Composer, Node LTS, yarn
-- Run `composer install`
-- Run `yarn install`
-- Run `yarn run watch`
-- Use php web server to run `public/index.php` file
+### Environments
 
-### Using Docker container
+| Environment | Addresses                                                       | Description |
+|-------------|-----------------------------------------------------------------|-------------|
+| Local       | Frontend: http://localhost:5175; Backend: http://127.0.0.1:8000 |             |
+| Docker      | App: http://localhost; PHPMyAdmin: http://localhost:8080        |             |
+| Production  |                                                                 |             |
 
+## Code autocomplete
+
+### For PHPStorm
+
+```bash
+task code
 ```
-docker-compose up --build -d
+
+## After changing the Git branch:
+
+```bash
+task branch
 ```
+
+## Enabling Xdebug
+
+### [Enabling Xdebug](./docs/Enabling-Xdebug.md)
+
+## Deploying to production
+
+### [Deploying to production](./docs/Deploying.md)

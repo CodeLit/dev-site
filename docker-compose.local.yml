@@ -1,0 +1,37 @@
+services:
+  php:
+    depends_on:
+      - mysql
+    tty: true
+    build:
+      dockerfile: docker/PHP.local.dockerfile
+      context: .
+    volumes:
+      - ./app:/app/app:ro
+      - ./config:/app/config:ro
+      - ./database:/app/database:ro
+      - ./resources:/app/resources:ro
+      - ./routes:/app/routes:ro
+      - ./docker/php_xdebug.ini:/usr/local/etc/php/conf.d/php_xdebug.ini:ro
+      - ./docker/php_dev_error_reporting.ini:/usr/local/etc/php/conf.d/php_error_reporting.ini:ro
+
+  node:
+    build:
+      dockerfile: docker/NodeClient.local.dockerfile
+      context: .
+    ports:
+      - "5173:5173" # Vite dev server
+    volumes:
+      - ./resources:/app/resources
+      - ./tailwind.config.js:/app/tailwind.config.js:ro
+      - ./postcss.config.js:/app/postcss.config.js:ro
+      - ./vite.config.js:/app/vite.config.js:ro
+      - ./package.json:/app/package.json
+      - ./composer.json:/app/composer.json
+      - ./composer.lock:/app/composer.lock
+
+  mysql:
+    image: mysql
+    restart: always
+    ports:
+      - "3306:3306"
