@@ -25,7 +25,7 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build Docker image
-        run: task build
+        run: APP_ENV=production task build
 
       - name: Push Docker image to registry
         run: task push
@@ -44,4 +44,4 @@ jobs:
           script: |
             cd ${{ vars.SSH_PROJECT_FOLDER }}
             task pull
-            task prod
+            APP_ENV=production task
