@@ -3,6 +3,7 @@ import { defineConfig } from 'vite'
 import laravel from 'laravel-vite-plugin'
 import vue from '@vitejs/plugin-vue'
 import i18n from 'laravel-vue-i18n/vite'
+import vuetify from 'vite-plugin-vuetify'
 
 export default defineConfig({
     server: {
@@ -27,13 +28,14 @@ export default defineConfig({
                     base: false,
                     includeAbsolute: false,
                 },
+                compilerOptions: {
+                    isCustomElement: (tag) => /^v-/.test(tag),
+                },
             },
         }),
         i18n('resources/lang'),
+        vuetify({ autoImport: true }),
     ],
-    ssr: {
-        noExternal: ['vuetify'],
-    },
     resolve: {
         alias: [
             { find: '@resources', replacement: fileURLToPath(new URL('./resources', import.meta.url)) },

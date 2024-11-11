@@ -2,7 +2,7 @@
 /bootstrap/ssr
 
 # Languages
-/resources/lang/*.json
+/resources/lang/php_*.json
 
 # Build files
 /public/build/*

@@ -7,10 +7,8 @@ import bButton from '../Components/common/b-Button.vue'
 import projects from '@/App/projects.js'
 import backgroundImg from '@img/backgrounds/laptop-on-table.jpg'
 import { VSwitch } from 'vuetify/components'
-import { useI18n } from 'vue-i18n'
 import PageTitle from '@sections/PageTitle.vue'
 
-const { t } = useI18n()
 const devSiteStore = useDevSiteStore()
 const selectedTag = ref('all')
 const iframeMode = ref(false)
@@ -51,7 +49,14 @@ onMounted(() => {
                 </b-button>
             </div>
             <div>
-                <v-switch v-model="iframeMode" class="text-white" color="success" inset label="iFrame mode"></v-switch>
+                <v-switch
+                    :value="iframeMode"
+                    class="text-white"
+                    color="success"
+                    inset
+                    label="iFrame mode"
+                    @change="iframeMode = $event">
+                </v-switch>
             </div>
         </div>
         <transition-group name="list">
