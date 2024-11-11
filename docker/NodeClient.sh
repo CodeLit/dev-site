@@ -5,9 +5,14 @@ cd /app || exit
 source .env
 
 if [ "$APP_ENV" = "production" ]; then
-    rm -f /app/hot
+    echo "Running in production mode"
+    rm -f /app/public/hot
     yarn prod
+    node /app/bootstrap/ssr/ssr.js &
 else
-    rm -rf /app/build
-    yarn dev
+    rm -rf /app/public/build
+    yarn dev &
 fi
+
+# Wait for background process to exit
+wait -n

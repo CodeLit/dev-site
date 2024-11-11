@@ -31,6 +31,9 @@ export default defineConfig({
         }),
         i18n('resources/lang'),
     ],
+    ssr: {
+        noExternal: ['vuetify'],
+    },
     resolve: {
         alias: [
             { find: '@resources', replacement: fileURLToPath(new URL('./resources', import.meta.url)) },
@@ -40,11 +43,11 @@ export default defineConfig({
             { find: '@', replacement: fileURLToPath(new URL('./resources/js', import.meta.url)) },
             // Don't create @vue because it's conflicts with node_modules
             { find: '@v', replacement: fileURLToPath(new URL('./resources/js', import.meta.url)) },
-            { find: '@layouts', replacement: fileURLToPath(new URL('./resources/js/layouts', import.meta.url)) },
-            { find: '@components', replacement: fileURLToPath(new URL('./resources/js/components', import.meta.url)) },
-            { find: '@pages', replacement: fileURLToPath(new URL('./resources/js/pages', import.meta.url)) },
+            { find: '@layouts', replacement: fileURLToPath(new URL('./resources/js/Layouts', import.meta.url)) },
+            { find: '@components', replacement: fileURLToPath(new URL('./resources/js/Components', import.meta.url)) },
+            { find: '@pages', replacement: fileURLToPath(new URL('./resources/js/Pages', import.meta.url)) },
             { find: '@lang', replacement: fileURLToPath(new URL('./resources/lang', import.meta.url)) },
-            { find: '@sections', replacement: fileURLToPath(new URL('./resources/js/sections', import.meta.url)) },
+            { find: '@sections', replacement: fileURLToPath(new URL('./resources/js/Sections', import.meta.url)) },
         ],
     },
     optimizeDeps: {
