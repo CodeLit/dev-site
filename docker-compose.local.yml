@@ -6,9 +6,6 @@ services:
     build:
       dockerfile: docker/PHP.local.dockerfile
       context: .
-    ports:
-      - "80:80"
-      - "9000:9000"
     volumes:
       - ./app:/app/app:ro
       - ./config:/app/config:ro

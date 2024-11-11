@@ -1,5 +1,5 @@
 # PHP.production.dockerfile
-FROM php:8.2-alpine
+FROM php:8.2-fpm-alpine
 
 RUN apk add --no-cache bash curl linux-headers icu-dev \
     && docker-php-ext-install mysqli pdo pdo_mysql intl \
@@ -11,11 +11,9 @@ ADD https://github.com/jwilder/dockerize/releases/download/v0.6.1/dockerize-linu
 RUN tar -C /usr/local/bin -xzvf /tmp/dockerize-linux-amd64-v0.6.1.tar.gz && rm /tmp/dockerize-linux-amd64-v0.6.1.tar.gz
 
 WORKDIR /app
-
 COPY composer.json composer.lock ./
 COPY database ./database
 RUN composer install --no-dev --optimize-autoloader --prefer-dist --no-progress --no-scripts
-
 COPY . .
 
 RUN php artisan config:cache && \
@@ -23,6 +21,6 @@ RUN php artisan config:cache && \
     php artisan view:cache && \
     rm -rf /root/.composer
 
-EXPOSE 80
+EXPOSE 9000
 
 ENTRYPOINT ["bash", "./docker/PHP.sh"]

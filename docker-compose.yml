@@ -12,6 +12,8 @@ services:
       - ./storage/app:/app/storage/app
       - ./storage/logs:/app/storage/logs
       - /app/vendor
+    ports:
+      - "9000:9000"
     networks:
       - dev-site
 
