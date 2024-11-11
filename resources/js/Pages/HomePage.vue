@@ -22,6 +22,7 @@ const openContacts = () => {
 }
 
 const openResume = () => {
+    if (typeof window === 'undefined') return
     window.open('https://docs.google.com/document/d/1GXXEQ_ost2oaqeDfVITj3eSrrcgj7oUybV-n8CrUKUA', '_blank').focus()
 }
 

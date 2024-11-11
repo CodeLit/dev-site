@@ -30,6 +30,7 @@ const appear = () => {
 }
 
 const openLink = (link) => {
+    if (typeof window === 'undefined') return
     window.open(link, '_blank').focus()
 }
 

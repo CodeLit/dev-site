@@ -2,15 +2,17 @@ import { router, usePage } from '@inertiajs/vue3'
 
 export const getCurrentRoute = () => {
     const page = usePage()
-    const currentUri = new URL(page.props.ziggy.location).pathname.replace(/^\/+/, '')
+    const pathname = new URL(page.props.ziggy.location).pathname
+    if (pathname === '/') {
+        return routes.find((route) => route.name === 'home')
+    }
+    const currentUri = pathname.replace(/^\/+/, '')
     const currentRouteName = Object.entries(page.props.ziggy.routes).find(
         ([, route]) => route.uri === currentUri,
     )?.[0] || null
-
     if (!currentRouteName) {
         return null
     }
-
     return routes.find((route) => route.name === currentRouteName)
 }
 

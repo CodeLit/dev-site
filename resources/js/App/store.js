@@ -52,6 +52,10 @@ export const useDevSiteStore = defineStore('devSite', {
     },
     getters: {
         getTransSuffix() {
+            if (typeof window === 'undefined') {
+                return ''
+            }
+
             const param = new URLSearchParams(window.location.search)
             const paramName = param.get('name')
 

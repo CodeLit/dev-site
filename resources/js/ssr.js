@@ -13,23 +13,19 @@ import 'vuetify/styles'
 
 const vuetify = createVuetify()
 
-const messages = {}
-const localeFiles = import.meta.glob('@lang/php_*.json', { eager: true })
+const loadLocaleMessages = () => {
+    const messages = {}
+    const localeFiles = import.meta.glob('@lang/php_*.json', { eager: true })
 
-for (const path in localeFiles) {
-    const match = path.match(/php_([^/]+)\.json$/)
-    if (match) {
-        const locale = match[1]
-        messages[locale] = localeFiles[path].default || localeFiles[path]
+    for (const path in localeFiles) {
+        const match = path.match(/php_([^/]+)\.json$/)
+        if (match) {
+            const locale = match[1]
+            messages[locale] = localeFiles[path].default || localeFiles[path]
+        }
     }
+    return messages
 }
-
-const i18n = createI18n({
-    locale: 'en',
-    fallbackLocale: 'en',
-    legacy: false,
-    messages,
-})
 
 createServer((page) =>
     createInertiaApp({
@@ -39,9 +35,16 @@ createServer((page) =>
             const pages = import.meta.glob('./Pages/**/*.vue', { eager: true })
             const page = pages[`./Pages/${name}.vue`]
             page.default.layout = page.default.layout || AppLayout
-            return page
+            return page?.default || page
         },
         setup({ App, props, plugin }) {
+            const i18n = createI18n({
+                locale: 'en',
+                fallbackLocale: 'en',
+                legacy: false,
+                messages: loadLocaleMessages(),
+            })
+
             return createSSRApp({ render: () => h(App, props) })
                 .use(plugin)
                 .use(i18n)

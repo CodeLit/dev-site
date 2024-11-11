@@ -2,19 +2,23 @@
 import { useI18n } from 'vue-i18n'
 import BButton from '@components/common/b-Button.vue'
 import BLanguageButton from '@sections/LanguageDropdown.vue'
-import { Link } from '@inertiajs/vue3'
+import { Link, usePage } from '@inertiajs/vue3'
 import { changePage, isActiveRoute, routes } from '@/App/routes.js'
-import { route } from 'ziggy-js'
 
 const { t } = useI18n()
+const page = usePage()
 
+const getRouteUrl = (name) => {
+    const route = page.props.ziggy.routes[name]
+    return route ? route.uri : null
+}
 </script>
 
 <template>
     <nav class="navbar mt-3 mb-1 flex items-center justify-between">
         <Link
             class="block text-center nav-logo flex-shrink-0 relative self-start"
-            :href="route('home')"
+            :href="getRouteUrl('home')"
         >
             <b-button class="active w-full h-full nav-logo__button">
                 <div
@@ -32,7 +36,7 @@ const { t } = useI18n()
                 :key="r.name"
                 :class="{ active: isActiveRoute(r.name) }"
                 class="inline-block col-2 rounded-full px-6 py-3 lg:mx-6 flex-nowrap"
-                @click="() => changePage(route(r.name))"
+                @click="() => changePage(getRouteUrl(r.name))"
             >
                 {{ t(r.trans) }}
             </b-button>

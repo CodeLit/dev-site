@@ -11,24 +11,28 @@ import { Head } from '@inertiajs/vue3'
 import { useDevSiteStore } from '@/App/store.js'
 import { getCurrentRoute } from '@/App/routes.js'
 import { importImg, isMobile } from '@/App/helpers.js'
-import { useI18n } from 'vue-i18n'
 
-const { t } = useI18n()
 const devSiteStore = useDevSiteStore()
 const appRef = ref(null)
 const windowTop = ref(0)
-const isArrowUpVisible = computed(() => windowTop.value > window.innerHeight * 1.5)
+const isArrowUpVisible = computed(() => {
+    if (typeof window === 'undefined') return false
+    return windowTop.value > window.innerHeight * 1.5
+})
 const scrollToTop = () => document.body.scrollIntoView({ block: 'start', behavior: 'smooth' })
 
 function onScroll() {
+    if (typeof window === 'undefined') return
     windowTop.value = window.scrollY
 }
 
 onMounted(() => {
+    if (typeof window === 'undefined') return
     window.addEventListener('scroll', onScroll)
 })
 
 onUnmounted(() => {
+    if (typeof window === 'undefined') return
     window.removeEventListener('scroll', onScroll)
 })
 </script>
