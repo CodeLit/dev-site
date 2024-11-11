@@ -43,12 +43,7 @@ jobs:
           host: ${{ vars.SSH_HOST }}
           username: ${{ vars.SSH_USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          source: |
-            Taskfile.yml
-            .env.example
-            docker-compose.yml
-            docker-compose.production.yml
-            docker/php_settings.ini
+          source: "Taskfile.yml,.env.example,docker-compose.yml,docker-compose.production.yml,docker/php_settings.ini"
           target: ${{ vars.SSH_PROJECT_FOLDER }}
 
       - name: SSH to deploy on remote server
