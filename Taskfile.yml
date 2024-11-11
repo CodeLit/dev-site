@@ -53,7 +53,7 @@ tasks:
       - task: env
       - task: docker-override
       - echo "Running application $APP_NAME"
-      - docker compose -f docker-compose.yml -f docker-compose.production.yml up -d --remove-orphans --force-recreate
+      - docker compose up -d --remove-orphans --force-recreate
       - task: key
 
   up-attach:
