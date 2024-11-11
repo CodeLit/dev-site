@@ -5,8 +5,10 @@ dotenv: # Read .env file
 
 tasks:
   env:
-    desc: Ensure .env file exists by copying from .env.example if missing
-    cmd: if [ ! -f .env ]; then cp .env.example .env; fi
+    desc: Provide valid env file
+    cmds:
+      - if [ ! -f .env ]; then cp .env.example .env; fi
+      - if [ "$APP_ENV" = "production" ]; then sed -i 's/^APP_ENV=.*/APP_ENV=production/' .env; fi
 
   docker-override:
     desc: Create docker-compose.override.yml if it doesn't exist
