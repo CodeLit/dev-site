@@ -1,5 +1,6 @@
 services:
   php:
+    image: ghcr.io/codelits/dev-site:php-latest
     build:
       dockerfile: docker/PHP.production.dockerfile
       context: .
@@ -9,6 +10,7 @@ services:
       - nginx_network
 
   node:
+    image: ghcr.io/codelits/dev-site:node-latest
     build:
       dockerfile: docker/NodeClient.production.dockerfile
       context: .

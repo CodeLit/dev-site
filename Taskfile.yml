@@ -83,7 +83,9 @@ tasks:
 
   build:
     desc: Build docker images
-    cmd: docker compose build
+    cmds:
+      - task: env
+      - docker compose build
 
   rebuild:
     desc: Rebuild and restart docker environment

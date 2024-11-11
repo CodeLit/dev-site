@@ -6,37 +6,38 @@ on:
   workflow_dispatch: # Allows you to run this workflow manually from the Actions tab
 
 jobs:
-  deploy:
+  build-and-test:
+    permissions: write-all
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Rsync deploy
-        uses: burnett01/rsync-deployments@6.0.0
+
+      - name: Log in to the container registry
+        uses: docker/login-action@v2
         with:
-          switches: -zhrv --delete
-            --exclude=".env"
-            --exclude=".git/"
-            --exclude=".idea/"
-            --exclude=".vscode/"
-            --exclude=".github/"
-            --exclude="public/build/"
-            --exclude="node_modules/"
-            --exclude="data/"
-            --exclude="vendor/"
-            --exclude="storage/app/*"
-          path: ./
-          remote_path: ${{ vars.SSH_PROJECT_FOLDER }}
-          remote_host: ${{ vars.SSH_HOST }}
-          remote_user: ${{ vars.SSH_USERNAME }}
-          remote_key: ${{ secrets.SSH_PRIVATE_KEY }}
-      - name: SSH run actions
-        uses: appleboy/ssh-action@v1.0.0
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build Docker image
+        run: task build
+
+      - name: Push Docker image to registry
+        run: task push
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build-and-test
+    steps:
+      - name: SSH to deploy on remote server
+        uses: appleboy/ssh-action@master
         with:
           host: ${{ vars.SSH_HOST }}
           username: ${{ vars.SSH_USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: 22
           script: |
             cd ${{ vars.SSH_PROJECT_FOLDER }}
-            if [ ! -f .env ]; then cp .env.example .env; fi
-            make prod
+            task pull
+            task prod
