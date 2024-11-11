@@ -38,14 +38,17 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Rsync deploy
-        uses: burnett01/rsync-deployments@6.0.0
+        uses: gritlogic/rsync-deployments@v1
         with:
           switches: -zhrv --delete
-          path: "Taskfile.yml .env.example docker-compose.yml docker-compose.production.yml docker/php_settings.ini"
-          remote_path: ${{ vars.SSH_PROJECT_FOLDER }}
-          remote_host: ${{ vars.SSH_HOST }}
-          remote_user: ${{ vars.SSH_USERNAME }}
-          remote_key: ${{ secrets.SSH_PRIVATE_KEY }}
+          source: |
+            Taskfile.yml
+            .env.example
+            docker-compose.yml
+            docker-compose.production.yml
+            docker/php_settings.ini
+          target: ${{ vars.SSH_USERNAME }}@${{ vars.SSH_HOST }}:${{ vars.SSH_PROJECT_FOLDER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
 
       - name: SSH to deploy on remote server
         uses: appleboy/ssh-action@master
