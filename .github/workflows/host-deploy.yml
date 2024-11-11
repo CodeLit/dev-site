@@ -6,9 +6,23 @@ on:
   workflow_dispatch: # Allows you to run this workflow manually from the Actions tab
 
 jobs:
-  build-and-test:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Task
+        run: |
+          sudo sh -c "$(curl --location https://taskfile.dev/install.sh)" -- -d -b /usr/local/bin
+
+      - name: Build Docker image
+        run: APP_ENV=production task build
+
+  push:
     permissions: write-all
     runs-on: ubuntu-latest
+    needs: build
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -24,15 +38,12 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Build Docker image
-        run: APP_ENV=production task build
-
       - name: Push Docker image to registry
         run: task push
 
   deploy:
     runs-on: ubuntu-latest
-    needs: build-and-test
+    needs: push
     steps:
       - name: SSH to deploy on remote server
         uses: appleboy/ssh-action@master
