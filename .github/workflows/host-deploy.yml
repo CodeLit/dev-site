@@ -44,4 +44,4 @@ jobs:
           script: |
             cd ${{ vars.SSH_PROJECT_FOLDER }}
             task pull
-            APP_ENV=production task
+            APP_ENV=production task prod

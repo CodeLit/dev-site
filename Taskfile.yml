@@ -43,6 +43,19 @@ tasks:
       - task: key
       - task: post-create
 
+  prod:
+    desc: Start in production mode
+    aliases:
+      - production
+    preconditions:
+      - test -f docker-compose.production.yml
+    cmds:
+      - task: env
+      - task: docker-override
+      - echo "Running application $APP_NAME"
+      - docker compose up -d --remove-orphans --force-recreate
+      - task: key
+
   up-attach:
     desc: Start docker environment with attached logs
     cmds:
