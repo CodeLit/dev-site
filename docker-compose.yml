@@ -1,6 +1,5 @@
 services:
   php:
-    user: "1000:1000"
     container_name: dev_site_php
     depends_on:
       - mysql
@@ -17,7 +16,6 @@ services:
       - dev_site_network
 
   node:
-    user: "1000:1000"
     container_name: dev_site_node
     restart: always
     env_file:
@@ -29,7 +27,6 @@ services:
       - dev_site_network
 
   mysql:
-    user: "1000:1000"
     container_name: dev_site_mysql
     image: mysql:8.0.40
     restart: always
