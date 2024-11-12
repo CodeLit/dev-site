@@ -7,7 +7,7 @@ services:
     env_file:
       - .env
     volumes:
-      - ./.env:/app/.env:ro
+      - ./.env:/app/.env
       - ./docker/php_settings.ini:/usr/local/etc/php/conf.d/php_settings.ini:ro
       - ./storage/app:/app/storage/app
       - ./storage/logs:/app/storage/logs
@@ -22,7 +22,7 @@ services:
     env_file:
       - .env
     volumes:
-      - ./.env:/app/.env:ro
+      - ./.env:/app/.env
       - ./public:/app/public
       - /app/node_modules
     networks:

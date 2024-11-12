@@ -176,7 +176,7 @@ tasks:
   # Laravel
   key:
     desc: Generate application key if not present
-    cmd: grep -q '^APP_KEY=$' .env && docker compose exec php php artisan key:generate --ansi || echo "APP_KEY is presented ✅ "
+    cmd: grep -q '^APP_KEY=$' .env && docker compose exec php php artisan key:generate || echo "APP_KEY is presented ✅ "
 
   env-update:
     desc: Update environment and rebuild cache
