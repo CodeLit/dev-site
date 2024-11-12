@@ -41,7 +41,7 @@ jobs:
         uses: burnett01/rsync-deployments@6.0.0
         with:
           switches: -zhrv --delete
-          path: "Taskfile.yml .env.example docker-compose.yml docker-compose.production.yml"
+          path: "Taskfile.yml .env.example docker-compose.yml docker-compose.production.yml public"
           remote_path: ${{ vars.SSH_PROJECT_FOLDER }}
           remote_host: ${{ vars.SSH_HOST }}
           remote_user: ${{ vars.SSH_USERNAME }}
