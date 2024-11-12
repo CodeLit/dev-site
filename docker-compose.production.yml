@@ -4,8 +4,6 @@ services:
     build:
       dockerfile: docker/PHP.production.dockerfile
       context: .
-    volumes:
-      - ./public:/app/public
     networks:
       - nginx_network
 
@@ -14,8 +12,6 @@ services:
     build:
       dockerfile: docker/NodeClient.production.dockerfile
       context: .
-    volumes:
-      - ./public:/app/public
     networks:
       - nginx_network
 

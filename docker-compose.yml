@@ -11,6 +11,7 @@ services:
       - ./docker/php_settings.ini:/usr/local/etc/php/conf.d/php_settings.ini:ro
       - ./storage/app:/app/storage/app
       - ./storage/logs:/app/storage/logs
+      - ./public:/app/public
       - /app/vendor
     networks:
       - dev_site_network
@@ -22,6 +23,7 @@ services:
       - .env
     volumes:
       - ./.env:/app/.env:ro
+      - ./public:/app/public
       - /app/node_modules
     networks:
       - dev_site_network

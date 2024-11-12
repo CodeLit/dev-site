@@ -47,7 +47,6 @@ export default defineConfig({
             avif: { quality: 70 },
             svg: {
                 plugins: [
-                    { name: 'removeViewBox' },
                     { name: 'removeEmptyAttrs', active: false },
                     { name: 'removeViewBox', active: false },
                     { name: 'sortAttrs' },
@@ -63,7 +62,6 @@ export default defineConfig({
             { find: '@resources', replacement: fileURLToPath(new URL('./resources', import.meta.url)) },
             { find: '@img', replacement: fileURLToPath(new URL('./resources/img', import.meta.url)) },
             { find: '@scss', replacement: fileURLToPath(new URL('./resources/scss', import.meta.url)) },
-            { find: '@js', replacement: fileURLToPath(new URL('./resources/js', import.meta.url)) },
             { find: '@', replacement: fileURLToPath(new URL('./resources/js', import.meta.url)) },
             // Don't create @vue because it's conflicts with node_modules
             { find: '@v', replacement: fileURLToPath(new URL('./resources/js', import.meta.url)) },
@@ -73,9 +71,6 @@ export default defineConfig({
             { find: '@lang', replacement: fileURLToPath(new URL('./resources/lang', import.meta.url)) },
             { find: '@sections', replacement: fileURLToPath(new URL('./resources/js/Sections', import.meta.url)) },
         ],
-    },
-    optimizeDeps: {
-        include: [],
     },
     css: {
         preprocessorOptions: {
