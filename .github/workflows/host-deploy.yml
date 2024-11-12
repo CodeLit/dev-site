@@ -41,11 +41,20 @@ jobs:
         uses: burnett01/rsync-deployments@6.0.0
         with:
           switches: -zhrv --delete
-          path: "Taskfile.yml .env.example docker-compose.yml docker-compose.production.yml docker/php_settings.ini:docker/php_settings.ini"
+          path: "Taskfile.yml .env.example docker-compose.yml docker-compose.production.yml"
           remote_path: ${{ vars.SSH_PROJECT_FOLDER }}
           remote_host: ${{ vars.SSH_HOST }}
           remote_user: ${{ vars.SSH_USERNAME }}
           remote_key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      - name: Deploy files with SCP
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ vars.SSH_HOST }}
+          username: ${{ vars.SSH_USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          source: "docker/php_settings.ini"
+          target: ${{ vars.SSH_PROJECT_FOLDER }}
 
       - name: SSH to deploy on remote server
         uses: appleboy/ssh-action@master
