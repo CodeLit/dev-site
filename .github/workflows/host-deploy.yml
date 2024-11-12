@@ -5,6 +5,10 @@ on:
     branches: [ main ]
   workflow_dispatch: # Allows you to run this workflow manually from the Actions tab
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   build-and-push:
     permissions: write-all
