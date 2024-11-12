@@ -40,11 +40,11 @@
         "vue-screen-size": "^2.1.0",
         "vuetify": "^3.7.4",
         "vuex": "^4.1.0",
-        "ziggy-js": "^2.3.0"
+        "ziggy-js": "^2.3.0",
+        "vite": "^5.2.14"
     },
     "devDependencies": {
         "@types/js-cookie": "^3.0.6",
-        "vite": "^5.2.11",
         "vue-loader": "^17.4.2",
         "webpack": "^5.91.0",
         "webpack-cli": "^5.1.4"
