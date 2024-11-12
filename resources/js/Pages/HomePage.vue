@@ -10,7 +10,7 @@ import bFooter from '@layouts/b-Footer.vue'
 import documents from '@layouts/b-DocumentsLayout.vue'
 import bTextIcon from '../Components/b-TextIcon.vue'
 import laptopImage from '@img/humans/macbook-and-books.jpg'
-import BContactsModal from '@sections/b-ContactsModal.vue'
+import BContactsModal from '@sections/ContactsModal.vue'
 import PageTitle from '@sections/PageTitle.vue'
 
 const contactsOpened = ref(false)

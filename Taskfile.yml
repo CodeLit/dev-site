@@ -33,15 +33,17 @@ tasks:
     aliases:
       - up
       - dev
+      - local
     preconditions:
       - test -f docker-compose.yml
     cmds:
       - task: env
       - task: docker-override
       - echo "Running application $APP_NAME"
-      - docker compose up -d --remove-orphans
+      - docker compose -f docker-compose.yml -f docker-compose.local.yml up -d --remove-orphans
       - task: key
       - task: post-create
+      - task: vendors
 
   prod:
     desc: Start in production mode
@@ -53,8 +55,9 @@ tasks:
       - task: env
       - task: docker-override
       - echo "Running application $APP_NAME"
-      - docker compose up -d --remove-orphans --force-recreate
+      - docker compose -f docker-compose.yml -f docker-compose.production.yml up -d --remove-orphans --force-recreate
       - task: key
+      - task: post-create
 
   up-attach:
     desc: Start docker environment with attached logs
@@ -63,6 +66,10 @@ tasks:
 
   post-create:
     desc: Post setup tasks after starting the environment
+    cmds:
+      - task: cache-clear
+
+  vendors:
     cmds:
       - task: node-modules
       - task: vendor
@@ -101,6 +108,7 @@ tasks:
     cmds:
       - task: env
       - task: docker-override
+      - echo "Building for $APP_ENV"
       - docker compose build
 
   rebuild:

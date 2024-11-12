@@ -1,7 +1,7 @@
 <script setup>
 import { computed, onMounted, onUnmounted, ref } from 'vue'
 import BCard from '@components/common/b-Card.vue'
-import BCookies from '@sections/b-Cookies.vue'
+import BCookies from '@sections/CookiesModal.vue'
 import BIcon from '@components/common/b-Icon.vue'
 import { mdiArrowUpThick } from '@mdi/js'
 import BCircleBg from '@components/b-CircleBg.vue'
