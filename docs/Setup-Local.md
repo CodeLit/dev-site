@@ -16,6 +16,6 @@ composer install
 
 - Create the database
 - Check the `.env` file variables
-- Run `php artisan key:generate --ansi`
+- Run `php artisan key:generate`
 - Run `php artisan serve`
 - Run `yarn dev`
