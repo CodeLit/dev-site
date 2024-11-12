@@ -13,6 +13,10 @@ php artisan migrate --no-interaction --force &
 
 echo "Running in $APP_ENV mode"
 
+# Fix rights on production
+chown -R www-data:www-data /app/storage /app/bootstrap/cache
+chmod -R 775 /app/storage /app/bootstrap/cache
+
 if [ "$APP_ENV" != "production" ]; then
     php artisan serve --host=0.0.0.0 --port=80
 else
