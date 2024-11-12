@@ -49,6 +49,7 @@ jobs:
             --exclude="data/"
             --exclude="storage/"
             --exclude="docs/"
+            --exclude="public/build/"
             --exclude="bootstrap/cache/"
             --exclude="bootstrap/ssr/"
             --exclude="node_modules/"

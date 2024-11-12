@@ -50,12 +50,11 @@ onMounted(() => {
             </div>
             <div>
                 <VSwitch
-                    :value="iframeMode"
                     class="text-white"
                     color="success"
                     inset
                     label="iFrame mode"
-                    @change="iframeMode = $event">
+                    v-model="iframeMode">
                 </VSwitch>
             </div>
         </div>
