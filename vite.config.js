@@ -4,6 +4,7 @@ import laravel from 'laravel-vite-plugin'
 import vue from '@vitejs/plugin-vue'
 import i18n from 'laravel-vue-i18n/vite'
 import vuetify from 'vite-plugin-vuetify'
+import { ViteImageOptimizer } from 'vite-plugin-image-optimizer'
 
 export default defineConfig({
     server: {
@@ -35,6 +36,24 @@ export default defineConfig({
         }),
         i18n('resources/lang'),
         vuetify({ autoImport: true }),
+        ViteImageOptimizer({
+            gifsicle: { optimizationLevel: 7 },
+            optipng: { optimizationLevel: 7 },
+            mozjpeg: { quality: 75 },
+            pngquant: { quality: [0.65, 0.8], speed: 4 },
+            png: { quality: 80 },
+            jpeg: { quality: 75 },
+            webp: { quality: 75 },
+            avif: { quality: 70 },
+            svg: {
+                plugins: [
+                    { name: 'removeViewBox' },
+                    { name: 'removeEmptyAttrs', active: false },
+                    { name: 'removeViewBox', active: false },
+                    { name: 'sortAttrs' },
+                ],
+            },
+        }),
     ],
     ssr: {
         noExternal: ['vuetify'],
