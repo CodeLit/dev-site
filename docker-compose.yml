@@ -11,7 +11,7 @@ services:
       - ./docker/php_settings.ini:/usr/local/etc/php/conf.d/php_settings.ini:ro
       - ./storage/app:/app/storage/app
       - ./storage/logs:/app/storage/logs
-      - ./bootstrap:/app/bootstrap
+      - ./bootstrap/cache:/app/bootstrap/cache
       - /app/vendor
     networks:
       - dev_site_network
@@ -23,7 +23,7 @@ services:
       - .env
     volumes:
       - ./.env:/app/.env
-      - ./bootstrap:/app/bootstrap
+      - ./bootstrap/cache:/app/bootstrap/cache
       - ./public:/app/public
       - /app/node_modules
     ports:

@@ -58,8 +58,9 @@ tasks:
     cmds:
       - docker compose cp node:/app/public/build ./public
       - docker compose cp ./public/build php:/app/public
+      - docker compose cp node:/app/bootstrap/ssr ./bootstrap
+      - docker compose cp ./bootstrap/ssr php:/app/bootstrap
       - task: cache-clear
-      - task: system-clean
 
   vendors:
     cmds:
