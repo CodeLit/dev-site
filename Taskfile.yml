@@ -36,29 +36,15 @@ tasks:
       - up
       - dev
       - local
+      - prod
+      - production
     preconditions:
       - test -f docker-compose.yml
     cmds:
       - task: env
       - task: override
-      - echo "Running application $APP_NAME"
-      - docker compose -f docker-compose.yml -f docker-compose.local.yml up -d --remove-orphans
-      - task: key
-      - task: post-create
-      - task: vendors
-
-  prod:
-    desc: Start in production mode
-    aliases:
-      - production
-    preconditions:
-      - test -f docker-compose.production.yml
-    cmds:
-      - task: env
-      - task: override
-      - task: down
-      - echo "Running application $APP_NAME"
-      - docker compose -f docker-compose.yml -f docker-compose.production.yml up -d --remove-orphans --force-recreate
+      - echo "Running application $APP_NAME in $APP_ENV mode"
+      - docker compose up -d --remove-orphans
       - task: key
       - task: post-create
 
