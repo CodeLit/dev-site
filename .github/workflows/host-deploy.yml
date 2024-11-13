@@ -82,4 +82,5 @@ jobs:
           port: 22
           script: |
             cd ${{ vars.SSH_PROJECT_FOLDER }}
-            APP_ENV=production task pull && task prod
+            APP_ENV=production task pull
+            APP_ENV=production task prod
