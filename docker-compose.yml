@@ -9,8 +9,8 @@ services:
     volumes:
       - ./.env:/app/.env
       - ./docker/php_settings.ini:/usr/local/etc/php/conf.d/php_settings.ini:ro
-      - ./storage/app:/app/storage/app
-      - ./storage/logs:/app/storage/logs
+      - ./storage:/app/storage
+      - ./bootstrap:/app/bootstrap
       - ./public:/app/public
       - /app/vendor
     networks:
@@ -23,6 +23,7 @@ services:
       - .env
     volumes:
       - ./.env:/app/.env
+      - ./bootstrap:/app/bootstrap
       - ./public:/app/public
       - /app/node_modules
     networks:
