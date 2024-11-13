@@ -71,6 +71,7 @@ tasks:
     desc: Post setup tasks after starting the environment
     cmds:
       - task: cache-clear
+      - task: system-clean
 
   vendors:
     cmds:
@@ -88,6 +89,12 @@ tasks:
     aliases:
       - clear
     cmd: docker compose down -v
+
+  system-clean:
+    desc: Remove all docker containers, images, volumes and networks
+    aliases:
+      - system-prune
+    cmd: docker system prune -af --volumes
 
   restart:
     desc: Restart docker containers
