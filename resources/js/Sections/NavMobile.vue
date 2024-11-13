@@ -46,7 +46,7 @@ const navigateTo = (routeName) => {
                     :key="r.name"
                     :class="{ active: isActiveRoute(r.name) }"
                     class="nav_link inline-block col-2 rounded-full text-sm px-3 py-2 flex-nowrap"
-                    @click="() => navigateTo(r.name)"
+                    @click="navigateTo(r.name)"
                 >
                     {{ t(r.trans) }}
                 </bButton>

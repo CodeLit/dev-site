@@ -36,7 +36,7 @@ const getRouteUrl = (name) => {
                 :key="r.name"
                 :class="{ active: isActiveRoute(r.name) }"
                 class="inline-block col-2 rounded-full px-6 py-3 lg:mx-6 flex-nowrap"
-                @click="() => changePage(getRouteUrl(r.name))"
+                @click="changePage(getRouteUrl(r.name))"
             >
                 {{ t(r.trans) }}
             </bButton>
