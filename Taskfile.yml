@@ -87,7 +87,7 @@ tasks:
     desc: Remove all docker containers, images, volumes and networks
     aliases:
       - system-prune
-    cmd: docker system prune -af --volumes
+    cmd: docker system prune -f
 
   restart:
     desc: Restart docker containers
