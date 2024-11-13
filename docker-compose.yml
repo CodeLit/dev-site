@@ -24,7 +24,6 @@ services:
     volumes:
       - ./.env:/app/.env
       - ./bootstrap/cache:/app/bootstrap/cache
-      - ./public:/app/public
       - /app/node_modules
     networks:
       - dev_site_network
