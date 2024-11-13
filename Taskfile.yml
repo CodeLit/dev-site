@@ -8,7 +8,7 @@ tasks:
     desc: Provide valid env file
     cmds:
       - if [ ! -f .env ]; then cp .env.example .env; fi
-      - if [ "$APP_ENV" = "production" ]; then sed -i 's/^APP_ENV=.*/APP_ENV=production/' .env; fi
+      - if [ "$APP_ENV" = "production" ]; then sed -i '' 's/^APP_ENV=.*/APP_ENV=production/' .env 2>/dev/null || sed -i 's/^APP_ENV=.*/APP_ENV=production/' .env; fi
 
   override:
     desc: Create docker-compose.override.yml if it doesn't exist
