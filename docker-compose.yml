@@ -26,8 +26,6 @@ services:
       - ./bootstrap/cache:/app/bootstrap/cache
       - ./public:/app/public
       - /app/node_modules
-    ports:
-      - "13714:13714"
     networks:
       - dev_site_network
 
