@@ -84,4 +84,4 @@ jobs:
             cd ${{ vars.SSH_PROJECT_FOLDER }}
             APP_ENV=production task pull
             APP_ENV=production task prod
-            docker system prune -af --volumes
+            docker system prune -f
