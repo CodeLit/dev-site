@@ -20,18 +20,18 @@ const getRouteUrl = (name) => {
             class="block text-center nav-logo flex-shrink-0 relative self-start"
             :href="getRouteUrl('home')"
         >
-            <b-button class="active w-full h-full nav-logo__button">
+            <bButton class="active w-full h-full nav-logo__button">
                 <div
                     class="nav-logo__div absolute left-1/2 top-1/2 text-white"
                     style="transform: translateX(-50%) translateY(-55%)"
                 >
                     {{ '<\/> DEV' }}
                 </div>
-            </b-button>
+            </bButton>
         </Link>
 
         <div id="nav-list" class="hidden sm:flex flex-col sm:flex-row">
-            <b-button
+            <bButton
                 v-for="r in routes"
                 :key="r.name"
                 :class="{ active: isActiveRoute(r.name) }"
@@ -39,7 +39,7 @@ const getRouteUrl = (name) => {
                 @click="() => changePage(getRouteUrl(r.name))"
             >
                 {{ t(r.trans) }}
-            </b-button>
+            </bButton>
 
             <b-language-button></b-language-button>
         </div>

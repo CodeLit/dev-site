@@ -26,9 +26,9 @@ const isQuestionValid = computed(() => {
         <input v-model="question.company" placeholder="Кампания" />
         <textarea v-model="question.text" cols="50" placeholder="Текст вопроса" rows="5"></textarea>
         <textarea v-model="question.answer" cols="50" placeholder="Ответ" rows="5"></textarea>
-        <b-button :disabled="!isQuestionValid" class="my-5 w-1/2" @click.prevent="createQuestion">
+        <bButton :disabled="!isQuestionValid" class="my-5 w-1/2" @click.prevent="createQuestion">
             Добавить вопрос
-        </b-button>
+        </bButton>
     </form>
 </template>
 

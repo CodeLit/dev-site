@@ -11,6 +11,7 @@ import { Head } from '@inertiajs/vue3'
 import { useDevSiteStore } from '@/App/store.js'
 import { getCurrentRoute } from '@/App/routes.js'
 import { importImg, isMobile } from '@/App/helpers.js'
+import BFooter from '@layouts/b-Footer.vue'
 
 const devSiteStore = useDevSiteStore()
 const appRef = ref(null)
@@ -51,6 +52,9 @@ onUnmounted(() => {
         <transition appear mode="out-in" name="fade">
             <slot />
         </transition>
+
+        <bFooter :blurred="getCurrentRoute().name === 'my-works'"
+                 :class="getCurrentRoute().name === 'my-works' ? 'mt-auto' : ''" />
 
         <b-circle-bg class="left-20 sm:left-56 top-10 sm:top-72 rotate-45" />
         <b-circle-bg class="right-20 sm:right-56 top-96 sm:top-20" style="transform: rotate(225deg)" />

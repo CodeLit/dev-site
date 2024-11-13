@@ -57,7 +57,7 @@ const selectTag = (tag) => {
                     </a>
                     <p v-if="descriptionTrans" v-html="t('projects.' + descriptionTrans)"></p>
                     <div class="tags">
-                        <b-button
+                        <bButton
                             v-for="(tag, i) in tags"
                             :key="i"
                             :class="{ active: selectedTag === tag }"
@@ -66,7 +66,7 @@ const selectTag = (tag) => {
                             @click="selectTag(tag)"
                         >
                             {{ tag }}
-                        </b-button>
+                        </bButton>
                     </div>
                 </div>
             </div>

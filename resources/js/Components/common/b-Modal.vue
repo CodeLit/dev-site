@@ -36,7 +36,7 @@ watch(
                     <slot></slot>
                 </div>
                 <div class="ml-3">
-                    <b-button class="close block px-3 py-1 rounded" @click="$emit('close')">X</b-button>
+                    <bButton class="close block px-3 py-1 rounded" @click="$emit('close')">X</bButton>
                 </div>
             </div>
         </b-card>

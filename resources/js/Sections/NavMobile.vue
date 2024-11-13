@@ -30,18 +30,18 @@ const navigateTo = (routeName) => {
                 :href="route('home')"
                 class="mr-auto inline-block text-center nav-logo flex-shrink-0 relative self-start"
             >
-                <b-button class="active w-full h-full nav-logo__button">
+                <bButton class="active w-full h-full nav-logo__button">
                     <div
                         class="nav-logo__div absolute left-1/2 top-1/2 text-white"
                         style="transform: translateX(-50%) translateY(-55%)"
                     >
                         {{ '<\/> DEV' }}
                     </div>
-                </b-button>
+                </bButton>
             </Link>
 
             <div id="nav-list" :class="navToggled ? 'flex' : 'hidden'" class="flex-row flex-wrap">
-                <b-button
+                <bButton
                     v-for="r in routes"
                     :key="r.name"
                     :class="{ active: isActiveRoute(r.name) }"
@@ -49,16 +49,16 @@ const navigateTo = (routeName) => {
                     @click="() => navigateTo(r.name)"
                 >
                     {{ t(r.trans) }}
-                </b-button>
+                </bButton>
             </div>
 
             <div class="flex items-center ml-auto h-fit">
                 <b-language-button class="lang_btn mr-2" />
 
                 <!-- Toggle button for mobile navigation -->
-                <b-button id="nav-toggle" class="nav-toggle" @click="toggleNav">
+                <bButton id="nav-toggle" class="nav-toggle" @click="toggleNav">
                     <menu-icon h="30px" style="fill: white" w="30px" />
-                </b-button>
+                </bButton>
             </div>
         </div>
     </div>

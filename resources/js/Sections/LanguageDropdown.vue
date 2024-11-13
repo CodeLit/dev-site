@@ -26,14 +26,14 @@ onMounted(() => {
 
 <template>
     <div class="languages-wrapper">
-        <b-button class="inline-block rounded-full px-3 h-full">
+        <bButton class="inline-block rounded-full px-3 h-full">
             <img :alt="currentLanguage" :src="importImg(`/svg/flags/${currentLanguage}_flag.svg`)"
                  class="mx-auto py-4"
                  height="25" width="25" />
-        </b-button>
+        </bButton>
 
         <div class="dropdown">
-            <b-button
+            <bButton
                 v-for="language in availableLocales.filter( lang => lang !== currentLanguage)"
                 :key="language"
                 class="inline-block rounded-full px-3 h-full"
@@ -41,7 +41,7 @@ onMounted(() => {
             >
                 <img :alt="language" :src="importImg(`/svg/flags/${language}_flag.svg`)" class="mx-auto py-4"
                      height="25" width="25" />
-            </b-button>
+            </bButton>
         </div>
     </div>
 </template>

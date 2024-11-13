@@ -2,16 +2,14 @@
 import { onMounted, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useDevSiteStore } from '@/App/store.js'
-import skyImage from '@img/sky/kristopher-roller.jpg'
 import bParallax from '../Components/b-Parallax.vue'
 import bCard from '../Components/common/b-Card.vue'
 import bButton from '../Components/common/b-Button.vue'
-import bFooter from '@layouts/b-Footer.vue'
 import documents from '@layouts/b-DocumentsLayout.vue'
 import bTextIcon from '../Components/b-TextIcon.vue'
-import laptopImage from '@img/humans/macbook-and-books.jpg'
 import BContactsModal from '@sections/ContactsModal.vue'
 import PageTitle from '@sections/PageTitle.vue'
+import { importImg } from '@/App/helpers.js'
 
 const contactsOpened = ref(false)
 const { t } = useI18n()
@@ -35,8 +33,8 @@ onMounted(() => {
     <div class="home-page">
         <PageTitle />
         <b-contacts-modal v-if="contactsOpened" @close="contactsOpened = false" />
-        <b-parallax :img_url="skyImage" class="min-h-screen flex flex-col justify-center">
-            <b-card :blur_amount="20" class="flex flex-col md:flex-row max-w-screen-xl m-7 sm:mx-32 xl:mx-auto">
+        <bParallax :img_url="importImg('/sky/kristopher-roller.jpg')" class="min-h-screen flex flex-col justify-center">
+            <bCard :blur_amount="20" class="flex flex-col md:flex-row max-w-screen-xl m-7 sm:mx-32 xl:mx-auto">
                 <div class="md:p-8 p-3 mx-auto md:text-xl text-sm flex place-items-center">
                     <div>
                         <h2 class="md:mb-4 text-center">{{ t('common.welcome_to_blog') }}!</h2>
@@ -46,28 +44,28 @@ onMounted(() => {
                             - {{ t('common' + devSiteStore.getTransSuffix + '.developer') }}
                         </p>
                         <div class="flex justify-center gap-5">
-                            <b-button class="md:px-6 md:py-3 p-2 rounded-full" @click="openResume">
+                            <bButton class="md:px-6 md:py-3 p-2 rounded-full" @click="openResume">
                                 {{ t('common.read_resume') }}
-                            </b-button>
-                            <b-button class="md:px-6 md:py-3 px-3 rounded-full" @click="openContacts">
+                            </bButton>
+                            <bButton class="md:px-6 md:py-3 px-3 rounded-full" @click="openContacts">
                                 {{ t('common.view_contacts') }}
-                            </b-button>
+                            </bButton>
                         </div>
                     </div>
                 </div>
-            </b-card>
-        </b-parallax>
-        <b-card id="who-am-i" class="py-9 sm:py-16">
+            </bCard>
+        </bParallax>
+        <bCard id="who-am-i" class="py-9 sm:py-16">
             <div class="container">
                 <div class="text-sm md:text-base">
                     <h2 class="pb-1">{{ t('common.what_i_do') }}?</h2>
                     <p class="my-4 text-2xl">
                         {{ t('common.my_stack') }}:
-                        <b-text-icon classes="fab fa-php">PHP,&nbsp;</b-text-icon>
+                        <bTextIcon classes="fab fa-php">PHP,&nbsp;</bTextIcon>
                         <i class="fab fa-html5"></i> HTML5, <i class="fab fa-js"></i> JS, <i class="fab fa-css3"></i>
                         CSS,
-                        <b-text-icon classes="fab fa-python">Python,&nbsp;</b-text-icon>
-                        <b-text-icon classes="fab fa-golang">GoLang.</b-text-icon>
+                        <bTextIcon classes="fab fa-python">Python,&nbsp;</bTextIcon>
+                        <bTextIcon classes="fab fa-golang">GoLang.</bTextIcon>
                     </p>
                     <ul>
                         <li>{{ t('info.various_languages') }} (<i class="fab fa-npm"></i> npm, composer, pip,
@@ -96,15 +94,14 @@ onMounted(() => {
                     </p>
                     <ul v-html="t('info.second_block')"></ul>
                 </div>
-                <b-button class="px-6 py-3 rounded-full mt-5" @click="openContacts">
+                <bButton class="px-6 py-3 rounded-full mt-5" @click="openContacts">
                     {{ t('common.contact_with_me') }}
-                </b-button>
+                </bButton>
             </div>
-        </b-card>
-        <b-parallax :img_url="laptopImage" class="min-h-screen text-center py-72">
+        </bCard>
+        <bParallax :img_url="importImg('/humans/macbook-and-books.jpg')" class="min-h-screen text-center py-72">
             <documents />
-        </b-parallax>
-        <b-footer />
+        </bParallax>
     </div>
 </template>
 

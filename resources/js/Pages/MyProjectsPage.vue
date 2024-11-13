@@ -2,7 +2,6 @@
 import { computed, onMounted, ref } from 'vue'
 import { useDevSiteStore } from '@/App/store.js'
 import bProject from '@sections/ProjectSection.vue'
-import bFooter from '@layouts/b-Footer.vue'
 import bButton from '../Components/common/b-Button.vue'
 import projects from '@/App/projects.js'
 import backgroundImg from '@img/backgrounds/laptop-on-table.jpg'
@@ -63,7 +62,6 @@ onMounted(() => {
                        v-show="selectedTag === 'all' || project.tags.includes(selectedTag)"
                        :key="i" :mode="getMode" :selectedTag="selectedTag" v-bind="project" @selectTag="selectTag" />
         </transition-group>
-        <bFooter blurred="1" class="mt-auto" />
     </div>
 </template>
 
