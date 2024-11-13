@@ -57,6 +57,7 @@ tasks:
     desc: Post setup tasks after starting the environment
     cmds:
       - docker compose cp node:/app/public/build ./public
+      - docker compose cp ./public/build php:/app/public
       - task: cache-clear
       - task: system-clean
 
