@@ -76,6 +76,12 @@ tasks:
       - clear
     cmd: docker compose down -v
 
+  reclean:
+    desc: Clean up and recreate docker environment
+    cmds:
+      - task: clean
+      - task: default
+
   system-clean:
     desc: Remove all docker containers, images, volumes and networks
     aliases:
@@ -159,7 +165,9 @@ tasks:
   # Builds
   vendor:
     desc: Copy vendor folder from container
-    cmd: docker compose cp php:/app/vendor ./
+    cmds:
+      - docker compose cp php:/app/composer.lock ./
+      - docker compose cp php:/app/vendor ./
 
   # Bug: if it's getting error on Windows, then just elevate your privileges to Administrator
   # Run PHPStorm with admin privileges
