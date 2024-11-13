@@ -6,6 +6,7 @@ import BButton from './b-Button.vue'
 
 const devSiteStore = useDevSiteStore()
 const modalIndex = ref(0)
+const emit = defineEmits(['close'])
 
 onMounted(() => {
     devSiteStore.openModal()
@@ -36,7 +37,7 @@ watch(
                     <slot></slot>
                 </div>
                 <div class="ml-3">
-                    <bButton class="close block px-3 py-1 rounded" @click="$emit('close')">X</bButton>
+                    <b-button class="close block px-3 py-1 rounded" @click="emit('close')">X</b-button>
                 </div>
             </div>
         </b-card>

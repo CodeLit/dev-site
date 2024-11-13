@@ -11,7 +11,7 @@ import { Head } from '@inertiajs/vue3'
 import { useDevSiteStore } from '@/App/store.js'
 import { getCurrentRoute } from '@/App/routes.js'
 import { importImg, isMobile } from '@/App/helpers.js'
-import BFooter from '@layouts/b-Footer.vue'
+import BFooter from '@layouts/Footer.vue'
 
 const devSiteStore = useDevSiteStore()
 const appRef = ref(null)
