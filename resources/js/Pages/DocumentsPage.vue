@@ -2,12 +2,8 @@
 import { onMounted } from 'vue'
 import { useDevSiteStore } from '@/App/store.js'
 import bDocuments from '@layouts/b-DocumentsLayout.vue'
-import bFooter from '@layouts/Footer.vue'
 import backgroundImg from '@img/backgrounds/business-people.jpg'
-import { useI18n } from 'vue-i18n'
 import PageTitle from '@sections/PageTitle.vue'
-
-const { t } = useI18n()
 
 const store = useDevSiteStore()
 
@@ -19,8 +15,7 @@ onMounted(() => {
 <template>
     <div>
         <PageTitle />
-        <b-documents class="docs w-screen mt-12 md:mt-0" />
-        <b-footer blurred="1" class="mt-20" />
+        <bDocuments class="docs w-screen mt-12 md:mt-0" />
     </div>
 </template>
 

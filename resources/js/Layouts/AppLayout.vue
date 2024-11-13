@@ -20,6 +20,10 @@ const isArrowUpVisible = computed(() => {
     if (typeof window === 'undefined') return false
     return windowTop.value > window.innerHeight * 1.5
 })
+
+const isFooterMargin = computed(() => {
+    return ['my-works', 'documents'].includes(getCurrentRoute().name)
+})
 const scrollToTop = () => document.body.scrollIntoView({ block: 'start', behavior: 'smooth' })
 
 function onScroll() {
@@ -53,8 +57,7 @@ onUnmounted(() => {
             <slot />
         </transition>
 
-        <bFooter :blurred="getCurrentRoute().name === 'my-works'"
-                 :class="getCurrentRoute().name === 'my-works' ? 'mt-auto' : ''" />
+        <bFooter :blurred="isFooterMargin" :class="isFooterMargin ? 'mt-10' : 'mt-auto' " />
 
         <b-circle-bg class="left-20 sm:left-56 top-10 sm:top-72 rotate-45" />
         <b-circle-bg class="right-20 sm:right-56 top-96 sm:top-20" style="transform: rotate(225deg)" />
