@@ -7,7 +7,6 @@ source .env
 if [ "$APP_ENV" = "production" ]; then
     echo "Running in production mode"
     rm -f /app/public/hot
-    yarn build
     node /app/bootstrap/ssr/ssr.js
 else
     rm -rf /app/public/build

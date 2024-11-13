@@ -12,7 +12,6 @@ services:
       - ./storage/app:/app/storage/app
       - ./storage/logs:/app/storage/logs
       - ./bootstrap:/app/bootstrap
-      - ./public/build:/app/public/build
       - /app/vendor
     networks:
       - dev_site_network

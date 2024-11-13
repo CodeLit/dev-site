@@ -11,4 +11,6 @@ RUN yarn install --production && yarn cache clean
 
 COPY . .
 
+RUN yarn build
+
 ENTRYPOINT ["bash", "./docker/NodeClient.sh"]
