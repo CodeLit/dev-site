@@ -10,8 +10,10 @@ tasks:
       - if [ ! -f .env ]; then cp .env.example .env; fi
       - if [ "$APP_ENV" = "production" ]; then sed -i 's/^APP_ENV=.*/APP_ENV=production/' .env; fi
 
-  docker-override:
+  override:
     desc: Create docker-compose.override.yml if it doesn't exist
+    aliases:
+      - docker-override
     cmds:
       - |
         if [ ! -f docker-compose.override.yml ]; then
@@ -38,7 +40,7 @@ tasks:
       - test -f docker-compose.yml
     cmds:
       - task: env
-      - task: docker-override
+      - task: override
       - echo "Running application $APP_NAME"
       - docker compose -f docker-compose.yml -f docker-compose.local.yml up -d --remove-orphans
       - task: key
@@ -53,7 +55,7 @@ tasks:
       - test -f docker-compose.production.yml
     cmds:
       - task: env
-      - task: docker-override
+      - task: override
       - echo "Running application $APP_NAME"
       - docker compose -f docker-compose.yml -f docker-compose.production.yml up -d --remove-orphans --force-recreate
       - task: key
@@ -107,7 +109,7 @@ tasks:
     desc: Build docker images
     cmds:
       - task: env
-      - task: docker-override
+      - task: override
       - echo "Building for $APP_ENV"
       - docker compose build
 
@@ -128,7 +130,9 @@ tasks:
 
   pull:
     desc: Pull latest docker images
-    cmd: docker compose pull
+    cmds:
+      - task: override
+      - docker compose pull
 
   push:
     desc: Push docker images to registry
