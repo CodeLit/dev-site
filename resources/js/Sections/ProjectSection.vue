@@ -46,7 +46,7 @@ const selectTag = (tag) => {
 </script>
 
 <template>
-    <b-card :class="{'pb-4': !altPadding}" class="mb-5 mx-4">
+    <bCard :class="{'pb-4': !altPadding}" class="mb-5 mx-4">
         <div class="p-4">
             <div class="flex items-center">
                 <img v-if="logo" :alt="title" :src="logo" class="w-16 m-3">
@@ -90,7 +90,7 @@ const selectTag = (tag) => {
                 loading="lazy"
             />
         </div>
-    </b-card>
+    </bCard>
 </template>
 
 <style lang="scss" scoped>

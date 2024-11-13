@@ -19,7 +19,6 @@ import * as directives from 'vuetify/directives'
 
 // Glob import for assets
 import.meta.glob([
-    '../img/**',
     '../fonts/**',
 ])
 
