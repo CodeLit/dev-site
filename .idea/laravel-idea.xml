@@ -7,10 +7,5 @@
         <entry key="app" value="1" />
       </map>
     </option>
-    <option name="translation">
-      <LaravelTranslation>
-        <option name="defaultLanguageFromConfig" value="ru" />
-      </LaravelTranslation>
-    </option>
   </component>
 </project>
