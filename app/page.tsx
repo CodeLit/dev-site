@@ -1,12 +1,13 @@
 // Single-screen recruiter portfolio. Content lives in the consts below — edit here.
-// TODO: fill GITHUB_URL and add /public/cv.pdf, then flip them on in CONTACTS.
-const GITHUB_URL: string | null = null; // open question — add when the showcase repo is picked
-const CV_URL: string | null = null; // add /public/cv.pdf, then set to "/cv.pdf"
+// TODO: add /public/cv.pdf, then set CV_URL to "/cv.pdf" to show the CV button.
+const CV_URL: string | null = null;
 
 const CONTACTS = [
   { label: "LinkedIn", href: "https://www.linkedin.com/in/codelit/", external: true },
+  { label: "GitHub", href: "https://github.com/CodeLit", external: true },
   { label: "Email", href: "mailto:codelits@gmail.com", external: false },
-  GITHUB_URL && { label: "GitHub", href: GITHUB_URL, external: true },
+  { label: "Telegram", href: "https://t.me/Lit32", external: true },
+  { label: "WhatsApp", href: "https://wa.me/381638056212", external: true },
   CV_URL && { label: "CV → PDF", href: CV_URL, external: false },
 ].filter(Boolean) as { label: string; href: string; external: boolean }[];
 
