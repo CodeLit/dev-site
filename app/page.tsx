@@ -4,7 +4,7 @@ const CV_URL: string | null = "/cv.pdf";
 const CONTACTS = [
   { label: "LinkedIn", href: "https://www.linkedin.com/in/codelit/", external: true },
   { label: "GitHub", href: "https://github.com/CodeLit", external: true },
-  { label: "Email", href: "mailto:codelits@gmail.com", external: false },
+  { label: "Email", href: "mailto:vladimir@codelit.app", external: false },
   { label: "Telegram", href: "https://t.me/Lit32", external: true },
   { label: "WhatsApp", href: "https://wa.me/lit32", external: true },
   CV_URL && { label: "CV → PDF", href: CV_URL, external: true },

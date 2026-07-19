@@ -28,8 +28,9 @@ is the source of truth for the portfolio.
 - **GitHub (showcase, recruiters google it):** https://github.com/CodeLit
 - **GitLab (tooling):** namespace `clit` — dev-site origin is `gitlab.com/clit/dev-site`.
 - **LinkedIn:** https://www.linkedin.com/in/codelit/
-- **Email:** codelits@gmail.com · **Telegram:** https://t.me/Lit32 ·
-  **WhatsApp:** https://wa.me/lit32
+- **Email (public contact):** vladimir@codelit.app (Cloudflare Email Routing →
+  gmail; codelits@gmail.com is the account/login). **Telegram:**
+  https://t.me/Lit32 · **WhatsApp:** https://wa.me/lit32
 - **CV:** to be rewritten under the new positioning; add `public/cv.pdf` then set
   `CV_URL` in `app/page.tsx`.
 
