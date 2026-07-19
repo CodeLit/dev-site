@@ -12,10 +12,28 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const SITE_URL = "https://codelit.app";
+const TITLE = "Vladimir Gelunov — Senior Fullstack Engineer";
+const DESCRIPTION =
+  "Senior Fullstack Engineer focused on payments & fintech. 3 years at Ecommpay building payment gateway integrations — 4 plugins from scratch, 15+ payment methods, 8+ platforms.";
+
 export const metadata: Metadata = {
-  title: "Vladimir Gelunov — Senior Fullstack Engineer",
-  description:
-    "Senior Fullstack Engineer focused on payments & fintech. 3 years at Ecommpay building payment gateway integrations — 4 plugins from scratch, 15+ payment methods, 8+ platforms.",
+  metadataBase: new URL(SITE_URL),
+  title: TITLE,
+  description: DESCRIPTION,
+  alternates: { canonical: "/" },
+  openGraph: {
+    title: TITLE,
+    description: DESCRIPTION,
+    url: SITE_URL,
+    siteName: TITLE,
+    type: "website",
+  },
+  twitter: {
+    card: "summary",
+    title: TITLE,
+    description: DESCRIPTION,
+  },
 };
 
 export default function RootLayout({
