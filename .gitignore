@@ -42,3 +42,6 @@ next-env.d.ts
 
 # JetBrains IDE
 .idea/
+
+# playwright-cli session logs
+.playwright-cli/
