@@ -7,7 +7,7 @@ const CONTACTS = [
   { label: "GitHub", href: "https://github.com/CodeLit", external: true },
   { label: "Email", href: "mailto:codelits@gmail.com", external: false },
   { label: "Telegram", href: "https://t.me/Lit32", external: true },
-  { label: "WhatsApp", href: "https://wa.me/381638056212", external: true },
+  { label: "WhatsApp", href: "https://wa.me/lit32", external: true },
   CV_URL && { label: "CV → PDF", href: CV_URL, external: false },
 ].filter(Boolean) as { label: string; href: string; external: boolean }[];
 
