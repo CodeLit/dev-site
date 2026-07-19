@@ -33,21 +33,19 @@ Remaining (optional): enable zone **SSL/TLS → Edge Certificates → Always Use
 HTTPS** so `http://www` upgrades to HTTPS before the redirect fires (otherwise
 plain-HTTP `www` returns 523; HTTPS works fine).
 
-## 3. GitHub auto-mirror (currently manual)
+## 3. Remotes — ✅ GitHub is primary
 
-Remotes: `origin` = GitLab `clit/dev-site` (primary, private), `github` =
-`CodeLit/dev-site` (public showcase). GitHub is a **manual** second remote —
-updates need `git push github main` by hand.
+`origin` = GitHub `CodeLit/dev-site` (public, deploy source). `gitlab` =
+`clit/dev-site` kept as a cold backup only. `git push` goes straight to GitHub;
+CF Workers Builds deploys from it, and direct commits paint the contribution
+graph without lag.
 
-To auto-sync on every push, set up a GitLab **push mirror**:
+Rationale for retiring GitLab here: dev-site is static and deploys via
+GitHub → Cloudflare, so it never used GitLab's CI (unlike the langie ecosystem).
+No mirror needed — one remote, no PAT to expire, no 5-min sync hop.
 
-- https://gitlab.com/clit/dev-site/-/settings/repository → **Mirroring repositories**
-- Git repository URL: `https://github.com/CodeLit/dev-site.git`
-- Direction: **Push**
-- Password: a GitHub PAT with `repo` scope (https://github.com/settings/tokens)
-
-When ready for recruiters, flip the GitLab repo public too (or just rely on the
-public GitHub mirror): `glab repo edit clit/dev-site --visibility public`.
+To push a backup to GitLab occasionally: `git push gitlab main`. Drop it
+entirely if you don't want it: `git remote remove gitlab`.
 
 ## 4. Infisical — probably skip
 
