@@ -2,14 +2,16 @@
 
 Portfolio is **live at https://codelit.app** and on `main` (GitLab + GitHub). Open items:
 
-## 1. CV button
+## 1. CV button — ✅ DONE
 
-The "CV → PDF" button is off until the file exists (no dead links).
+Live: **CV → PDF** button opens `/cv.pdf` (new tab). Source is the Google Doc
+"Vladimir Gelunov — CV (Senior Fullstack, Payments)" exported to PDF and
+committed at `public/cv.pdf`. To refresh: re-export the Doc → overwrite the file
+→ push. `CV_URL = "/cv.pdf"` in `app/page.tsx`.
 
-1. Drop the PDF at `public/cv.pdf` (rewrite the CV under the new positioning
-   first — Senior Fullstack, payments/fintech; the old Vartus-IT CV is stale).
-2. In `app/page.tsx`, set `const CV_URL = "/cv.pdf"`. The button appears
-   automatically.
+**Note — email mismatch:** the CV lists `vladimir@codelit.app`, the site uses
+`codelits@gmail.com`. Pick one and make it consistent (and make sure the chosen
+mailbox actually receives mail).
 
 ## 2. Deploy to codelit.app — ✅ DONE
 
