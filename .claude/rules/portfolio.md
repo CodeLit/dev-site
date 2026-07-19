@@ -15,8 +15,8 @@ is the source of truth for the portfolio.
 - **Vladimir Gelunov**, Senior Fullstack Engineer. Target: **US remote, Senior
   Fullstack**, positioned as **fullstack + depth in payments/fintech**.
 - Relocating to **Recife, Brazil (Sep 2026)** → strong overlap with US hours.
-- Experience: say **"5+ years"** (5y 4m actual), headline argument **"3+ years
-  in payments & fintech"** — not total tenure.
+- Experience framing: **"5+ years"** overall, with **"3+ years in payments &
+  fintech"** as the headline — lead with payments depth, not raw tenure.
 - Ecommpay 2023–2026: **4 payment plugins from scratch** (Commercetools,
   Salesforce Commerce Cloud, PrestaShop, Drupal Commerce) + **lead dev** on the
   WooCommerce plugin (incl. React/TS WooCommerce Blocks).
@@ -38,11 +38,11 @@ is the source of truth for the portfolio.
 - **Curated, not a résumé dump.** One screen, no blog, no "my journey". A
   recruiter has ~15 seconds.
 - Portfolio = **3–4 payment/fintech cases + live project links only.**
-- **Do NOT resurrect the old junior-era content** from `make-site`: the
-  "What I do / What I know" bullet lists (Travis, CentOS 8, Lua, 1C, "teach
-  other people", NeoLife game), and the ~13 Whitewill-era Moscow real-estate
-  sites. They fight the senior/payments positioning.
-- **No Go / Lua / CSS as headline skills** — junior signal. (Go may return later
+- **Keep scope to the senior/payments story.** Don't pull in the old `make-site`
+  content — the generic "What I do / What I know" bullet lists (Travis, CentOS 8,
+  Lua, 1C, NeoLife game) and the ~13 Whitewill-era Moscow real-estate sites. It's
+  off-message for a senior payments profile.
+- **No Go / Lua / CSS as headline skills** — off-message. (Go may return later
   via a real SaaS MVP, not courses.)
 - All content lives in the consts at the top of `app/page.tsx` — edit there.
 - Never ship a dead link: unknown links (e.g. CV) stay off until the target
