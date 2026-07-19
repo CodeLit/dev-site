@@ -1,0 +1,10 @@
+version: "3"
+
+tasks:
+  lint:
+    desc: Run ESLint
+    cmd: npm run lint
+
+  lint:fix:
+    desc: Run ESLint with autofix
+    cmd: npx eslint --fix

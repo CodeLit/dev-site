@@ -1,0 +1,14 @@
+version: "3"
+
+tasks:
+  dev:
+    desc: Run Next.js dev server
+    cmd: npm run dev
+
+  build:
+    desc: Static export build (output → out/)
+    cmd: npm run build
+
+  start:
+    desc: Serve the production build
+    cmd: npm run start

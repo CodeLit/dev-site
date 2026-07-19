@@ -1,0 +1,18 @@
+version: "3"
+
+# Tasks are split by topic under taskfiles/ and merged into the root namespace
+# via `flatten: true`, so every task keeps its flat name (`task dev`, `task build`,
+# `task lint`, …) and cross-task references work by bare name.
+includes:
+  app:
+    taskfile: ./taskfiles/app.yml
+    flatten: true
+  quality:
+    taskfile: ./taskfiles/quality.yml
+    flatten: true
+
+tasks:
+  default:
+    desc: Run the dev server (bare `task`)
+    cmds:
+      - task: dev
