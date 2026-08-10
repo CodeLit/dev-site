@@ -79,8 +79,10 @@ export default function Home() {
       <dl className="mt-9 grid gap-3 font-mono text-sm">
         {STATS.map((s) => (
           <div key={s.label} className="flex items-baseline gap-2">
-            <dt className="text-neutral-500 dark:text-neutral-400">{s.label}</dt>
-            <div className="-translate-y-[0.3em] flex-1 border-b border-dotted border-neutral-300 dark:border-neutral-700" />
+            <dt className="flex flex-1 items-baseline gap-2 text-neutral-500 dark:text-neutral-400">
+              {s.label}
+              <span className="-translate-y-[0.3em] flex-1 border-b border-dotted border-neutral-300 dark:border-neutral-700" />
+            </dt>
             <dd className="font-semibold text-neutral-900 dark:text-neutral-100">
               {s.value}
             </dd>
