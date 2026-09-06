@@ -1,0 +1,2 @@
+auto-lint: true
+lint-cmd: "task lint"
