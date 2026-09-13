@@ -25,11 +25,8 @@ deploy task exists in this repo.
   email), audience rules for what goes on the page**: `.claude/rules/portfolio.md`
   — read BEFORE editing `app/page.tsx` content or adding a project/case study.
 - **Deploy setup, DNS, remotes, open items**: `docs/HANDOFF.md` — read BEFORE
-  touching `wrangler.jsonc`, DNS/domain config, or git remotes. Note: this file
-  says GitHub is primary (`origin`) and GitLab is a cold backup, while
-  `.claude/rules/portfolio.md` still describes GitLab as origin/private —
-  `docs/HANDOFF.md` is the more recent source, treat the portfolio.md remotes
-  section as stale.
+  touching `wrangler.jsonc`, DNS/domain config, or git remotes. GitHub is
+  `origin` (public, deploy source); GitLab is a cold backup, pushed manually.
 
 ## Constraints
 

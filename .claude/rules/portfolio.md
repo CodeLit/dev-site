@@ -26,7 +26,8 @@ is the source of truth for the portfolio.
 
 - **Domain:** `codelit.app` — NOT `codelit.win` (retired).
 - **GitHub (showcase, recruiters google it):** https://github.com/CodeLit
-- **GitLab (tooling):** namespace `clit` — dev-site origin is `gitlab.com/clit/dev-site`.
+- **GitLab (cold backup):** namespace `clit` — `gitlab.com/clit/dev-site`. `origin`
+  is GitHub; GitLab is the `gitlab` remote, pushed to manually (`git push gitlab main`).
 - **LinkedIn:** https://www.linkedin.com/in/codelit/
 - **Email (public contact):** vladimir@codelit.app (Cloudflare Email Routing →
   gmail; codelits@gmail.com is the account/login). **Telegram:**
@@ -64,5 +65,5 @@ git hygiene are tuned for the tech lead. Neither audience reads a résumé dump.
 
 ## Distribution
 
-- GitLab `clit/dev-site` is **private** (flip to public when ready).
-- **Mirrored to GitHub `CodeLit/dev-site` (public)** so recruiters see it.
+- GitHub `CodeLit/dev-site` is **public** (`origin`, deploy source recruiters see).
+- GitLab `clit/dev-site` is a **private cold backup** — pushed manually, not CI-connected.
