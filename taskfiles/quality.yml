@@ -3,8 +3,8 @@ version: "3"
 tasks:
   lint:
     desc: Run ESLint
-    cmd: npm run lint
+    cmd: bun run lint
 
   lint:fix:
     desc: Run ESLint with autofix
-    cmd: npx eslint --fix
+    cmd: bunx eslint --fix
