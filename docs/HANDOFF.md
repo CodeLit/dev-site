@@ -19,7 +19,9 @@ Live at **https://codelit.app** via **Cloudflare Workers Builds** (the merged
 Pages/Workers Git flow), auto-deploy on every push to `main`.
 
 - Source: Git-connected to GitHub `CodeLit/dev-site`, production branch `main`.
-- Build command `npm run build`; deploy command `npx wrangler deploy`.
+- Build command `bun run build`; deploy command `bunx wrangler deploy`. Workers Builds
+  installs with bun when it finds `bun.lock`; its default bun is 1.4.3 (since 2026-10-14),
+  override with the `BUN_VERSION` build variable.
 - `wrangler.jsonc` (committed) serves the static export as an assets-only Worker
   (`assets.directory = "./out"`), with `workers_dev` and `preview_urls` set to
   `false` so `codelit.app` is the single canonical URL. NB: these must stay in
